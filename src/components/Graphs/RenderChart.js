@@ -78,7 +78,6 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
     title: {
       text: dataType[0],
       display: false,
-
       fontColor: "white",
       fontSize: 22,
     },
