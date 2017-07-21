@@ -5,6 +5,8 @@ import randomColor from 'randomcolor';
 
 export const RenderChart = ({list=[], graphType, dataType}) => {
 
+  var allData = []
+
   var data=[];
 
   switch(dataType){
@@ -62,26 +64,52 @@ export const RenderChart = ({list=[], graphType, dataType}) => {
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
 
   let options = {
-    title: {
-      text: dataType,
-      display: true
-    },
-    hover: {
-      mode: 'index'
-    },
-    animation: {
-        duration: '1500',
-        easing: 'easeOutQuint'
-    },
-    gridLines: {
-      color: 'rgb(74,99,132, 1.0)',
-    },
-    scales: {
-      display:true,
-    },
     responsive: true,
     maintainAspectRatio: true,
-
+    animation: {
+      onComplete: function() {
+        var ctx = this.chart.ctx;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "bottom";
+     }
+    },
+    title: {
+      text: dataType,
+      display: true,
+      fontColor: "white",
+      fontSize: 22,
+    },
+    spanGaps: true,
+    legend: {
+      labels: {
+          fontColor: "white",
+          fontSize: 18
+      }
+    },
+    scales: {
+      xAxes: [{
+        display: true,
+        gridLines: {
+            display: true,
+            color: "#4E6685",
+        },
+        ticks: {
+          fontColor: "white", // axis labels
+          fontSize: 20
+        }
+      }],
+      yAxes: [{
+        display: true,
+        gridLines: {
+            display: true,
+            color: "#4E6685",
+        },
+        ticks: {
+          fontColor: "#CCC", // this
+          fontSize: 20
+        }
+      }]
+    },
   }
 
   return (
