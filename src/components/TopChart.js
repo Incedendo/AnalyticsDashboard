@@ -2,18 +2,51 @@ import React, {Component} from 'react';
 import {Bar, Line, Pie} from 'react-chartjs-2';
 import './example.css';
 
-class TopChart extends Component{
+const TopChart = ({ mounted, data }) => {
 
-  state = {
-    KPI: 'PAGE VISITS'
+  const getTopChartData = (arr) => {
+    if(mounted){
+      const processedData = {
+        datasets: [{
+          label: 'Unique Visits',
+          borderColor: '#6752ee',
+          backgroundColor: 'rgba(41,195,216, 0.5)',
+          pointRadius: '7',
+          pointHoverRadius: '10',
+          pointBackgroundColor: 'white',
+          pointBorderWidth: '2',
+          pointHoverBorderWidth: '3',
+        },
+        {
+          label: 'Total Visits',
+          backgroundColor: 'rgba(	0, 182, 254,0.2)',
+          borderColor: '#00a4e4',
+          pointRadius: '7',
+          pointHoverRadius: '10',
+          pointBackgroundColor: 'white',
+          pointBorderWidth: '2',
+          pointHoverBorderWidth: '3',
+        }],
+        label: 'Numbers'
+      };
+
+      processedData.labels 	= arr[0].map(({label})=> label);
+      processedData.datasets[0].data = arr[0].map(({totalVisits})=> totalVisits);
+      processedData.datasets[1].data = arr[0].map(({uniqueVisits})=> uniqueVisits);
+
+      return processedData;
+    }
+
+    return null;
+
   }
 
-  render() {
-    return (
-      <div style={{width: "2000px", height: "", position:"absolute", left:this.props.left}}>
+  if(getTopChartData(data)){
+      return (
+        <div style={{width: "2000px", height: "", position:"absolute", left:""}}>
 
           <Line
-            data={this.props.data}
+            data={getTopChartData(data)}
             options={{
               responsive: true,
               maintainAspectRatio: true,
@@ -25,7 +58,7 @@ class TopChart extends Component{
                }
               },
               title: {
-                text: this.state.KPI,
+                text: this.props.KPI,
                 display: true,
                 fontColor: "white",
                 fontSize: 22,
@@ -60,12 +93,18 @@ class TopChart extends Component{
                     fontSize: 20
                   }
                 }]
-              },
-            }}
-          />
-      </div>
-    )
-  }
+              },}}
+            />
+          </div>
+        )
+      }else{
+        return(
+          <div>
+            Loading...
+          </div>
+        );
+      }
+
 }
 
 export default TopChart;

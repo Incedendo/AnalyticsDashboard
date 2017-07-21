@@ -1,19 +1,30 @@
 import React from 'react'
-import {RenderChart} from './RenderChart'
+import RenderChart from './RenderChart'
+import PropTypes from 'prop-types';
 
-export const ChartDisplay = (props) => {
-  var list = [];
-  switch(props.frequency) {
-    case 'annually':
-      list = props.list[0];
-      break;
-    case 'quarterly':
-      list = props.list[1];
-      break;
-    case 'daily':
-      list = props.list[2];
-      break;
-  }
+const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[]}) => {
 
-  return <RenderChart dataType={props.dataType} graphType={props.graphType} list={list} />
+    console.log(listHome);
+
+    var list = [];
+
+    switch(frequency) {
+      case 'annually':
+        list = listHome[0];
+        break;
+      case 'quarterly':
+        list = listHome[1];
+        break;
+      case 'daily':
+        list = listHome[2];
+        break;
+    }
+
+    return <RenderChart dataType={dataType} graphType={graphType} list={list} />
 }
+
+ChartDisplay.propTypes= {
+  dataType: PropTypes.array.isRequired,
+};
+
+export default ChartDisplay;
