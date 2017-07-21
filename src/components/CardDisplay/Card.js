@@ -3,32 +3,34 @@ import './Card.css'
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
 import {CompDisplay} from '../Graphs/CompDisplay'
-
 import ChartDisplay from '../Graphs/ChartDisplay'
 
 export class Card extends Component {
 
   state = {
     graphType: '',
-    dataType: '',
+    dataType: [],
     frequency: 'quarterly',
     month: 'QTD',
   }
 
   renderGraph = () => {
 
-    return <ChartDisplay list={this.props.list} dataType={this.state.dataType}
+    return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}/>
   }
 
   renderComp = () => {
-    return <CompDisplay list={this.props.list} dataType={this.state.dataType}/>
+    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType}/>
   }
 
   componentWillMount () {
+    let arr = [];
+    arr.push(this.props.title)
+    console.log(arr);
     this.setState({
-      dataType: this.props.title,
+      dataType: arr,
       graphType: this.props.graphType
     })
   }
