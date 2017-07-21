@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import TopChart from './TopChart';
+import './home.css';
 
 export default class Home extends Component {
   state = {
-    projects: []
+    projects: [],
+    mounted: false
   };
 
   componentDidMount() {
@@ -10,13 +14,52 @@ export default class Home extends Component {
    axios.get(dataAPI + '/test')
      .then((response) => {
        this.setState({
-         projects: response.data
+         projects: response.data,
+         mounted: true
        });
      })
      .catch( (error) => {
        console.log(error);
      }
    );
+  }
+
+  getTopChartData(arr){
+    if(this.state.mounted){
+      const processedData = {
+        datasets: [{
+          label: 'Unique Visits',
+          borderColor: '#6752ee',
+          backgroundColor: 'rgba(41,195,216, 0.5)',
+          pointRadius: '7',
+          pointHoverRadius: '10',
+          pointBackgroundColor: 'white',
+          pointBorderWidth: '2',
+          pointHoverBorderWidth: '3',
+        },
+        {
+          label: 'Total Visits',
+          backgroundColor: 'rgba(	0, 182, 254,0.2)',
+          borderColor: '#00a4e4',
+          pointRadius: '7',
+          pointHoverRadius: '10',
+          pointBackgroundColor: 'white',
+          pointBorderWidth: '2',
+          pointHoverBorderWidth: '3',
+
+        }],
+        label: 'Numbers'
+      };
+
+      processedData.labels 	= arr[0].map(({label})=> label);
+      processedData.datasets[0].data = arr[0].map(({totalVisits})=> totalVisits);
+      processedData.datasets[1].data = arr[0].map(({uniqueVisits})=> uniqueVisits);
+
+      return processedData;
+    }
+
+    return null;
+
   }
 
   render() {
@@ -30,8 +73,8 @@ export default class Home extends Component {
     });
 
     return (
-      <div>
-
+      <div className="mainDiv">
+        {this.getTopChartData(arr) && <TopChart data={this.getTopChartData(arr)} /> }
       </div>
     );
   }
