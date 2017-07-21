@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 
 const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight, width }) => {
 
-    console.log(listHome);
-
     var list = [];
-
     switch(frequency) {
       case 'annually':
         list = listHome[0];
@@ -19,12 +16,6 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
         list = listHome[2];
         break;
     }
-
-    console.log("frequency = ");
-    console.log(frequency);
-
-    console.log("height = ");
-    console.log(chartHeight);
 
     return <RenderChart dataType={dataType} graphType={graphType} list={list} height={chartHeight} width={width}/>
 }

@@ -31,6 +31,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
       case "Top Pages":
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
         break;
+      case "Suspicious Enrollments":
+        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        break;
     }
   });
 
@@ -51,8 +54,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
       })
     )
   }
-
-  console.log(dataSet);
 
   const bam = {
     pointRadius: '7',

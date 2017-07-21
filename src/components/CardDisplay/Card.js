@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Card.css'
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
-import {CompDisplay} from '../Graphs/CompDisplay'
+import CompDisplay from '../Graphs/CompDisplay'
 import ChartDisplay from '../Graphs/ChartDisplay'
 
 export class Card extends Component {
@@ -15,27 +15,27 @@ export class Card extends Component {
   }
 
   renderGraph = () => {
-
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}/>
   }
 
   renderComp = () => {
-    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType}/>
+    console.log(this.props);
+    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.month}/>
   }
 
   componentWillMount () {
-    let arr = [];
-    arr.push(this.props.title)
-    console.log(arr);
+    var arr = this.props.data.slice();
     this.setState({
       dataType: arr,
       graphType: this.props.graphType
     })
+
   }
 
   render() {
+    if(!this.props.list.length) return null
     const filter = this.props.numGraph || this.props.graph
     return (
       <div className='card'>
@@ -50,7 +50,7 @@ export class Card extends Component {
           </div>
         }
         <div className='graph'>
-          {this.props.graphType && this.renderGraph()}
+          {this.props.graph && this.renderGraph()}
           {this.props.numGraph && this.renderComp()}
         </div>
       </div>
