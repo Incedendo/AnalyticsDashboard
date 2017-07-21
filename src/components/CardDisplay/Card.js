@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Card.css'
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
-import {ChartDisplay} from '../Graphs/ChartDisplay'
 import {CompDisplay} from '../Graphs/CompDisplay'
+import ChartDisplay from '../Graphs/ChartDisplay'
 
 export class Card extends Component {
 
