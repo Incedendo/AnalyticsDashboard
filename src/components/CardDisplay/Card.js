@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Card.css'
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
+import {ChartDisplay} from '../Graphs/ChartDisplay'
 
 export class Card extends Component {
 
@@ -12,8 +13,8 @@ export class Card extends Component {
   }
 
   renderGraph = () => {
-    var arr = this.props.list[0]
-    return <RenderChart list={arr} dataType={this.state.dataType}
+
+    return <ChartDisplay list={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}/>
   }
