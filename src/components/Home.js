@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {CardMenu} from './CardDisplay/CardMenu';
 
 export default class Home extends Component {
   state = {
@@ -30,8 +32,8 @@ export default class Home extends Component {
     });
 
     return (
-      <div>
-
+      <div >
+        <CardMenu list={arr} />
       </div>
     );
   }
