@@ -77,7 +77,7 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
     },
     title: {
       text: dataType[0],
-      display: true,
+      display: false,
       fontColor: "white",
       fontSize: 22,
     },
@@ -85,7 +85,7 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
     legend: {
       labels: {
           fontColor: "white",
-          fontSize: 18
+          fontSize: 18,
       }
     },
     scales: {
@@ -114,7 +114,7 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
     },
   }
   return (
-    <div>
+    <div >
       { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
       { graphType === 'line' && <Line data = {dataSet} options={options} />}
       { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
