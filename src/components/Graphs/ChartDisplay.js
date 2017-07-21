@@ -18,7 +18,6 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
     }
 
     return <RenderChart dataType={dataType} graphType={graphType} list={list} height={chartHeight} width={width}/>
-
 }
 
 ChartDisplay.propTypes= {
