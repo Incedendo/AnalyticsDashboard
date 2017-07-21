@@ -36,19 +36,17 @@ class Home extends Component {
 
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
-      console.log('Component mounted');
     }
 
     const dataType = ["Registrations", "Enrollments", "Unique User Login"];
-    console.log(arr);
 
     return (
-      <div>
-        <div>
-          <CardMenu list={arr} />
-        </div>
+      <div style={{backgroundColor: '#022753'}}>
         <div className="mainDiv">
           {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" />}
+        </div>
+        <div>
+          <CardMenu list={arr} />
         </div>
       </div>
     );

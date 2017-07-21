@@ -6,14 +6,14 @@ import './Card.css'
 export class DisplayCards extends Component {
 
   state = {
-    cards: [{title: 'Registrations', graph: false, numGraph: true, graphType: 'compare'},
-            {title: 'Enrollments', graph: true, numGraph: false, graphType: 'line'},
-            {title: 'Unique User Login', graph: false, numGraph: true, graphType: 'compare'},
-            {title: 'Contribution Changes', graph: false, numGraph: false, graphType: 'line'},
-            {title: 'Top Active Pages', graph: false, numGraph: false, graphType: ''},
-            {title: 'Retirement Income Calc Usage', graph: false, numGraph: false, graphType: ''},
-            {title: 'Top Pages', graph: false, numGraph: false, graphType: 'list'},
-            {title: 'Visits by Device Type', graph: false, numGraph: false, graphType: ''},]
+    cards: [{title: 'Registrations', graph: false, numGraph: true, graphType: 'compare', data: ['Registrations']},
+            {title: 'Enrollments', graph: true, numGraph: false, graphType: 'line', data: ['Enrollments', 'Suspicious Enrollments']},
+            {title: 'Unique User Login', graph: false, numGraph: true, graphType: 'compare', data: ['Unique User Login']},
+            {title: 'Contribution Changes', graph: true, numGraph: false, graphType: 'line', data: ['Contribution Changes']},
+            {title: 'Top Active Pages', graph: false, numGraph: false, graphType: '', data: ['Top Active Pages']},
+            {title: 'Retirement Income Calc Usage', graph: false, numGraph: false, graphType: '', data: ['Retirement Income Calc Usage']},
+            {title: 'Top Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Pages']},
+            {title: 'Visits by Device Type', graph: false, numGraph: false, graphType: '', data: ['Visits by Device Type']},]
   }
 
   renderCards = () => {

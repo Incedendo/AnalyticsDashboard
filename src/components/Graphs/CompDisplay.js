@@ -1,37 +1,49 @@
 import React from 'react';
-import {RenderComp} from './RenderComp';
+import RenderComp from './RenderComp';
+import PropTypes from 'prop-types';
 
-export const CompDisplay = (props) => {
+const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
+
   var list = [];
-  switch(props.frequency) {
-    case 'MTD':
-      list = props.list[1];
+  switch(frequency) {
+    case 'QTD':
+      list = listHome[1];
       break;
   }
-  var data = [];
-  switch(props.dataType){
-    case "Registrations":
-      data = list.map(({totalVisits}) => totalVisits);
-      break;
-    case "Enrollments":
-      data = list.map(({uniqueVisits}) => uniqueVisits);
-      break;
-    case "Unique User Login":
-      data = list.map(({returnVisits}) => returnVisits);
-      break;
-    case "Contribution Changes":
-      data = list.map(({signUps}) => signUps);
-      break;
-    case "Top Active Pages":
-      data = list.map(({signIns}) => signIns);
-      break;
-    case "Retirement Income Calc Usage":
-      data = list.map(({contributionChange}) => contributionChange);
-      break;
-    case "Top Pages":
-      data = list.map(({allocationChange}) => allocationChange);
-      break;
-  }
+  var dataArr = [];
+  
+  dataType.map( (stat, index) =>{
+    switch(stat){
+      case "Registrations":
+        dataArr[index] = list.map(({totalVisits}) => totalVisits);
+        break;
+      case "Enrollments":
+        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
+        break;
+      case "Unique User Login":
+        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        break;
+      case "Contribution Changes":
+        dataArr[index] = list.map(({signUps}) => signUps);
+        break;
+      case "Top Active Pages":
+        dataArr[index] = list.map(({signIns}) => signIns);
+        break;
+      case "Retirement Income Calc Usage":
+        dataArr[index] = list.map(({contributionChange}) => contributionChange);
+        break;
+      case "Top Pages":
+        dataArr[index] = list.map(({allocationChange}) => allocationChange);
+        break;
+    }
+  });
 
-  return <RenderComp dataType={props.dataType} list={list} />
+
+  return <RenderComp dataType={dataType} list={dataArr} />
 }
+
+CompDisplay.propTypes = {
+  dataType: PropTypes.array,
+};
+
+export default CompDisplay;

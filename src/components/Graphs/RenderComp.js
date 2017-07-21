@@ -1,24 +1,31 @@
 import React from 'react';
 import './RenderComp.css'
+import PropTypes from 'prop-types';
 
-export const RenderComp = (props) => {
+const RenderComp = ({list=[], dataType=[]}) => {
 
   return (
     <div className='compBox'>
       <div className='num1'>
-        283
+        {list[0][0]}
         <div className='label'>
-          Prior {props.dataType}
+          Prior {dataType[0]}
         </div>
       </div>
       <hr/>
-    <div className='num2'>
-        492
+      <div className='num2'>
+        {list[0][1]}
         <div className='label'>
-          Current {props.dataType}
+          Current {dataType[0]}
         </div>
       </div>
       {/* {props.graphType === 'MTD' && this.month()} */}
     </div>
   )
 }
+
+RenderComp.propTypes = {
+  dataType: PropTypes.array,
+};
+
+export default RenderComp
