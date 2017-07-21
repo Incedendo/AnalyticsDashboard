@@ -120,13 +120,19 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
 
 
   return (
-    <div style={{height: height }}>
-      { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
+    <div>
 
-      { graphType === 'line' && <Line data = {dataSet} options={options} />}
+      <div style={{height: height, width: width}}>
+        { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
-      { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
+        { graphType === 'line' &&
+            <Line data = {dataSet} options={options} />
+        }
+
+        { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
+      </div>
     </div>
+
   );
 }
 
