@@ -15,7 +15,11 @@
   },
   "devDependencies": {
     "axios": "^0.16.2",
+    "chart.js": "^2.6.0",
+    "randomcolor": "^0.5.3",
+
     "json-server": "^0.11.2",
+
     "react-chartjs-2": "^2.5.3"
   }
 }

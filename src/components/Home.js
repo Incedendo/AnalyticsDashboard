@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+import {CardMenu} from './CardDisplay/CardMenu';
+
 import TopChart from './TopChart';
 import './home.css';
+
 
 export default class Home extends Component {
   state = {
@@ -73,6 +77,8 @@ export default class Home extends Component {
     });
 
     return (
+      <div >
+        <CardMenu list={arr} />
       <div className="mainDiv">
         {this.getTopChartData(arr) && <TopChart data={this.getTopChartData(arr)} /> }
       </div>
