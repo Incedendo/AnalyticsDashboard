@@ -3,13 +3,15 @@ import './Card.css'
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
 import {ChartDisplay} from '../Graphs/ChartDisplay'
+import {CompDisplay} from '../Graphs/CompDisplay'
 
 export class Card extends Component {
 
   state = {
     graphType: '',
     dataType: '',
-    frequency: 'quarterly'
+    frequency: 'quarterly',
+    month: 'QTD',
   }
 
   renderGraph = () => {
@@ -17,6 +19,10 @@ export class Card extends Component {
     return <ChartDisplay list={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}/>
+  }
+
+  renderComp = () => {
+    return <CompDisplay list={this.props.list} dataType={this.state.dataType}/>
   }
 
   componentWillMount () {
@@ -37,10 +43,12 @@ export class Card extends Component {
           <div className={this.props.graph?'filter-graph':'filter'}>
             Month to Date (MTD)
             <img className='dropdown' src={dropdown} />
+            {/* ADD A FILTER COMPONENT TO CHOOSE MONTH */}
           </div>
         }
         <div className='graph'>
           {this.props.graphType && this.renderGraph()}
+          {this.props.numGraph && this.renderComp()}
         </div>
       </div>
     )

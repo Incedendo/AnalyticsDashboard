@@ -1,0 +1,36 @@
+hr {
+  background-color: #6E839D;
+  height: 125px;
+  display: inline;
+  margin-top: -10px;
+  margin-right: 20px;
+  margin-left: 30px;
+}
+
+.compBox {
+
+  color: white;
+  font-style: normal;
+  font: Serif;
+  font-size: 80px;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 120px;
+
+}
+
+.num1, .num2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+  font-style: normal;
+  font: Georgia;
+}
+
+
+.label {
+  margin-top: 5px;
+  font-size: 20px;
+}

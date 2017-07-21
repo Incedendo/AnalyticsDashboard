@@ -5,7 +5,7 @@
   height: 360px;
   margin: 0.7px;
   position: relative;
-  width: 24.9%;
+  width: 24.93%;
   padding: 0px;
   vertical-align: bottom;
 }
@@ -31,16 +31,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  margin-left: 10px; /* Half the width */
 }
 
 .filter {
   margin-top: 130px; /* Half the height */
-  margin-left: 30px; /* Half the width */
 }
 
 .filter-graph {
   margin-top: -155px; /* Half the height */
-  margin-left: 30px; /* Half the width */
 }
 
 .graph {
