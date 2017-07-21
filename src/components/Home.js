@@ -44,6 +44,9 @@ class Home extends Component {
 
     return (
       <div>
+        <div>
+          <CardMenu list={arr} />
+        </div>
         <div className="mainDiv">
           {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" />}
         </div>
