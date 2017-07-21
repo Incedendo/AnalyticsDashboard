@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({list=[], graphType, dataType=[]} ) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -67,7 +67,9 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
 
   let options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
+    pointBackgroundColor: "blue",
+    pointStyle: 'dash',
     animation: {
       onComplete: function() {
         var ctx = this.chart.ctx;
@@ -107,16 +109,21 @@ const RenderChart = ({list=[], graphType, dataType=[]} ) => {
             color: "#4E6685",
         },
         ticks: {
-          fontColor: "#CCC", // this
+          fontColor: "white", // this
           fontSize: 20
         }
       }]
     },
   }
+
+
+
   return (
-    <div >
+    <div style={{height: height }}>
       { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
+
       { graphType === 'line' && <Line data = {dataSet} options={options} />}
+
       { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
     </div>
   );
