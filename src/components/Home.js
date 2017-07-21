@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   render() {
-    const { projects } = this.state;
+    const { projects } = this.state
 
     let arr=[];
 
@@ -41,13 +41,16 @@ class Home extends Component {
     const dataType = ["Registrations", "Enrollments", "Unique User Login"];
 
     return (
+
       <div style={{backgroundColor: '#022753'}}>
         <div className="mainDiv">
-          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" />}
+          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="" />}
         </div>
+
         <div>
           <CardMenu list={arr} />
         </div>
+
       </div>
     );
 
@@ -59,5 +62,7 @@ Home.propTypes = {
 };
 
 export default Home;
+//
+
 
 // <CardMenu list={arr} />
