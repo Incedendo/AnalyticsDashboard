@@ -2,55 +2,57 @@ import React from 'react'
 import {Bar, Line, Pie, Doughnut} from 'react-chartjs-2';
 import Chart from 'chart.js';
 import randomColor from 'randomcolor';
+import PropTypes from 'prop-types';
 
-export const RenderChart = ({list=[], graphType, dataType}) => {
+const RenderChart = ({list=[], graphType, dataType=[]} ) => {
 
-  var allData = []
+  let dataArr= new Array(dataType.length);
 
-  var data=[];
-
-  switch(dataType){
-    case "Registrations":
-      data = list.map(({totalVisits}) => totalVisits);
-      break;
-    case "Enrollments":
-      data = list.map(({uniqueVisits}) => uniqueVisits);
-      break;
-    case "Unique User Login":
-      data = list.map(({returnVisits}) => returnVisits);
-      break;
-    case "Contribution Changes":
-      data = list.map(({signUps}) => signUps);
-      break;
-    case "Top Active Pages":
-      data = list.map(({signIns}) => signIns);
-      break;
-    case "Retirement Income Calc Usage":
-      data = list.map(({contributionChange}) => contributionChange);
-      break;
-    case "Top Pages":
-      data = list.map(({allocationChange}) => allocationChange);
-      break;
-  }
-
-
+  dataType.map( (stat, index) =>{
+    switch(stat){
+      case "Registrations":
+        dataArr[index] = list.map(({totalVisits}) => totalVisits);
+        break;
+      case "Enrollments":
+        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
+        break;
+      case "Unique User Login":
+        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        break;
+      case "Contribution Changes":
+        dataArr[index] = list.map(({signUps}) => signUps);
+        break;
+      case "Top Active Pages":
+        dataArr[index] = list.map(({signIns}) => signIns);
+        break;
+      case "Retirement Income Calc Usage":
+        dataArr[index] = list.map(({contributionChange}) => contributionChange);
+        break;
+      case "Top Pages":
+        dataArr[index] = list.map(({allocationChange}) => allocationChange);
+        break;
+    }
+  });
 
   const labels = list.map(({label}) => label);
 
   let dataSet = {
     labels,
-    datasets: [{
-      data,
-      label: dataType,
-      borderColor: '#6752ee',
-      backgroundColor: randomColor({
-        count: labels.length,
-        format: 'rgba',
-        alpha: 0.3,
-        seed: dataType
-      }),
-    }],
+    datasets: dataArr.map( (data,index) => ({
+        data,
+        label: dataType[index],
+        borderColor: '#6752ee',
+        backgroundColor: randomColor({
+          count: labels.length,
+          format: 'rgba',
+          alpha: 0.3,
+          seed: dataType[index]
+        }),
+      })
+    )
   }
+
+  console.log(dataSet);
 
   const bam = {
     pointRadius: '7',
@@ -74,7 +76,7 @@ export const RenderChart = ({list=[], graphType, dataType}) => {
      }
     },
     title: {
-      text: dataType,
+      text: dataType[0],
       display: true,
       fontColor: "white",
       fontSize: 22,
@@ -111,12 +113,17 @@ export const RenderChart = ({list=[], graphType, dataType}) => {
       }]
     },
   }
-
   return (
     <div>
       { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
       { graphType === 'line' && <Line data = {dataSet} options={options} />}
       { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
     </div>
-  )
+  );
 }
+
+RenderChart.propTypes = {
+  dataType: PropTypes.array,
+};
+
+export default RenderChart;
