@@ -43,7 +43,6 @@ class Home extends Component {
     return (
 
       <div style={{backgroundColor: '#022753'}}>
-
         <Header />
 
         <div className="mainDiv">

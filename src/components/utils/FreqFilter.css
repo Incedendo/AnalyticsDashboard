@@ -1,0 +1,28 @@
+select{
+  box-shadow: none !important;
+  background: #12335E;
+  font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+  font-size: 1.125rem;
+	padding: 1.3rem 1.0rem;
+	width: 100%;
+  color: white;
+  border: none;
+  border-radius: $input-radius;
+	border: $selected-border solid $snow-dark;
+  transition: border-color $transition-speed ease-out;
+	&:focus{
+		border: $selected-border solid $sky;
+	}
+}
+
+select {
+  text-indent: 3px;
+  display: block;
+  background: #12335E;
+  &:focus{
+    text-indent: 2px;
+  }
+}
+.select{
+  margin-bottom: 32px;
+}

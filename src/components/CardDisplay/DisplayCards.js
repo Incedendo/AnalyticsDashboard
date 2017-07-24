@@ -10,10 +10,10 @@ export class DisplayCards extends Component {
             {title: 'Enrollments', graph: true, numGraph: false, graphType: 'line', data: ['Enrollments', 'Suspicious Enrollments']},
             {title: 'Unique User Login', graph: false, numGraph: true, graphType: 'compare', data: ['Unique User Login']},
             {title: 'Contribution Changes', graph: true, numGraph: false, graphType: 'line', data: ['Contribution Changes']},
-            {title: 'Top Active Pages', graph: false, numGraph: false, graphType: '', data: ['Top Active Pages']},
-            {title: 'Retirement Income Calc Usage', graph: false, numGraph: false, graphType: '', data: ['Retirement Income Calc Usage']},
+            {title: 'Top Active Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Active Pages']},
+            {title: 'Retirement Income Calc Usage', graph: true, numGraph: false, graphType: 'bar', data: ['Retirement Income Calc Usage']},
             {title: 'Top Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Pages']},
-            {title: 'Visits by Device Type', graph: false, numGraph: false, graphType: '', data: ['Visits by Device Type']},]
+            {title: 'Visits by Device Type', graph: true, numGraph: false, graphType: 'bar', data: ['Visits by Device Type']},]
   }
 
   renderCards = () => {
