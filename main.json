@@ -122,6 +122,16 @@
           "signIns": 847,
           "contributionChange": 389,
           "allocationChange": 189
+        },
+        {
+          "label": "",
+          "totalVisits": 10193,
+          "uniqueVisits": 7600,
+          "returnVisits": 2593,
+          "signUps": 1378,
+          "signIns": 847,
+          "contributionChange": 389,
+          "allocationChange": 189
         }
       ],
       "monthly":
