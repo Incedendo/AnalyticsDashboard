@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+import dropdown from './dropdown.svg';
+import './FreqFilter.css'
+
+class FreqFilter extends Component {
+
+  handleChange = (event) => {
+    this.props.handleFilter(event.target.value);
+  }
+
+  render () {
+    return (
+      <div class="col-md-5">
+        <select class="custom-select" onChange={this.handleChange}>
+          <option value="QTD">Quarter To Date(QTD)</option>
+          <option value="MTD">Month To Date(MTD)</option>
+          <option value="YTD">Year To Date(YTD)</option>
+        </select>
+      </div>
+    )
+  }
+}
+
+export default FreqFilter;

@@ -6,13 +6,18 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
 
   var list = [];
   switch(frequency) {
-    case 'QTD':
+    case 'annually':
+      list = listHome[0]
+      break;
+    case 'quarterly':
       list = listHome[1];
+      break;
+    case 'daily':
+      list = listHome[2];
       break;
   }
   var dataArr = [];
-  
-  dataType.map( (stat, index) =>{
+  dataType.map((stat, index) =>{
     switch(stat){
       case "Registrations":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -37,8 +42,6 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
         break;
     }
   });
-
-
   return <RenderComp dataType={dataType} list={dataArr} />
 }
 

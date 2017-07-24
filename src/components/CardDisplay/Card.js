@@ -4,32 +4,60 @@ import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
 import CompDisplay from '../Graphs/CompDisplay'
 import ChartDisplay from '../Graphs/ChartDisplay'
+import FreqFilter from '../utils/FreqFilter'
 
 export class Card extends Component {
 
   state = {
     graphType: '',
     dataType: [],
-    frequency: 'quarterly',
-    month: 'QTD',
+    frequency: '',
+    filter: '',
+  }
+
+  handleFilter = (id) => {
+
+    this.setState({
+      filter: id
+    })
+    switch(id) {
+      case 'QTD':
+        this.setState({
+          frequency: 'quarterly'
+        })
+        break;
+      case 'MTD': this.setState({
+        frequency: 'annually'
+      })
+        break;
+      case 'YTD': this.setState({
+        frequency: 'daily'
+      })
+        break;
+    }
+    console.log(this.state.frequency)
+
   }
 
   renderGraph = () => {
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
-    frequency={this.state.frequency}/>
+    frequency={this.state.frequency}
+    chartHeight='275px'
+    width='490px'/>
   }
 
   renderComp = () => {
-    console.log(this.props);
-    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.month}/>
+    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency}/>
   }
 
   componentWillMount () {
     var arr = this.props.data.slice();
     this.setState({
       dataType: arr,
-      graphType: this.props.graphType
+      graphType: this.props.graphType,
+      filter: 'QTD',
+      frequency: 'quarterly'
     })
 
   }
@@ -44,8 +72,9 @@ export class Card extends Component {
         </div>
         {filter &&
           <div className={this.props.graph?'filter-graph':'filter'}>
-            Month to Date (MTD)
-            <img className='dropdown' src={dropdown} />
+            {/* Month to Date (MTD)
+            <img className='dropdown' src={dropdown} /> */}
+            <FreqFilter handleFilter={this.handleFilter}/>
             {/* ADD A FILTER COMPONENT TO CHOOSE MONTH */}
           </div>
         }
