@@ -1,6 +1,6 @@
 .header {
-    margin: 20px;
-    padding: 30px;
+    margin: 30px;
+    padding: 10px;
 }
 
 .inLine
@@ -9,10 +9,11 @@
 }
 
 .analytics {
-  font-size: 40px;
+  font-size: 60px;
   color: white;
   position: absolute;
-  left: 200px;
+  left: 290px;
+  top: 35px;
 }
 
 .share {
@@ -20,10 +21,12 @@
   color: white;
   font-weight: bold;
   position: absolute;
-  right: 150px;
+  right: 100px;
+  top: 35px;
 }
 
-.burgerMenu {
+.VALICLogo {
   position: absolute;
-  right: 0px;
+  left: 30px;
+  top: 30px;
 }
