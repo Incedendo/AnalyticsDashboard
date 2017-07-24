@@ -80,11 +80,7 @@ class Home extends Component {
               <FreqFilter handleFilter={this.handleFilter}/>
             </div>
           </div>
-<<<<<<< HEAD
-          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="110%" />}
-=======
           {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="2670px" />}
->>>>>>> master
         </div>
 
         <div>

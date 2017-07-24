@@ -12,8 +12,11 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
     case 'quarterly':
       list = listHome[1];
       break;
-    case 'daily':
+    case 'weekly':
       list = listHome[2];
+      break;
+    case 'daily':
+      list = listHome[3];
       break;
   }
   var dataArr = [];
