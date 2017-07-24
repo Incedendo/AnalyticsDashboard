@@ -49,7 +49,7 @@ class Home extends Component {
           <div className="pageVisit">
             Page Visits
           </div>
-          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="" />}
+          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="2670px" />}
         </div>
 
         <div>
