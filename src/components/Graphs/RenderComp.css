@@ -2,23 +2,38 @@ hr {
   background-color: #6E839D;
   height: 125px;
   display: inline;
-  margin-top: -10px;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-top: -2.5%;
+  margin-right: 6%;
+  margin-left: 6%;
 }
 
 .compBox {
 
   color: white;
   font-style: normal;
-  font: Serif;
+  font-family: "Source Sans Pro",helvetica,arial,sans-serif;
   font-size: 80px;
   display: flex;
   flex-direction: row;
   width: 70%;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 20%;
   align-items: center;
+}
+
+.soloBox {
+    color: white;
+    font-style: normal;
+    font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+    font-size: 80px;
+
+    width: 70%;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+
+    margin-top: 22%;
+    align-items: center;
 }
 
 .num1, .num2 {
@@ -31,18 +46,20 @@ hr {
 
 
 .label {
-  margin-top: 5px;
+  margin-top: 2.5%;
   font-size: 20px;
 }
 
 .arrowBox {
   font-size:30px;
+  font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+  font-style: oblique;
   color: white;
   display: flex;
   flex-direction: row;
   top: 50%;
   left: 50%;
-  margin-top: 20px;
+  margin-top: 3%;
   align-items: center;
 }
 

@@ -13,6 +13,7 @@ class FreqFilter extends Component {
       <div class="col-md-5">
         <select class="custom-select" onChange={this.handleChange}>
           <option value="QTD">Quarter To Date(QTD)</option>
+          <option value="WTD">Weekly To Date(QTD)</option>
           <option value="MTD">Month To Date(MTD)</option>
           <option value="YTD">Year To Date(YTD)</option>
         </select>

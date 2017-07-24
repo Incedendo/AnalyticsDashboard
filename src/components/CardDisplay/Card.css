@@ -2,7 +2,7 @@
   background: #12335E;
   border-radius: 0px;
   display: inline-block;
-  height: 360px;
+  height: 350px;
   margin: 0.7px;
   position: relative;
   width: 24.93%;
@@ -18,7 +18,8 @@
   top: 50%;
   left: 50%;
 
-  margin-top: -165px; /* Half the height */
+  /*margin-top: -165px; /* Half the height */
+  margin-top: -28.5%;
   margin-left: -44%; /* Half the width */
 
 }
@@ -31,21 +32,21 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: 10px; /* Half the width */
+  margin-left: 2%; /* Half the width */
 }
 
 .filter {
-  margin-top: 130px; /* Half the height */
+  margin-top: 22%; /* Half the height */
 }
 
 .filter-graph {
-  margin-top: -155px; /* Half the height */
+  margin-top: -27%; /* Half the height */
 }
 
 .graph {
   vertical-align: bottom;
   top: 50%;
-  margin-top: 70px;
+  margin-top: 10%;
 }
 
 .dropdown {
@@ -60,5 +61,6 @@
   align-self: center;
   width:90%;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 0.5%;
+  height: 50%;
 }

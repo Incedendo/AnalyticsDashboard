@@ -134,7 +134,7 @@
           "allocationChange": 189
         }
       ],
-      "monthly":
+      "quarterly":
       [
         {
           "label": "1",
@@ -175,6 +175,49 @@
           "signIns": 236,
           "contributionChange": 49,
           "allocationChange": 31
+        }
+      ],
+      "weekly":
+      [
+        {
+          "label": "Week 1",
+          "totalVisits": 543,
+          "uniqueVisits": 213,
+          "returnVisits": 434,
+          "signUps": 32,
+          "signIns": 56,
+          "contributionChange": 12,
+          "allocationChange": 32
+        },
+        {
+          "label": "Week 2",
+          "totalVisits": 453,
+          "uniqueVisits": 165,
+          "returnVisits": 324,
+          "signUps": 43,
+          "signIns": 64,
+          "contributionChange": 43,
+          "allocationChange": 83
+        },
+        {
+          "label": "Week 3",
+          "totalVisits": 634,
+          "uniqueVisits": 135,
+          "returnVisits": 492,
+          "signUps": 73,
+          "signIns": 52,
+          "contributionChange": 97,
+          "allocationChange": 65
+        },
+        {
+          "label": "Week 4",
+          "totalVisits": 257,
+          "uniqueVisits": 152,
+          "returnVisits": 104,
+          "signUps": 28,
+          "signIns": 23,
+          "contributionChange": 31,
+          "allocationChange": 49
         }
       ],
       "today":

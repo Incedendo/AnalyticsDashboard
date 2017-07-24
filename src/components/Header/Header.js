@@ -14,6 +14,8 @@ const Header = () => {
 
         <div className="analytics inLine">ANALYTICS</div>
 
+        
+
         <div className="share inLine">SHARE</div>
 
         <div className="burgerMenu">

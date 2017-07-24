@@ -49,7 +49,7 @@ const RenderComp = ({list=[], dataType=[]}) => {
         </div>
       }
       {data.length === 1 &&
-        <div className='compBox'>
+        <div className='soloBox'>
           <div className='num2'>
             {data[0]}
             <div className='label'>

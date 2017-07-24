@@ -1,10 +1,12 @@
 select{
   box-shadow: none !important;
-  background: #12335E;
+  background: transparent;
   font-family: "Source Sans Pro",helvetica,arial,sans-serif;
   font-size: 1.125rem;
 	padding: 1.3rem 1.0rem;
+  margin-right: 15px;
 	width: 100%;
+  font-size: 20px;
   color: white;
   border: none;
   border-radius: $input-radius;
@@ -13,6 +15,7 @@ select{
 	&:focus{
 		border: $selected-border solid $sky;
 	}
+
 }
 
 select {
