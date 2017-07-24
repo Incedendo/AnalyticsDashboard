@@ -39,37 +39,37 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
 
   const labels = list.map(({label}) => label);
 
+  const fillColors = [ "rgba(183, 117, 127, 0.6)", "rgba(41, 195, 216, 0.8)", "rgba(166, 178, 194, 1)"];
+
+
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
         data,
         label: dataType[index],
         borderColor: '#6752ee',
-        backgroundColor: randomColor({
-          count: labels.length,
-          format: 'rgba',
-          alpha: 0.3,
-          seed: dataType[index]
-        }),
+        backgroundColor: fillColors[index],
       })
     )
   }
 
   const bam = {
-    pointRadius: '7',
-    pointHoverRadius: '10',
+    pointRadius: '11',
+    pointHoverRadius: '13',
     pointBorderWidth: '2',
-    pointBackgroundColor: 'white',
+    pointBackgroundColor: '#0C5AB5',
+    pointBorderColor: "white",
     pointBorderWidth: '3',
-    pointHoverBackgroundColor: 'white',
+    pointHoverBackgroundColor: '#0C5AB5',
   }
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
 
+  console.log(dataSet.datasets.backgroundColor);
+
   let options = {
     responsive: true,
     maintainAspectRatio: false,
-    pointBackgroundColor: "blue",
     pointStyle: 'dash',
     animation: {
       onComplete: function() {
@@ -89,7 +89,10 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
       labels: {
           fontColor: "white",
           fontSize: 18,
-      }
+          horizontalAlign: "left"
+      },
+      position: 'top',
+
     },
     scales: {
       xAxes: [{
@@ -100,7 +103,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         },
         ticks: {
           fontColor: "white", // axis labels
-          fontSize: 20
+          fontSize: 25
         }
       }],
       yAxes: [{
@@ -111,7 +114,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         },
         ticks: {
           fontColor: "white", // this
-          fontSize: 20
+          fontSize: 22
         }
       }]
     },

@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import {CardMenu} from './CardDisplay/CardMenu';
 import ChartDisplay from './Graphs/ChartDisplay';
+import Header from './Header/Header'
 
-import TopChart from './TopChart';
 import PropTypes from 'prop-types';
 import './home.css';
 
@@ -43,15 +43,10 @@ class Home extends Component {
     return (
 
       <div style={{backgroundColor: '#022753'}}>
-        
+        <Header />
+
         <div className="mainDiv">
-          <div style={{
-            "fontSize": "50px",
-            "font-weight": "bold",
-            "fontColor": "white",
-            "padding-left": "20px",
-            "padding-top": "20px"
-          }}>
+          <div className="pageVisit">
             Page Visits
           </div>
           {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="" />}

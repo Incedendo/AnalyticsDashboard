@@ -4,7 +4,7 @@
       "annually":
       [
         {
-          "label": "January",
+          "label": "Jan",
           "totalVisits": 9849,
           "uniqueVisits": 7476,
           "returnVisits": 2373,
@@ -14,7 +14,7 @@
           "allocationChange": 189
         },
         {
-          "label": "February",
+          "label": "Feb",
           "totalVisits": 9528,
           "uniqueVisits": 7376,
           "returnVisits": 2152,
@@ -24,7 +24,7 @@
           "allocationChange": 167
         },
         {
-          "label": "March",
+          "label": "Mar",
           "totalVisits": 9429,
           "uniqueVisits": 7432,
           "returnVisits": 1997,
@@ -34,7 +34,7 @@
           "allocationChange": 189
         },
         {
-          "label": "April",
+          "label": "Apr",
           "totalVisits": 9849,
           "uniqueVisits": 7476,
           "returnVisits": 2373,
@@ -54,7 +54,7 @@
           "allocationChange": 194
         },
         {
-          "label": "June",
+          "label": "Jun",
           "totalVisits": 9999,
           "uniqueVisits": 7497,
           "returnVisits": 2502,
@@ -64,7 +64,7 @@
           "allocationChange": 198
         },
         {
-          "label": "July",
+          "label": "Jul",
           "totalVisits": 10032,
           "uniqueVisits": 7576,
           "returnVisits": 2456,
@@ -74,7 +74,7 @@
           "allocationChange": 189
         },
         {
-          "label": "August",
+          "label": "Aug",
           "totalVisits": 10056,
           "uniqueVisits": 7503,
           "returnVisits": 2553,
@@ -84,7 +84,7 @@
           "allocationChange": 189
         },
         {
-          "label": "September",
+          "label": "Sep",
           "totalVisits": 10079,
           "uniqueVisits": 7587,
           "returnVisits": 2492,
@@ -94,7 +94,7 @@
           "allocationChange": 189
         },
         {
-          "label": "October",
+          "label": "Oct",
           "totalVisits": 10095,
           "uniqueVisits": 7497,
           "returnVisits": 2598,
@@ -104,7 +104,7 @@
           "allocationChange": 189
         },
         {
-          "label": "November",
+          "label": "Nov",
           "totalVisits": 10123,
           "uniqueVisits": 7516,
           "returnVisits": 2607,
@@ -114,7 +114,7 @@
           "allocationChange": 189
         },
         {
-          "label": "December",
+          "label": "Dec",
           "totalVisits": 10193,
           "uniqueVisits": 7600,
           "returnVisits": 2593,
