@@ -1,0 +1,29 @@
+.header {
+    margin: 20px;
+    padding: 30px;
+}
+
+.inLine
+{
+    display: inline-block;
+}
+
+.analytics {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  left: 200px;
+}
+
+.share {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  right: 150px;
+}
+
+.burgerMenu {
+  position: absolute;
+  right: 0px;
+}
