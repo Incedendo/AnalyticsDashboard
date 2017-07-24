@@ -43,6 +43,7 @@ class Home extends Component {
     return (
 
       <div style={{backgroundColor: '#022753'}}>
+        
         <div className="mainDiv">
           <div style={{
             "fontSize": "50px",
