@@ -43,7 +43,7 @@ class Home extends Component {
     return (
 
       <div style={{backgroundColor: '#022753'}}>
-
+        
         <div className="mainDiv">
           {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="" />}
         </div>
