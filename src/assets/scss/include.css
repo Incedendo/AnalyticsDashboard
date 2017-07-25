@@ -324,6 +324,7 @@ h1 {
   position: absolute;
   top: -15px; }
 
+
 .filter {
   color: white;
   position: absolute;
@@ -436,29 +437,17 @@ h1 {
   font-style: normal; }
 
 select {
-  box-shadow: none !important;
-  background: transparent;
+  background-color: transparent;
   font-family: "Source Sans Pro";
   font-weight: 400;
   font-size: 15px;
   line-height: 16px;
-  text-align: right;
   color: #FFFFFF;
   width: 180px;
   height: 26px;
-  padding-right: 75.07px;
+  padding-right: 75px;
   margin-top: -25px;
   border: none; }
-
-select {
-  text-indent: 3px;
-  display: block;
-  background: #12335E; }
-  select:focus {
-    text-indent: 2px; }
-
-.select {
-  margin-bottom: 32px; }
 
 .header {
   margin: 30px;
@@ -474,10 +463,12 @@ select {
   font-family: "Source Sans Pro";
   font-size: 72px;
   line-height: 91px;
-  color: white;
+  color: #FFFFFF;
   position: absolute;
+  align-self: auto;
   text-align: left;
-  margin-left: 10px; }
+  margin-left: -60rem;
+  margin-top: -0.5rem; }
 
 .share {
   height: 54px;
@@ -548,7 +539,7 @@ hr {
   color: white;
   font-style: normal;
   font-family: "Source Sans Pro";
-  font-size: 80px;
+  font-size: 6rem;
   width: 70%;
   margin: 0 auto;
   top: 50%;
@@ -571,11 +562,10 @@ hr {
   font-size: 17px; }
 
 .arrowBox {
-  font-size: 20px;
+  font-size: 1.5rem;
   font-family: "Source Sans Pro";
-  font-weight: 300;
-  font-style: oblique;
-  color: white;
+  font-weight: 600;
+  color: #FFFFFF;
   display: flex;
   flex-direction: row;
   top: 50%;
