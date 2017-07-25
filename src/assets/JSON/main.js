@@ -1,0 +1,234 @@
+export default {
+  "annually":
+  [
+    {
+      "label": "Jan",
+      "totalVisits": 9849,
+      "uniqueVisits": 7476,
+      "returnVisits": 2373,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Feb",
+      "totalVisits": 9528,
+      "uniqueVisits": 7376,
+      "returnVisits": 2152,
+      "signUps": 1247,
+      "signIns": 817,
+      "contributionChange": 375,
+      "allocationChange": 167
+    },
+    {
+      "label": "Mar",
+      "totalVisits": 9429,
+      "uniqueVisits": 7432,
+      "returnVisits": 1997,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Apr",
+      "totalVisits": 76880,
+      "uniqueVisits": 44184,
+      "returnVisits": 2373,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "May",
+      "totalVisits": 579944,
+      "uniqueVisits": 201150,
+      "returnVisits": 2377,
+      "signUps": 1403,
+      "signIns": 867,
+      "contributionChange": 394,
+      "allocationChange": 194
+    },
+    {
+      "label": "Jun",
+      "totalVisits": 503909,
+      "uniqueVisits": 199834,
+      "returnVisits": 2502,
+      "signUps": 1409,
+      "signIns": 883,
+      "contributionChange": 399,
+      "allocationChange": 198
+    },
+    {
+      "label": "Jul",
+      "totalVisits": 517285,
+      "uniqueVisits": 222677,
+      "returnVisits": 2456,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Aug",
+      "totalVisits": 10056,
+      "uniqueVisits": 7503,
+      "returnVisits": 2553,
+      "signUps": 1383,
+      "signIns": 856,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Sep",
+      "totalVisits": 10079,
+      "uniqueVisits": 7587,
+      "returnVisits": 2492,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Oct",
+      "totalVisits": 10095,
+      "uniqueVisits": 7497,
+      "returnVisits": 2598,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Nov",
+      "totalVisits": 10123,
+      "uniqueVisits": 7516,
+      "returnVisits": 2607,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "Dec",
+      "totalVisits": 10193,
+      "uniqueVisits": 7600,
+      "returnVisits": 2593,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    },
+    {
+      "label": "",
+      "totalVisits": 10193,
+      "uniqueVisits": 7600,
+      "returnVisits": 2593,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189
+    }
+  ],
+  "quarterly":
+  [
+    {
+      "label": "1",
+      "totalVisits": 2480,
+      "uniqueVisits": 1759,
+      "returnVisits": 721,
+      "signUps": 398,
+      "signIns": 264,
+      "contributionChange": 50,
+      "allocationChange": 36
+    },
+    {
+      "label": "2",
+      "totalVisits": 2473,
+      "uniqueVisits": 1587,
+      "returnVisits": 886,
+      "signUps": 376,
+      "signIns": 286,
+      "contributionChange": 46,
+      "allocationChange": 34
+    },
+    {
+      "label": "3",
+      "totalVisits": 2563,
+      "uniqueVisits": 1489,
+      "returnVisits": 1074,
+      "signUps": 378,
+      "signIns": 284,
+      "contributionChange": 45,
+      "allocationChange": 28
+    },
+    {
+      "label": "4",
+      "totalVisits": 2570,
+      "uniqueVisits": 1528,
+      "returnVisits": 1042,
+      "signUps": 287,
+      "signIns": 236,
+      "contributionChange": 49,
+      "allocationChange": 31
+    }
+  ],
+  "weekly":
+  [
+    {
+      "label": "Week 1",
+      "totalVisits": 543,
+      "uniqueVisits": 213,
+      "returnVisits": 434,
+      "signUps": 32,
+      "signIns": 56,
+      "contributionChange": 12,
+      "allocationChange": 32
+    },
+    {
+      "label": "Week 2",
+      "totalVisits": 453,
+      "uniqueVisits": 165,
+      "returnVisits": 324,
+      "signUps": 43,
+      "signIns": 64,
+      "contributionChange": 43,
+      "allocationChange": 83
+    },
+    {
+      "label": "Week 3",
+      "totalVisits": 634,
+      "uniqueVisits": 135,
+      "returnVisits": 492,
+      "signUps": 73,
+      "signIns": 52,
+      "contributionChange": 97,
+      "allocationChange": 65
+    },
+    {
+      "label": "Week 4",
+      "totalVisits": 257,
+      "uniqueVisits": 152,
+      "returnVisits": 104,
+      "signUps": 28,
+      "signIns": 23,
+      "contributionChange": 31,
+      "allocationChange": 49
+    }
+  ],
+  "today":
+  [
+    {
+      "label": "Today",
+      "totalVisits": 638,
+      "uniqueVisits": 467,
+      "returnVisits": 171,
+      "signUps": 35,
+      "signIns": 12,
+      "contributionChange": 2,
+      "allocationChange": 1
+    }
+  ]
+}

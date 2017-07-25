@@ -5,6 +5,7 @@ import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
+import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 
 class Home extends Component {
@@ -20,7 +21,9 @@ class Home extends Component {
    axios.get(dataAPI + '/test')
      .then((response) => {
        this.setState({
-         projects: response.data,
+        //projects: response.data,
+        projects: jsonData,
+        mounted: true,
          mounted: true,
          filter: 'QTD',
          frequency: 'quarterly'
@@ -30,6 +33,7 @@ class Home extends Component {
        console.log(error);
      }
    );
+
   }
 
   handleFilter = (id) => {
@@ -60,9 +64,7 @@ class Home extends Component {
 
   render() {
     const { projects } = this.state
-
     let arr=[];
-
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
     }
@@ -79,6 +81,7 @@ class Home extends Component {
             <div className="pageVisit inline">
               Page Visits
             </div>
+
             <div className='filterHeader inline'>
               <FreqFilter handleFilter={this.handleFilter}/>
             </div>
@@ -91,7 +94,6 @@ class Home extends Component {
 
       </div>
     );
-
   }
 }
 
