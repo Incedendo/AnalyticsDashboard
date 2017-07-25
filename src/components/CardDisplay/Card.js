@@ -74,10 +74,7 @@ export class Card extends Component {
         </div>
         {filter &&
           <div className={this.props.graph?'filter-graph':'filter'}>
-            {/* Month to Date (MTD)
-            <img className='dropdown' src={dropdown} /> */}
             <FreqFilter handleFilter={this.handleFilter}/>
-            {/* ADD A FILTER COMPONENT TO CHOOSE MONTH */}
           </div>
         }
         <div className='graph'>
