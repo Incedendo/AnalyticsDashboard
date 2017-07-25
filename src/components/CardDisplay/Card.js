@@ -34,9 +34,11 @@ export class Card extends Component {
         frequency: 'daily'
       })
         break;
+      case 'WTD': this.setState({
+        frequency: 'weekly'
+      })
+        break;
     }
-    console.log(this.state.frequency)
-
   }
 
   renderGraph = () => {

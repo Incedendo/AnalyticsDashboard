@@ -12,3 +12,8 @@
   padding-top: 70px;
   text-align: left;
 }
+
+.filterHeader {
+  position: fixed;
+  right: 50px;
+}

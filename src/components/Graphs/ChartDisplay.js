@@ -12,8 +12,11 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
       case 'quarterly':
         list = listHome[1];
         break;
-      case 'daily':
+      case 'weekly':
         list = listHome[2];
+        break;
+      case 'daily':
+        list = listHome[3];
         break;
     }
 
