@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from './Card';
-import './Card.css'
+import '../../assets/scss/_Card.scss';
 
 
 export class DisplayCards extends Component {
@@ -13,7 +13,7 @@ export class DisplayCards extends Component {
             {title: 'Top Active Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Active Pages']},
             {title: 'Retirement Income Calc Usage', graph: true, numGraph: false, graphType: 'bar', data: ['Retirement Income Calc Usage']},
             {title: 'Top Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Pages']},
-            {title: 'Visits by Device Type', graph: true, numGraph: false, graphType: 'bar', data: ['Visits by Device Type']},]
+            {title: 'Visits by Device Type', graph: false, numGraph: false, graphType: 'bar', data: ['Visits by Device Type']},]
   }
 
   renderCards = () => {

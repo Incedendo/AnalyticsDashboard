@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import BurgerMenuComponent from './BurgerMenu/BurgerMenuComponent';
-import './Header.css'
+import '../../assets/scss/_Header.scss'
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 import {slide as Menu} from 'react-burger-menu';
 
