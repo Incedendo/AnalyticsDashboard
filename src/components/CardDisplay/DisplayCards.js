@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from './Card';
-import './Card.css'
+import '../../assets/scss/_Card.scss';
 
 
 export class DisplayCards extends Component {
