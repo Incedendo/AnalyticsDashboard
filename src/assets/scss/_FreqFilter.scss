@@ -1,33 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 
 select{
-  box-shadow: none !important;
-  background: transparent;
+  background-color: transparent;
 
   font-family: "Source Sans Pro";
   font-weight: 600;
   font-size: 1.125rem;
   font-size: 20px;
   line-height: 16px;
-  text-align: right;
+
   color: #FFFFFF;
 
-	width: 386px;
+	width: 15rem;
   height: 26px;
 
-  padding-right: 75.07px;
+  padding-right: 75px;
   margin-top: -25px;
   border: none;
-}
-
-select {
-  text-indent: 3px;
-  display: block;
-  background: #12335E;
-  &:focus{
-    text-indent: 2px;
-  }
-}
-.select{
-  margin-bottom: 32px;
 }

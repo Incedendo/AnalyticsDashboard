@@ -10,8 +10,8 @@ class FreqFilter extends Component {
 
   render () {
     return (
-      <div class="col-md-5">
-        <select class="custom-select" onChange={this.handleChange}>
+      <div>
+        <select onChange={this.handleChange}>
           <option value="QTD">Quarter To Date(QTD)</option>
           <option value="WTD">Weekly To Date(QTD)</option>
           <option value="MTD">Month To Date(MTD)</option>
