@@ -46,7 +46,7 @@ export class Card extends Component {
     graphType={this.state.graphType}
     frequency={this.state.frequency}
     chartHeight='275px'
-    width='460px'/>
+    width='100%'/>
   }
 
   renderComp = () => {
@@ -68,18 +68,19 @@ export class Card extends Component {
     if(!this.props.list.length) return null
     const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
     return (
-      <div className='card'>
+      <div className='card col-md-3'>
         <div className='title'>
           {this.props.title}
         </div>
+
         {filter &&
           <div className={this.props.graph?'filter-graph':'filter'}>
-            {/* Month to Date (MTD)
-            <img className='dropdown' src={dropdown} /> */}
+
             <FreqFilter handleFilter={this.handleFilter}/>
-            {/* ADD A FILTER COMPONENT TO CHOOSE MONTH */}
+
           </div>
         }
+
         <div className='graph'>
           {this.props.graph && this.renderGraph()}
           {this.props.numGraph && this.renderComp()}

@@ -18,7 +18,10 @@ export class DisplayCards extends Component {
 
   renderCards = () => {
     return this.state.cards.map(({...rest}) => {
-      return <Card {...rest} list={this.props.list}/>
+      return (
+            <Card {...rest} list={this.props.list}/>
+      );
+
     })
   }
 
@@ -34,7 +37,7 @@ export class DisplayCards extends Component {
 
   render () {
     return (
-      <div className='display'>
+      <div>
         {this.renderCards()}
       </div>
     )
