@@ -1,22 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import BurgerMenuComponent from './BurgerMenu/BurgerMenuComponent';
-
-import { slide as Menu } from 'react-burger-menu'
-
-
 import './Header.css'
+import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
+import {slide as Menu} from 'react-burger-menu';
 
 const Header = () => {
     return(
-      <div className="header">
-        <div className="inLine">VALIC</div>
-
-        <div className="analytics inLine">ANALYTICS</div>
-
-        
-
-        <div className="share inLine">SHARE</div>
+      <div>
+        <div className="header">
+          <div className="inLine VALICLogo">
+            <img src={VALIC} />
+          </div>
+          <div className="analytics inLine">ANALYTICS</div>
+          <div className="share inLine">SHARE</div>
+        </div>
 
         <div className="burgerMenu">
           <Menu right >
@@ -25,9 +23,8 @@ const Header = () => {
             <a id="contact" className="menu-item" href="/contact">Contact</a>
             <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
           </Menu>
+
         </div>
-
-
       </div>
     );
 }
