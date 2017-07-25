@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Card.css'
+import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
 import {RenderChart} from '../Graphs/RenderChart'
 import CompDisplay from '../Graphs/CompDisplay'
@@ -46,7 +46,7 @@ export class Card extends Component {
     graphType={this.state.graphType}
     frequency={this.state.frequency}
     chartHeight='275px'
-    width='490px'/>
+    width='460px'/>
   }
 
   renderComp = () => {
@@ -66,7 +66,7 @@ export class Card extends Component {
 
   render() {
     if(!this.props.list.length) return null
-    const filter = this.props.numGraph || this.props.graph
+    const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
     return (
       <div className='card'>
         <div className='title'>

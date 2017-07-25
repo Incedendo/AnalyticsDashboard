@@ -3,14 +3,17 @@ import axios from 'axios';
 import {CardMenu} from './CardDisplay/CardMenu';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
+import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
-import './home.css';
 import jsonData from '../assets/JSON/main.js';
+import '../assets/scss/_home.scss';
 
 class Home extends Component {
   state = {
     projects: [],
-    mounted: false
+    mounted: false,
+    filter: '',
+    frequency: ''
   };
 
   componentDidMount() {
@@ -20,7 +23,10 @@ class Home extends Component {
        this.setState({
         //projects: response.data,
         projects: jsonData,
-        mounted: true
+        mounted: true,
+         mounted: true,
+         filter: 'QTD',
+         frequency: 'quarterly'
        });
      })
      .catch( (error) => {
@@ -28,6 +34,32 @@ class Home extends Component {
      }
    );
 
+  }
+
+  handleFilter = (id) => {
+
+    this.setState({
+      filter: id
+    })
+    switch(id) {
+      case 'QTD':
+        this.setState({
+          frequency: 'quarterly'
+        })
+        break;
+      case 'MTD': this.setState({
+        frequency: 'annually'
+      })
+        break;
+      case 'YTD': this.setState({
+        frequency: 'daily'
+      })
+        break;
+      case 'WTD': this.setState({
+        frequency: 'weekly'
+      })
+        break;
+    }
   }
 
   render() {
@@ -42,20 +74,18 @@ class Home extends Component {
     return (
 
       <div className="mainDiv">
-
+          <div className='strip' style={{background:'#29C3D8',height:'10px'}}/>
           <Header />
           <div className="mainDiv">
-            <div className="pageVisit">
+
+            <div className="pageVisit inline">
               Page Visits
             </div>
-            {this.state.mounted && <ChartDisplay
-              // listHome={arr}
-              listHome={arr}
-              graphType='line'
-              dataType={dataType}
-              frequency="annually"
-              chartHeight="500px"
-              width="100%" />}
+
+            <div className='filterHeader inline'>
+              <FreqFilter handleFilter={this.handleFilter}/>
+            </div>
+          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="439px" width="100%" />}
           </div>
 
           <div>
@@ -64,7 +94,6 @@ class Home extends Component {
 
       </div>
     );
-
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import dropdown from './dropdown.svg';
-import './FreqFilter.css'
+import '../../assets/scss/_FreqFilter.scss'
 
 class FreqFilter extends Component {
 

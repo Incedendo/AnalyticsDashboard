@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './assets/scss/include.css';
 import Home from './components/Home';
 import { slide as Menu } from 'react-burger-menu';
 
