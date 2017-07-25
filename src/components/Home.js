@@ -3,6 +3,7 @@ import axios from 'axios';
 import {CardMenu} from './CardDisplay/CardMenu';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
+import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
 import './home.css';
 
