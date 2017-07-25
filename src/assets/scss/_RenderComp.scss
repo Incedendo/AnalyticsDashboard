@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+
 hr {
   background-color: #6E839D;
   height: 125px;
@@ -11,7 +13,7 @@ hr {
 
   color: white;
   font-style: normal;
-  font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+  font-family: "Source Sans Pro";
   font-size: 80px;
   display: flex;
   flex-direction: row;
@@ -24,7 +26,7 @@ hr {
 .soloBox {
     color: white;
     font-style: normal;
-    font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+    font-family: "Source Sans Pro";
     font-size: 80px;
 
     width: 70%;
@@ -40,19 +42,25 @@ hr {
   display: flex;
   flex-direction: column;
   margin-top: -20px;
-  font-style: normal;
-  font: Georgia;
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  font-size: 6rem;
+  letter-spacing: 2px;
+
 }
 
 
 .label {
+  font-family: "Source Sans Pro";
+  font-weight: 600;
   margin-top: 2.5%;
   font-size: 20px;
 }
 
 .arrowBox {
   font-size:20px;
-  font-family: "Source Sans Pro",helvetica,arial,sans-serif;
+  font-family: "Source Sans Pro";
+  font-weight: 300;
   font-style: oblique;
   color: white;
   display: flex;
