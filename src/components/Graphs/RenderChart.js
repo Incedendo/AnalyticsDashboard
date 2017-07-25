@@ -37,6 +37,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
     }
   });
 
+  console.log('dataArr is: ');
+  console.log(dataArr)
+
   const labels = list.map(({label}) => label);
 
   const fillColors = [ "rgba(183, 117, 127, 0.6)", "rgba(41, 195, 216, 0.8)", "rgba(166, 178, 194, 1)"];
@@ -50,7 +53,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         borderColor: '#6752ee',
         backgroundColor: randomColor({
 
-          hue: 'random',
           format: 'hsla',
           alpha: 0.5,
 
@@ -70,8 +72,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
   }
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
-
-  console.log(dataSet.datasets.backgroundColor);
 
   let options = {
     responsive: true,
@@ -106,10 +106,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         gridLines: {
             display: true,
             color: "#4E6685",
+            drawTicks: false
         },
         ticks: {
           fontColor: "white", // axis labels
-          fontSize: 25
+          fontSize: 25,
         }
       }],
       yAxes: [{
@@ -117,6 +118,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         gridLines: {
             display: true,
             color: "#4E6685",
+            drawTicks: false
         },
         ticks: {
           fontColor: "white", // this

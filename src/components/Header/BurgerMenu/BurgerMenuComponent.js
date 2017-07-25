@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import BurgerMenu from 'react-burger-menu';
 import classNames from 'classnames';
-import './burgerMenu.css';
+import '../../../assets/scss/_burgerMenu.scss';
 
 class MenuWrap extends Component {
 

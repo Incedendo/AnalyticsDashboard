@@ -1,5 +1,5 @@
 import React from 'react';
-import './RenderComp.css'
+import '../../assets/scss/_RenderComp.scss'
 import PropTypes from 'prop-types';
 import greenArrow from './greenArrow.svg';
 import redArrow from './redArrow.svg'
