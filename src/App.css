@@ -1,5 +1,34 @@
 .App {
-
   background-color: #022753;
-  background: #022753
+  background: #022753 !important;
+}
+
+.burgerMenu {
+  position: fixed;
+  right: 0px;
+}
+
+.my-menu {
+
+}
+
+.body-my-class {
+  position: fixed;
+  top: 0px;
+  color: white;
+}
+
+.burger-button {
+  /*left: 2400px;*/
+  right: 50px;
+  margin-top: 0px;
+  color: white;
+}
+
+.bg-overlay {
+  z-index: 1;
+}
+
+.zero-padding{
+  padding: 0px;
 }
