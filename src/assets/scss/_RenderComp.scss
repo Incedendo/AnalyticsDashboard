@@ -14,10 +14,10 @@ hr {
   color: white;
   font-style: normal;
   font-family: "Source Sans Pro";
-  font-size: 80px;
+  // font-size: 80px;
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20%;
   align-items: center;
@@ -44,7 +44,7 @@ hr {
   margin-top: -20px;
   font-family: "Source Sans Pro";
   font-weight: 300;
-  font-size: 6rem;
+  font-size: 9rem;
   letter-spacing: 2px;
 
 }
@@ -52,9 +52,9 @@ hr {
 
 .label {
   font-family: "Source Sans Pro";
-  font-weight: 600;
-  margin-top: 2.5%;
-  font-size: 20px;
+  font-weight: 500;
+  // margin-top: 2.5%;
+  font-size: 17px;
 }
 
 .arrowBox {

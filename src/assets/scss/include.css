@@ -313,46 +313,33 @@ h1 {
   color: #b8b7ad; }
 
 .card {
-  background: #12335E;
-  border-radius: 0px;
-  display: inline-block;
-  height: 363px;
-  margin: 0.7px;
-  position: relative;
-  width: 24.9%;
-  padding: 0px;
-  vertical-align: bottom; }
+  background: #12335E; }
 
 .title {
   color: #FFFFFF;
-  font-size: 2.5rem;
+  font-size: 20px;
   font-family: "Source Sans Pro";
   font-weight: 600;
   line-height: 65px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -11rem;
-  margin-left: -15rem; }
+  top: -15px; }
 
-.filter, .filter-graph {
+
+.filter {
   color: white;
-  font-size: 19px;
-  display: flex;
-  flex-direction: row;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 28px;
+  right: 5px;
   margin-left: 2%;
   /* Half the width */ }
 
-.filter {
-  margin-top: 22%;
-  /* Half the height */ }
-
 .filter-graph {
-  margin-top: -26.5%;
-  /* Half the height */ }
+  color: white;
+  position: absolute;
+  top: 9%;
+  right: 5px;
+  margin-left: 2%;
+  /* Half the width */ }
 
 .graph {
   vertical-align: bottom;
@@ -363,15 +350,19 @@ h1 {
   transform: translate(20%, -20%); }
 
 .display {
-  background: #90A0B4;
   text-align: center;
   justify-content: center;
   align-items: center;
   align-self: center;
-  width: 94%;
   margin: 0 auto;
   margin-top: 0.5%;
   height: 50%; }
+
+.border-right {
+  border-right: 1px solid white; }
+
+.border-bottom {
+  border-bottom: 1px solid white; }
 
 @font-face {
   font-family: 'FuturaPT-Bold';
@@ -448,12 +439,11 @@ h1 {
 select {
   background-color: transparent;
   font-family: "Source Sans Pro";
-  font-weight: 600;
-  font-size: 1.125rem;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 15px;
   line-height: 16px;
   color: #FFFFFF;
-  width: 15rem;
+  width: 180px;
   height: 26px;
   padding-right: 75px;
   margin-top: -25px;
@@ -522,6 +512,10 @@ select {
 .inLine {
   display: inline-block; }
 
+.noMargin {
+  margin: 0px;
+  width: 100%; }
+
 hr {
   background-color: #6E839D;
   height: 125px;
@@ -534,10 +528,9 @@ hr {
   color: white;
   font-style: normal;
   font-family: "Source Sans Pro";
-  font-size: 80px;
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20%;
   align-items: center; }
@@ -560,14 +553,13 @@ hr {
   margin-top: -20px;
   font-family: "Source Sans Pro";
   font-weight: 300;
-  font-size: 6rem;
+  font-size: 9rem;
   letter-spacing: 2px; }
 
 .label {
   font-family: "Source Sans Pro";
-  font-weight: 600;
-  margin-top: 2.5%;
-  font-size: 20px; }
+  font-weight: 500;
+  font-size: 17px; }
 
 .arrowBox {
   font-size: 1.5rem;

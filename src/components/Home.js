@@ -85,10 +85,11 @@ class Home extends Component {
             <div className='filterHeader inline'>
               <FreqFilter handleFilter={this.handleFilter}/>
             </div>
-          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="439px" width="100%" />}
+
+          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="440px" width="100%" />}
           </div>
 
-          <div>
+          <div className="container noMargin">
             <CardMenu list={arr} />
           </div>
 

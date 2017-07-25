@@ -3,7 +3,7 @@ import {DisplayCards} from './DisplayCards';
 
 export const CardMenu = (props) => {
   return (
-    <div>
+    <div className="row display"> 
       <DisplayCards num={8} list={props.list}/>
     </div>
   )

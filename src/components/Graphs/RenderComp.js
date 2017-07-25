@@ -27,16 +27,22 @@ const RenderComp = ({list=[], dataType=[]}) => {
     <div>
       {data.length > 1 &&
         <div>
-          <div className='compBox'>
-            <div className='num1'>
-              {data[0]}
+          <div className='compBox row'>
+            <div className="col-md-6">
+              <div className='num1'>
+                {data[0]}
+              </div>
               <div className='label'>
                 Prior {dataType[0]}
               </div>
             </div>
+
             <hr/>
-            <div className='num2'>
-              {data[1]}
+
+            <div className="col-md-6">
+              <div className='num2'>
+                {data[1]}
+              </div>
               <div className='label'>
                 Current {dataType[0]}
               </div>
