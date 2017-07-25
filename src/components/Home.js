@@ -5,6 +5,7 @@ import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import PropTypes from 'prop-types';
 import './home.css';
+import jsonData from '../assets/JSON/main.js';
 
 class Home extends Component {
   state = {
@@ -17,21 +18,21 @@ class Home extends Component {
    axios.get(dataAPI + '/test')
      .then((response) => {
        this.setState({
-         projects: response.data,
-         mounted: true
+        //projects: response.data,
+        projects: jsonData,
+        mounted: true
        });
      })
      .catch( (error) => {
        console.log(error);
      }
    );
+
   }
 
   render() {
     const { projects } = this.state
-
     let arr=[];
-
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
     }
@@ -47,7 +48,14 @@ class Home extends Component {
             <div className="pageVisit">
               Page Visits
             </div>
-            {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency="annually" chartHeight="500px" width="100%" />}
+            {this.state.mounted && <ChartDisplay
+              // listHome={arr}
+              listHome={arr}
+              graphType='line'
+              dataType={dataType}
+              frequency="annually"
+              chartHeight="500px"
+              width="100%" />}
           </div>
 
           <div>
