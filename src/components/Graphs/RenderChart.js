@@ -106,10 +106,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         gridLines: {
             display: true,
             color: "#4E6685",
+            drawTicks: false
         },
         ticks: {
           fontColor: "white", // axis labels
-          fontSize: 25
+          fontSize: 25,
         }
       }],
       yAxes: [{
@@ -117,6 +118,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         gridLines: {
             display: true,
             color: "#4E6685",
+            drawTicks: false
         },
         ticks: {
           fontColor: "white", // this
