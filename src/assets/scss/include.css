@@ -321,7 +321,6 @@ h1 {
   font-family: "Source Sans Pro";
   font-weight: 600;
   line-height: 65px;
-
   position: relative;
   float: left;
   padding-left: 1%; }
@@ -331,7 +330,6 @@ h1 {
   @media (min-width: 1600px) {
     .title {
       font-size: 3.5rem; } }
-
 
 .filter {
   position: relative;
