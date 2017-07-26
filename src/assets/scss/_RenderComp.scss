@@ -1,33 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 
 hr {
-  background-color: #6E839D;
+  background-color: #FFFFFF;
+  width: 1px;
   height: 125px;
   display: inline;
+
   margin-top: -2.5%;
   margin-right: 6%;
   margin-left: 6%;
 }
 
 .compBox {
-
+  position: relative;
   color: white;
   font-style: normal;
   font-family: "Source Sans Pro";
-  // font-size: 80px;
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: 0 auto;
-  margin-top: 20%;
-  align-items: center;
+  margin-top: 0%;
+
 }
 
 .soloBox {
     color: white;
     font-style: normal;
     font-family: "Source Sans Pro";
-    font-size: 6rem;
 
     width: 70%;
     margin: 0 auto;
@@ -44,17 +44,40 @@ hr {
   margin-top: -20px;
   font-family: "Source Sans Pro";
   font-weight: 300;
-  font-size: 9rem;
   letter-spacing: 2px;
-
+    @media (min-width: 1200px) {
+      font-size: 7rem;
+    }
+    @media (min-width: 1600px) {
+      font-size: 9rem;
+    }
 }
 
+.num1 {
+  margin-right: -30%;
+}
+.num2 {
+  margin-left: -30%;
+}
 
-.label {
+.label1, .label2{
   font-family: "Source Sans Pro";
-  font-weight: 500;
-  // margin-top: 2.5%;
+  font-weight: 600;
   font-size: 17px;
+  width: 100%;
+  @media (min-width: 1200px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 3rem;
+  }
+}
+
+.label1 {
+  margin-left: 30%;
+}
+.label2 {
+  margin-right: 20%;
 }
 
 .arrowBox {
@@ -79,4 +102,8 @@ hr {
 
 .redArrow {
   transform: rotate(90deg);
+}
+
+.col-md-6 {
+  text-align: center;
 }

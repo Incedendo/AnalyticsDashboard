@@ -23,7 +23,6 @@ class Home extends Component {
       filter: 'QTD',
       frequency: 'quarterly'
     });
-
   }
 
   handleFilter = (id) => {
@@ -71,7 +70,7 @@ class Home extends Component {
 
           <div className="mainDiv">
             <div className="pageVisit inline">
-              Page Visits
+              {dataType[0]}
             </div>
 
             <div className='filterHeader inline'>
