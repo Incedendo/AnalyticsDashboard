@@ -65,7 +65,7 @@ class Home extends Component {
 
     return (
       <div className="mainDiv">
-
+          <div className='strip' />
           <Header />
 
           <div className="mainDiv">
