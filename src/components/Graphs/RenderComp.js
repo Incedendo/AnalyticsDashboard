@@ -32,18 +32,16 @@ const RenderComp = ({list=[], dataType=[]}) => {
               <div className='num1'>
                 {data[0]}
               </div>
-              <div className='label'>
+              <div className='label1'>
                 Prior {dataType[0]}
               </div>
             </div>
-
             <hr/>
-
             <div className="col-md-6">
               <div className='num2'>
                 {data[1]}
               </div>
-              <div className='label'>
+              <div className='label2'>
                 Current {dataType[0]}
               </div>
             </div>
