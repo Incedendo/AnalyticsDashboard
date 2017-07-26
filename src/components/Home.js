@@ -17,22 +17,21 @@ class Home extends Component {
   };
 
   componentDidMount() {
-   const dataAPI = 'http://localhost:3000';
-   axios.get(dataAPI + '/test')
-     .then((response) => {
+  //  const dataAPI = 'http://localhost:3000';
+  //  axios.get(dataAPI + '/test')
+  //    .then((response) => {
        this.setState({
         //projects: response.data,
         projects: jsonData,
         mounted: true,
-         mounted: true,
-         filter: 'QTD',
-         frequency: 'quarterly'
-       });
-     })
-     .catch( (error) => {
-       console.log(error);
-     }
-   );
+        filter: 'QTD',
+        frequency: 'quarterly'
+       //});
+    //  })
+    //  .catch( (error) => {
+    //    console.log(error);
+    //  }
+    });
 
   }
 
@@ -79,7 +78,7 @@ class Home extends Component {
           <div className="mainDiv">
 
             <div className="pageVisit inline">
-              Page Visits
+              {dataType[0]}
             </div>
 
             <div className='filterHeader inline'>

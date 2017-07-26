@@ -94,8 +94,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
     legend: {
       labels: {
           fontColor: "white",
-          fontSize: 18,
-          horizontalAlign: "left"
+          fontSize: 20,
+          horizontalAlign: "left",
+          fontFamily: 'Source Sans Pro',
       },
       position: 'top',
 

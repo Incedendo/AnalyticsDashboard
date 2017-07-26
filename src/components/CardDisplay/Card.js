@@ -69,7 +69,7 @@ export class Card extends Component {
     const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
     return (
       <div className='card col-md-3'>
-        <div className='title'>
+        <div className='title inline-block'>
           {this.props.title}
         </div>
 
