@@ -13,26 +13,16 @@ class Home extends Component {
     projects: [],
     mounted: false,
     filter: '',
-    frequency: ''
+    frequency: '',
   };
 
   componentDidMount() {
-   const dataAPI = 'http://localhost:3000';
-   axios.get(dataAPI + '/test')
-     .then((response) => {
-       this.setState({
-        //projects: response.data,
-        projects: jsonData,
-        mounted: true,
-         mounted: true,
-         filter: 'QTD',
-         frequency: 'quarterly'
-       });
-     })
-     .catch( (error) => {
-       console.log(error);
-     }
-   );
+    this.setState({
+      projects: jsonData,
+      mounted: true,
+      filter: 'QTD',
+      frequency: 'quarterly'
+    });
 
   }
 
@@ -67,17 +57,19 @@ class Home extends Component {
     let arr=[];
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
+      console.log("Component mounted");
     }
+
+    console.log(arr);
 
     const dataType = ["Registrations", "Enrollments", "Unique User Login"];
 
     return (
-
       <div className="mainDiv">
-          <div className='strip' style={{background:'#29C3D8',height:'10px'}}/>
-          <Header />
-          <div className="mainDiv">
 
+          <Header />
+
+          <div className="mainDiv">
             <div className="pageVisit inline">
               Page Visits
             </div>
@@ -86,7 +78,9 @@ class Home extends Component {
               <FreqFilter handleFilter={this.handleFilter}/>
             </div>
 
-          {this.state.mounted && <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="440px" width="100%" />}
+            {this.state.mounted &&
+              <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="440px" width="97%"
+              margin="45px" yAxisTextSize="20" xAxisTextSize="20" />}
           </div>
 
           <div className="container noMargin">
@@ -94,6 +88,7 @@ class Home extends Component {
           </div>
 
       </div>
+
     );
   }
 }
@@ -103,7 +98,22 @@ Home.propTypes = {
 };
 
 export default Home;
+
+// componentDidMount() {
+//  const dataAPI = 'http://localhost:3000';
+//  axios.get(dataAPI + '/test')
+//    .then((response) => {
+//      this.setState({
+//       //projects: response.data,
+//       projects: jsonData,
+//       mounted: true,
+//       filter: 'QTD',
+//       frequency: 'quarterly'
+//      });
+//    })
+//    .catch( (error) => {
+//      console.log(error);
+//    }
+//  );
 //
-
-
-// <CardMenu list={arr} />
+// }

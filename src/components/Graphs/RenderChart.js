@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -73,6 +73,8 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
 
+  console.log("y-axis text size: "+ yAxisTextSize);
+
   let options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -110,7 +112,8 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
         },
         ticks: {
           fontColor: "white", // axis labels
-          fontSize: 25,
+          fontSize: xAxisTextSize,
+          padding: 20
         }
       }],
       yAxes: [{
@@ -120,9 +123,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
             color: "#4E6685",
             drawTicks: false
         },
+        stacked: true,
         ticks: {
           fontColor: "white", // this
-          fontSize: 22
+          fontSize: yAxisTextSize,
+          padding: 20
         }
       }]
     },
@@ -131,7 +136,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width }) => {
 
 
   return (
-      <div style={{height: height, width: width}}>
+      <div style={{height: height, width: width, margin: margin}}>
         { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
         { graphType === 'line' &&

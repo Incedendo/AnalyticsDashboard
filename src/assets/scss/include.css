@@ -355,7 +355,8 @@ h1 {
   align-self: center;
   margin: 0 auto;
   margin-top: 0.5%;
-  height: 50%; }
+  height: 50%;
+  margin: 30px; }
 
 .border-right {
   border-right: 1px solid white; }

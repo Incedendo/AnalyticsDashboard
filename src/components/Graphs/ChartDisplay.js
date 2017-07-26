@@ -2,7 +2,7 @@ import React from 'react'
 import RenderChart from './RenderChart'
 import PropTypes from 'prop-types';
 
-const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight, width }) => {
+const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight, width, margin, yAxisTextSize, xAxisTextSize }) => {
 
     var list = [];
     switch(frequency) {
@@ -20,7 +20,15 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
         break;
     }
 
-    return <RenderChart dataType={dataType} graphType={graphType} list={list} height={chartHeight} width={width}/>
+    console.log("y-axis text size: "+ yAxisTextSize);
+
+    return <RenderChart
+      dataType={dataType}
+      graphType={graphType}
+      list={list}
+      height={chartHeight} width={width} margin={margin}
+      yAxisTextSize={yAxisTextSize}
+      xAxisTextSize={xAxisTextSize} />
 }
 
 ChartDisplay.propTypes= {
