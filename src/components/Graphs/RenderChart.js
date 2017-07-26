@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -62,7 +62,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
   }
 
   const bam = {
-    pointRadius: '11',
+    pointRadius: pointRadius,
     pointHoverRadius: '13',
     pointBorderWidth: '2',
     pointBackgroundColor: '#0C5AB5',
@@ -128,7 +128,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         ticks: {
           fontColor: "white", // this
           fontSize: yAxisTextSize,
-          padding: 20
+          padding: 16
         }
       }]
     },

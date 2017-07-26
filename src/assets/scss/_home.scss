@@ -4,6 +4,14 @@
   background: #022753 !important;
   display: flex;
   flex-direction: column;
+  // width: 100%;
+  // max-width: 2560px;
+}
+
+.subMainDiv{
+  background: #022753 !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .pageVisit {
@@ -30,6 +38,7 @@
 .noMargin {
   margin: 0px;
   width: 100%;
+  height: 100%;
 }
 
 .strip {

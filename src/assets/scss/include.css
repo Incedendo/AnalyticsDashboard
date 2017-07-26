@@ -314,7 +314,8 @@ h1 {
   color: #b8b7ad; }
 
 .card {
-  background: #12335E; }
+  background: #12335E;
+  height: 50%; }
 
 .title {
   color: #FFFFFF;
@@ -493,6 +494,11 @@ select {
   display: flex;
   flex-direction: column; }
 
+.subMainDiv {
+  background: #022753 !important;
+  display: flex;
+  flex-direction: column; }
+
 .pageVisit {
   font-size: 3.5rem;
   font-weight: 600;
@@ -512,7 +518,8 @@ select {
 
 .noMargin {
   margin: 0px;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 .strip {
   background-color: #15C3DA;
