@@ -78,9 +78,7 @@ export class Card extends Component {
 
         {filter &&
           <div className={this.props.graph?'filter-graph':'filter'}>
-
             <FreqFilter handleFilter={this.handleFilter}/>
-
           </div>
         }
 
