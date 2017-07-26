@@ -68,7 +68,7 @@ class Home extends Component {
 
           <Header />
 
-          <div className="mainDiv">
+          <div className="subMainDiv">
             <div className="pageVisit inline">
               {dataType[0]}
             </div>

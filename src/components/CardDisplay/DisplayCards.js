@@ -37,7 +37,7 @@ export class DisplayCards extends Component {
 
   render () {
     return (
-      <div>
+      <div className="row display">
         {this.renderCards()}
       </div>
     )
