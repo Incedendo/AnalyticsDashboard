@@ -46,7 +46,10 @@ export class Card extends Component {
     graphType={this.state.graphType}
     frequency={this.state.frequency}
     chartHeight='275px'
-    width='100%'/>
+    width='100%'
+    yAxisTextSize="15"
+    xAxisTextSize="15"
+    />
   }
 
   renderComp = () => {
