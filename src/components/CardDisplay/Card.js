@@ -47,8 +47,9 @@ export class Card extends Component {
     frequency={this.state.frequency}
     chartHeight='275px'
     width='100%'
-    yAxisTextSize="15"
-    xAxisTextSize="15"
+    yAxisTextSize="18"
+    xAxisTextSize="18"
+    pointRadius="8"
     />
   }
 

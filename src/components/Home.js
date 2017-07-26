@@ -80,7 +80,9 @@ class Home extends Component {
 
             {this.state.mounted &&
               <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="440px" width="97%"
-              margin="45px" yAxisTextSize="20" xAxisTextSize="20" />}
+              margin="45px" yAxisTextSize="20" xAxisTextSize="25"
+              pointRadius="10"
+              />}
           </div>
 
           <div className="container noMargin">
