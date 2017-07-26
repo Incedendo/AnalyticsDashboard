@@ -3,6 +3,8 @@
 .header {
     margin: 30px;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .inLine
@@ -12,16 +14,15 @@
 
 .analytics {
   height: 91px;
-  width: 830.85px;
+  width: 13%;
   color: #FFFFFF;
   font-family: "Source Sans Pro";
   font-size: 5.5rem;
   line-height: 91px;
   color: #FFFFFF;
-  float: left;
-  text-align: left;
-  margin-left: 25rem;
-  margin-top: -1.5rem;
+  left: 250px;
+  top: 30px;
+  position: absolute;
 
 }
 
@@ -44,6 +45,6 @@
   position: absolute;
   left: 0px;
   top: 30px;
-  margin-top: 0.75%;
-  margin-left: 2%;
+  margin: 0.75% 2%;
+
 }
