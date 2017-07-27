@@ -735,7 +735,7 @@ hr {
 .linksDiv {
   margin-top: 200px; }
 
-hr, .hr {
+.horizontal-hr {
   background-color: #3B5678;
   width: 20%;
   height: 1px;
