@@ -322,7 +322,16 @@ h1 {
   width: 40px;
   height: 30px;
   position: relative;
-  background: #022753; }
+  background: #022753;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer; }
 
 #nav-icon1 span {
   display: block;
@@ -332,7 +341,15 @@ h1 {
   background: white;
   border-radius: 9px;
   opacity: 1;
-  left: 0; }
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out; }
 
 #nav-icon1 span:nth-child(1) {
   top: 0px; }
@@ -342,6 +359,24 @@ h1 {
 
 #nav-icon1 span:nth-child(3) {
   top: 24px; }
+
+#nav-icon1.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px; }
+
+#nav-icon1.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg); }
 
 .card {
   background: #12335E;
@@ -734,7 +769,8 @@ select {
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 1; }
 
 .modalClose {
   position: absolute;
