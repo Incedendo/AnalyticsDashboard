@@ -134,8 +134,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     },
   }
 
-
-
   return (
       <div style={{height: height, width: width, margin: margin, marginTop: '0px'}}>
         { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}

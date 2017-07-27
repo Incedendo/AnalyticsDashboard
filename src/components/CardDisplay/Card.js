@@ -49,7 +49,7 @@ export class Card extends Component {
     width='100%'
     yAxisTextSize="18"
     xAxisTextSize="18"
-    pointRadius="8"
+    pointRadius="0"
     />
   }
 
