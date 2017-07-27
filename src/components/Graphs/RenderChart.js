@@ -37,9 +37,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     }
   });
 
-  console.log('dataArr is: ');
-  console.log(dataArr)
-
   const labels = list.map(({label}) => label);
 
   const fillColors = [ "rgba(183, 117, 127, 0.6)", "rgba(41, 195, 216, 0.8)", "rgba(166, 178, 194, 1)"];
@@ -71,9 +68,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
-  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
-
-  console.log("y-axis text size: "+ yAxisTextSize);
+  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}));
 
   let options = {
     responsive: true,

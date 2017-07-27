@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import greenArrow from './greenArrow.svg';
 import redArrow from './redArrow.svg'
 
-const RenderComp = ({list=[], dataType=[], filter}) => {
+const RenderList = ({list=[], dataType=[], filter}) => {
 
   const data = list[0]
   let improve = false;
@@ -21,7 +21,7 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
       sign = '-' + percent + '%'
     }
   }
-  
+
   return (
     <div>
       {data.length > 1 &&
@@ -52,13 +52,13 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
         </div>
       }
       {data.length === 1 &&
-        <div className="col-md-6 soloBox">
-            <div className='soloNum'>
-              {data[0]}
-            </div>
-            <div className='soloLabel'>
+        <div className='soloBox'>
+          <div className='num2'>
+            {data[0]}
+            <div className='label'>
               Current {filter}
             </div>
+          </div>
         </div>
       }
     </div>
@@ -69,4 +69,4 @@ RenderComp.propTypes = {
   dataType: PropTypes.array,
 };
 
-export default RenderComp
+export default RenderList

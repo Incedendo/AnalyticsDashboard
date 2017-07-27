@@ -5,7 +5,8 @@ import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
-import jsonData from '../assets/JSON/main.js';
+import numericData from '../assets/JSON/main.js';
+import pageData from '../assets/JSON/topPages.js';
 import '../assets/scss/_home.scss';
 
 class Home extends Component {
@@ -19,7 +20,8 @@ class Home extends Component {
 
   componentDidMount() {
     this.setState({
-      projects: jsonData,
+      projects: numericData,
+      pages: pageData,
       mounted: true,
       filter: 'QTD',
       frequency: 'quarterly'
