@@ -35,7 +35,8 @@
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 1; }
 
 .modalClose {
   position: absolute;
