@@ -58,46 +58,47 @@ class App extends Component {
           </div>
         </button>
 
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          contentLabel="Example Modal"
-          closeModal={this.toggleModal}
-          enabledModal={this.state.modalIsOpen}
-          style={customStyles}
-        >
-          <div className="valicBrand">
-            <img src={VALIC} />
-          </div>
-          <div className="linksDiv">
-            <div className="modalView">
-              <a href="#">OVERVIEW</a>
-            </div>
-            <div className="modalView">
-              <a href="#">POPULAR PAGES</a>
-            </div>
-            <div className="modalView">
-              <a href="#">DEVICES</a>
-            </div>
-            <div className="modalView">
-              <a href="#">GEOGRAPHIC</a>
-            </div>
-            <div className="modalView">
-              <a href="#">SETTINGS</a>
-            </div>
-            <div className="modalView">
-              <hr className="horizontal-hr"></hr>
-            </div>
-            <div className="modalView">
-              <a href="#">Log Out</a>
-            </div>
-          </div>
 
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            contentLabel="Example Modal"
+            closeModal={this.toggleModal}
+            enabledModal={this.state.modalIsOpen}
+            style={customStyles}
+          >
+            <div className="valicBrand">
+              <img src={VALIC} />
+            </div>
+            <div className="linksDiv">
+              <div className="modalView">
+                <a href="#">OVERVIEW</a>
+              </div>
+              <div className="modalView">
+                <a href="#">POPULAR PAGES</a>
+              </div>
+              <div className="modalView">
+                <a href="#">DEVICES</a>
+              </div>
+              <div className="modalView">
+                <a href="#">GEOGRAPHIC</a>
+              </div>
+              <div className="modalView">
+                <a href="#">SETTINGS</a>
+              </div>
+              <div className="modalView">
+                <hr className="horizontal-hr"></hr>
+              </div>
+              <div className="modalView">
+                <a href="#">Log Out</a>
+              </div>
+            </div>
 
-            <button className="modalClose" onClick={this.toggleModal}>
-              x
-            </button>
+              <button className="modalClose" onClick={this.toggleModal}>
+                x
+              </button>
 
-        </Modal>
+          </Modal>
+
 
         <Home />
 
