@@ -12,9 +12,12 @@
 .subMainDiv{
 
   background: #022753 !important;
-  display: flex;
-  flex-direction: column;
+  //background: transparent;
+  display: block;
   height: 30vh;
+  position: relative;
+  padding-top: 2rem;
+
 }
 
 .pageVisit {
@@ -24,14 +27,14 @@
   color: #FFFFFF;
   letter-spacing: 1px;
   padding-left: 45px;
-  padding-top: 70px;
   text-align: left;
+
 }
 
 .filterHeader {
   position: absolute;
   right: 5rem;
-  top: 13rem;
+  top: 1rem;
 }
 
 .inLine
@@ -42,11 +45,21 @@
 .noMargin {
   margin: 0px;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
+  position: relative;
+  padding-top: 4rem;
+
+}
+
+.headerDiv {
+  position: relative;
+  height: 9vh;
 }
 
 .strip {
   background-color: #15C3DA;
   width: 100%;
   height: 1vh;
+  position: relative;
+  display: block;
 }
