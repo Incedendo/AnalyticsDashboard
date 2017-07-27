@@ -41,7 +41,7 @@ class Header extends Component {
           </div>
           <div className="analytics inLine">ANALYTICS</div>
           <div className="share inLine">SHARE</div>
-          <div className="modal inLine">
+          {/* <div className="modal inLine">
             <button onClick={this.openModal}>Open Modal</button>
             <Modal
               isOpen={this.state.modalIsOpen}
@@ -62,7 +62,7 @@ class Header extends Component {
                 <button>the modal</button>
               </form>
             </Modal>
-          </div>
+          </div> */}
         </div>
       </div>
     );
