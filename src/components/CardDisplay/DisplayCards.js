@@ -6,14 +6,80 @@ import '../../assets/scss/_Card.scss';
 export class DisplayCards extends Component {
 
   state = {
-    cards: [{title: 'Registrations', graph: false, numGraph: true, graphType: 'compare', data: ['Registrations']},
-            {title: 'Enrollments', graph: true, numGraph: false, graphType: 'line', data: ['Enrollments', 'Suspicious Enrollments']},
-            {title: 'Unique User Login', graph: false, numGraph: true, graphType: 'compare', data: ['Unique User Login']},
-            {title: 'Contribution Changes', graph: true, numGraph: false, graphType: 'line', data: ['Contribution Changes']},
-            {title: 'Top Active Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Active Pages']},
-            {title: 'Retirement Income Calc Usage', graph: true, numGraph: false, graphType: 'bar', data: ['Retirement Income Calc Usage']},
-            {title: 'Top Pages', graph: false, numGraph: false, graphType: 'list', data: ['Top Pages']},
-            {title: 'Visits by Device Type', graph: false, numGraph: false, graphType: 'bar', data: ['Visits by Device Type']},]
+    cards: [
+      {
+        title: 'Registrations',
+        graph: false,
+        numGraph: true,
+        graphType: 'compare',
+        data: ['Registrations'],
+        rightBorder: true,
+        bottomBorder: true,
+      },
+      {
+        title: 'Enrollments',
+        graph: true,
+        numGraph: false,
+        graphType: 'line',
+        data: ['Enrollments', 'Suspicious Enrollments'],
+        rightBorder: true,
+        bottomBorder: true,
+      },
+      {
+        title: 'Unique User Login',
+        graph: false,
+        numGraph: true,
+        graphType: 'compare',
+        data: ['Unique User Login'],
+        rightBorder: true,
+        bottomBorder: true,
+      },
+      {
+        title: 'Contribution Changes',
+        graph: true,
+        numGraph: false,
+        graphType: 'line',
+        data: ['Contribution Changes'],
+        rightBorder: false,
+        bottomBorder: true,
+      },
+      {
+        title: 'Top Active Pages',
+        graph: false,
+        numGraph: false,
+        graphType: 'list',
+        data: ['Top Active Pages'],
+        rightBorder: true,
+        bottomBorder: false,
+      },
+      {
+        title: 'Retirement Income Calc Usage',
+        graph: true,
+        numGraph: false,
+        graphType: 'bar',
+        data: ['Retirement Income Calc Usage'],
+        rightBorder: true,
+        bottomBorder: false,
+      },
+      {
+        title: 'Top Pages',
+        graph: false,
+        numGraph: false,
+        graphType: 'list',
+        data: ['Top Pages'],
+        rightBorder: true,
+        bottomBorder: false,
+      },
+      {
+        title: 'Visits by Device Type',
+        graph: false,
+        numGraph: false,
+        graphType: 'bar',
+        data: ['Visits by Device Type'],
+        rightBorder: false,
+        bottomBorder: false,
+      },
+    ]
   }
 
   renderCards = () => {
