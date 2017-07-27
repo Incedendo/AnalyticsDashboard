@@ -36,7 +36,7 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
                 Current {filter}
               </div>
             </div>
-            <hr/>
+            <hr className='hr1'/>
           <div className="col-md-6 rightBox">
               <div className='num2'>
                 {data[0]}
