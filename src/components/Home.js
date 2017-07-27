@@ -71,16 +71,16 @@ class Home extends Component {
           <Header />
 
           <div className="subMainDiv">
-            <div className="pageVisit inline">
+            <div className="pageVisit inLine">
               {dataType[0]}
             </div>
 
-            <div className='filterHeader inline'>
+            <div className='filterHeader inLine'>
               <FreqFilter handleFilter={this.handleFilter}/>
             </div>
 
             {this.state.mounted &&
-              <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="440px" width="97%"
+              <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
               margin="45px" yAxisTextSize="20" xAxisTextSize="25"
               pointRadius="10"
               />}

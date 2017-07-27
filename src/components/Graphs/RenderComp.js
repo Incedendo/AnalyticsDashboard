@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import greenArrow from './greenArrow.svg';
 import redArrow from './redArrow.svg'
 
-const RenderComp = ({list=[], dataType=[]}) => {
+const RenderComp = ({list=[], dataType=[], filter}) => {
 
   const data = list[0]
   let improve = false;
@@ -28,21 +28,21 @@ const RenderComp = ({list=[], dataType=[]}) => {
       {data.length > 1 &&
         <div>
           <div className='compBox row'>
-            <div className="col-md-6">
+            <div className="col-md-6 leftBox">
               <div className='num1'>
-                {data[0]}
+                {data[1]}
               </div>
               <div className='label1'>
-                Prior {dataType[0]}
+                Current {filter}
               </div>
             </div>
             <hr/>
-            <div className="col-md-6">
+          <div className="col-md-6 rightBox">
               <div className='num2'>
-                {data[1]}
+                {data[0]}
               </div>
               <div className='label2'>
-                Current {dataType[0]}
+                Prior {filter}
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@ const RenderComp = ({list=[], dataType=[]}) => {
           <div className='num2'>
             {data[0]}
             <div className='label'>
-              Current {dataType[0]}
+              Current {filter}
             </div>
           </div>
         </div>

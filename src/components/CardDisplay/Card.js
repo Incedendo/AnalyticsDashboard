@@ -45,7 +45,7 @@ export class Card extends Component {
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}
-    chartHeight='275px'
+    chartHeight='200px'
     width='100%'
     yAxisTextSize="18"
     xAxisTextSize="18"
@@ -54,7 +54,7 @@ export class Card extends Component {
   }
 
   renderComp = () => {
-    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency}/>
+    return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency} filter={this.state.filter}/>
   }
 
   componentWillMount () {
