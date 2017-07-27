@@ -53,13 +53,13 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
         </div>
       }
       {data.length === 1 &&
-        <div className='soloBox'>
-          <div className='num2'>
-            {data[0]}
-            <div className='label'>
+        <div className="col-md-6 soloBox">
+            <div className='soloNum'>
+              {data[0]}
+            </div>
+            <div className='soloLabel'>
               Current {filter}
             </div>
-          </div>
         </div>
       }
     </div>
