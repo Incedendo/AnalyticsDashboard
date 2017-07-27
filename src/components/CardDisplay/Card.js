@@ -71,8 +71,21 @@ export class Card extends Component {
   render() {
     if(!this.props.list.length) return null
     const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
+
+    let customClass = "";
+
+    if(this.props.rightBorder && this.props.bottomBorder){
+      customClass = "card col-md-3 border-right border-bottom";
+    }else if(this.props.rightBorder){
+      customClass = "card col-md-3 border-right";
+    }else if(this.props.bottomBorder){
+      customClass = "card col-md-3 border-bottom";
+    }else{
+      customClass = "card col-md-3";
+    }
+
     return (
-      <div className='card col-md-3'>
+      <div className={customClass}>
         <div className='title inline-block'>
           {this.props.title}
         </div>
