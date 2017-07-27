@@ -85,7 +85,7 @@ export class DisplayCards extends Component {
   renderCards = () => {
     return this.state.cards.map(({...rest}) => {
       return (
-            <Card {...rest} list={this.props.list}/>
+          <Card {...rest} list={this.props.list}/>
       );
 
     })
