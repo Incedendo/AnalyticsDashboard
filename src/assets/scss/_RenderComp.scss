@@ -19,7 +19,8 @@
   flex-direction: row;
   width: 100%;
   margin: 0 auto;
-  top: 3rem;
+  top: 2rem;
+  bottom: 2rem;
 
 }
 
@@ -40,12 +41,11 @@
 .num1, .num2 {
   display: flex;
   flex-direction: column;
-  margin-top: 0.25rem;
-  margin-bottom: -1.5rem;
+
   font-family: "Source Sans Pro";
   font-weight: 300;
   letter-spacing: 2px;
-  height: 60%;
+  height: 2;
     @media (min-width: 1200px) {
       font-size: 4rem;
     }
@@ -78,11 +78,11 @@
 }
 
 .label1 {
-  left: 0.5rem;
+  left: 1.5rem;
 }
 
 .label2 {
-  right: 0.5rem;
+  right: 2rem;
 }
 
 .arrowBox {
