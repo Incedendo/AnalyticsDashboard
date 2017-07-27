@@ -537,7 +537,8 @@ select {
   background: #022753 !important;
   display: flex;
   flex-direction: column;
-  height: 30vh; }
+  height: 30vh;
+  position: relative; }
 
 .pageVisit {
   font-size: 2em;
@@ -560,12 +561,18 @@ select {
 .noMargin {
   margin: 0px;
   width: 100%;
-  height: 50vh; }
+  height: 50vh;
+  position: relative; }
+
+.headerDiv {
+  position: relative;
+  margin-bottom: 100px; }
 
 .strip {
   background-color: #15C3DA;
   width: 100%;
-  height: 1vh; }
+  height: 1vh;
+  position: relative; }
 
 .hr1 {
   background-color: #FFFFFF;

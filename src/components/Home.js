@@ -67,8 +67,9 @@ class Home extends Component {
     return (
       <div className="mainDiv">
           <div className='strip' />
-
-          <Header />
+        <div className='headerDiv'>
+            <Header />
+          </div>
 
           <div className="subMainDiv">
             <div className="pageVisit inLine">
