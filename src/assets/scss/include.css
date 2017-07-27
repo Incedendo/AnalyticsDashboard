@@ -667,6 +667,15 @@ select {
 .col-md-6 {
   text-align: center; }
 
+.page {
+  text-align: left;
+  color: white;
+  font-size: 15px;
+  margin-top: 10px; }
+
+.enclose {
+  position: absolute; }
+
 .App {
   background-color: #022753;
   background: #022753 !important; }

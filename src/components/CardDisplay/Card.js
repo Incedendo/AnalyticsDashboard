@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
-import {RenderChart} from '../Graphs/RenderChart'
-import CompDisplay from '../Graphs/CompDisplay'
-import ChartDisplay from '../Graphs/ChartDisplay'
-import FreqFilter from '../utils/FreqFilter'
+import {RenderChart} from '../Graphs/RenderChart';
+import CompDisplay from '../Graphs/CompDisplay';
+import ChartDisplay from '../Graphs/ChartDisplay';
+import ListDisplay from '../Graphs/ListDisplay';
+import FreqFilter from '../utils/FreqFilter';
 
 export class Card extends Component {
 
@@ -18,7 +19,7 @@ export class Card extends Component {
   handleFilter = (id) => {
 
     this.setState({
-      filter: id
+      filter: id,
     })
     switch(id) {
       case 'QTD':
@@ -55,6 +56,12 @@ export class Card extends Component {
 
   renderComp = () => {
     return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency} filter={this.state.filter}/>
+  }
+
+  renderList = () => {
+    return (
+      <ListDisplay listHome={this.props.list}/>
+    );
   }
 
   componentWillMount () {
@@ -99,6 +106,7 @@ export class Card extends Component {
         <div className='graph'>
           {this.props.graph && this.renderGraph()}
           {this.props.numGraph && this.renderComp()}
+          {this.props.listCard && this.renderList()}
         </div>
       </div>
     )

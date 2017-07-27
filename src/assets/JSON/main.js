@@ -230,5 +230,331 @@ export default {
       "contributionChange": 2,
       "allocationChange": 1
     }
-  ]
+  ],
+  "topPages":
+    [
+      {
+        "Rank": 1,
+        "Page": "valic us_corp:home",
+        "PageViews": 1085098,
+        "Percentage": "16.20%"
+      },
+      {
+        "Rank": 2,
+        "Page": "valic us_corp:participant:login:sign-in",
+        "PageViews": 1064682,
+        "Percentage": "15.90%"
+      },
+      {
+        "Rank": 3,
+        "Page": "valic us_corp:participant:workspace",
+        "PageViews": 856618,
+        "Percentage": "12.80%"
+      },
+      {
+        "Rank": 4,
+        "Page": "valic us_corp:participant:workspace:account-breakdown",
+        "PageViews": 229615,
+        "Percentage": "3.40%"
+      },
+      {
+        "Rank": 5,
+        "Page": "https://my.valic.com/ARO/Profile/ParticipantContactInformation.aspx",
+        "PageViews": 171133,
+        "Percentage": "2.60%"
+      },
+      // {
+      //   "Rank": 6,
+      //   "Page": "valic us_corp:participant:retrofit:statements:statements",
+      //   "PageViews": 168993,
+      //   "Percentage": "2.50%"
+      // },
+      // {
+      //   "Rank": 7,
+      //   "Page": "valic us_corp:participant:online-enrollment:enrollment-register-only",
+      //   "PageViews": 117210,
+      //   "Percentage": "1.70%"
+      // },
+      // {
+      //   "Rank": 8,
+      //   "Page": "valic us_corp:participant:retrofit:my-account-details:my-account-details",
+      //   "PageViews": 111772,
+      //   "Percentage": "1.70%"
+      // },
+      // {
+      //   "Rank": 9,
+      //   "Page": "valic us_corp:participant:message-center",
+      //   "PageViews": 105734,
+      //   "Percentage": "1.60%"
+      // },
+      // {
+      //   "Rank": 10,
+      //   "Page": "https://my.valic.com/ARO/Transactions/TransactionsMenu.aspx",
+      //   "PageViews": 100151,
+      //   "Percentage": "1.50%"
+      // },
+      // {
+      //   "Rank": 11,
+      //   "Page": "valic us_corp:participant:login:forgot-username",
+      //   "PageViews": 80734,
+      //   "Percentage": "1.20%"
+      // },
+      // {
+      //   "Rank": 12,
+      //   "Page": "valic us_corp:participant:login:forgot-password",
+      //   "PageViews": 67435,
+      //   "Percentage": "1.00%"
+      // },
+      // {
+      //   "Rank": 13,
+      //   "Page": "valic us_corp:participant:retrofit:my-profile:my-profile",
+      //   "PageViews": 62006,
+      //   "Percentage": "0.90%"
+      // },
+      // {
+      //   "Rank": 14,
+      //   "Page": "valic us_corp:contact-us",
+      //   "PageViews": 57187,
+      //   "Percentage": "0.90%"
+      // },
+      // {
+      //   "Rank": 15,
+      //   "Page": "valic us_corp:participant:retrofit:plan-summary:plan-summary",
+      //   "PageViews": 43028,
+      //   "Percentage": "0.60%"
+      // },
+      // {
+      //   "Rank": 16,
+      //   "Page": "https://my.valic.com/ARO/Administration/SelectParticipant.aspx",
+      //   "PageViews": 42494,
+      //   "Percentage": "0.60%"
+      // },
+      // {
+      //   "Rank": 17,
+      //   "Page": "valic us_corp:participant:retrofit:my-profile:banking-information",
+      //   "PageViews": 39946,
+      //   "Percentage": "0.60%"
+      // },
+      // {
+      //   "Rank": 18,
+      //   "Page": "valic us_corp:participant:retrofit:request-cash-distribution:request-cash-distribution",
+      //   "PageViews": 36767,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 19,
+      //   "Page": "valic us_corp:participant:retrofit:my-profile:beneficiaries",
+      //   "PageViews": 35005,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 20,
+      //   "Page": "valic us_corp:participant:retrofit:my-profile:update-investor-profile",
+      //   "PageViews": 32935,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 21,
+      //   "Page": "valic us_corp:participant:retrofit:pending-transactions:pending-transactions",
+      //   "PageViews": 32901,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 22,
+      //   "Page": "valic us_corp:participant:online-enrollment:enrollment-registration",
+      //   "PageViews": 32042,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 23,
+      //   "Page": "valic us_corp:participant:retrofit:statements:multiple-statements",
+      //   "PageViews": 31512,
+      //   "Percentage": "0.50%"
+      // },
+      // {
+      //   "Rank": 24,
+      //   "Page": "valic us_corp:participant:login:forgot-username-confirmation",
+      //   "PageViews": 30040,
+      //   "Percentage": "0.40%"
+      // },
+      // {
+      //   "Rank": 25,
+      //   "Page": "valic us_corp:participant:online-enrollment:enrollment-thank-you-register-only",
+      //   "PageViews": 27992,
+      //   "Percentage": "0.40%"
+      // },
+      // {
+      //   "Rank": 26,
+      //   "Page": "valic us_corp:participant:retrofit:loan-Summary:loan-summary",
+      //   "PageViews": 21900,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 27,
+      //   "Page": "valic us_corp:about-valic",
+      //   "PageViews": 21702,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 28,
+      //   "Page": "valic us_corp:participant:message-center:alerts",
+      //   "PageViews": 20575,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 29,
+      //   "Page": "https://my.valic.com/ARO/Login/User/UserAgreement.aspx",
+      //   "PageViews": 20239,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 30,
+      //   "Page": "valic us_corp:participant:retrofit:my-profile:update-security-profile",
+      //   "PageViews": 20172,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 31,
+      //   "Page": "valic us_corp:participant:retrofit:my-account-details:withdrawal-form-request",
+      //   "PageViews": 20044,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 32,
+      //   "Page": "valic us_corp:participant:change-contribution:manage-contribution",
+      //   "PageViews": 19503,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 33,
+      //   "Page": "content:valic_authenticated_pilot:america-canada:us_corporate:en:participant:retrofit:3240-442282",
+      //   "PageViews": 19242,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 34,
+      //   "Page": "valic us_corp:participant:retrofit:my-account-details:forms",
+      //   "PageViews": 19085,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 35,
+      //   "Page": "valic us_conehealth:participant:workspace",
+      //   "PageViews": 18837,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 36,
+      //   "Page": "valic us_corp:participant:retrofit:model-a-loan:model-a-loan",
+      //   "PageViews": 17303,
+      //   "Percentage": "0.30%"
+      // },
+      // {
+      //   "Rank": 37,
+      //   "Page": "valic us_lvhhn:participant:workspace",
+      //   "PageViews": 16446,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 38,
+      //   "Page": "valic us_corp:participant:online-enrollment:enrollment-access-code-entry",
+      //   "PageViews": 16203,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 39,
+      //   "Page": "valic us_corp:participant:retirement-readiness:ric-calculator",
+      //   "PageViews": 15466,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 40,
+      //   "Page": "valic us_corp:participant:login:high-risk-security-verification",
+      //   "PageViews": 15110,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 41,
+      //   "Page": "valic us_corp:participant:retrofit:plan-summary:plan-summary-loan-tab",
+      //   "PageViews": 14484,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 42,
+      //   "Page": "valic us_corp:participant:login:pso-vol-challenge",
+      //   "PageViews": 14484,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 43,
+      //   "Page": "valic us_cps:participant:workspace",
+      //   "PageViews": 14371,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 44,
+      //   "Page": "valic us_floridadcp:participant:workspace",
+      //   "PageViews": 14135,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 45,
+      //   "Page": "valic us_corp:participant:retrofit:transfer-assets:transfer-asset-request",
+      //   "PageViews": 13994,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 46,
+      //   "Page": "valic us_corp:participant:retrofit:transfer-assets:transfer-asset-plan-select",
+      //   "PageViews": 13801,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 47,
+      //   "Page": "valic us_wakemed:participant:workspace",
+      //   "PageViews": 13768,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 48,
+      //   "Page": "valic us_corp:participant:login:identity-verification-question",
+      //   "PageViews": 13609,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 49,
+      //   "Page": "valic us_corp:participant:retirement-readiness:ric-terms-conditions",
+      //   "PageViews": 13597,
+      //   "Percentage": "0.20%"
+      // },
+      // {
+      //   "Rank": 50,
+      //   "Page": "https://my.valic.com/ARO/AccountInfo/ContactInfo.aspx",
+      //   "PageViews": 12719,
+      //   "Percentage": "0.20%"
+      // }
+    ],
+    "referedType":
+    [
+      {
+        "Referrer Type": "Typed/Bookmarked",
+        "Instances": 319268,
+        "Percentage": "79.60%"
+      },
+      {
+        "Referrer Type": "Search Engines",
+        "Instances": 70178,
+        "Percentage": "17.50%"
+      },
+      {
+        "Referrer Type": "Other Web Sites",
+        "Instances": 11712,
+        "Percentage": "2.90%"
+      },
+      {
+        "Referrer Type": "Social Networks",
+        "Instances": 112,
+        "Percentage": "0.00%"
+      }
+    ]
 }
