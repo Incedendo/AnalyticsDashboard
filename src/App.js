@@ -85,7 +85,7 @@ class App extends Component {
               <a href="#">SETTINGS</a>
             </div>
             <div className="modalView">
-              <hr></hr>
+              <hr className="horizontal-hr"></hr>
             </div>
             <div className="modalView">
               <a href="#">Log Out</a>
