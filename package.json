@@ -26,6 +26,7 @@
     "node-sass": "^4.5.3",
     "randomcolor": "^0.5.3",
     "react-bootstrap": "^0.31.1",
-    "react-chartjs-2": "^2.5.3"
+    "react-chartjs-2": "^2.5.3",
+    "react-modal": "^2.2.2"
   }
 }
