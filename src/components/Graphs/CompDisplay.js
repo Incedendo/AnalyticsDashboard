@@ -2,7 +2,7 @@ import React from 'react';
 import RenderComp from './RenderComp';
 import PropTypes from 'prop-types';
 
-const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
+const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) => {
 
   var list = [];
   switch(frequency) {
@@ -45,7 +45,7 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency}) => {
         break;
     }
   });
-  return <RenderComp dataType={dataType} list={dataArr} />
+  return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
 }
 
 CompDisplay.propTypes = {
