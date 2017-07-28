@@ -7,13 +7,15 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
 
   // the 5th card is TOP ACTIVE PAGES
   if(cardIndex == 5){
-    const list = listHome[5];
+    const list = listHome[4];
     return(
       <div className="enclose">
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
-              {item.Page} : {item.Entries} : {item.Percentage}
+                <span>{item.Page}</span>
+                <span>{item.Entries}</span>
+                <span>{item.Percentage}</span>
               </div>
             )
         })}
@@ -21,13 +23,15 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
     );
   }else{
     // The 7th card is the TOP PAGES
-    const list = listHome[6];
+    const list = listHome[5];
     return (
       <div className="enclose">
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
-              {item.Page} : {item.PageViews} : {item.Percentage}
+                <span>{item.Page}</span>
+                <span>{item.PageViews}</span>
+                <span>{item.Percentage}</span>
               </div>
             )
         })}

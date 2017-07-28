@@ -263,36 +263,36 @@ export default {
       "Entries": 1854,
       "Percentage": "0.50%"
     },
-    {
-      "Rank": 6,
-      "Page": "participant:online-enrollment:enrollment-register-only",
-      "Entries": 1452,
-      "Percentage": "0.40%"
-    },
-    {
-      "Rank": 7,
-      "Page": "https://my.valic.com/ARO/Administration/SelectParticipant.aspx",
-      "Entries": 1267,
-      "Percentage": "0.30%"
-    },
-    {
-      "Rank": 8,
-      "Page": "https://my.valic.com/SeminarRegistration/availableSeminars.aspx",
-      "Entries": 1036,
-      "Percentage": "0.30%"
-    },
-    {
-      "Rank": 9,
-      "Page": "https://my.valic.com/seminarregistration/availableseminars.aspx",
-      "Entries": 944,
-      "Percentage": "0.20%"
-    },
-    {
-      "Rank": 10,
-      "Page": "privacy:internet-privacy-policy",
-      "Entries": 696,
-      "Percentage": "0.20%"
-    }
+    // {
+    //   "Rank": 6,
+    //   "Page": "participant:online-enrollment:enrollment-register-only",
+    //   "Entries": 1452,
+    //   "Percentage": "0.40%"
+    // },
+    // {
+    //   "Rank": 7,
+    //   "Page": "https://my.valic.com/ARO/Administration/SelectParticipant.aspx",
+    //   "Entries": 1267,
+    //   "Percentage": "0.30%"
+    // },
+    // {
+    //   "Rank": 8,
+    //   "Page": "https://my.valic.com/SeminarRegistration/availableSeminars.aspx",
+    //   "Entries": 1036,
+    //   "Percentage": "0.30%"
+    // },
+    // {
+    //   "Rank": 9,
+    //   "Page": "https://my.valic.com/seminarregistration/availableseminars.aspx",
+    //   "Entries": 944,
+    //   "Percentage": "0.20%"
+    // },
+    // {
+    //   "Rank": 10,
+    //   "Page": "privacy:internet-privacy-policy",
+    //   "Entries": 696,
+    //   "Percentage": "0.20%"
+    // }
 //   {
 //     "Rank": 11,
 //     "Page": "valic us_corp:about-valic",
