@@ -13,9 +13,9 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
-                <span>{item.Page}</span>
-                <span>{item.Entries}</span>
-                <span>{item.Percentage}</span>
+                <span className='firstItem'>{item.Page}</span>
+                <span className='secondItem'>{item.Entries}</span>
+                <span className='thirdItem'>{item.Percentage}</span>
               </div>
             )
         })}
@@ -29,9 +29,9 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
-                <span>{item.Page}</span>
-                <span>{item.PageViews}</span>
-                <span>{item.Percentage}</span>
+                <span className='firstItem'>{item.Page}</span>
+              <span className='secondItem'>{item.PageViews}</span>
+            <span className='thirdItem'>{item.Percentage}</span>
               </div>
             )
         })}

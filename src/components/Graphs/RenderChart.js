@@ -8,6 +8,8 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
 
   let dataArr= new Array(dataType.length);
 
+  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(253,185,19,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)', 'rgba(224,238,208,0.6)'];
+
   dataType.map( (stat, index) =>{
     switch(stat){
       case "Registrations":
@@ -37,10 +39,16 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     }
   });
 
+  console.log('dataArr is: ');
+  console.log(dataArr)
+
   const labels = list.map(({label}) => label);
 
-  const fillColors = [ "rgba(183, 117, 127, 0.6)", "rgba(41, 195, 216, 0.8)", "rgba(166, 178, 194, 1)"];
-
+  const colors = [];
+  for(let i = 0; i < dataArr.length; i++) {
+    colors.push(colorArr[Math.ceil(Math.random()*dataArr.length)]);
+  }
+  console.log(colors);
 
   let dataSet = {
     labels,
@@ -48,12 +56,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         data,
         label: dataType[index],
         borderColor: '#6752ee',
-        backgroundColor: randomColor({
-
-          format: 'hsla',
-          alpha: 0.5,
-
-        }),
+        backgroundColor: colors[index],
       })
     )
   }
@@ -68,7 +71,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
-  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}));
+  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
+
+  console.log("y-axis text size: "+ yAxisTextSize);
 
   let options = {
     responsive: true,
@@ -109,9 +114,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         ticks: {
           fontColor: "white", // axis labels
           fontSize: xAxisTextSize,
-          padding: 20,
-          fontWeight: 900,
-          fontFamily: 'Source Sans Pro',
+          padding: 20
         }
       }],
       yAxes: [{
