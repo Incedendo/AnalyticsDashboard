@@ -4,22 +4,19 @@ import PropTypes from 'prop-types';
 import {Doughnut} from 'react-chartjs-2';
 import '../../assets/scss/_ListDisplay.scss';
 
+  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(253,185,19,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)', 'rgba(224,238,208,0.6)'];
+
 let initialChartConfig = {
   labels: [],
   datasets: [{
     data: [],
     backgroundColor: [
-      '#36A2EB',
-      '#FFCE56',
-      'pink',
-      'red'
+      'rgba(21,195,218,0.6)',
+      'rgba(0,156,166,0.6)',
+      'rgba(253,185,19,0.6)',
+      'rgba(224,238,208,0.6)'
     ],
-    hoverBackgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-      'green',
-    ]
+
   }]
 };
 
@@ -43,8 +40,8 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
             return(
               <div key={index} className="page">
                 <span>{item.Page}</span>
-                <span>{item.Entries}</span>
-                <span>{item.Percentage}</span>
+                <span className="secondSpan">{item.Entries}</span>
+                <span className="lastSpan">{item.Percentage}</span>
               </div>
             )
         })}
@@ -59,8 +56,8 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
             return(
               <div key={index} className="page">
                 <span>{item.Page}</span>
-                <span>{item.PageViews}</span>
-                <span>{item.Percentage}</span>
+                <span className="secondSpan">{item.PageViews}</span>
+                <span className="lastSpan">{item.Percentage}</span>
               </div>
             )
         })}

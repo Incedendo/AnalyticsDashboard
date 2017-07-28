@@ -235,31 +235,31 @@ export default {
   [
     {
       "Rank": 1,
-      "Page": "participant:login:sign-in",
+      "Page": "Login and Sign-in",
       "Entries": 176079,
       "Percentage": "45.30%"
     },
     {
       "Rank": 2,
-      "Page": "home",
+      "Page": "Home",
       "Entries": 169319,
       "Percentage": "43.50%"
     },
     {
       "Rank": 3,
-      "Page": "contact-us",
+      "Page": "Contact Us",
       "Entries": 5065,
       "Percentage": "1.30%"
     },
     {
       "Rank": 4,
-      "Page": "participant:workspace",
+      "Page": "Workspace",
       "Entries": 4398,
       "Percentage": "1.10%"
     },
     {
       "Rank": 5,
-      "Page": "page-not-found",
+      "Page": "Page Not Found",
       "Entries": 1854,
       "Percentage": "0.50%"
     },
@@ -538,31 +538,31 @@ export default {
     [
       {
         "Rank": 1,
-        "Page": "valic us_corp:home",
+        "Page": "Home",
         "PageViews": 1085098,
         "Percentage": "16.20%"
       },
       {
         "Rank": 2,
-        "Page": "valic us_corp:participant:login:sign-in",
+        "Page": "Login and Sign-in",
         "PageViews": 1064682,
         "Percentage": "15.90%"
       },
       {
         "Rank": 3,
-        "Page": "valic us_corp:participant:workspace",
+        "Page": "Workspace",
         "PageViews": 856618,
         "Percentage": "12.80%"
       },
       {
         "Rank": 4,
-        "Page": "valic us_corp:participant:workspace:account-breakdown",
+        "Page": "Account-Breakdown",
         "PageViews": 229615,
         "Percentage": "3.40%"
       },
       {
         "Rank": 5,
-        "Page": "https://my.valic.com/ARO/Profile/ParticipantContactInformation.aspx",
+        "Page": "Contact Information",
         "PageViews": 171133,
         "Percentage": "2.60%"
       }
