@@ -16,6 +16,7 @@ export class DisplayCards extends Component {
         data: ['Registrations'],
         rightBorder: true,
         bottomBorder: true,
+        index: 1
       },
       {
         title: 'Enrollments',
@@ -26,6 +27,7 @@ export class DisplayCards extends Component {
         data: ['Enrollments', 'Suspicious Enrollments'],
         rightBorder: true,
         bottomBorder: true,
+        index: 2
       },
       {
         title: 'Unique User Login',
@@ -36,6 +38,7 @@ export class DisplayCards extends Component {
         data: ['Unique User Login'],
         rightBorder: true,
         bottomBorder: true,
+        index: 3
       },
       {
         title: 'Contribution Changes',
@@ -46,6 +49,7 @@ export class DisplayCards extends Component {
         data: ['Contribution Changes'],
         rightBorder: false,
         bottomBorder: true,
+        index: 4
       },
       {
         title: 'Top Active Pages',
@@ -56,6 +60,7 @@ export class DisplayCards extends Component {
         data: ['Top Active Pages'],
         rightBorder: true,
         bottomBorder: false,
+        index: 5
       },
       {
         title: 'Retirement Income Calc Usage',
@@ -66,6 +71,7 @@ export class DisplayCards extends Component {
         data: ['Retirement Income Calc Usage'],
         rightBorder: true,
         bottomBorder: false,
+        index: 6
       },
       {
         title: 'Top Pages',
@@ -76,6 +82,7 @@ export class DisplayCards extends Component {
         data: ['Top Pages'],
         rightBorder: true,
         bottomBorder: false,
+        index: 7
       },
       {
         title: 'Visits by Device Type',
@@ -86,14 +93,15 @@ export class DisplayCards extends Component {
         data: ['Visits by Device Type'],
         rightBorder: false,
         bottomBorder: false,
+        index: 8
       },
     ]
   }
 
   renderCards = () => {
-    return this.state.cards.map(({...rest}) => {
+    return this.state.cards.map(({...rest, index}) => {
       return (
-          <Card {...rest} list={this.props.list}/>
+          <Card {...rest} key={index} list={this.props.list}/>
       );
 
     })
