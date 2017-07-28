@@ -637,9 +637,6 @@ select {
   display: flex;
   flex-direction: row; }
 
-.soloBox {
-  top: 7rem; }
-
 .num1, .num2, .soloNum {
   display: block;
   padding-bottom: 2rem;
