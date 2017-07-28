@@ -231,6 +231,309 @@ export default {
       "allocationChange": 1
     }
   ],
+  "bounceRate":
+  [
+    {
+      "Rank": 1,
+      "Page": "participant:login:sign-in",
+      "Entries": 176079,
+      "Percentage": "45.30%"
+    },
+    {
+      "Rank": 2,
+      "Page": "home",
+      "Entries": 169319,
+      "Percentage": "43.50%"
+    },
+    {
+      "Rank": 3,
+      "Page": "contact-us",
+      "Entries": 5065,
+      "Percentage": "1.30%"
+    },
+    {
+      "Rank": 4,
+      "Page": "participant:workspace",
+      "Entries": 4398,
+      "Percentage": "1.10%"
+    },
+    {
+      "Rank": 5,
+      "Page": "page-not-found",
+      "Entries": 1854,
+      "Percentage": "0.50%"
+    },
+    {
+      "Rank": 6,
+      "Page": "participant:online-enrollment:enrollment-register-only",
+      "Entries": 1452,
+      "Percentage": "0.40%"
+    },
+    {
+      "Rank": 7,
+      "Page": "https://my.valic.com/ARO/Administration/SelectParticipant.aspx",
+      "Entries": 1267,
+      "Percentage": "0.30%"
+    },
+    {
+      "Rank": 8,
+      "Page": "https://my.valic.com/SeminarRegistration/availableSeminars.aspx",
+      "Entries": 1036,
+      "Percentage": "0.30%"
+    },
+    {
+      "Rank": 9,
+      "Page": "https://my.valic.com/seminarregistration/availableseminars.aspx",
+      "Entries": 944,
+      "Percentage": "0.20%"
+    },
+    {
+      "Rank": 10,
+      "Page": "privacy:internet-privacy-policy",
+      "Entries": 696,
+      "Percentage": "0.20%"
+    }
+//   {
+//     "Rank": 11,
+//     "Page": "valic us_corp:about-valic",
+//     "Entries": 676,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 12,
+//     "Page": "valic us_ssfhs:home",
+//     "Entries": 658,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 13,
+//     "Page": "valic us_lvhhn:home",
+//     "Entries": 655,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 14,
+//     "Page": "https://my.valic.com/SeminarRegistration/Index.aspx",
+//     "Entries": 652,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 15,
+//     "Page": "valic us_floridadcp:home",
+//     "Entries": 627,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 16,
+//     "Page": "valic us_corp:participant:login:forgot-password",
+//     "Entries": 616,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 17,
+//     "Page": "valic us_corp:participant:login:forgot-username",
+//     "Entries": 608,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 18,
+//     "Page": "valic us_corp:education-center:retirement-planning:cost-borrowing-your-retirement-account",
+//     "Entries": 606,
+//     "Percentage": "0.20%"
+//   },
+//   {
+//     "Rank": 19,
+//     "Page": "valic us_corp:privacy:important-disclosures",
+//     "Entries": 550,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 20,
+//     "Page": "valic us_scstateorp:home",
+//     "Entries": 505,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 21,
+//     "Page": "valic us_murray:home",
+//     "Entries": 443,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 22,
+//     "Page": "valic us_conehealth:home",
+//     "Entries": 429,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 23,
+//     "Page": "valic us_wellmonths:home",
+//     "Entries": 412,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 24,
+//     "Page": "valic us_tgh:home",
+//     "Entries": 354,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 25,
+//     "Page": "valic us_corp:education-center:tools-and-calculators:retirement-contribution-effects-paycheck",
+//     "Entries": 332,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 26,
+//     "Page": "https://my.valic.com/ARO/Profile/ParticipantContactInformation.aspx",
+//     "Entries": 330,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 27,
+//     "Page": "valic us_wakemed:home",
+//     "Entries": 328,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 28,
+//     "Page": "valic us_bhjackson:home",
+//     "Entries": 317,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 29,
+//     "Page": "valic us_kelsey:home",
+//     "Entries": 311,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 30,
+//     "Page": "valic us_chmca:home",
+//     "Entries": 309,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 31,
+//     "Page": "valic us_duke:home",
+//     "Entries": 309,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 32,
+//     "Page": "valic us_corp:participant:online-enrollment:enrollment-find-plan",
+//     "Entries": 303,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 33,
+//     "Page": "valic us_choc:home",
+//     "Entries": 294,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 34,
+//     "Page": "valic us_corp:privacy:privacy-notice",
+//     "Entries": 264,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 35,
+//     "Page": "valic us_corp:participant:login:get-started",
+//     "Entries": 261,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 36,
+//     "Page": "valic us_corp:participant:retrofit:statements:statements",
+//     "Entries": 246,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 37,
+//     "Page": "valic us_cps:home",
+//     "Entries": 246,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 38,
+//     "Page": "valic us_corp:participant:workspace:account-breakdown",
+//     "Entries": 239,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 39,
+//     "Page": "valic us_ellis:home",
+//     "Entries": 222,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 40,
+//     "Page": "valic us_sof-fica:home",
+//     "Entries": 215,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 41,
+//     "Page": "valic us_utsystem:home",
+//     "Entries": 214,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 42,
+//     "Page": "valic us_uofl:home",
+//     "Entries": 208,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 43,
+//     "Page": "valic us_usg:home",
+//     "Entries": 206,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 44,
+//     "Page": "valic us_corp:careers",
+//     "Entries": 202,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 45,
+//     "Page": "valic us_corp:participant:retrofit:my-account-details:my-account-details",
+//     "Entries": 201,
+//     "Percentage": "0.10%"
+//   },
+//   {
+//     "Rank": 46,
+//     "Page": "valic us_corp:prospectus-and-reports:annuities",
+//     "Entries": 189,
+//     "Percentage": "0.00%"
+//   },
+//   {
+//     "Rank": 47,
+//     "Page": "valic us_eriecounty:home",
+//     "Entries": 187,
+//     "Percentage": "0.00%"
+//   },
+//   {
+//     "Rank": 48,
+//     "Page": "valic us_slu:home",
+//     "Entries": 186,
+//     "Percentage": "0.00%"
+//   },
+//   {
+//     "Rank": 49,
+//     "Page": "valic us_corp:participant:online-enrollment:enrollment-access-code-entry",
+//     "Entries": 180,
+//     "Percentage": "0.00%"
+//   },
+//   {
+//     "Rank": 50,
+//     "Page": "valic us_corp:education-center",
+//     "Entries": 176,
+//     "Percentage": "0.00%"
+//   }
+  ],
   "topPages":
     [
       {
@@ -262,7 +565,7 @@ export default {
         "Page": "https://my.valic.com/ARO/Profile/ParticipantContactInformation.aspx",
         "PageViews": 171133,
         "Percentage": "2.60%"
-      },
+      }
       // {
       //   "Rank": 6,
       //   "Page": "valic us_corp:participant:retrofit:statements:statements",

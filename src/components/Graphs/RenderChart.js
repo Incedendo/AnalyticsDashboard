@@ -109,7 +109,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         ticks: {
           fontColor: "white", // axis labels
           fontSize: xAxisTextSize,
-          padding: 20
+          padding: 20,
+          fontWeight: 900,
+          fontFamily: 'Source Sans Pro',
         }
       }],
       yAxes: [{
