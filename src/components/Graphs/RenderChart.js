@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -57,7 +57,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         label: dataType[index],
         borderColor: '#6752ee',
         backgroundColor: colors[index],
-
+        borderWidth: -10,
       })
     )
   }
@@ -70,11 +70,12 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     pointBorderColor: "white",
     pointBorderWidth: '3',
     pointHoverBackgroundColor: '#0C5AB5',
+    borderWidth: '-10',
   }
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
 
-  console.log("y-axis text size: "+ yAxisTextSize);
+  console.log("Legend font size "+ legendFontSize);
 
   let options = {
     responsive: true,
@@ -97,7 +98,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     legend: {
       labels: {
           fontColor: "white",
-          fontSize: 20,
+          fontSize: 17,
           horizontalAlign: "left",
           fontFamily: 'Source Sans Pro',
       },

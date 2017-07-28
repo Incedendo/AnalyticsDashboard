@@ -431,10 +431,10 @@ h1 {
   margin: 40px; }
 
 .border-right {
-  border-right: 1px solid white; }
+  border-right: 1px solid #4E6685; }
 
 .border-bottom {
-  border-bottom: 1px solid white; }
+  border-bottom: 1px solid #4E6685; }
 
 @font-face {
   font-family: 'FuturaPT-Bold';
@@ -614,6 +614,10 @@ select {
   height: 1vh;
   position: relative;
   display: block; }
+
+.divider {
+  margin-top: 15px;
+  border-bottom: 1px solid #4E6685; }
 
 .hr1 {
   background-color: #FFFFFF;

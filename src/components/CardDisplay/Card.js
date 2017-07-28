@@ -51,6 +51,7 @@ export class Card extends Component {
     yAxisTextSize="18"
     xAxisTextSize="18"
     pointRadius="0"
+    legendFontSize="15"
     />
   }
 

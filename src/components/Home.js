@@ -83,10 +83,13 @@ class Home extends Component {
 
             {this.state.mounted &&
               <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-              margin="45px" yAxisTextSize="20" xAxisTextSize="25"
+              margin="45px" yAxisTextSize="15" xAxisTextSize="20"
               pointRadius="10"
+              legendFontSize="20"
               />}
           </div>
+
+          {/* <hr class="divider"/> */}
 
           <div className="container noMargin">
             <CardMenu list={arr} />

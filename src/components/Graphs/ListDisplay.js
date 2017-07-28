@@ -4,22 +4,19 @@ import PropTypes from 'prop-types';
 import {Doughnut} from 'react-chartjs-2';
 import '../../assets/scss/_ListDisplay.scss';
 
+  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(253,185,19,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)', 'rgba(224,238,208,0.6)'];
+
 let initialChartConfig = {
   labels: [],
   datasets: [{
     data: [],
     backgroundColor: [
-      '#36A2EB',
-      '#FFCE56',
-      'pink',
-      'red'
+      'rgba(21,195,218,0.6)',
+      'rgba(0,156,166,0.6)',
+      'rgba(253,185,19,0.6)',
+      'rgba(224,238,208,0.6)'
     ],
-    hoverBackgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-      'green',
-    ]
+
   }]
 };
 
