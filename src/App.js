@@ -50,7 +50,7 @@ class App extends Component {
   render () {
     return (
       <div style={{background: "#022753"}}>
-        <button onClick={this.toggleModal} className="modalTop">
+        <button onClick={this.toggleModal} className='modalTop'>
           <div id="nav-icon1">
             <span></span>
             <span></span>
