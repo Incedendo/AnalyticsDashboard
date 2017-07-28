@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -137,7 +137,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
   }
 
   return (
-      <div style={{height: height, width: width, margin: margin, marginTop: '0px'}}>
+      <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
         { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
         { graphType === 'line' &&

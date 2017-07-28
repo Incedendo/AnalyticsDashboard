@@ -87,6 +87,7 @@ class Home extends Component {
               pointRadius="8"
               legendFontSize="10"
               displayedLegend="true"
+              marginTop="0px"
               />}
           </div>
 
