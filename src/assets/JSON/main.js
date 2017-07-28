@@ -837,6 +837,29 @@ export default {
       //   "Percentage": "0.20%"
       // }
     ],
+    "devices":
+    [
+      {
+        "Device": "Non Mobile",
+        "Page Views": 14410644,
+        "percentage": 82.60
+      },
+      {
+        "Device": "Apple iPhone",
+        "Page Views": 1164800,
+        "percentage": 6.70
+      },
+      {
+        "Device": "Apple iPad",
+        "Page Views": 908068,
+        "percentage": 5.20
+      },
+      {
+        "Device": "Others",
+        "Page Views": 908068,
+        "percentage": 0.30
+      }
+    ],
     "referedType":
     [
       {
