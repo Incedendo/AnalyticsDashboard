@@ -1,10 +1,35 @@
+.enclose {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+}
+
 .page{
   text-align: left;
   color: white;
   font-size: 15px;
   margin-top: 10px;
+  width: 100%;
+  display: flex;
+
+  flex-direction: row;
+  flex-grow: 10;
+  flex-wrap: wrap;
 }
 
-.enclose {
-  position: absolute;
+.firstItem, .secondItem, .thirdItem {
+  flex-grow: 5;
+}
+
+
+.firstItem {
+  text-align: left;
+}
+.secondItem {
+  text-align: center;
+}
+
+.thirdItem {
+  text-align: right;
 }

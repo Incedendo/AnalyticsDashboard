@@ -46,10 +46,10 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
               </div>
             </div>
           </div>
-          {/* <div className='arrowBox'>
+          <div className='arrowBox'>
             <img src={improve?greenArrow:redArrow} className={improve?'greenArrow':'redArrow'}/>
             {sign}
-          </div> */}
+          </div> 
         </div>
       }
       {data.length === 1 &&

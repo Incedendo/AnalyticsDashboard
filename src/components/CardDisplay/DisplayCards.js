@@ -52,7 +52,7 @@ export class DisplayCards extends Component {
         index: 4
       },
       {
-        title: 'Top Active Pages',
+        title: 'Bounce Rate',
         graph: false,
         numGraph: false,
         listCard: true,
