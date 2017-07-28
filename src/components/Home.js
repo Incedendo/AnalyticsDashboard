@@ -5,8 +5,7 @@ import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
-import numericData from '../assets/JSON/main.js';
-import pageData from '../assets/JSON/topPages.js';
+import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 
 class Home extends Component {
@@ -20,8 +19,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.setState({
-      projects: numericData,
-      pages: pageData,
+      projects: jsonData,
       mounted: true,
       filter: 'QTD',
       frequency: 'quarterly'
@@ -75,7 +73,8 @@ class Home extends Component {
 
           <div className="subMainDiv">
             <div className="pageVisit inLine">
-              {dataType[0]}
+              {/* {dataType[0]} */}
+              Page Visits
             </div>
 
             <div className='filterHeader inLine'>
@@ -84,7 +83,7 @@ class Home extends Component {
 
             {this.state.mounted &&
               <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-              margin="45px" yAxisTextSize="15" xAxisTextSize="20"
+              margin="45px" yAxisTextSize="20" xAxisTextSize="25"
               pointRadius="10"
               />}
           </div>
