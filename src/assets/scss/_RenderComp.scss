@@ -4,28 +4,28 @@
   background-color: #FFFFFF;
   width: 1px;
   height: 10.5rem;
-  display: inline;
+  display: block;
 
   position: relative;
-  top: -1rem;
+
 }
 
 .compBox, .soloBox {
-  position: relative;
+  // position: relative;
   color: #FFFFFF;
   font-style: normal;
   font-family: "Source Sans Pro";
   width: 100%;
   margin: 0 auto;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .compBox {
   display: flex;
   flex-direction: row;
-  top: 7rem;
-  bottom: 7rem;
-
 }
 
 .soloBox {
@@ -39,22 +39,24 @@
   font-weight: 300;
   letter-spacing: 2px;
   height: 2;
-    @media (min-width: 1200px) {
-      font-size: 4rem;
-    }
-    @media (min-width: 1600px) {
-      font-size: 5em;
-    }
-    position: relative;
+  margin: 0 auto;
+  width: 100%;
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 5em;
+  }
+  position: relative;
 
 }
 
-.num1 {
-  margin-right: -30%;
-}
-.num2 {
-  margin-left: -30%;
-}
+// .num1 {
+//   margin-right: -30%;
+// }
+// .num2 {
+//   margin-left: -30%;
+// }
 
 .soloNum {
   @media (min-width: 1200px) {
@@ -70,7 +72,7 @@
   font-weight: 400;
   font-size: 17px;
   letter-spacing: 1px;
-  width: 100%;
+  width: 60%;
   @media (min-width: 1200px) {
     font-size: 1em;
   }
@@ -80,15 +82,8 @@
   position: relative;
   display: block;
   bottom: 3rem;
+  margin: auto;
 
-}
-
-.label1 {
-  left: 1.5rem;
-}
-
-.label2 {
-  right: 2rem;
 }
 
 .soloLabel{
@@ -112,8 +107,8 @@
   position: absolute;
   align-items: center;
 
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 0rem;
+  left: 0rem;
 }
 
 .greenArrow {
@@ -125,14 +120,6 @@
   transform: rotate(90deg);
 }
 
-.leftBox {
-  padding-right: 5rem;
-}
-
-.rightBox {
-  padding-left: 5rem;
-}
-
-.col-md-6 {
-  text-align: center;
+.leftBox, .rightBox {
+  margin: 0 auto;
 }
