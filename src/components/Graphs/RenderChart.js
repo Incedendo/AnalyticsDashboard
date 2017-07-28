@@ -56,14 +56,8 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         data,
         label: dataType[index],
         borderColor: '#6752ee',
-<<<<<<< HEAD
         backgroundColor: colors[index],
-=======
-        backgroundColor: randomColor({
-          format: 'hsla',
-          alpha: 0.5,
-        }),
->>>>>>> master
+
       })
     )
   }
