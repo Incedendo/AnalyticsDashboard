@@ -40,8 +40,8 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
             return(
               <div key={index} className="page">
                 <span>{item.Page}</span>
-                <span>{item.Entries}</span>
-                <span>{item.Percentage}</span>
+                <span className="secondSpan">{item.Entries}</span>
+                <span className="lastSpan">{item.Percentage}</span>
               </div>
             )
         })}
@@ -56,8 +56,8 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
             return(
               <div key={index} className="page">
                 <span>{item.Page}</span>
-                <span>{item.PageViews}</span>
-                <span>{item.Percentage}</span>
+                <span className="secondSpan">{item.PageViews}</span>
+                <span className="lastSpan">{item.Percentage}</span>
               </div>
             )
         })}

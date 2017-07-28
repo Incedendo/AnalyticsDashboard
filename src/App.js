@@ -58,7 +58,6 @@ class App extends Component {
           </div>
         </button>
 
-
           <Modal
             isOpen={this.state.modalIsOpen}
             contentLabel="Example Modal"

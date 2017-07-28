@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -55,9 +55,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     datasets: dataArr.map( (data,index) => ({
         data,
         label: dataType[index],
-        borderColor: '#6752ee',
+        //borderColor: '#6752ee',
         backgroundColor: colors[index],
-        borderWidth: -10,
+        borderWidth: 0,
       })
     )
   }
@@ -70,7 +70,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     pointBorderColor: "white",
     pointBorderWidth: '3',
     pointHoverBackgroundColor: '#0C5AB5',
-    borderWidth: '-10',
   }
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
@@ -80,7 +79,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
   let options = {
     responsive: true,
     maintainAspectRatio: false,
-    pointStyle: 'dash',
     animation: {
       onComplete: function() {
         var ctx = this.chart.ctx;
@@ -94,16 +92,18 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
       fontColor: "white",
       fontSize: 22,
     },
+
     spanGaps: true,
     legend: {
+      display: displayedLegend,
       labels: {
           fontColor: "white",
           fontSize: 17,
           horizontalAlign: "left",
           fontFamily: 'Source Sans Pro',
+          padding: 15
       },
       position: 'top',
-
     },
     scales: {
       xAxes: [{
@@ -116,7 +116,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         ticks: {
           fontColor: "white", // axis labels
           fontSize: xAxisTextSize,
-          padding: 20
+          padding: 0
         }
       }],
       yAxes: [{

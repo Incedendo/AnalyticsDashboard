@@ -617,7 +617,9 @@ select {
 
 .divider {
   margin-top: 15px;
-  border-bottom: 1px solid #4E6685; }
+  border-bottom: 1px solid #4E6685;
+  width: 2500px;
+  margin: auto; }
 
 .hr1 {
   background-color: #FFFFFF;
@@ -720,13 +722,14 @@ select {
 .page {
   text-align: left;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-grow: 10;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-left: 11px; }
 
 .firstItem, .secondItem, .thirdItem {
   flex-grow: 5; }
@@ -739,6 +742,14 @@ select {
 
 .thirdItem {
   text-align: right; }
+
+.secondSpan {
+  position: absolute;
+  right: 100px; }
+
+.lastSpan {
+  position: absolute;
+  right: 0px; }
 
 .App {
   background-color: #022753;
