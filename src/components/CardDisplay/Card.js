@@ -57,7 +57,7 @@ export class Card extends Component {
     pointRadius="0"
     legendFontSize="15"
     displayedLegend={displayedLegend}
-    marginTop="-100px"
+    marginTop="-80px"
     />
   }
 

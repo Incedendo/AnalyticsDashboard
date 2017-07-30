@@ -36,6 +36,11 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
     const list = listHome[4];
     return(
       <div className="enclose">
+        <div className="page pageHeader">
+          <span>Page Rank</span>
+          <span className="secondSpan">Views</span>
+          <span className="lastSpan">%</span>
+        </div>
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
@@ -52,6 +57,11 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
     const list = listHome[5];
     return (
       <div className="enclose">
+        <div className="page pageHeader">
+          <span>Page Rank</span>
+          <span className="secondSpan">Views</span>
+          <span className="lastSpan">%</span>
+        </div>
         {list.map((item, index) =>{
             return(
               <div key={index} className="page">
