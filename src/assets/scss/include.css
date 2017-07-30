@@ -402,12 +402,16 @@ h1 {
 .filter {
   position: absolute;
   right: 1rem;
-  bottom: 2rem; }
+  bottom: 2rem;
+  border: 1px white solid;
+  border-radius: 10px; }
 
 .filter-graph {
   position: absolute;
-  top: 2rem;
-  right: 1rem; }
+  bottom: 2rem;
+  right: 1rem;
+  border: 1px white solid;
+  border-radius: 10px; }
 
 .graph {
   width: 100%;
@@ -591,7 +595,9 @@ select {
 .filterHeader {
   position: absolute;
   right: 5rem;
-  top: 1rem; }
+  top: 1rem;
+  border: 1px white solid;
+  border-radius: 10px; }
 
 .inLine {
   display: inline-block; }
@@ -655,10 +661,10 @@ select {
   position: relative; }
   @media (min-width: 1200px) {
     .num1, .num2, .soloNum {
-      font-size: 4rem; } }
+      font-size: 3.3rem; } }
   @media (min-width: 1600px) {
     .num1, .num2, .soloNum {
-      font-size: 5em; } }
+      font-size: 4.4em; } }
 
 @media (min-width: 1200px) {
   .soloNum {

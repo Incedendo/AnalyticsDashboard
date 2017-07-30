@@ -20,8 +20,6 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
         break;
     }
 
-    console.log("legendFontSize: " + legendFontSize);
-
     return <RenderChart
       dataType={dataType}
       graphType={graphType}

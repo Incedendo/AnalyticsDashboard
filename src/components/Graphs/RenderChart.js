@@ -19,7 +19,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
         break;
       case "Unique User Login":
-        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
       case "Contribution Changes":
         dataArr[index] = list.map(({signUps}) => signUps);
@@ -34,7 +34,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
         break;
       case "Suspicious Enrollments":
-        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
         break;
     }
   });
@@ -111,12 +111,13 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         gridLines: {
             display: true,
             color: "#4E6685",
-            drawTicks: false
+            drawTicks: true,
+            tickMarkLength: 15
         },
         ticks: {
           fontColor: "white", // axis labels
           fontSize: xAxisTextSize,
-          padding: 0
+          padding: 0,
         }
       }],
       yAxes: [{

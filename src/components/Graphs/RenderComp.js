@@ -2,9 +2,16 @@ import React from 'react';
 import '../../assets/scss/_RenderComp.scss'
 import PropTypes from 'prop-types';
 import greenArrow from './greenArrow.svg';
-import redArrow from './redArrow.svg'
+import redArrow from './redArrow.svg';
+
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const RenderComp = ({list=[], dataType=[], filter}) => {
+
+  console.log("Data: in RENDER COMP");
+  console.log(list);
 
   const data = list[0]
   let improve = false;
@@ -30,16 +37,17 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
           <div className='compBox row'>
             <div className="col-md-6 leftBox">
               <div className='num1'>
-                {data[1]}
+                {numberWithCommas(data[1])}
+
               </div>
               <div className='label1'>
                 Current {filter}
               </div>
             </div>
             <hr className='hr1'/>
-          <div className="col-md-6 rightBox">
+            <div className="col-md-6 rightBox">
               <div className='num2'>
-                {data[0]}
+                {numberWithCommas(data[0])}
               </div>
               <div className='label2'>
                 Prior {filter}
@@ -49,7 +57,7 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
           <div className='arrowBox'>
             <img src={improve?greenArrow:redArrow} className={improve?'greenArrow':'redArrow'}/>
             {sign}
-          </div> 
+          </div>
         </div>
       }
       {data.length === 1 &&

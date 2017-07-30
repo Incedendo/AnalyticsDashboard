@@ -9,7 +9,8 @@ export default {
       "signUps": 1383,
       "signIns": 856,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1000
     },
     {
       "label": "Sep",
@@ -19,7 +20,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1500
     },
     {
       "label": "Oct",
@@ -29,7 +31,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1400
     },
     {
       "label": "Nov",
@@ -39,7 +42,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 2400
     },
     {
       "label": "Dec",
@@ -49,7 +53,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1300
     },
     {
       "label": "Jan",
@@ -59,7 +64,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 900
     },
     {
       "label": "Feb",
@@ -69,7 +75,8 @@ export default {
       "signUps": 1247,
       "signIns": 817,
       "contributionChange": 375,
-      "allocationChange": 167
+      "allocationChange": 167,
+      "suspiciousEnrollment": 500
     },
     {
       "label": "Mar",
@@ -79,7 +86,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 800
     },
     {
       "label": "Apr",
@@ -89,7 +97,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1600
     },
     {
       "label": "May",
@@ -99,7 +108,8 @@ export default {
       "signUps": 1403,
       "signIns": 867,
       "contributionChange": 394,
-      "allocationChange": 194
+      "allocationChange": 194,
+      "suspiciousEnrollment": 2500
     },
     {
       "label": "Jun",
@@ -109,7 +119,8 @@ export default {
       "signUps": 1409,
       "signIns": 883,
       "contributionChange": 399,
-      "allocationChange": 198
+      "allocationChange": 198,
+      "suspiciousEnrollment": 2800
     },
     {
       "label": "Jul",
@@ -119,7 +130,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 2900
     },
     {
       "label": "",
@@ -129,7 +141,8 @@ export default {
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 200
     }
   ],
   "quarterly":
