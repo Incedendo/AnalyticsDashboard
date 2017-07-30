@@ -29,7 +29,7 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) =
         dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
         break;
       case "Unique User Login":
-        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
       case "Contribution Changes":
         dataArr[index] = list.map(({signUps}) => signUps);

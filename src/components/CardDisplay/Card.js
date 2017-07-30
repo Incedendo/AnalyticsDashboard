@@ -85,7 +85,7 @@ export class Card extends Component {
 
   render() {
     if(!this.props.list.length) return null
-    const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
+    const filter = this.props.numGraph || this.props.graph ||  this.props.title == 'Contribution Changes' || this.props.title == 'Retirement Income Calc Usage'
 
     let customClass = "";
 

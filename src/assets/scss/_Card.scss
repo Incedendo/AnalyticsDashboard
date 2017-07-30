@@ -38,12 +38,16 @@
   position: absolute;
   right: 1rem;
   bottom: 2rem;
+  border: 1px white solid;
+  border-radius: 10px;
 }
 
 .filter-graph {
   position: absolute;
-  top: 2rem;
+  bottom: 2rem;
   right: 1rem;
+  border: 1px white solid;
+  border-radius: 10px;
 }
 
 .graph {
