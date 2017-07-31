@@ -16,6 +16,7 @@ let initialChartConfig = {
       'rgba(253,185,19,0.6)',
       'rgba(224,238,208,0.6)'
     ],
+    borderColor: ['#12335E','#12335E','#12335E','#12335E'],
 
   }]
 };
