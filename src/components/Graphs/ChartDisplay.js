@@ -1,5 +1,5 @@
 import React from 'react'
-import RenderChart from './RenderChart'
+import RenderChart from './RenderChart';
 import PropTypes from 'prop-types';
 
 const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight, width, margin, yAxisTextSize, xAxisTextSize, pointRadius }) => {
