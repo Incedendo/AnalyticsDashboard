@@ -605,10 +605,15 @@ select {
 .noMargin {
   margin: 0px;
   width: 100%;
-  height: 60vh;
+  height: 59vh;
   position: relative;
   padding-left: 4.5rem;
   padding-right: 4.5rem; }
+
+.hrDiv {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 445px; }
 
 .headerDiv {
   position: relative;
@@ -622,10 +627,8 @@ select {
   display: block; }
 
 .divider {
-  margin-top: 15px;
-  border-bottom: 1px solid #4E6685;
-  width: 2500px;
-  margin: auto; }
+  border: 0.3px solid #4E6685;
+  width: 2400px; }
 
 .hr1 {
   background-color: #FFFFFF;
@@ -661,10 +664,10 @@ select {
   position: relative; }
   @media (min-width: 1200px) {
     .num1, .num2, .soloNum {
-      font-size: 3.3rem; } }
+      font-size: 2rem; } }
   @media (min-width: 1600px) {
     .num1, .num2, .soloNum {
-      font-size: 4.4em; } }
+      font-size: 2.75em; } }
 
 @media (min-width: 1200px) {
   .soloNum {
@@ -708,7 +711,7 @@ select {
   flex-direction: row;
   position: absolute;
   align-items: center;
-  bottom: -17.5rem;
+  bottom: -13.5rem;
   left: 0rem; }
 
 .greenArrow {
@@ -718,7 +721,8 @@ select {
   transform: rotate(90deg); }
 
 .leftBox, .rightBox {
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 30px; }
 
 .enclose {
   position: relative;
@@ -738,7 +742,7 @@ select {
   margin-left: 11px; }
 
 .pageHeader {
-  color: green;
+  color: white;
   font-weight: bold; }
 
 .firstItem, .secondItem, .thirdItem {

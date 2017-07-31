@@ -8,7 +8,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   let dataArr= new Array(dataType.length);
 
-  let colorArr = ['rgba(232,68,171,0.67)', 'rgba(253,185,19,0.67)', 'rgba(21,195,218,0.67)', 'rgba(0,156,166,0.67)', 'rgba(224,238,208,0.67)'];
+  let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
   dataType.map( (stat, index) =>{
     switch(stat){
@@ -46,7 +46,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   const colors = [];
   for(let i = 0; i < dataArr.length; i++) {
-    colors.push(colorArr[Math.ceil(Math.random()*dataArr.length)]);
+    let num = Math.floor(Math.random()*colorArr.length);
+    colors.push(colorArr[num]);
+    colorArr.splice(num, 1);
   }
 
   let dataSet = {

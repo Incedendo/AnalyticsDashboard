@@ -4,18 +4,21 @@ import PropTypes from 'prop-types';
 import {Doughnut} from 'react-chartjs-2';
 import '../../assets/scss/_ListDisplay.scss';
 
-  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(253,185,19,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)', 'rgba(224,238,208,0.6)'];
+  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)','rgba(228, 92, 234, 0.6)'];
+
+  const colors = [];
+  for(let i = 0; i < 4; i++) {
+    let num = Math.floor(Math.random()*colorArr.length);
+    colors.push(colorArr[num]);
+    colorArr.splice(num, 1);
+  }
 
 let initialChartConfig = {
   labels: [],
   datasets: [{
     data: [],
-    backgroundColor: [
-      'rgba(21,195,218,0.6)',
-      'rgba(0,156,166,0.6)',
-      'rgba(253,185,19,0.6)',
-      'rgba(224,238,208,0.6)'
-    ],
+    backgroundColor: colors,
+    borderColor: ['#12335E ','#12335E ','#12335E ','#12335E '],
 
   }]
 };
