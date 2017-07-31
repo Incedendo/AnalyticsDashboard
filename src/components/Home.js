@@ -64,8 +64,8 @@ class Home extends Component {
 
     return (
       <div className="mainDiv">
-          <div className='strip' />
-        <div className='headerDiv'>
+        <div className='strip' />
+          <div className='headerDiv'>
             <Header />
           </div>
 
@@ -84,6 +84,10 @@ class Home extends Component {
               margin="45px" yAxisTextSize="20" xAxisTextSize="25"
               pointRadius="10"
               />}
+          </div>
+
+          <div className='hrDiv'>
+            <hr className="divider"/>
           </div>
 
           <div className="container noMargin">

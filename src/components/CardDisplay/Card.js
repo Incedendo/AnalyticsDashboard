@@ -50,7 +50,7 @@ export class Card extends Component {
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}
-    chartHeight='200px'
+    chartHeight='170px'
     width='100%'
     yAxisTextSize="18"
     xAxisTextSize="18"

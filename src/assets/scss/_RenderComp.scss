@@ -20,6 +20,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   position: absolute;
 }
 
@@ -42,10 +43,10 @@
   margin: 0 auto;
   width: 100%;
   @media (min-width: 1200px) {
-    font-size: 3.3rem;
+    font-size: 2rem;
   }
   @media (min-width: 1600px) {
-    font-size: 4.4em;
+    font-size: 2.75em;
   }
   position: relative;
 
@@ -121,4 +122,5 @@
 
 .leftBox, .rightBox {
   margin: 0 auto;
+  padding-top: 30px;
 }
