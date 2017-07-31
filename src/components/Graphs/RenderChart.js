@@ -55,7 +55,15 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     colors.push(colorArr[num]);
     colorArr.splice(num, 1);
   }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+  console.log(colors);
+>>>>>>> master
 
+=======
+  console.log(dataType)
+>>>>>>> Stashed changes
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
