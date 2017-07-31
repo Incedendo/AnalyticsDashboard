@@ -48,12 +48,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
   for(let i = 0; i < dataArr.length; i++) {
     colors.push(colorArr[Math.ceil(Math.random()*dataArr.length)]);
   }
-<<<<<<< Updated upstream
-  console.log(colors);
 
-=======
-  console.log(dataType)
->>>>>>> Stashed changes
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
