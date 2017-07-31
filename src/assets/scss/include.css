@@ -761,6 +761,112 @@ select {
   position: absolute;
   right: 0px; }
 
+body {
+  margin: 0; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+.taskbar {
+  position: absolute;
+  top: 26px;
+  right: 15px; }
+  .taskbar .btn-close-task {
+    background: none;
+    border: 0;
+    width: 5rem;
+    height: 5rem;
+    padding: 1.5rem;
+    position: absolute;
+    right: 0; }
+    .taskbar .btn-close-task .x, .taskbar .btn-close-task .three {
+      backface-visibility: hidden;
+      transition: all 0.2s linear;
+      display: block;
+      position: absolute; }
+    .taskbar .btn-close-task .x {
+      overflow: hidden;
+      width: 1.8rem;
+      height: 1.8rem;
+      top: 1.6rem;
+      right: 1.6rem;
+      margin: 0 auto;
+      stroke-width: .13rem;
+      z-index: 2; }
+    .taskbar .btn-close-task .three {
+      transition: all 0.2s 0.05s ease-out;
+      border: 2px solid #ffffff;
+      z-index: 1;
+      background: none;
+      top: 1.3rem;
+      right: 1.3rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(0.6); }
+    .taskbar .btn-close-task:hover {
+      cursor: pointer; }
+      .taskbar .btn-close-task:hover .x {
+        top: 2rem;
+        right: 2.0rem;
+        width: 16px;
+        height: 16px;
+        stroke-width: 4px; }
+      .taskbar .btn-close-task:hover .three {
+        top: 1.3rem;
+        opacity: .35;
+        transform: scale(1); }
+    .taskbar .btn-close-task:focus .one, .taskbar .btn-close-task:focus .two {
+      background: #4c8af4; }
+    .taskbar .btn-close-task:focus .three {
+      border: 2px solid #4c8af4; }
+  .taskbar .btn-back-task {
+    background: none;
+    border: 0;
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    left: 0; }
+    .taskbar .btn-back-task .one, .taskbar .btn-back-task .two, .taskbar .btn-back-task .three {
+      transition: all .18s ease-out;
+      display: block;
+      position: relative;
+      height: 2px;
+      background: #ffffff; }
+    .taskbar .btn-back-task .one, .taskbar .btn-back-task .two {
+      top: .2rem;
+      left: 0;
+      width: 1.3rem; }
+    .taskbar .btn-back-task .one {
+      transform: rotate(-45deg);
+      transform-origin: 8% 50% 0; }
+    .taskbar .btn-back-task .two {
+      transform: rotate(45deg);
+      transform-origin: 8% 50% 0; }
+    .taskbar .btn-back-task .three {
+      left: 0;
+      width: 2.1rem; }
+    .taskbar .btn-back-task:hover {
+      cursor: pointer; }
+      .taskbar .btn-back-task:hover .one, .taskbar .btn-back-task:hover .two, .taskbar .btn-back-task:hover .three {
+        left: -.75rem; }
+      .taskbar .btn-back-task:hover .one, .taskbar .btn-back-task:hover .two {
+        width: 1.1rem; }
+      .taskbar .btn-back-task:hover .one {
+        transform: rotate(-38deg);
+        transform-origin: 8% 50% 0; }
+      .taskbar .btn-back-task:hover .two {
+        transform: rotate(38deg);
+        transform-origin: 8% 50% 0; }
+      .taskbar .btn-back-task:hover .three {
+        transition: all .22s ease-in-out;
+        width: 2.0rem; }
+    .taskbar .btn-back-task:focus .one, .taskbar .btn-back-task:focus .two, .taskbar .btn-back-task:focus .three {
+      background: #4c8af4; }
+
 .App {
   background-color: #022753;
   background: #022753 !important; }
@@ -787,8 +893,9 @@ select {
   padding: 0px; }
 
 .valicBrand {
-  margin-left: 30px;
-  margin-top: 30px; }
+  position: absolute;
+  margin-left: 15px;
+  margin-top: -175px; }
 
 .modalTop {
   position: absolute;

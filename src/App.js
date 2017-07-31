@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Modal from 'react-modal';
 import menuSvg from './assets/svg/three-line-menu.svg';
 import VALIC from './assets/svg/VALICWhiteLogo.svg';
+import closeButton from './assets/svg/closeButton.svg';
 
 const customStyles = {
 
@@ -50,13 +51,13 @@ class App extends Component {
   render () {
     return (
       <div style={{background: "#022753"}}>
-        <button onClick={this.toggleModal} className="modalTop">
+        {!this.state.modalIsOpen && <button onClick={this.toggleModal} className="modalTop">
           <div id="nav-icon1">
             <span></span>
             <span></span>
             <span></span>
           </div>
-        </button>
+        </button>}
 
           <Modal
             isOpen={this.state.modalIsOpen}
@@ -65,10 +66,11 @@ class App extends Component {
             enabledModal={this.state.modalIsOpen}
             style={customStyles}
           >
-            <div className="valicBrand">
-              <img src={VALIC} />
-            </div>
-            <div className="linksDiv">
+
+            <div className="linksDiv ">
+              <div className="valicBrand">
+                <img src={VALIC} />
+              </div>
               <div className="modalView">
                 <a href="#">OVERVIEW</a>
               </div>
@@ -92,9 +94,12 @@ class App extends Component {
               </div>
             </div>
 
-              <button className="modalClose" onClick={this.toggleModal}>
-                x
+            <div className="taskbar">
+              <button className="btn-close-task" onClick={this.toggleModal}>
+                <img className="x" src={closeButton} />
+                <span className="three"></span>
               </button>
+            </div>
 
           </Modal>
 
