@@ -61,7 +61,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     datasets: dataArr.map( (data,index) => ({
         data,
         label: dataType[index],
-        //borderColor: '#6752ee',
         backgroundColor: colors[index],
         borderWidth: 0,
       })
