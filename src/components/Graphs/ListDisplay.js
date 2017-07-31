@@ -77,7 +77,6 @@ const ListDisplay = ({listHome=[], cardIndex}) => {
     const list = listHome[6];
     const labels = list.map(({Device}) => Device);
     const percentage = list.map(({percentage}) => percentage);
-    console.log(percentage);
     initialChartConfig.labels = labels;
     initialChartConfig.datasets[0].data = percentage;
     return (
