@@ -66,7 +66,7 @@ export class Card extends Component {
   }
 
   renderList = () => {
-    console.log("calling LIST: KEY = " + this.props.index);
+     ("calling LIST: KEY = " + this.props.index);
     return (
       <ListDisplay listHome={this.props.list} cardIndex={this.props.index}/>
     );

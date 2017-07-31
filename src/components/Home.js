@@ -57,12 +57,10 @@ class Home extends Component {
     let arr=[];
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
-      console.log("Component mounted");
+       ("Component mounted");
     }
 
-    console.log(arr);
-
-    const dataType = ["Registrations", "Enrollments", "Unique User Login"];
+    const dataType = ["Total Visits", "Unique Visits", "Page Views"];
 
     return (
       <div className="mainDiv">
@@ -83,15 +81,10 @@ class Home extends Component {
 
             {this.state.mounted &&
               <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-              margin="45px" yAxisTextSize="15" xAxisTextSize="20"
-              pointRadius="8"
-              legendFontSize="10"
-              displayedLegend="true"
-              marginTop="0px"
+              margin="45px" yAxisTextSize="20" xAxisTextSize="25"
+              pointRadius="10"
               />}
           </div>
-
-          <hr className="divider"/>
 
           <div className="container noMargin">
             <CardMenu list={arr} />
@@ -122,7 +115,7 @@ export default Home;
 //      });
 //    })
 //    .catch( (error) => {
-//      console.log(error);
+//       (error);
 //    }
 //  );
 //

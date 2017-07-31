@@ -87,7 +87,7 @@ class BurgerMenuComponent extends Component {
 
   getMenu() {
     const Menu = BurgerMenu[this.state.currentMenu];
-    console.log(this.props.menus.buttonText);
+     (this.props.menus.buttonText);
     const items = this.getItems();
 
     return (

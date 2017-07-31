@@ -36,19 +36,25 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
       case "Suspicious Enrollments":
         dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
         break;
+      case "Total Visits":
+        dataArr[index] = list.map(({totalVisits}) => totalVisits);
+        break;
+      case "Unique Visits":
+        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
+        break;
+      case "Page Views":
+        dataArr[index] = list.map(({PageViews}) => PageViews);
+        break;
     }
   });
-
-  console.log('dataArr is: ');
-  console.log(dataArr)
-
   const labels = list.map(({label}) => label);
 
   const colors = [];
   for(let i = 0; i < dataArr.length; i++) {
-    colors.push(colorArr[Math.ceil(Math.random()*dataArr.length)]);
+    let num = Math.floor(Math.random()*colorArr.length);
+    colors.push(colorArr[num]);
+    colorArr.splice(num, 1);
   }
-  console.log(colors);
 
   let dataSet = {
     labels,
@@ -61,7 +67,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
       })
     )
   }
-
+  console.log(dataSet)
   const bam = {
     pointRadius: pointRadius,
     pointHoverRadius: '13',
@@ -72,9 +78,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
-  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
-
-  console.log("Legend font size "+ legendFontSize);
+  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}));
 
   let options = {
     responsive: true,
