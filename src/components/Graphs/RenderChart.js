@@ -8,7 +8,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   let dataArr= new Array(dataType.length);
 
-  let colorArr = ['rgba(232,68,171,0.6)', 'rgba(253,185,19,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)', 'rgba(224,238,208,0.6)'];
+  let colorArr = ['rgba(232,68,171,0.67)', 'rgba(253,185,19,0.67)', 'rgba(21,195,218,0.67)', 'rgba(0,156,166,0.67)', 'rgba(224,238,208,0.67)'];
 
   dataType.map( (stat, index) =>{
     switch(stat){
