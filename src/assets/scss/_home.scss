@@ -35,6 +35,8 @@
   position: absolute;
   right: 5rem;
   top: 1rem;
+  border: 1px white solid;
+  border-radius: 10px;
 }
 
 .inLine
@@ -63,4 +65,11 @@
   height: 1vh;
   position: relative;
   display: block;
+}
+
+.divider {
+  margin-top: 15px;
+  border-bottom: 1px solid #4E6685;
+  width: 2500px;
+  margin: auto;
 }

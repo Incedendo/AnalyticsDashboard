@@ -42,6 +42,10 @@ export class Card extends Component {
   }
 
   renderGraph = () => {
+    let displayedLegend = true;
+    if(this.props.index == 4 || this.props.index == 6){
+      displayedLegend = false;
+    }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}
@@ -50,6 +54,9 @@ export class Card extends Component {
     yAxisTextSize="18"
     xAxisTextSize="18"
     pointRadius="0"
+    legendFontSize="15"
+    displayedLegend={displayedLegend}
+    marginTop="-80px"
     />
   }
 
@@ -70,7 +77,7 @@ export class Card extends Component {
 
   render() {
     if(!this.props.list.length) return null
-    const filter = this.props.numGraph || this.props.graph && this.props.title !== 'Contribution Changes' && this.props.title !== 'Retirement Income Calc Usage'
+    const filter = this.props.numGraph || this.props.graph ||  this.props.title == 'Contribution Changes' || this.props.title == 'Retirement Income Calc Usage'
 
     let customClass = "";
 

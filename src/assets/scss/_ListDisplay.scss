@@ -8,7 +8,7 @@
 .page{
   text-align: left;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 10px;
   width: 100%;
   display: flex;
@@ -16,6 +16,13 @@
   flex-direction: row;
   flex-grow: 10;
   flex-wrap: wrap;
+
+  margin-left: 11px;
+}
+
+.pageHeader{
+  color: green;
+  font-weight: bold;
 }
 
 .firstItem, .secondItem, .thirdItem {
@@ -32,4 +39,14 @@
 
 .thirdItem {
   text-align: right;
+}
+
+.secondSpan {
+  position: absolute;
+  right: 100px;
+}
+
+.lastSpan {
+  position: absolute;
+  right: 0px;
 }

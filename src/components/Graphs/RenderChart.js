@@ -4,7 +4,7 @@ import Chart from 'chart.js';
 import randomColor from 'randomcolor';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, yAxisTextSize, xAxisTextSize, pointRadius }) => {
+const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
 
   let dataArr= new Array(dataType.length);
 
@@ -19,7 +19,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
         break;
       case "Unique User Login":
-        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
       case "Contribution Changes":
         dataArr[index] = list.map(({signUps}) => signUps);
@@ -34,7 +34,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
         break;
       case "Suspicious Enrollments":
-        dataArr[index] = list.map(({returnVisits}) => returnVisits);
+        dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
         break;
     }
   });
@@ -55,9 +55,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
     datasets: dataArr.map( (data,index) => ({
         data,
         label: dataType[index],
-        borderColor: '#6752ee',
+        //borderColor: '#6752ee',
         backgroundColor: colors[index],
-
+        borderWidth: 0,
       })
     )
   }
@@ -74,12 +74,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
 
-  console.log("y-axis text size: "+ yAxisTextSize);
+  console.log("Legend font size "+ legendFontSize);
 
   let options = {
     responsive: true,
     maintainAspectRatio: false,
-    pointStyle: 'dash',
     animation: {
       onComplete: function() {
         var ctx = this.chart.ctx;
@@ -93,16 +92,18 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
       fontColor: "white",
       fontSize: 22,
     },
+
     spanGaps: true,
     legend: {
+      display: displayedLegend,
       labels: {
           fontColor: "white",
-          fontSize: 20,
+          fontSize: 17,
           horizontalAlign: "left",
           fontFamily: 'Source Sans Pro',
+          padding: 15
       },
       position: 'top',
-
     },
     scales: {
       xAxes: [{
@@ -110,12 +111,13 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
         gridLines: {
             display: true,
             color: "#4E6685",
-            drawTicks: false
+            drawTicks: true,
+            tickMarkLength: 15
         },
         ticks: {
           fontColor: "white", // axis labels
           fontSize: xAxisTextSize,
-          padding: 20
+          padding: 0,
         }
       }],
       yAxes: [{
@@ -136,7 +138,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, y
   }
 
   return (
-      <div style={{height: height, width: width, margin: margin, marginTop: '0px'}}>
+      <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
         { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
         { graphType === 'line' &&

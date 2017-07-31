@@ -2,173 +2,186 @@ export default {
   "annually":
   [
     {
-      "label": "Jan",
-      "totalVisits": 9849,
-      "uniqueVisits": 7476,
-      "returnVisits": 2373,
-      "signUps": 1378,
-      "signIns": 847,
-      "contributionChange": 389,
-      "allocationChange": 189
-    },
-    {
-      "label": "Feb",
-      "totalVisits": 9528,
-      "uniqueVisits": 7376,
-      "returnVisits": 2152,
-      "signUps": 1247,
-      "signIns": 817,
-      "contributionChange": 375,
-      "allocationChange": 167
-    },
-    {
-      "label": "Mar",
-      "totalVisits": 9429,
-      "uniqueVisits": 7432,
-      "returnVisits": 1997,
-      "signUps": 1378,
-      "signIns": 847,
-      "contributionChange": 389,
-      "allocationChange": 189
-    },
-    {
-      "label": "Apr",
-      "totalVisits": 76880,
-      "uniqueVisits": 44184,
-      "returnVisits": 2373,
-      "signUps": 1378,
-      "signIns": 847,
-      "contributionChange": 389,
-      "allocationChange": 189
-    },
-    {
-      "label": "May",
-      "totalVisits": 579944,
-      "uniqueVisits": 201150,
-      "returnVisits": 2377,
-      "signUps": 1403,
-      "signIns": 867,
-      "contributionChange": 394,
-      "allocationChange": 194
-    },
-    {
-      "label": "Jun",
-      "totalVisits": 503909,
-      "uniqueVisits": 199834,
-      "returnVisits": 2502,
-      "signUps": 1409,
-      "signIns": 883,
-      "contributionChange": 399,
-      "allocationChange": 198
-    },
-    {
-      "label": "Jul",
-      "totalVisits": 517285,
-      "uniqueVisits": 222677,
-      "returnVisits": 2456,
-      "signUps": 1378,
-      "signIns": 847,
-      "contributionChange": 389,
-      "allocationChange": 189
-    },
-    {
       "label": "Aug",
-      "totalVisits": 10056,
-      "uniqueVisits": 7503,
-      "returnVisits": 2553,
+      "totalVisits": 9029,
+      "uniqueVisits": 5733,
+      "PageViews": 35189,
       "signUps": 1383,
       "signIns": 856,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1000
     },
     {
       "label": "Sep",
-      "totalVisits": 10079,
-      "uniqueVisits": 7587,
-      "returnVisits": 2492,
+      "totalVisits": 132141	,
+      "uniqueVisits": 110501,
+      "PageViews": 472177,
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1500
     },
     {
       "label": "Oct",
-      "totalVisits": 10095,
-      "uniqueVisits": 7497,
-      "returnVisits": 2598,
+      "totalVisits": 	616943,
+      "uniqueVisits": 522874,
+      "PageViews": 1752016,
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1400
     },
     {
       "label": "Nov",
-      "totalVisits": 10123,
-      "uniqueVisits": 7516,
-      "returnVisits": 2607,
+      "totalVisits": 	525404,
+      "uniqueVisits": 434068,
+      "PageViews": 1393421,
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 2400
     },
     {
       "label": "Dec",
-      "totalVisits": 10193,
-      "uniqueVisits": 7600,
-      "returnVisits": 2593,
+      "totalVisits": 	331144,
+      "uniqueVisits": 295177,
+      "PageViews": 593253,
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1300
+    },
+    {
+      "label": "Jan",
+      "totalVisits": 384010,
+      "uniqueVisits": 346587,
+      "PageViews": 654559,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189,
+      "suspiciousEnrollment": 900
+    },
+    {
+      "label": "Feb",
+      "totalVisits": 410282,
+      "uniqueVisits": 360033,
+      "PageViews": 1560316,
+      "signUps": 1247,
+      "signIns": 817,
+      "contributionChange": 375,
+      "allocationChange": 167,
+      "suspiciousEnrollment": 500
+    },
+    {
+      "label": "Mar",
+      "totalVisits": 1248034,
+      "uniqueVisits": 375231,
+      "PageViews": 1705816,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189,
+      "suspiciousEnrollment": 800
+    },
+    {
+      "label": "Apr",
+      "totalVisits": 603293,
+      "uniqueVisits": 510831,
+      "PageViews": 2530459,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189,
+      "suspiciousEnrollment": 1600
+    },
+    {
+      "label": "May",
+      "totalVisits": 	580531,
+      "uniqueVisits": 488766,
+      "PageViews": 2229564,
+      "signUps": 1403,
+      "signIns": 867,
+      "contributionChange": 394,
+      "allocationChange": 194,
+      "suspiciousEnrollment": 2500
+    },
+    {
+      "label": "Jun",
+      "totalVisits": 504409,
+      "uniqueVisits": 434632,
+      "PageViews": 1960847,
+      "signUps": 1409,
+      "signIns": 883,
+      "contributionChange": 399,
+      "allocationChange": 198,
+      "suspiciousEnrollment": 2800
+    },
+    {
+      "label": "Jul",
+      "totalVisits": 	520586,
+      "uniqueVisits": 444615,
+      "PageViews": 2227399,
+      "signUps": 1378,
+      "signIns": 847,
+      "contributionChange": 389,
+      "allocationChange": 189,
+      "suspiciousEnrollment": 2900
     },
     {
       "label": "",
       "totalVisits": 10193,
       "uniqueVisits": 7600,
-      "returnVisits": 2593,
+      "PageViews": 2593,
       "signUps": 1378,
       "signIns": 847,
       "contributionChange": 389,
-      "allocationChange": 189
+      "allocationChange": 189,
+      "suspiciousEnrollment": 200
     }
   ],
   "quarterly":
   [
     {
-      "label": "1",
-      "totalVisits": 2480,
-      "uniqueVisits": 1759,
-      "returnVisits": 721,
+      "label": "Q3 2016",
+      "totalVisits": 	661756,
+      "uniqueVisits": 560849,
+      "PageViews": 2734765,
       "signUps": 398,
       "signIns": 264,
       "contributionChange": 50,
       "allocationChange": 36
     },
     {
-      "label": "2",
-      "totalVisits": 2473,
-      "uniqueVisits": 1587,
-      "returnVisits": 886,
+      "label": "Q4 2016",
+      "totalVisits": 	1473491,
+      "uniqueVisits": 1252119,
+      "PageViews": 3738690,
       "signUps": 376,
       "signIns": 286,
       "contributionChange": 46,
       "allocationChange": 34
     },
     {
-      "label": "3",
-      "totalVisits": 2563,
-      "uniqueVisits": 1489,
-      "returnVisits": 1074,
+      "label": "Q1 2017",
+      "totalVisits": 2042326,
+      "uniqueVisits": 1081851,
+      "PageViews": 3920691,
       "signUps": 378,
       "signIns": 284,
       "contributionChange": 45,
       "allocationChange": 28
     },
     {
-      "label": "4",
-      "totalVisits": 2570,
-      "uniqueVisits": 1528,
-      "returnVisits": 1042,
+      "label": "Q2 2017",
+      "totalVisits": 1688233,
+      "uniqueVisits": 1434229,
+      "PageViews": 6720870,
       "signUps": 287,
       "signIns": 236,
       "contributionChange": 49,
@@ -178,40 +191,40 @@ export default {
   "weekly":
   [
     {
-      "label": "Week 1",
-      "totalVisits": 543,
-      "uniqueVisits": 213,
-      "returnVisits": 434,
+      "label": "Jul 25- Aug 1",
+      "totalVisits": 106450,
+      "uniqueVisits": 93339,
+      "PageViews": 431836,
       "signUps": 32,
       "signIns": 56,
       "contributionChange": 12,
       "allocationChange": 32
     },
     {
-      "label": "Week 2",
-      "totalVisits": 453,
-      "uniqueVisits": 165,
-      "returnVisits": 324,
+      "label": "Aug 2-8",
+      "totalVisits": 144307,
+      "uniqueVisits": 125801,
+      "PageViews": 622036,
       "signUps": 43,
       "signIns": 64,
       "contributionChange": 43,
       "allocationChange": 83
     },
     {
-      "label": "Week 3",
-      "totalVisits": 634,
-      "uniqueVisits": 135,
-      "returnVisits": 492,
+      "label": "Aug 9-15",
+      "totalVisits": 148134,
+      "uniqueVisits": 129772,
+      "PageViews": 634798,
       "signUps": 73,
       "signIns": 52,
       "contributionChange": 97,
       "allocationChange": 65
     },
     {
-      "label": "Week 4",
-      "totalVisits": 257,
-      "uniqueVisits": 152,
-      "returnVisits": 104,
+      "label": "Aug 16-22",
+      "totalVisits": 166843,
+      "uniqueVisits": 136281,
+      "PageViews": 714029,
       "signUps": 28,
       "signIns": 23,
       "contributionChange": 31,
@@ -224,7 +237,7 @@ export default {
       "label": "Today",
       "totalVisits": 638,
       "uniqueVisits": 467,
-      "returnVisits": 171,
+      "PageViews": 171,
       "signUps": 35,
       "signIns": 12,
       "contributionChange": 2,
@@ -235,31 +248,31 @@ export default {
   [
     {
       "Rank": 1,
-      "Page": "participant:login:sign-in",
+      "Page": "Login and Sign-in",
       "Entries": 176079,
       "Percentage": "45.30%"
     },
     {
       "Rank": 2,
-      "Page": "home",
+      "Page": "Home",
       "Entries": 169319,
       "Percentage": "43.50%"
     },
     {
       "Rank": 3,
-      "Page": "contact-us",
+      "Page": "Contact Us",
       "Entries": 5065,
       "Percentage": "1.30%"
     },
     {
       "Rank": 4,
-      "Page": "participant:workspace",
+      "Page": "Workspace",
       "Entries": 4398,
       "Percentage": "1.10%"
     },
     {
       "Rank": 5,
-      "Page": "page-not-found",
+      "Page": "Page Not Found",
       "Entries": 1854,
       "Percentage": "0.50%"
     },
@@ -538,31 +551,31 @@ export default {
     [
       {
         "Rank": 1,
-        "Page": "valic us_corp:home",
+        "Page": "Home",
         "PageViews": 1085098,
         "Percentage": "16.20%"
       },
       {
         "Rank": 2,
-        "Page": "valic us_corp:participant:login:sign-in",
+        "Page": "Login and Sign-in",
         "PageViews": 1064682,
         "Percentage": "15.90%"
       },
       {
         "Rank": 3,
-        "Page": "valic us_corp:participant:workspace",
+        "Page": "Workspace",
         "PageViews": 856618,
         "Percentage": "12.80%"
       },
       {
         "Rank": 4,
-        "Page": "valic us_corp:participant:workspace:account-breakdown",
+        "Page": "Account-Breakdown",
         "PageViews": 229615,
         "Percentage": "3.40%"
       },
       {
         "Rank": 5,
-        "Page": "https://my.valic.com/ARO/Profile/ParticipantContactInformation.aspx",
+        "Page": "Contact Information",
         "PageViews": 171133,
         "Percentage": "2.60%"
       }
