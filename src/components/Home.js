@@ -91,12 +91,11 @@ class Home extends Component {
               />}
           </div>
           <div className='hrDiv'>
-          <hr className="divider"/>
-        </div>
-          <div className="container noMargin">
+            <hr className="divider"/>
+          </div>
+          <div className="container noMargin bottomCardDiv">
             <CardMenu list={arr} />
           </div>
-
       </div>
 
     );
