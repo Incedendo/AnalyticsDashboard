@@ -66,8 +66,8 @@ class Home extends Component {
 
     return (
       <div className="mainDiv">
-          <div className='strip' />
-        <div className='headerDiv'>
+        <div className='strip' />
+          <div className='headerDiv'>
             <Header />
           </div>
 
@@ -90,9 +90,9 @@ class Home extends Component {
               marginTop="0px"
               />}
           </div>
-
+          <div className='hrDiv'>
           <hr className="divider"/>
-
+        </div>
           <div className="container noMargin">
             <CardMenu list={arr} />
           </div>
