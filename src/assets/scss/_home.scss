@@ -55,10 +55,15 @@
   padding-right: 4.5rem;
 }
 
+.bottomCardDiv {
+  margin-top: 10px;
+}
+
 .hrDiv {
   position: absolute;
   margin: 0 auto;
-  margin-top:445px;
+  margin-top: 450px;
+  width: 100vw;
 }
 
 .headerDiv {
@@ -75,7 +80,6 @@
 }
 
 .divider {
+  border: 1px solid #4E6685;
 
-  border: 0.3px solid #4E6685;
-  width: 2400px;
 }

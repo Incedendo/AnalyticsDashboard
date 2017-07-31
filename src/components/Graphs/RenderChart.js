@@ -133,7 +133,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         ticks: {
           fontColor: "white", // this
           fontSize: yAxisTextSize,
-          padding: 16
+          padding: 16,
+          callback:
+           function(label, index, labels) {
+        return label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
         }
       }]
     },
