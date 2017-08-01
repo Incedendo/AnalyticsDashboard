@@ -1,51 +1,45 @@
 import Base from './Base';
-import LayoutCreator from './LayoutCreator';
+import Home from './components/Home';
 import LayoutUser from './LayoutUser';
-import Home from './Home';
-import About from './About';
-import AddContent from './AddContent';
-import NotFound from './NotFound';
+import CardModal from './components/Header/CardModal';
 
 export default [
-  { component: Base,
+  {
+    component: Base,
     routes: [
-      {
-        path: '/create',
-        component: LayoutCreator,
-        routes: [
-          { path: '/create/',
-            exact: true,
-            component: Home,
+          { path: '/Registrations',
+            component: CardModal,
+            name: '',
           },
-          { path: '/create/add-content',
-            exact: true,
-            component: AddContent,
+          { path: '/Enrollments',
+            component: CardModal,
+            name: '',
           },
-          {
-            component: NotFound,
+          { path: '/UniqueUserLogin',
+            component: CardModal,
+            name: '',
           },
-        ]
-      },
-      {
-        component: LayoutUser,
-        routes: [
-          { path: '/',
-            exact: true,
-            component: Home,
+          { path: '/ContributionChanges',
+            component: CardModal,
+            name: '',
           },
-          { path: '/stories',
-            component: About,
+          { path: '/BounceRate',
+            component: CardModal,
+            name: '',
           },
-          {
-            path: '/about',
-            component: About,
-            name: 'About',
+          { path: '/RetirementIncomeCalcUsage',
+            component: CardModal,
+            name: '',
           },
-          {
-            component: NotFound,
+          { path: '/TopPages',
+            component: CardModal,
+            name: '',
           },
-        ]
-      },
+          { path: '/VisitsbyDeviceType',
+            component: CardModal,
+            name: '',
+          },
+
     ]
   },
 ]

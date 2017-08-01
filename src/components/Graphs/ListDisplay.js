@@ -47,11 +47,10 @@ const renderDeviceType = (listHome, index) => {
   const list = listHome[index];
   const labels = list.map(({Device}) => Device);
   const percentage = list.map(({percentage}) => percentage);
-  console.log(percentage);
   initialChartConfig.labels = labels;
   initialChartConfig.datasets[0].data = percentage;
   return (
-    <div style={{}}>
+    <div style={{height: "295px"}}>
         <Doughnut data = {initialChartConfig} options={options} />
     </div>
   );

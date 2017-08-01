@@ -6,6 +6,8 @@ import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
 import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
+import '../assets/scss/include.css';
+import ModalMenu from './Header/ModalMenu';
 
 class Home extends Component {
   state = {
@@ -14,6 +16,7 @@ class Home extends Component {
     filter: '',
     frequency: '',
     overlay: false,
+    modalIsOpen: false,
   };
 
   componentDidMount() {
@@ -22,6 +25,14 @@ class Home extends Component {
       mounted: true,
       filter: 'QTD',
       frequency: 'quarterly'
+    });
+  }
+
+  toggleModal = () => {
+    const { modalIsOpen } = this.state
+    const toggledModal = !modalIsOpen
+    this.setState({
+      modalIsOpen: toggledModal
     });
   }
 
@@ -54,7 +65,6 @@ class Home extends Component {
   renderSubMainDiv = (dataType, arr) => (
     <div className="subMainDiv">
       <div className="pageVisit inLine">
-        {/* {dataType[0]} */}
         Page Visits
       </div>
 
@@ -73,16 +83,13 @@ class Home extends Component {
     </div>
   )
 
-  render() {
-    const { projects } = this.state
-    let arr=[];
-    if(this.state.mounted){
-      arr = Object.keys(projects).map((key) => projects[key]);
-    }
-
-    const dataType = ["Registrations", "Enrollments", "Unique User Login"];
-
-    return (
+  renderMainDiv = (dataType, arr) => (
+    <div>
+      <ModalMenu
+        modalIsOpen={this.state.modalIsOpen}
+        toggleModal={this.toggleModal}
+        enabledModal={this.state.modalIsOpen}
+      />
       <div className="mainDiv">
         <div className='strip' />
           <div className='headerDiv'>
@@ -96,7 +103,19 @@ class Home extends Component {
             <CardMenu list={arr} />
           </div>
       </div>
+    </div>
+  )
 
+  render() {
+    const { projects } = this.state
+    let arr=[];
+    if(this.state.mounted){
+      arr = Object.keys(projects).map((key) => projects[key]);
+    }
+
+    const dataType = ["Registrations", "Enrollments", "Unique User Login"];
+    return (
+      this.renderMainDiv(dataType, arr)
     );
   }
 }

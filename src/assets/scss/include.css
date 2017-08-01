@@ -450,6 +450,13 @@ h1 {
   height: 60vh;
   margin: 40px; }
 
+.navlink {
+  color: white; }
+
+.navlink:hover {
+  text-decoration: none;
+  color: white; }
+
 .border-right {
   border-right: 1px solid #4E6685; }
 
