@@ -7,8 +7,13 @@ import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
+
+
+import { NavLink } from 'react-router-dom';
+
 import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
+
 
 export class Card extends Component {
 
@@ -135,47 +140,60 @@ export class Card extends Component {
       })
     }
   }
+    
+  getCustomClass = (rightBorder, bottomBorder) => {
+    if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
+    if(rightBorder) return "card col-md-3 border-right";
+    if(bottomBorder) return "card col-md-3 border-bottom";
+
+    return "card col-md-3";
+  }
+
+  renderCardContent = () => (
+    <div className='graph'>
+      {this.state.graph && this.renderGraph()}
+      {this.state.comp && this.renderComp()}
+      {this.state.list && this.renderList()}
+    </div>
+  )
+
+  getFilter = (numGraph, graph, title) => {
+    return numGraph || graph ||  title === 'Contribution Changes' || title === 'Retirement Income Calc Usage';
+  }
+
+  getFreqFilter = (graph) => (
+    <div className={graph?'filter-graph':'filter'}>
+      <FreqFilter handleFilter={this.handleFilter}/>
+    </div>
+  )
+
+  getTitle = () => {
+    const link = '/' + this.state.dataType[0].replace(/\s/g, '');
+    return (
+      <div className='title inline-block'>
+        <NavLink to={link} className="navlink">{this.state.dataType[0]}</NavLink>
+      </div>
+    )
+  }
+
+  renderCardHeader = () => (
+    <div className='cardHeader'>
+      <div className='infoIcon' >
+        <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
+        {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
+      </div>
+    </div>
+  )
 
   render() {
-    if(!this.props.list.length) return null
-    const filter = this.props.numGraph || this.props.graph ||  this.props.title == 'Contribution Changes' || this.props.title == 'Retirement Income Calc Usage'
-
-    let customClass = "";
-
-    if(this.props.rightBorder && this.props.bottomBorder){
-      customClass = "card col-md-3 border-right border-bottom";
-    }else if(this.props.rightBorder){
-      customClass = "card col-md-3 border-right";
-    }else if(this.props.bottomBorder){
-      customClass = "card col-md-3 border-bottom";
-    }else{
-      customClass = "card col-md-3";
-    }
-
+    const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
+    if(!list.length) return null
     return (
-      <div className={customClass}>
-        <div className='cardHeader'>
-          <div className='title inline-block' >
-            {this.state.dataType[0]}
-          </div>
-
-          <div className='infoIcon' >
-            <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
-          {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
-          </div>
-        </div>
-        {filter &&
-          <div className={this.props.graph?'filter-graph':'filter'}>
-            <FreqFilter handleFilter={this.handleFilter}/>
-          </div>
-
-        }
-
-        <div className='graph'>
-          {this.state.graph && this.renderGraph()}
-          {this.state.comp && this.renderComp()}
-          {this.state.list && this.renderList()}
-        </div>
+      <div className={this.getCustomClass(rightBorder, bottomBorder)} >
+        {this.getTitle()}
+        {this.renderCardHeader()}
+        {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
+        {this.renderCardContent()}
       </div>
     )
   }
