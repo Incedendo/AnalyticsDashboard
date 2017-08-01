@@ -67,9 +67,11 @@ const options={
 
 const ListDisplay = ({listHome=[], cardIndex}) => {
   // the 5th card is TOP ACTIVE PAGES
+
   if(cardIndex === 5) return renderList(listHome, 4)
   if(cardIndex === 7) return renderList(listHome, 5)
   if(cardIndex === 8) return renderDeviceType(listHome,6)
+
 }
 
 ListDisplay.propTypes = {

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
+import infoWhite from './infoWhite.svg';
+import {RenderChart} from '../Graphs/RenderChart';
 import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
-import Modal from 'react-modal';
+
+
 import { NavLink } from 'react-router-dom';
+
 import Customize from '../ModalScreens/Customize';
-import infoWhite from './infoWhite.svg';
+import ReactModal from 'react-modal';
+
 
 export class Card extends Component {
 
@@ -17,7 +22,6 @@ export class Card extends Component {
     dataType: [],
     frequency: '',
     filter: '',
-    modalIsOpen: false,
     modalOpen: false,
     graph: false,
     comp: false,
@@ -87,7 +91,7 @@ export class Card extends Component {
 
   renderGraph = () => {
     let displayedLegend = true;
-    if(this.props.index === 4 || this.props.index === 6){
+    if(this.props.index == 4 || this.props.index == 6){
       displayedLegend = false;
     }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
@@ -136,7 +140,7 @@ export class Card extends Component {
       })
     }
   }
-
+    
   getCustomClass = (rightBorder, bottomBorder) => {
     if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
     if(rightBorder) return "card col-md-3 border-right";
@@ -176,7 +180,7 @@ export class Card extends Component {
     <div className='cardHeader'>
       <div className='infoIcon' >
         <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
-      {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
+        {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
       </div>
     </div>
   )
