@@ -1,7 +1,5 @@
 import React from 'react'
-import {Bar, Line, Pie, Doughnut} from 'react-chartjs-2';
-import Chart from 'chart.js';
-import randomColor from 'randomcolor';
+import {Bar, Line, Doughnut} from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
 const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
@@ -37,6 +35,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
         break;
     }
+    return null;
   });
 
   console.log('dataArr is: ');
@@ -70,7 +69,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     pointBorderWidth: '2',
     pointBackgroundColor: '#0C5AB5',
     pointBorderColor: "white",
-    pointBorderWidth: '3',
     pointHoverBackgroundColor: '#0C5AB5',
   }
 

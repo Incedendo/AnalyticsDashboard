@@ -55,7 +55,7 @@ const RenderComp = ({list=[], dataType=[], filter}) => {
             </div>
           </div>
           <div className='arrowBox'>
-            <img src={improve?greenArrow:redArrow} className={improve?'greenArrow':'redArrow'}/>
+            <img src={improve?greenArrow:redArrow} alt="" className={improve?'greenArrow':'redArrow'}/>
             {sign}
           </div>
         </div>
