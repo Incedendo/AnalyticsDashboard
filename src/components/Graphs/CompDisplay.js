@@ -2,23 +2,20 @@ import React from 'react';
 import RenderComp from './RenderComp';
 import PropTypes from 'prop-types';
 
-const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) => {
-
-  var list = [];
+const getList = (listHome, frequency) => {
   switch(frequency) {
     case 'annually':
-      list = listHome[0]
-      break;
+      return listHome[0];
     case 'quarterly':
-      list = listHome[1];
-      break;
+      return listHome[1];
     case 'weekly':
-      list = listHome[2];
-      break;
+      return listHome[2];
     case 'daily':
-      list = listHome[3];
-      break;
+      return listHome[3];
   }
+}
+
+const getDataArray = (list, dataType) => {
   var dataArr = [];
   dataType.map((stat, index) =>{
     switch(stat){
@@ -44,7 +41,14 @@ const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) =
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
         break;
     }
+    return null;
   });
+  return dataArr;
+}
+
+const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) => {
+  const list = getList(listHome, frequency);
+  const dataArr = getDataArray(list, dataType);
   return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
 }
 

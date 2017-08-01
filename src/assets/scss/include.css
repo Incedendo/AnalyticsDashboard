@@ -409,6 +409,22 @@ h1 {
   right: 0;
   margin-top: 5px; }
 
+.threeDots {
+  border-radius: 30px;
+  border: 1px solid white;
+  background: transparent;
+  /* size: 20px; */
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+.threeDotsText {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 2px; }
+
 .filter {
   position: absolute;
   right: 1rem;
@@ -443,6 +459,13 @@ h1 {
   margin: 0 auto;
   height: 60vh;
   margin: 40px; }
+
+.navlink {
+  color: white; }
+
+.navlink:hover {
+  text-decoration: none;
+  color: white; }
 
 .border-right {
   border-right: 1px solid #4E6685; }
@@ -620,10 +643,14 @@ select {
   padding-left: 4.5rem;
   padding-right: 4.5rem; }
 
+.bottomCardDiv {
+  margin-top: 10px; }
+
 .hrDiv {
   position: absolute;
   margin: 0 auto;
-  margin-top: 445px; }
+  margin-top: 445px;
+  width: 100vw; }
 
 .headerDiv {
   position: relative;
@@ -637,8 +664,7 @@ select {
   display: block; }
 
 .divider {
-  border: 0.3px solid #4E6685;
-  width: 2400px; }
+  border: 1px solid #4E6685; }
 
 .hr1 {
   background-color: #FFFFFF;
@@ -1032,6 +1058,9 @@ input[type="button"].btn-block {
 
 .zero-padding {
   padding: 0px; }
+
+.blueBackgroundColor {
+  background: #022753; }
 
 .valicBrand {
   position: absolute;

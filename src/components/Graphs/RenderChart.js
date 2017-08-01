@@ -1,7 +1,5 @@
 import React from 'react'
-import {Bar, Line, Pie, Doughnut} from 'react-chartjs-2';
-import Chart from 'chart.js';
-import randomColor from 'randomcolor';
+import {Bar, Line, Doughnut} from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
 const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
@@ -10,7 +8,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
-  dataType.map( (stat, index) =>{
+  dataType.map( (stat, index) => {
     switch(stat){
       case "Registrations":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -46,7 +44,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
     }
+    return null;
   });
+
   const labels = list.map(({label}) => label);
 
   const colors = [];
@@ -72,13 +72,15 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     pointBorderWidth: '2',
     pointBackgroundColor: '#0C5AB5',
     pointBorderColor: "white",
-    pointBorderWidth: '3',
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
-  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}));
+
+  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
+
 
   let options = {
+    // onAnimationComplete: methodToDownload,
     responsive: true,
     maintainAspectRatio: false,
     animation: {
@@ -133,7 +135,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         ticks: {
           fontColor: "white", // this
           fontSize: yAxisTextSize,
-          padding: 16
+          padding: 16,
+          callback:
+           function(label, index, labels) {
+        return label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
         }
       }]
     },
@@ -158,3 +164,8 @@ RenderChart.propTypes = {
 };
 
 export default RenderChart;
+
+
+// const url_base64 = document.getElementById('myChart').toDataURL('image/png');
+// link.href = url_base64;
+// <a id='link' download='filename.png'>Save as Image</a>

@@ -103,7 +103,6 @@ export class DisplayCards extends Component {
       return (
           <Card {...rest} key={index} list={this.props.list}/>
       );
-
     })
   }
 

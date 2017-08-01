@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {CardMenu} from './CardDisplay/CardMenu';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
@@ -7,6 +6,8 @@ import FreqFilter from './utils/FreqFilter';
 import PropTypes from 'prop-types';
 import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
+import '../assets/scss/include.css';
+import ModalMenu from './Header/ModalMenu';
 
 class Home extends Component {
   state = {
@@ -15,6 +16,7 @@ class Home extends Component {
     filter: '',
     frequency: '',
     overlay: false,
+    modalIsOpen: false,
   };
 
   componentDidMount() {
@@ -23,6 +25,14 @@ class Home extends Component {
       mounted: true,
       filter: 'QTD',
       frequency: 'quarterly'
+    });
+  }
+
+  toggleModal = () => {
+    const { modalIsOpen } = this.state
+    const toggledModal = !modalIsOpen
+    this.setState({
+      modalIsOpen: toggledModal
     });
   }
 
@@ -51,51 +61,62 @@ class Home extends Component {
         break;
     }
   }
+  renderSubMainDiv = (dataType, arr) => (
+    <div className="subMainDiv">
+      <div className="pageVisit inLine">
+        Page Visits
+      </div>
 
-  render() {
-    const { projects } = this.state
-    let arr=[];
-    if(this.state.mounted){
-      arr = Object.keys(projects).map((key) => projects[key]);
-       ("Component mounted");
-    }
+      <div className='filterHeader inLine'>
+        <FreqFilter handleFilter={this.handleFilter}/>
+      </div>
 
-    const dataType = ["Total Visits", "Unique Visits", "Page Views"];
+      {this.state.mounted &&
+        <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
+        margin="45px" yAxisTextSize="15" xAxisTextSize="20"
+        pointRadius="8"
+        legendFontSize="10"
+        displayedLegend="true"
+        marginTop="0px"
+        />}
+    </div>
+  )
 
-    return (
+  renderMainDiv = (dataType, arr) => (
+    <div>
+      <ModalMenu
+        modalIsOpen={this.state.modalIsOpen}
+        toggleModal={this.toggleModal}
+        enabledModal={this.state.modalIsOpen}
+      />
       <div className="mainDiv">
         <div className='strip' />
           <div className='headerDiv'>
             <Header />
           </div>
 
-          <div className="subMainDiv">
-            <div className="pageVisit inLine">
-              {/* {dataType[0]} */}
-              Page Visits
-            </div>
-
-            <div className='filterHeader inLine'>
-              <FreqFilter handleFilter={this.handleFilter}/>
-            </div>
-
-            {this.state.mounted &&
-              <ChartDisplay listHome={arr} graphType='Line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-              margin="45px" yAxisTextSize="20" xAxisTextSize="25"
-              pointRadius="10"
-              />}
-          </div>
-
+          {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
+          <div className="container noMargin bottomCardDiv">
 
-          <div className="container noMargin">
             <CardMenu list={arr} />
           </div>
-
       </div>
+    </div>
+  )
 
+  render() {
+    const { projects } = this.state
+    let arr=[];
+    if(this.state.mounted){
+      arr = Object.keys(projects).map((key) => projects[key]);
+    }
+
+    const dataType = ["Registrations", "Enrollments", "Unique User Login"];
+    return (
+      this.renderMainDiv(dataType, arr)
     );
   }
 }
