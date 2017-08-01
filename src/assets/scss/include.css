@@ -897,6 +897,133 @@ body {
     .taskbar .btn-back-task:focus .one, .taskbar .btn-back-task:focus .two, .taskbar .btn-back-task:focus .three {
       background: #4c8af4; }
 
+.btn, input[type=submit] {
+  font-family: "futura-heavy", helvetica, arial, sans-serif;
+  text-transform: uppercase; }
+
+.btn, input[type=submit] {
+  transition: all 0.18s ease-out;
+  display: inline-block;
+  font-size: 1.0rem;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 3.0rem;
+  padding: 1.28rem 6rem;
+  background: #00A4E4;
+  color: #ffffff;
+  border: 2px solid #00A4E4;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0 auto; }
+  @media (max-width: 960px) {
+    .btn, input[type=submit] {
+      padding: 1.28rem 3.5rem; } }
+  .btn.btn-block, input[type=submit].btn-block {
+    display: block;
+    width: 100%; }
+
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%; }
+
+.tile-toggles .tile-toggle-group {
+  display: table;
+  font-weight: 400;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; }
+
+.tile-toggles .tile-toggle-item {
+  width: 25%;
+  margin: 0 auto;
+  padding: 10px;
+  border-left: 1.1rem solid #fff;
+  border-right: 1.1rem solid #fff;
+  color: #555;
+  display: block;
+  display: table-cell;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  vertical-align: top; }
+  .tile-toggles .tile-toggle-item:first-of-type {
+    border-left: 0; }
+  .tile-toggles .tile-toggle-item:last-of-type {
+    border-right: 0; }
+
+.tile-toggles label {
+  box-shadow: 2px 0 0 #EEF1F7 inset, -2px 0 0 #EEF1F7 inset, 0 -2px 0 #EEF1F7 inset, 0 2px 0 #EEF1F7 inset;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-top: 1.76rem;
+  padding-bottom: 1.65rem;
+  border-radius: 0rem; }
+
+.tile-toggles .icon {
+  display: inline-block;
+  width: 5.5rem;
+  height: 5.5rem;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor; }
+
+.tile-toggles .name {
+  padding-top: 0.44rem;
+  display: block;
+  text-align: center;
+  margin: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.tile-toggles input[type=radio], .tile-toggles input[type=checkbox] {
+  position: absolute;
+  visibility: hidden; }
+  .tile-toggles input[type=radio] ~ label::before, .tile-toggles input[type=radio] ~ label::after, .tile-toggles input[type=checkbox] ~ label::before, .tile-toggles input[type=checkbox] ~ label::after {
+    display: none; }
+
+.tile-toggles input[type=radio]:checked ~ label, .tile-toggles input[type=checkbox]:checked ~ label {
+  color: #fff;
+  background: #00a4e4;
+  box-shadow: none; }
+  .tile-toggles input[type=radio]:checked ~ label::before, .tile-toggles input[type=radio]:checked ~ label::after, .tile-toggles input[type=checkbox]:checked ~ label::before, .tile-toggles input[type=checkbox]:checked ~ label::after {
+    display: none; }
+  .tile-toggles input[type=radio]:checked ~ label:hover, .tile-toggles input[type=checkbox]:checked ~ label:hover {
+    color: #fff; }
+
+.modalBody {
+  height: 100%; }
+
+.selectionCard {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem; }
+
+.selectionBox {
+  height: 40vh;
+  font-size: 40px; }
+
+.menu_2 {
+  height: 35vh; }
+
+.btnCtn {
+  margin: 0 auto;
+  width: 50%; }
+
 .App {
   background-color: #022753;
   background: #022753 !important; }
