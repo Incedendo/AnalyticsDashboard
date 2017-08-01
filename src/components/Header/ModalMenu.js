@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import menuSvg from '../../assets/svg/three-line-menu.svg';
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 
-const customStyles = {
+const topMenuOverlay = {
     overlay : {
       position          : 'fixed',
       top               : 0,
@@ -26,7 +26,7 @@ const customStyles = {
       WebkitOverflowScrolling    : 'touch',
       borderRadius               : '4px',
       outline                    : 'none',
-      padding                    : '20px'
+      padding                    : '20px',
     }
 };
 
@@ -76,21 +76,14 @@ const modalMenuArray = [
 
 const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
 
-  const renderMenuItem = (type, content) => {
-    if(type == "src") return <img src={content} />
-    if(type == "div") return <a href="#">{content}</a>
-    
-    return <hr className={content}></hr>
-  }
-
   const renderMenuList = () => (
-    modalMenuArray.map(({itemClass, type, content}) => {
-      return(
-        <div className={itemClass}>
-          {renderMenuItem(type, content)}
-        </div>
-      )
-    })
+    modalMenuArray.map(({itemClass, type, content, index}) =>(
+      <div className={itemClass} key={index}>
+        { type === "src" && <img src={content} />}
+        { type == "div" && <a href="#">{content}</a>}
+        { type == "hr" && <hr className={content}></hr>}
+      </div>
+    ))
   )
 
   const renderModalButton = () => (
@@ -111,7 +104,7 @@ const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
         closeModal={toggleModal}
         enabledModal={enabledModal}
         contentLabel="Example Modal"
-        style={customStyles}
+        style={topMenuOverlay}
       >
         <div className="linksDiv ">
           {renderMenuList()}
