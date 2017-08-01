@@ -1,0 +1,179 @@
+
+
+$container-desktop: 960px;
+$futura-heavy:                          'futura-heavy', helvetica, arial, sans-serif;
+
+$sky: #00A4E4;
+$snow-dark: #EEF1F7;
+$snow-light:                                 #ffffff;
+$button-bg-color:                       $sky;
+$button-font-color:                     $snow-light;
+$button-text-style:                     uppercase;
+$radius: 0.0rem;
+$input-radius:                          $radius;
+$selected-border:                      2px;
+$unselected-border:                    1px;
+$transition-speed:                     0.18s;
+
+%button-text-bold {
+  font-family: $futura-heavy;
+  text-transform: uppercase;
+}
+
+.btn, input[type=submit]{
+  @extend %button-text-bold;
+  transition: all $transition-speed ease-out;
+  display: inline-block;
+  font-size: 1.0rem;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 3.0rem;
+  padding: 1.28rem 6rem;
+  @media (max-width: $container-desktop) {
+    padding: 1.28rem 3.5rem;
+  }
+  background: $button-bg-color;
+  color: $button-font-color;
+  border: $selected-border solid $button-bg-color;
+  text-transform: $button-text-style;
+  width: 100%;
+  margin: 0 auto;
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+@mixin tile-toggles($width:8rem, $text-color:#555, $active-color: $sky, $border-color: $snow-dark) {
+	.tile-toggle-group {
+		display: table;
+		font-weight: 400;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		border-collapse: collapse;
+		box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+
+	}
+	.tile-toggle-item {
+    width: 25%;
+    margin: 0 auto;
+    padding: 10px;
+		border-left: $width*.1 solid #fff;
+		border-right: $width*.1 solid #fff;
+		&:first-of-type {
+			border-left: 0;
+		}
+		&:last-of-type {
+			border-right: 0;
+		}
+		color: $text-color;
+		display: block;
+		display: table-cell;
+    font-size: 20px;
+		position: relative;
+		text-align: center;
+		vertical-align: top;
+	}
+	label{
+		box-shadow: 2px 0 0 $border-color inset, -2px 0 0 $border-color inset, 0 -2px 0 $border-color inset, 0 2px 0 $border-color inset ;
+		display: block;
+		position: relative;
+		cursor: pointer;
+		padding-top: $width*.16;
+		padding-bottom: $width*.15;
+    border-radius: $input-radius;
+	}
+	.icon {
+		display: inline-block;
+		width: $width*.5;
+		height: $width*.5;
+		stroke-width: 0;
+		stroke: currentColor;
+		fill: currentColor;
+	}
+	.name {
+		padding-top:$width*.04;
+		display:block;
+		text-align:center;
+		margin:auto;
+		max-width:100%;
+		white-space:nowrap;
+		overflow:hidden;
+	}
+	input[type=radio], input[type=checkbox] {
+		position: absolute;
+		visibility: hidden;
+    // It's necessary to override some default Pattern Library
+    // styles for radio elements:
+    & ~ label {
+    &::before, &::after {
+      display:none;
+    }
+  }
+
+	}
+	input[type=radio]:checked, input[type=checkbox]:checked {
+    // It's necessary to override some default Pattern Library
+    // styles for radio elements:
+		& ~ label{
+    &::before, &::after {
+      display:none;
+    }
+
+			color:#fff;
+			background:#00a4e4;
+			box-shadow:none;
+			&:hover {
+				color:#fff;
+			}
+		}
+	}
+}
+
+.tile-toggles {
+	@include tile-toggles($width:11rem);
+}
+
+.modalBody {
+  height: 100%;
+}
+
+.selectionCard {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+}
+
+.selectionBox {
+  height: 40vh;
+  font-size: 40px;
+}
+
+.menu_2 {
+  height: 35vh;
+}
+
+.btnCtn {
+  margin: 0 auto;
+  width: 50%;
+}

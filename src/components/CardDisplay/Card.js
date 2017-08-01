@@ -1,38 +1,14 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
+import infoWhite from './infoWhite.svg';
+import {RenderChart} from '../Graphs/RenderChart';
 import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
-import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
-
-const CardOverlayStyle = {
-    overlay : {
-      position          : 'fixed',
-      top               : "20%",
-      left              : "20%",
-      right             : "20%",
-      bottom            : "20%",
-      backgroundColor   : 'rgba(255, 255, 255, 0.75)'
-    },
-    content : {
-      position                   : 'absolute',
-      top                        : '0px',
-      left                       : '0px',
-      right                      : '0px',
-      bottom                     : '0px',
-      border                     : '1px solid #ccc',
-      background                 : '#022753',
-      color                      : 'white',
-      overflow                   : 'auto',
-      WebkitOverflowScrolling    : 'touch',
-      borderRadius               : '4px',
-      outline                    : 'none',
-      padding                    : '20px'
-    }
-};
+import Customize from '../ModalScreens/Customize';
+import ReactModal from 'react-modal';
 
 export class Card extends Component {
 
@@ -41,15 +17,16 @@ export class Card extends Component {
     dataType: [],
     frequency: '',
     filter: '',
-    modalIsOpen: false,
+    modalOpen: false,
+    graph: false,
+    comp: false,
+    list: false,
   }
 
-  toggleModal = () => {
-    const { modalIsOpen } = this.state
-    const toggledModal = !modalIsOpen
-    this.setState({
-      modalIsOpen: toggledModal
-    });
+  handleEditClick = () => {
+    this.setState((prevState) => {
+      return {modalOpen: !prevState.modalOpen}
+    })
   }
 
   handleFilter = (id) => {
@@ -78,9 +55,38 @@ export class Card extends Component {
     }
   }
 
+  handleSubmit = (data, graph) => {
+    this.setState({
+      dataType: data,
+      graphType: graph
+    })
+    switch(this.state.graphType) {
+      case 'Line', 'Bar': this.setState({
+        graph: true,
+        comp: false,
+        list: false,
+      })
+        break;
+      case 'Comp': this.setState({
+        graph: false,
+        comp: true,
+        list: false,
+      })
+        break;
+      case 'List': this.setState({
+        graph: false,
+        comp: false,
+        list: true,
+      })
+      break;
+    }
+
+    console.log(this.state.dataType);
+  }
+
   renderGraph = () => {
     let displayedLegend = true;
-    if(this.props.index === 4 || this.props.index === 6){
+    if(this.props.index == 4 || this.props.index == 6){
       displayedLegend = false;
     }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
@@ -115,94 +121,61 @@ export class Card extends Component {
       filter: 'QTD',
       frequency: 'quarterly'
     })
-  }
-
-  getCustomClass = (rightBorder, bottomBorder) => {
-    if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
-    if(rightBorder) return "card col-md-3 border-right";
-    if(bottomBorder) return "card col-md-3 border-bottom";
-
-    return "card col-md-3";
-  }
-
-  renderModal = () => (
-    <Modal
-      isOpen={this.state.modalIsOpen}
-      contentLabel="Example Modal"
-      closeModal={this.toggleModal}
-      enabledModal={this.state.modalIsOpen}
-      style={CardOverlayStyle}
-    >
-
-      <div className="">
-        <div className="taskbar">
-          <button className="btn-close-task" onClick={this.toggleModal}>
-            {/* <img className="x" src={closeButton} /> */}
-            <svg className="x" width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <g id="Page-1" stroke="#ffffff" strokeWidth="" fill="none" fillRule="evenodd">
-        <g id="Custom-Preset" transform="translate(0.000000, 1.000000)">
-            <g id="Group">
-                <path d="M32,32 L0,0" id="Path"></path>
-                <path d="M0,32 L32,-1.77635684e-15 L0,32 Z" id="Path"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-
-          </button>
-        </div>
-      </div>
-
-    </Modal>
-  )
-
-  renderThreeDotModalButton = () => (
-    <div>
-      <button className="threeDots" onClick={this.toggleModal}>
-        <div className="threeDotsText">
-          ...
-        </div>
-      </button>
-    </div>
-  )
-
-  renderCardContent = (graph, numGraph, listCard) => (
-    <div className='graph'>
-      {graph && this.renderGraph()}
-      {numGraph && this.renderComp()}
-      {listCard && this.renderList()}
-    </div>
-  )
-
-  getFilter = (numGraph, graph, title) => {
-    return numGraph || graph ||  title === 'Contribution Changes' || title === 'Retirement Income Calc Usage';
-  }
-
-  getFreqFilter = (graph) => (
-    <div className={graph?'filter-graph':'filter'}>
-      <FreqFilter handleFilter={this.handleFilter}/>
-    </div>
-  )
-
-  getTitle = (title) => {
-    const link = '/' + title.replace(/\s/g, '');
-    return (
-      <div className='title inline-block'>
-        <NavLink to={link} className="navlink">{title}</NavLink>
-      </div>
-    )
+    if(this.props.graph){
+      this.setState({
+        graph: true
+      })
+    }else if(this.props.numGraph){
+      this.setState({
+        comp: true
+      })
+    }else{
+      this.setState({
+        list: true
+      })
+    }
   }
 
   render() {
-    const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
-    if(!list.length) return null
+    if(!this.props.list.length) return null
+    const filter = this.props.numGraph || this.props.graph ||  this.props.title == 'Contribution Changes' || this.props.title == 'Retirement Income Calc Usage'
+
+    let customClass = "";
+
+    if(this.props.rightBorder && this.props.bottomBorder){
+      customClass = "card col-md-3 border-right border-bottom";
+    }else if(this.props.rightBorder){
+      customClass = "card col-md-3 border-right";
+    }else if(this.props.bottomBorder){
+      customClass = "card col-md-3 border-bottom";
+    }else{
+      customClass = "card col-md-3";
+    }
+
     return (
-      <div className={this.getCustomClass(rightBorder, bottomBorder)} >
-        {/* {this.renderThreeDotModalButton()} */}
-        {this.getTitle(title)}
-        {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
-        {this.renderCardContent(graph, numGraph, listCard)}
-        {/* {this.renderModal()} */}
+      <div className={customClass}>
+        <div className='cardHeader'>
+          <div className='title inline-block' >
+            {this.state.dataType[0]}
+          </div>
+
+          <div className='infoIcon' >
+            <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
+          {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
+          </div>
+        </div>
+        {filter &&
+          <div className={this.props.graph?'filter-graph':'filter'}>
+            <FreqFilter handleFilter={this.handleFilter}/>
+          </div>
+
+        }
+
+        <div className='graph'>
+          {this.state.graph && this.renderGraph()}
+          {this.state.comp && this.renderComp()}
+          {this.state.list && this.renderList()}
+        </div>
       </div>
     )
   }
