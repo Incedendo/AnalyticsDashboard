@@ -51,15 +51,34 @@ class Home extends Component {
     }
   }
 
+  renderSubMainDiv = (dataType, arr) => (
+    <div className="subMainDiv">
+      <div className="pageVisit inLine">
+        {/* {dataType[0]} */}
+        Page Visits
+      </div>
+
+      <div className='filterHeader inLine'>
+        <FreqFilter handleFilter={this.handleFilter}/>
+      </div>
+
+      {this.state.mounted &&
+        <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
+        margin="45px" yAxisTextSize="15" xAxisTextSize="20"
+        pointRadius="8"
+        legendFontSize="10"
+        displayedLegend="true"
+        marginTop="0px"
+        />}
+    </div>
+  )
+
   render() {
     const { projects } = this.state
     let arr=[];
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
-      console.log("Component mounted");
     }
-
-    console.log(arr);
 
     const dataType = ["Registrations", "Enrollments", "Unique User Login"];
 
@@ -69,26 +88,7 @@ class Home extends Component {
           <div className='headerDiv'>
             <Header />
           </div>
-
-          <div className="subMainDiv">
-            <div className="pageVisit inLine">
-              {/* {dataType[0]} */}
-              Page Visits
-            </div>
-
-            <div className='filterHeader inLine'>
-              <FreqFilter handleFilter={this.handleFilter}/>
-            </div>
-
-            {this.state.mounted &&
-              <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-              margin="45px" yAxisTextSize="15" xAxisTextSize="20"
-              pointRadius="8"
-              legendFontSize="10"
-              displayedLegend="true"
-              marginTop="0px"
-              />}
-          </div>
+          {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
