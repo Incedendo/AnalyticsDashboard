@@ -6,6 +6,7 @@ import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
 import Modal from 'react-modal';
+import { NavLink } from 'react-router-dom';
 
 const CardOverlayStyle = {
     overlay : {
@@ -49,7 +50,6 @@ export class Card extends Component {
     this.setState({
       modalIsOpen: toggledModal
     });
-    console.log("Modal toggled");
   }
 
   handleFilter = (id) => {
@@ -102,7 +102,6 @@ export class Card extends Component {
   }
 
   renderList = () => {
-    console.log("calling LIST: KEY = " + this.props.index);
     return (
       <ListDisplay listHome={this.props.list} cardIndex={this.props.index}/>
     );
@@ -116,7 +115,6 @@ export class Card extends Component {
       filter: 'QTD',
       frequency: 'quarterly'
     })
-
   }
 
   getCustomClass = (rightBorder, bottomBorder) => {
@@ -186,22 +184,25 @@ export class Card extends Component {
     </div>
   )
 
-  getTitle = (title) => (
-    <div className='title inline-block'>
-      {title}
-    </div>
-  )
+  getTitle = (title) => {
+    const link = '/' + title.replace(/\s/g, '');
+    return (
+      <div className='title inline-block'>
+        <NavLink to={link} className="navlink">{title}</NavLink>
+      </div>
+    )
+  }
 
   render() {
     const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
     if(!list.length) return null
     return (
       <div className={this.getCustomClass(rightBorder, bottomBorder)} >
-        {this.renderThreeDotModalButton()}
+        {/* {this.renderThreeDotModalButton()} */}
         {this.getTitle(title)}
         {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
         {this.renderCardContent(graph, numGraph, listCard)}
-        {this.renderModal()}
+        {/* {this.renderModal()} */}
       </div>
     )
   }

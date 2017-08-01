@@ -3,28 +3,22 @@ import './assets/scss/include.css';
 import Home from './components/Home';
 import ModalMenu from './components/Header/ModalMenu';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes';
+
+
 class App extends Component {
   state = {
     modalIsOpen: false,
   }
 
-  toggleModal = () => {
-    const { modalIsOpen } = this.state
-    const toggledModal = !modalIsOpen
-    this.setState({
-      modalIsOpen: toggledModal
-    });
-  }
-
   render () {
     return (
       <div className="blueBackgroundColor">
-        <ModalMenu
-          modalIsOpen={this.state.modalIsOpen}
-          toggleModal={this.toggleModal}
-          enabledModal={this.state.modalIsOpen}
-        />
-        <Home />
+        <Router>
+          {renderRoutes(routes)}
+        </Router>
       </div>
     )
   }

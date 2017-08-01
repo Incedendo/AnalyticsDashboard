@@ -8,7 +8,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
-  dataType.map( (stat, index) =>{
+  dataType.map( (stat, index) => {
     switch(stat){
       case "Registrations":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -37,9 +37,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     }
     return null;
   });
-
-  console.log('dataArr is: ');
-  console.log(dataArr)
 
   const labels = list.map(({label}) => label);
 
@@ -71,8 +68,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
   }
 
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
-
-  console.log("Legend font size "+ legendFontSize);
 
   let options = {
     // onAnimationComplete: methodToDownload,
