@@ -41,6 +41,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
         break;
     }
+    return null;
   });
   return dataArr;
 }

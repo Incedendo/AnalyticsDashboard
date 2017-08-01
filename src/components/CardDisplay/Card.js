@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
-import {RenderChart} from '../Graphs/RenderChart';
 import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
@@ -81,7 +80,7 @@ export class Card extends Component {
 
   renderGraph = () => {
     let displayedLegend = true;
-    if(this.props.index == 4 || this.props.index == 6){
+    if(this.props.index === 4 || this.props.index === 6){
       displayedLegend = false;
     }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
@@ -178,7 +177,7 @@ export class Card extends Component {
   )
 
   getFilter = (numGraph, graph, title) => {
-    return numGraph || graph ||  title == 'Contribution Changes' || title == 'Retirement Income Calc Usage';
+    return numGraph || graph ||  title === 'Contribution Changes' || title === 'Retirement Income Calc Usage';
   }
 
   getFreqFilter = (graph) => (

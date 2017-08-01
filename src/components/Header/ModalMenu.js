@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/scss/include.css';
 import Modal from 'react-modal';
-import menuSvg from '../../assets/svg/three-line-menu.svg';
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 
 const topMenuOverlay = {
@@ -79,9 +78,9 @@ const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
   const renderMenuList = () => (
     modalMenuArray.map(({itemClass, type, content, index}) =>(
       <div className={itemClass} key={index}>
-        { type === "src" && <img src={content} />}
-        { type == "div" && <a href="#">{content}</a>}
-        { type == "hr" && <hr className={content}></hr>}
+        { type === "src" && <img src={content} alt="" />}
+        { type === "div" && <a href="">{content}</a>}
+        { type === "hr" && <hr className={content}></hr>}
       </div>
     ))
   )
