@@ -77,6 +77,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
   console.log("Legend font size "+ legendFontSize);
 
   let options = {
+    // onAnimationComplete: methodToDownload,
     responsive: true,
     maintainAspectRatio: false,
     animation: {
@@ -160,3 +161,8 @@ RenderChart.propTypes = {
 };
 
 export default RenderChart;
+
+
+// const url_base64 = document.getElementById('myChart').toDataURL('image/png');
+// link.href = url_base64;
+// <a id='link' download='filename.png'>Save as Image</a>

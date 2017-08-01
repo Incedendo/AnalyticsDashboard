@@ -34,6 +34,24 @@
 
 }
 
+.threeDots {
+  border-radius: 30px;
+  border: 1px solid white;
+  background: transparent;
+  /* size: 20px; */
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.threeDotsText {
+  font-size: 20px;
+  color: white;
+  letter-spacing: 2px;
+}
+
 .filter {
   position: absolute;
   right: 1rem;
