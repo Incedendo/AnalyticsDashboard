@@ -12,6 +12,12 @@
   //vertical-align: bottom;
 }
 
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  height: 2vh;
+}
+
 .title {
   color: #FFFFFF;
   //font-size: 3.5rem;
@@ -19,7 +25,7 @@
   letter-spacing: 1px;
   font-weight: 400;
   line-height: 40px;
-  float: left;
+
   position: relative;
   top: 1rem;
   left: 1rem;
@@ -31,7 +37,13 @@
   @media (min-width: 1600px) {
     font-size: 2em;
   }
+  margin-right: auto;
+}
 
+.infoWhite {
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
 }
 
 .filter {

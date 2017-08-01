@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
 import dropdown from './dropdown.svg';
+import infoWhite from './infoWhite.svg';
 import {RenderChart} from '../Graphs/RenderChart';
 import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
+import Customize from '../ModalScreens/Customize';
+import ReactModal from 'react-modal';
 
 export class Card extends Component {
 
@@ -14,6 +17,16 @@ export class Card extends Component {
     dataType: [],
     frequency: '',
     filter: '',
+    modalOpen: false,
+    graph: false,
+    comp: false,
+    list: false,
+  }
+
+  handleEditClick = () => {
+    this.setState((prevState) => {
+      return {modalOpen: !prevState.modalOpen}
+    })
   }
 
   handleFilter = (id) => {
@@ -42,6 +55,35 @@ export class Card extends Component {
     }
   }
 
+  handleSubmit = (data, graph) => {
+    this.setState({
+      dataType: data,
+      graphType: graph
+    })
+    switch(this.state.graphType) {
+      case 'Line', 'Bar': this.setState({
+        graph: true,
+        comp: false,
+        list: false,
+      })
+        break;
+      case 'Comp': this.setState({
+        graph: false,
+        comp: true,
+        list: false,
+      })
+        break;
+      case 'List': this.setState({
+        graph: false,
+        comp: false,
+        list: true,
+      })
+      break;
+    }
+
+    console.log(this.state.dataType);
+  }
+
   renderGraph = () => {
     let displayedLegend = true;
     if(this.props.index == 4 || this.props.index == 6){
@@ -66,7 +108,6 @@ export class Card extends Component {
   }
 
   renderList = () => {
-     ("calling LIST: KEY = " + this.props.index);
     return (
       <ListDisplay listHome={this.props.list} cardIndex={this.props.index}/>
     );
@@ -80,7 +121,19 @@ export class Card extends Component {
       filter: 'QTD',
       frequency: 'quarterly'
     })
-
+    if(this.props.graph){
+      this.setState({
+        graph: true
+      })
+    }else if(this.props.numGraph){
+      this.setState({
+        comp: true
+      })
+    }else{
+      this.setState({
+        list: true
+      })
+    }
   }
 
   render() {
@@ -101,20 +154,27 @@ export class Card extends Component {
 
     return (
       <div className={customClass}>
-        <div className='title inline-block'>
-          {this.props.title}
-        </div>
+        <div className='cardHeader'>
+          <div className='title inline-block' >
+            {this.state.dataType[0]}
+          </div>
 
+          <div className='infoIcon' >
+            <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
+          {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
+          </div>
+        </div>
         {filter &&
           <div className={this.props.graph?'filter-graph':'filter'}>
             <FreqFilter handleFilter={this.handleFilter}/>
           </div>
+
         }
 
         <div className='graph'>
-          {this.props.graph && this.renderGraph()}
-          {this.props.numGraph && this.renderComp()}
-          {this.props.listCard && this.renderList()}
+          {this.state.graph && this.renderGraph()}
+          {this.state.comp && this.renderComp()}
+          {this.state.list && this.renderList()}
         </div>
       </div>
     )

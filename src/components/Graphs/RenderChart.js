@@ -66,7 +66,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
       })
     )
   }
-  console.log(dataSet)
   const bam = {
     pointRadius: pointRadius,
     pointHoverRadius: '13',
@@ -142,13 +141,13 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   return (
       <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
-        { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
+        { graphType === 'Bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
-        { graphType === 'line' &&
+        { graphType === 'Line' &&
             <Line data = {dataSet} options={options} />
         }
 
-        { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
+        { graphType === 'Pie' && <Doughnut data = {dataSet} options={options} />}
       </div>
 
   );
