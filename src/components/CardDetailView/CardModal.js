@@ -3,8 +3,9 @@ import '../../assets/scss/include.css';
 import Modal from 'react-modal';
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 import { NavLink } from 'react-router-dom';
-import { CardModalDisplay } from '../CardDisplay/CardModalDisplay';
+import { CardModalDisplay } from './CardModalDisplay';
 import jsonData from '../../assets/JSON/main.js';
+import cards from '../../assets/JSON/cards.js';
 
 const topMenuOverlay = {
     overlay : {
@@ -61,13 +62,38 @@ const errorModal = {
 const cardTitle = [
                     'Registrations',
                     'Enrollments',
-                    'UniqueUserLogin',
-                    'ContributionChanges',
-                    'BounceRate',
-                    'RetirementIncomeCalcUsage',
-                    'TopPages',
-                    'VisitsbyDeviceType'
+                    'Unique User Login',
+                    'Contribution Changes',
+                    'Bounce Rate',
+                    'Retirement Income Calc Usage',
+                    'Top Pages',
+                    'Visits by Device Type'
                   ];
+
+const CardFrequencies = [
+  {
+    frequency: "annually",
+    rightBorder: true,
+    bottomBorder: true
+  },
+  {
+    frequency: "quarterly",
+    rightBorder: false,
+    bottomBorder: true
+  },
+  {
+    frequency: "weekly",
+    rightBorder: true,
+    bottomBorder: false
+  },
+  {
+    frequency: "daily",
+    rightBorder: false,
+    bottomBorder: false
+  }
+];
+
+const cardsINFO = cards;
 
 class CardModal extends Component {
 
@@ -82,10 +108,7 @@ class CardModal extends Component {
         numGraph: true,
         listCard: false,
         graphType: 'compare',
-        data: ['Registrations'],
-        rightBorder: true,
-        bottomBorder: true,
-        index: 1
+        data: ['Registrations']
       },
       {
         title: 'Enrollments',
@@ -93,10 +116,8 @@ class CardModal extends Component {
         numGraph: false,
         listCard: false,
         graphType: 'line',
-        data: ['Enrollments', 'Suspicious Enrollments'],
-        rightBorder: true,
-        bottomBorder: true,
-        index: 2
+        data: ['Enrollments', 'Suspicious Enrollments']
+
       },
       {
         title: 'Unique User Login',
@@ -104,10 +125,7 @@ class CardModal extends Component {
         numGraph: true,
         listCard: false,
         graphType: 'compare',
-        data: ['Unique User Login'],
-        rightBorder: true,
-        bottomBorder: true,
-        index: 3
+        data: ['Unique User Login']
       },
       {
         title: 'Contribution Changes',
@@ -115,10 +133,7 @@ class CardModal extends Component {
         numGraph: false,
         listCard: false,
         graphType: 'line',
-        data: ['Contribution Changes'],
-        rightBorder: false,
-        bottomBorder: true,
-        index: 4
+        data: ['Contribution Changes']
       },
       {
         title: 'Bounce Rate',
@@ -126,10 +141,7 @@ class CardModal extends Component {
         numGraph: false,
         listCard: true,
         graphType: 'list',
-        data: ['Top Active Pages'],
-        rightBorder: true,
-        bottomBorder: false,
-        index: 5
+        data: ['Top Active Pages']
       },
       {
         title: 'Retirement Income Calc Usage',
@@ -137,10 +149,7 @@ class CardModal extends Component {
         numGraph: false,
         listCard: false,
         graphType: 'bar',
-        data: ['Retirement Income Calc Usage'],
-        rightBorder: true,
-        bottomBorder: false,
-        index: 6
+        data: ['Retirement Income Calc Usage']
       },
       {
         title: 'Top Pages',
@@ -148,10 +157,7 @@ class CardModal extends Component {
         numGraph: false,
         listCard: true,
         graphType: 'list',
-        data: ['Top Pages'],
-        rightBorder: true,
-        bottomBorder: false,
-        index: 7
+        data: ['Top Pages']
       },
       {
         title: 'Visits by Device Type',
@@ -159,10 +165,7 @@ class CardModal extends Component {
         numGraph: false,
         listCard: true,
         graphType: 'pie',
-        data: ['Visits by Device Type'],
-        rightBorder: false,
-        bottomBorder: false,
-        index: 8
+        data: ['Visits by Device Type']
       },
     ]
   }
@@ -206,8 +209,9 @@ class CardModal extends Component {
   render(){
 
     const { projects } = this.state
-    const paramTitle = this.props.match.params.title;
-
+    const paramTitle = this.getKPI();
+    const dataType = [];
+    dataType.push(paramTitle);
 
     let arr=[];
     if(this.state.mounted){
@@ -217,7 +221,8 @@ class CardModal extends Component {
 
     if(cardTitle.indexOf(paramTitle) !== -1){
       const card = this.state.cards.find(({ title }) => title === paramTitle)
-      console.log(card);
+
+      const className="";
       return(
         <div>
           <Modal
@@ -227,37 +232,30 @@ class CardModal extends Component {
             contentLabel="Example Modal"
             style={topMenuOverlay}
           >
-            <div className="taskbar">
-              <NavLink to="/" className="navlink" onClick={this.toggleModal}>Close</NavLink>
+            <div className="detailTaskbar">
+              <div className="DetailTaskbarViewTitle">
+                {paramTitle}
+              </div>
+              <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
             </div>
-            <CardModalDisplay
-              {...card}
-              list={arr}
-              dataType={paramTitle}
-              graphType={"line"}
-              frequency={"quarterly"}
-            />
-            <CardModalDisplay
-              {...card}
-              list={arr}
-              dataType={paramTitle}
-              graphType={"line"}
-              frequency={"annually"}
-            />
-            <CardModalDisplay
-              {...card}
-              list={arr}
-              dataType={paramTitle}
-              graphType={"line"}
-              frequency={"daily"}
-            />
-            <CardModalDisplay
-              {...card}
-              list={arr}
-              dataType={paramTitle}
-              graphType={"line"}
-              frequency={"weekly"}
-            />
+            <div className="page-wrapper">
+              <div className="row">
+                {CardFrequencies.map((item) =>{
+                  return (
+                    <div className="col-md-6 no-padding">
+                      <CardModalDisplay
+                        {...card}
+                        list={arr}
+                        dataType={dataType}
+                        frequency={item.frequency}
+                        rightBorder={item.rightBorder}
+                        bottomBorder={item.bottomBorder}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </Modal>
         </div>
       )

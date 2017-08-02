@@ -1,7 +1,7 @@
 import Base from './Base';
 import Home from './components/Home';
 import LayoutUser from './LayoutUser';
-import CardModal from './components/Header/CardModal';
+import CardModal from './components/CardDetailView/CardModal';
 import NotFound from './components/NotFound';
 
 export default [

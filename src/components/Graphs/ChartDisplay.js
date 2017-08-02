@@ -2,7 +2,15 @@ import React from 'react'
 import RenderChart from './RenderChart';
 import PropTypes from 'prop-types';
 
-const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+const ChartDisplay = ({
+  listHome=[],
+  dataType=[],
+  graphType,
+  frequency,
+  chartHeight, width, margin, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend, marginTop }) => {
+
+  // console.log("print listHome: ");
+  // console.log(listHome);
 
     var list = [];
     switch(frequency) {
@@ -20,6 +28,9 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
         break;
     }
 
+    // console.log("print list: ");
+    // console.log(list);
+
     return <RenderChart
       dataType={dataType}
       graphType={graphType}
@@ -34,9 +45,9 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[],chartHeight
      />
 }
 
-ChartDisplay.propTypes= {
-  dataType: PropTypes.array.isRequired,
-  height: PropTypes.string
-};
+// ChartDisplay.propTypes= {
+//   dataType: PropTypes.array.isRequired,
+//   height: PropTypes.string
+// };
 
 export default ChartDisplay;

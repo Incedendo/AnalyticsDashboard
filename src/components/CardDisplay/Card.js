@@ -82,7 +82,7 @@ export class Card extends Component {
       break;
     }
 
-    console.log(this.state.dataType);
+    // console.log(this.state.dataType);
   }
 
   renderGraph = () => {

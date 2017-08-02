@@ -8,6 +8,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
+  // console.log("print list: ");
+  // console.log(list);
+
   dataType.map( (stat, index) => {
     switch(stat){
       case "Registrations":
@@ -155,8 +158,3 @@ RenderChart.propTypes = {
 };
 
 export default RenderChart;
-
-
-// const url_base64 = document.getElementById('myChart').toDataURL('image/png');
-// link.href = url_base64;
-// <a id='link' download='filename.png'>Save as Image</a>
