@@ -159,10 +159,6 @@ input[type="button"] {
 	@include tile-toggles($width:11rem);
 }
 
-.modalBody {
-  height: 100%;
-}
-
 .selectionCard {
   margin: 0 auto;
   position: absolute;
@@ -185,3 +181,14 @@ input[type="button"] {
   margin: 0 auto;
   width: 50%;
 }
+
+.noGraph {
+  height: 25%;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-size: 6rem;
+}
+
+.modalBody {
+  height: 100%;

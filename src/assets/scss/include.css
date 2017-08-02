@@ -1019,9 +1019,6 @@ input[type="button"].btn-block {
   .tile-toggles input[type=radio]:checked ~ label:hover, .tile-toggles input[type=checkbox]:checked ~ label:hover {
     color: #fff; }
 
-.modalBody {
-  height: 100%; }
-
 .selectionCard {
   margin: 0 auto;
   position: absolute;
@@ -1040,6 +1037,13 @@ input[type="button"].btn-block {
 .btnCtn {
   margin: 0 auto;
   width: 50%; }
+
+.noGraph {
+  height: 25%;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-size: 6rem; }
 
 .App {
   background-color: #022753;

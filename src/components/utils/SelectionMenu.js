@@ -5,6 +5,7 @@ import lineIcon from '../../assets/svg/lineIcon.svg';
 import listIcon from '../../assets/svg/listIcon.svg';
 import pieIcon from '../../assets/svg/pieIcon.svg';
 import compIcon from '../../assets/svg/compIcon.svg';
+import closeButton from '../../assets/svg/closeButton.svg';
 
 const dataList = [
   {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
@@ -74,8 +75,8 @@ class SelectionMenu extends Component {
   }
 
   handleSubmit = () => {
-    if(!this.state.activeGraph || this.state.activeData.length === 0){
-      <div><h1>NAAAAAH SOOOOON YOU AINT GOING ANYWHERE</h1></div>
+    if(!this.state.activeGraph || !this.state.activeData.length){
+      return;
     }
     this.props.handleSubmit(this.state.activeData, this.state.activeGraph);
     this.props.handleCancel();
@@ -126,7 +127,7 @@ class SelectionMenu extends Component {
       displayGraphs: graphs
     })
 
-    const included = this.state.displayGraphs.filter(({id}) => {
+    const included = graphs.filter(({id}) => {
       return id === this.state.activeGraph;
     })
 
@@ -138,7 +139,11 @@ class SelectionMenu extends Component {
   }
 
   graphForm = () => {
-    return this.state.displayGraphs.map(({id, src}, key) => {
+    if(!this.state.displayGraphs.length){
+      return (<div className='noGraph'>
+        You cannot combine these {this.state.activeData.length}.
+      </div>)
+    }else return this.state.displayGraphs.map(({id, src}, key) => {
           return (
         		<div className="tile-toggle-item" style={{height:'20vh',width:'20vh'}} onClick={()=>this.handleCheckedGraph(id)} key={key}>
         			<input type="radio" id={id} name="selector" checked={this.state.activeGraph.includes(id)}/>
@@ -177,6 +182,7 @@ class SelectionMenu extends Component {
       <div className='modalBody'>
         <div className='selectionBox menu_1'>
           SELECT DATA TYPE
+          <img src={closeButton} style={{float:'right'}}/>
           <div className="tile-toggles">
             <div className="tile-toggle-group">
               {this.dataForm()}
