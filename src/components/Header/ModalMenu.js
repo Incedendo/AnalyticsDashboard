@@ -76,8 +76,8 @@ const modalMenuArray = [
 const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
 
   const renderMenuList = () => (
-    modalMenuArray.map(({itemClass, type, content, index}) =>(
-      <div className={itemClass} key={index}>
+    modalMenuArray.map(({itemClass, type, content, index}, key) =>(
+      <div className={itemClass} key={key}>
         { type === "src" && <img src={content} alt="" />}
         { type === "div" && <a href="">{content}</a>}
         { type === "hr" && <hr className={content}></hr>}
