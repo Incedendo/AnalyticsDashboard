@@ -176,7 +176,7 @@ export class Card extends Component {
     <div className='cardHeader'>
       <div className='infoIcon' >
         <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
-      {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
+        {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
       </div>
     </div>
   )
