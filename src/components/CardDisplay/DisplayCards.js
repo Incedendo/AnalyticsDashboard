@@ -34,19 +34,19 @@ export class DisplayCards extends Component {
         graph: false,
         numGraph: true,
         listCard: false,
-        graphType: 'Compare',
+        graphType: 'Comp',
         data: ['Unique User Login'],
         rightBorder: true,
         bottomBorder: true,
         index: 3
       },
       {
-        title: 'Contribution Changes',
+        title: 'Contribution Change',
         graph: true,
         numGraph: false,
         listCard: false,
         graphType: 'Line',
-        data: ['Contribution Changes'],
+        data: ['Contribution Change'],
         rightBorder: false,
         bottomBorder: true,
         index: 4

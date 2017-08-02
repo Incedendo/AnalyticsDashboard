@@ -19,7 +19,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
       case "Unique User Login":
         dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
-      case "Contribution Changes":
+      case "Contribution Change":
         dataArr[index] = list.map(({signUps}) => signUps);
         break;
       case "Top Active Pages":
@@ -42,6 +42,12 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
         break;
       case "Page Views":
         dataArr[index] = list.map(({PageViews}) => PageViews);
+        break;
+      case "Sign Ups":
+        dataArr[index] = list.map(({signUps}) => signUps);
+        break;
+      case "Sign Ins":
+        dataArr[index] = list.map(({signIns}) => signIns);
         break;
     }
     return null;

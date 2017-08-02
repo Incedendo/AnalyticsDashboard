@@ -63,9 +63,10 @@ export class Card extends Component {
   handleSubmit = (data, graph) => {
     this.setState({
       dataType: data,
-      graphType: graph
+      graphType: graph,
+      modalOpen: false,
     })
-    switch(this.state.graphType) {
+    switch(graph) {
       case 'Line', 'Bar': this.setState({
         graph: true,
         comp: false,
@@ -85,8 +86,6 @@ export class Card extends Component {
       })
       break;
     }
-
-    console.log(this.state.dataType);
   }
 
   renderGraph = () => {
@@ -109,6 +108,8 @@ export class Card extends Component {
   }
 
   renderComp = () => {
+    console.log('this.state.dataType = ')
+    console.log(this.state.dataType)
     return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency} filter={this.state.filter}/>
   }
 
@@ -140,7 +141,7 @@ export class Card extends Component {
       })
     }
   }
-    
+
   getCustomClass = (rightBorder, bottomBorder) => {
     if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
     if(rightBorder) return "card col-md-3 border-right";
@@ -158,7 +159,7 @@ export class Card extends Component {
   )
 
   getFilter = (numGraph, graph, title) => {
-    return numGraph || graph ||  title === 'Contribution Changes' || title === 'Retirement Income Calc Usage';
+    return numGraph || graph ||  title === 'Contribution Change' || title === 'Retirement Income Calc Usage';
   }
 
   getFreqFilter = (graph) => (

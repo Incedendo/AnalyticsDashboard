@@ -72,7 +72,7 @@ class Home extends Component {
       </div>
 
       {this.state.mounted &&
-        <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
+        <ChartDisplay listHome={arr} graphType='Line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
         margin="45px" yAxisTextSize="15" xAxisTextSize="20"
         pointRadius="8"
         legendFontSize="10"

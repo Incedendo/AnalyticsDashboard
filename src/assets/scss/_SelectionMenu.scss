@@ -91,6 +91,13 @@ input[type="button"] {
 		text-align: center;
 		vertical-align: top;
 	}
+  .tile-toggle-item-label {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .tile-toggle-item-label:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 	label{
 		box-shadow: 2px 0 0 $border-color inset, -2px 0 0 $border-color inset, 0 -2px 0 $border-color inset, 0 2px 0 $border-color inset ;
 		display: block;
@@ -100,6 +107,7 @@ input[type="button"] {
 		padding-bottom: $width*.15;
     border-radius: $input-radius;
 	}
+
 	.icon {
 		display: inline-block;
 		width: $width*.5;
