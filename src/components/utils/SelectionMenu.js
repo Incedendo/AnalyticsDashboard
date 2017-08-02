@@ -49,9 +49,9 @@ class SelectionMenu extends Component {
     }
     this.setState({
       activeData: arr
-    })
+    },
+    ()=>this.validateGraphs())
 
-    this.validateGraphs();
   }
 
   handleRestrictedData = (id) => {
@@ -64,8 +64,8 @@ class SelectionMenu extends Component {
     }
     this.setState({
       activeData: arr
-    })
-    this.validateGraphs();
+    },
+    ()=>this.validateGraphs())
   }
 
   handleCheckedGraph = (id) => {
