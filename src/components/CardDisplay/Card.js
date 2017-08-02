@@ -61,17 +61,21 @@ export class Card extends Component {
   }
 
   handleSubmit = (data, graph) => {
+
     this.setState({
       dataType: data,
       graphType: graph,
       modalOpen: false,
     })
     switch(graph) {
-      case 'Line', 'Bar': this.setState({
-        graph: true,
-        comp: false,
-        list: false,
-      })
+      case 'Line':
+      case 'Bar':
+      case 'Pie':
+        this.setState({
+          graph: true,
+          comp: false,
+          list: false,
+        })
         break;
       case 'Comp': this.setState({
         graph: false,
@@ -90,12 +94,19 @@ export class Card extends Component {
 
   renderGraph = () => {
     let displayedLegend = true;
+    let categorical = false;
+    switch (this.state.dataType[0]) {
+      case 'Visits by Device Type':
+        categorical = true;
+        break;
+    }
     if(this.props.index == 4 || this.props.index == 6){
       displayedLegend = false;
     }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}
+    categorical={categorical}
     chartHeight='170px'
     width='100%'
     yAxisTextSize="18"
@@ -108,14 +119,12 @@ export class Card extends Component {
   }
 
   renderComp = () => {
-    console.log('this.state.dataType = ')
-    console.log(this.state.dataType)
     return <CompDisplay listHome={this.props.list} dataType={this.state.dataType} frequency={this.state.frequency} filter={this.state.filter}/>
   }
 
   renderList = () => {
     return (
-      <ListDisplay listHome={this.props.list} cardIndex={this.props.index}/>
+      <ListDisplay listHome={this.props.list} cardIndex={this.props.index} dataType={this.state.dataType}/>
     );
   }
 
