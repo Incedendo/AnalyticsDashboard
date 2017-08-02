@@ -2,7 +2,7 @@ import React from 'react';
 import RenderComp from './RenderComp';
 import PropTypes from 'prop-types';
 
-const getList = (listHome, frequency) => {
+const getList = (listHome, frequency, dataType) => {
   switch(frequency) {
     case 'annually':
       return listHome[0];
@@ -62,7 +62,7 @@ const getDataArray = (list, dataType) => {
 }
 
 const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) => {
-  const list = getList(listHome, frequency);
+  const list = getList(listHome, frequency, dataType);
   const dataArr = getDataArray(list, dataType);
   return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
 }

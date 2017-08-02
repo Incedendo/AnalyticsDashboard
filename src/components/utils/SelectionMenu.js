@@ -7,16 +7,16 @@ import pieIcon from '../../assets/svg/pieIcon.svg';
 import compIcon from '../../assets/svg/compIcon.svg';
 
 const dataList = [
-  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie'] },
-  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
+  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
+  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Suspicious Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
+  {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Suspicious Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
   {id:  'Visits by Device Type', type: 'data', restrict: true, graphs: ['Pie']},
   {id:  'Bounce Rate', type: 'data', restrict: true, graphs: ['List']},]
@@ -74,6 +74,9 @@ class SelectionMenu extends Component {
   }
 
   handleSubmit = () => {
+    if(!this.state.activeGraph || this.state.activeData.length === 0){
+      <div><h1>NAAAAAH SOOOOON YOU AINT GOING ANYWHERE</h1></div>
+    }
     this.props.handleSubmit(this.state.activeData, this.state.activeGraph);
     this.props.handleCancel();
   }

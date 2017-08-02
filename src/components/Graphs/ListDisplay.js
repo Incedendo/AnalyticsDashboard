@@ -65,13 +65,15 @@ const options={
   },
 };
 
-const ListDisplay = ({listHome=[], cardIndex}) => {
+const ListDisplay = ({listHome=[], cardIndex, dataType = []}) => {
   // the 5th card is TOP ACTIVE PAGES
-
-  if(cardIndex === 5) return renderList(listHome, 4)
-  if(cardIndex === 7) return renderList(listHome, 5)
-  if(cardIndex === 8) return renderDeviceType(listHome,6)
-
+  let data = dataType[0]
+  switch(data) {
+    case 'Bounce Rate':
+      return renderList(listHome, 4);
+    case 'Top Pages':
+      return renderList(listHome, 5);
+  }
 }
 
 ListDisplay.propTypes = {
