@@ -5,22 +5,22 @@ import lineIcon from '../../assets/svg/lineIcon.svg';
 import listIcon from '../../assets/svg/listIcon.svg';
 import pieIcon from '../../assets/svg/pieIcon.svg';
 import compIcon from '../../assets/svg/compIcon.svg';
+import closeButton from '../../assets/svg/closeButton.svg';
 
 const dataList = [
-  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie'] },
-  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Return Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Allocation Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Suspicious Enrollment', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
-  {id:  'Bounce Rate', type: 'data', restrict: true, graphs: ['List']},
-  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp', 'Pie']},
+  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
+  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Suspicious Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
-  {id:  'Visits by Device Type', type: 'data', restrict: true, graphs: ['Pie']},]
+  {id:  'Visits by Device Type', type: 'data', restrict: true, graphs: ['Pie']},
+  {id:  'Bounce Rate', type: 'data', restrict: true, graphs: ['List']},]
 
 const graphList = [
       {id: 'Line', src: lineIcon, type: 'graph'},
@@ -49,9 +49,9 @@ class SelectionMenu extends Component {
     }
     this.setState({
       activeData: arr
-    })
+    },
+    ()=>this.validateGraphs())
 
-    this.validateGraphs();
   }
 
   handleRestrictedData = (id) => {
@@ -64,8 +64,8 @@ class SelectionMenu extends Component {
     }
     this.setState({
       activeData: arr
-    })
-    this.validateGraphs();
+    },
+    ()=>this.validateGraphs())
   }
 
   handleCheckedGraph = (id) => {
@@ -75,12 +75,15 @@ class SelectionMenu extends Component {
   }
 
   handleSubmit = () => {
+    if(!this.state.activeGraph || !this.state.activeData.length){
+      return;
+    }
     this.props.handleSubmit(this.state.activeData, this.state.activeGraph);
     this.props.handleCancel();
   }
 
   validateGraphs = () => {
-    let graphs = this.state.displayGraphs.slice();
+    let graphs = [];
     let data = this.state.activeData.slice();
 
     if(data.length === 0) {
@@ -102,22 +105,29 @@ class SelectionMenu extends Component {
       const currentData = dataList.filter(({id, graphs}) => {
         return (data.includes(id))
       })
+
+
       let currentGraphs = [];
       currentData.map(({graphs}) => {
         currentGraphs.push(graphs)
       })
-      let graphs = currentGraphs.shift().filter((v) => {
+
+      let correctGraphs = currentGraphs.shift().filter((v) => {
         return currentGraphs.every((a) => {
           return a.indexOf(v) !== -1;
         });
       });
+
+      graphs = graphList.filter((elem) => {
+        return correctGraphs.includes(elem.id) && elem.id!='Pie' && elem.id!='Comp';
+      })
     }
 
     this.setState({
       displayGraphs: graphs
     })
 
-    const included = this.state.displayGraphs.filter(({id}) => {
+    const included = graphs.filter(({id}) => {
       return id === this.state.activeGraph;
     })
 
@@ -126,16 +136,18 @@ class SelectionMenu extends Component {
         activeGraph: ''
       })
     }
-
-    this.graphForm();
   }
 
   graphForm = () => {
-    return this.state.displayGraphs.map(({id, src}, key) => {
+    if(!this.state.displayGraphs.length){
+      return (<div className='noGraph'>
+        You cannot combine these {this.state.activeData.length}.
+      </div>)
+    }else return this.state.displayGraphs.map(({id, src}, key) => {
           return (
-        		<div className="tile-toggle-item" style={{height:'20vh',width:'20vh'}} onClick={()=>this.handleCheckedGraph(id)}>
+        		<div className="tile-toggle-item" style={{height:'20vh',width:'20vh'}} onClick={()=>this.handleCheckedGraph(id)} key={key}>
         			<input type="radio" id={id} name="selector" checked={this.state.activeGraph.includes(id)}/>
-            <label for={id} style={{height:'20vh'}}>
+            <label for={id} className="tile-toggle-item-label" style={{height:'20vh'}}>
                 <div className='selectionCard'>
                   <img src={src} />
           				<span className="name">{id}</span>
@@ -149,9 +161,9 @@ class SelectionMenu extends Component {
   dataForm = () => {
     return dataList.map(({id, type, restrict}, key) => {
           return (
-        		<div className="tile-toggle-item" onClick={restrict?()=>this.handleRestrictedData(id):()=>this.handleCheckedData(id)}>
+        		<div className="tile-toggle-item" onClick={restrict?()=>this.handleRestrictedData(id):()=>this.handleCheckedData(id)} key={key}>
         			<input type="checkbox" id={id} name="selector" checked={this.state.activeData.includes(id)}/>
-        			<label for={id}>
+            <label for={id} className="tile-toggle-item-label">
         				<span className="name">{id}</span>
         			</label>
         		</div>
@@ -170,6 +182,7 @@ class SelectionMenu extends Component {
       <div className='modalBody'>
         <div className='selectionBox menu_1'>
           SELECT DATA TYPE
+          <img src={closeButton} style={{float:'right'}}/>
           <div className="tile-toggles">
             <div className="tile-toggle-group">
               {this.dataForm()}
@@ -185,6 +198,7 @@ class SelectionMenu extends Component {
             </div>
           </div>
         </div>
+
         <div className='btnCtn'>
           <button type="submit" className="btn" onClick={this.handleSubmit}>SUBMIT</button>
         </div>

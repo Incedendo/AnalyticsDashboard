@@ -34,19 +34,19 @@ export class DisplayCards extends Component {
         graph: false,
         numGraph: true,
         listCard: false,
-        graphType: 'Compare',
+        graphType: 'Comp',
         data: ['Unique User Login'],
         rightBorder: true,
         bottomBorder: true,
         index: 3
       },
       {
-        title: 'Contribution Changes',
+        title: 'Contribution Change',
         graph: true,
         numGraph: false,
         listCard: false,
         graphType: 'Line',
-        data: ['Contribution Changes'],
+        data: ['Contribution Change'],
         rightBorder: false,
         bottomBorder: true,
         index: 4
@@ -57,7 +57,7 @@ export class DisplayCards extends Component {
         numGraph: false,
         listCard: true,
         graphType: 'List',
-        data: ['Top Active Pages'],
+        data: ['Bounce Rate'],
         rightBorder: true,
         bottomBorder: false,
         index: 5
@@ -86,9 +86,9 @@ export class DisplayCards extends Component {
       },
       {
         title: 'Visits by Device Type',
-        graph: false,
+        graph: true,
         numGraph: false,
-        listCard: true,
+        listCard: false,
         graphType: 'Pie',
         data: ['Visits by Device Type'],
         rightBorder: false,

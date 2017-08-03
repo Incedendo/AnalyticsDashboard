@@ -61,16 +61,21 @@ export class Card extends Component {
   }
 
   handleSubmit = (data, graph) => {
+
     this.setState({
       dataType: data,
-      graphType: graph
+      graphType: graph,
+      modalOpen: false,
     })
-    switch(this.state.graphType) {
-      case 'Line', 'Bar': this.setState({
-        graph: true,
-        comp: false,
-        list: false,
-      })
+    switch(graph) {
+      case 'Line':
+      case 'Bar':
+      case 'Pie':
+        this.setState({
+          graph: true,
+          comp: false,
+          list: false,
+        })
         break;
       case 'Comp': this.setState({
         graph: false,
@@ -86,17 +91,26 @@ export class Card extends Component {
       break;
     }
 
+
     // console.log(this.state.dataType);
+
   }
 
   renderGraph = () => {
     let displayedLegend = true;
+    let categorical = false;
+    switch (this.state.dataType[0]) {
+      case 'Visits by Device Type':
+        categorical = true;
+        break;
+    }
     if(this.props.index == 4 || this.props.index == 6){
       displayedLegend = false;
     }
     return <ChartDisplay listHome={this.props.list} dataType={this.state.dataType}
     graphType={this.state.graphType}
     frequency={this.state.frequency}
+    categorical={categorical}
     chartHeight='170px'
     width='100%'
     yAxisTextSize="18"
@@ -114,7 +128,7 @@ export class Card extends Component {
 
   renderList = () => {
     return (
-      <ListDisplay listHome={this.props.list} cardIndex={this.props.index}/>
+      <ListDisplay listHome={this.props.list} cardIndex={this.props.index} dataType={this.state.dataType}/>
     );
   }
 
@@ -140,7 +154,7 @@ export class Card extends Component {
       })
     }
   }
-    
+
   getCustomClass = (rightBorder, bottomBorder) => {
     if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
     if(rightBorder) return "card col-md-3 border-right";
@@ -158,7 +172,7 @@ export class Card extends Component {
   )
 
   getFilter = (numGraph, graph, title) => {
-    return numGraph || graph ||  title === 'Contribution Changes' || title === 'Retirement Income Calc Usage';
+    return numGraph || graph ||  title === 'Contribution Change' || title === 'Retirement Income Calc Usage';
   }
 
   getFreqFilter = (graph) => (

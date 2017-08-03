@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './assets/scss/include.css';
-import Home from './components/Home';
-import ModalMenu from './components/Header/ModalMenu';
-
 import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './routes';

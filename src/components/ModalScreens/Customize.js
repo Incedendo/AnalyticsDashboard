@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactModal from 'react-modal';
 import SelectionMenu from '../utils/SelectionMenu';
+import '../../assets/scss/_SelectionMenu.scss';
 
 class Customize extends Component {
 

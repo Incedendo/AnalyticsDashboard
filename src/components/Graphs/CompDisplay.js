@@ -2,7 +2,7 @@ import React from 'react';
 import RenderComp from './RenderComp';
 import PropTypes from 'prop-types';
 
-const getList = (listHome, frequency) => {
+const getList = (listHome, frequency, dataType) => {
   switch(frequency) {
     case 'annually':
       return listHome[0];
@@ -28,7 +28,7 @@ const getDataArray = (list, dataType) => {
       case "Unique User Login":
         dataArr[index] = list.map(({PageViews}) => PageViews);
         break;
-      case "Contribution Changes":
+      case "Contribution Change":
         dataArr[index] = list.map(({signUps}) => signUps);
         break;
       case "Top Active Pages":
@@ -39,6 +39,21 @@ const getDataArray = (list, dataType) => {
         break;
       case "Top Pages":
         dataArr[index] = list.map(({allocationChange}) => allocationChange);
+        break;
+      case "Total Visits":
+        dataArr[index] = list.map(({totalVisits}) => totalVisits);
+        break;
+      case "Unique Visits":
+        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
+        break;
+      case "Page Views":
+        dataArr[index] = list.map(({PageViews}) => PageViews);
+        break;
+      case "Sign Ups":
+        dataArr[index] = list.map(({signUps}) => signUps);
+        break;
+      case "Sign Ins":
+        dataArr[index] = list.map(({signIns}) => signIns);
         break;
     }
     return null;
@@ -55,6 +70,7 @@ const CompDisplay = ({listHome=[], dataType=[], frequency, graphType, filter}) =
     return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
   }
   return <div> not loading list</div>
+
 
 }
 

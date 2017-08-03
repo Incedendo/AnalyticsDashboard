@@ -2,11 +2,19 @@ import React from 'react'
 import {Bar, Line, Doughnut} from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+const pieOptions={
+  legend: {
+    labels: {
+        fontColor: "white",
+        fontSize: 18
+    }
+  },
+};
 
-  let dataArr= new Array(dataType.length);
+const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
+
 
   // console.log("print list: ");
   // console.log(list);
@@ -52,13 +60,33 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   const labels = list.map(({label}) => label);
 
+
   const colors = [];
-  for(let i = 0; i < dataArr.length; i++) {
+  for(let i = 0; i < 4; i++) {
     let num = Math.floor(Math.random()*colorArr.length);
     colors.push(colorArr[num]);
     colorArr.splice(num, 1);
   }
 
+  let labels = [];
+  let initialChartConfig = {};
+  let pieOptions = {};
+  if(categorical) {
+    switch(dataType[0]){
+      case "Visits by Device Type":
+        labels = list.map(({Device}) => Device)
+    }
+    initialChartConfig = {
+      labels: labels,
+      datasets: [{
+        data: dataArr[0],
+        backgroundColor: colors,
+        borderColor: ['#12335E ','#12335E ','#12335E ','#12335E '],
+      }]
+    };
+  }else{
+    labels = list.map(({label}) => label);
+  }
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
@@ -83,7 +111,6 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
 
   let options = {
-    // onAnimationComplete: methodToDownload,
     responsive: true,
     maintainAspectRatio: false,
     animation: {
@@ -156,7 +183,7 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
             <Line data = {dataSet} options={options} />
         }
 
-        { graphType === 'Pie' && <Doughnut data = {dataSet} options={options} />}
+        { graphType === 'Pie' && <Doughnut data = {initialChartConfig} options={pieOptions} />}
       </div>
 
   );
