@@ -12,6 +12,11 @@
   //vertical-align: bottom;
 }
 
+
+.cardDetail {
+  background: #12335E;
+  height: 45vh;
+}
 .cardHeader {
   display: flex;
   flex-direction: row;
@@ -29,8 +34,7 @@
   position: relative;
   top: 1rem;
   left: 1rem;
-
-
+  text-align: center;
   @media (min-width: 1200px) {
     font-size: 1.75rem;
   }

@@ -61,10 +61,17 @@ const getDataArray = (list, dataType) => {
   return dataArr;
 }
 
-const CompDisplay = ({listHome=[], graphType, dataType=[], frequency, filter}) => {
-  const list = getList(listHome, frequency, dataType);
-  const dataArr = getDataArray(list, dataType);
-  return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
+const CompDisplay = ({listHome=[], dataType=[], frequency, graphType, filter}) => {
+  const list = getList(listHome, frequency);
+  // console.log("print LIST IN COMP DISPLAY");
+  // console.log(list);
+  if(list){
+    const dataArr = getDataArray(list, dataType);
+    return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
+  }
+  return <div> not loading list</div>
+
+
 }
 
 CompDisplay.propTypes = {
