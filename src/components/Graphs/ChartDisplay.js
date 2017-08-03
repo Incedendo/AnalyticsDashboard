@@ -71,9 +71,7 @@ const getDataArray = (list, dataType) => {
   return dataArr;
 }
 
-
 const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical,chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
-
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
   return <RenderChart
@@ -92,9 +90,9 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
          />
 }
 
-ChartDisplay.propTypes= {
-  dataType: PropTypes.array.isRequired,
-  height: PropTypes.string
-};
+// ChartDisplay.propTypes= {
+//   dataType: PropTypes.array.isRequired,
+//   height: PropTypes.string
+// };
 
 export default ChartDisplay;
