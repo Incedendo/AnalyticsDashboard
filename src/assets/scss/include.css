@@ -1045,6 +1045,9 @@ input[type="button"].btn-block {
   position: relative;
   font-size: 6rem; }
 
+.modalBody {
+  height: 100%; }
+
 .App {
   background-color: #022753;
   background: #022753 !important; }
