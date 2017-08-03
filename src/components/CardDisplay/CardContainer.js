@@ -15,34 +15,28 @@ class CardContainer extends Component {
   }
 
   handleSubmit = (data, graph) => {
-    this.setState({
+    let newState = {
       dataType: data,
       graphType: graph,
       modalOpen: false,
-    })
+      graph: false,
+      comp: false,
+      list: false,
+    }
     switch(graph) {
       case 'Line':
       case 'Bar':
       case 'Pie':
-        this.setState({
-          graph: true,
-          comp: false,
-          list: false,
-        })
+        newState.graph = true;
         break;
-      case 'Comp': this.setState({
-        graph: false,
-        comp: true,
-        list: false,
-      })
+      case 'Comp':
+        newState.comp = true;
         break;
-      case 'List': this.setState({
-        graph: false,
-        comp: false,
-        list: true,
-      })
-      break;
+      case 'List':
+        newState.list = true;
+        break;
     }
+    this.setState(newState)
   }
 
   handleEditClick = () => {
@@ -52,28 +46,22 @@ class CardContainer extends Component {
   }
 
   handleFilter = (id) => {
-    this.setState({
-      filter: id,
-    })
+    let newState = {filter: id, frequency: ''}
     switch(id) {
       case 'QTD':
-        this.setState({
-          frequency: 'quarterly'
-        })
+          newState.frequency = 'quarterly'
         break;
-      case 'MTD': this.setState({
-        frequency: 'annually'
-      })
+      case 'MTD':
+        newState.frequency = 'annually'
         break;
-      case 'YTD': this.setState({
-        frequency: 'daily'
-      })
+      case 'YTD':
+        newState.frequency = 'daily'
         break;
-      case 'WTD': this.setState({
-        frequency: 'weekly'
-      })
+      case 'WTD':
+        newState.frequency = 'weekly'
         break;
     }
+    this.setState(newState);
   }
 
   store = () => {
@@ -87,26 +75,22 @@ class CardContainer extends Component {
       this.setState(JSON.parse(newState));
     }
     else {
-      var arr = this.props.data.slice();
-      this.setState({
-        dataType: arr,
-        graphType: this.props.graphType,
-        filter: 'QTD',
-        frequency: 'quarterly'
-      })
+      let arr = this.props.data.slice();
+      let newState = this.state;
+
+      newState.dataType = arr;
+      newState.graphType = this.props.graphType;
+      newState.filter = 'QTD';
+      newState.frequency = 'quarterly';
+      
       if(this.props.graph){
-        this.setState({
-          graph: true
-        })
+        newState.graph = true;
       }else if(this.props.numGraph){
-        this.setState({
-          comp: true
-        })
+          newState.comp = true;
       }else{
-        this.setState({
-          list: true
-        })
+          newState.list = true;
       }
+      this.setState(newState);
     }
   }
 
