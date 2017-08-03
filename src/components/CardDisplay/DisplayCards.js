@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from './Card';
+import CardContainer from './CardContainer';
 import '../../assets/scss/_Card.scss';
 
 
@@ -101,7 +102,7 @@ export class DisplayCards extends Component {
   renderCards = () => {
     return this.state.cards.map((card, index) => {
       return (
-          <Card {...card} key={index} list={this.props.list}/>
+          <CardContainer {...card} key={index} list={this.props.list}/>
       );
     })
   }

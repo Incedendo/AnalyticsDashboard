@@ -62,6 +62,11 @@ const modalMenuArray = [
   },
   {
     itemClass: "modalView",
+    content: "PLANNED SPONSOR",
+    type: "div"
+  },
+  {
+    itemClass: "modalView",
     content: "horizontal-hr",
     type: "hr"
   },

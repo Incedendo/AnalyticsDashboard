@@ -15,7 +15,6 @@ const dataList = [
   {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Suspicious Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
