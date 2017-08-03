@@ -14,6 +14,7 @@ import { NavLink } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
 
+const stateArray = ['graphType' ,'dataType','frequency','filter','graph','comp','list'];
 
 export class Card extends Component {
 
@@ -133,26 +134,37 @@ export class Card extends Component {
   }
 
   componentWillMount () {
-    var arr = this.props.data.slice();
-    this.setState({
-      dataType: arr,
-      graphType: this.props.graphType,
-      filter: 'QTD',
-      frequency: 'quarterly'
-    })
-    if(this.props.graph){
-      this.setState({
-        graph: true
-      })
-    }else if(this.props.numGraph){
-      this.setState({
-        comp: true
-      })
-    }else{
-      this.setState({
-        list: true
-      })
+    if(sessionStorage.getItem(this.props.id)) {
+      let newState = sessionStorage.getItem(this.props.id);
+      this.setState(JSON.parse(newState));
     }
+    else {
+      var arr = this.props.data.slice();
+      this.setState({
+        dataType: arr,
+        graphType: this.props.graphType,
+        filter: 'QTD',
+        frequency: 'quarterly'
+      })
+      if(this.props.graph){
+        this.setState({
+          graph: true
+        })
+      }else if(this.props.numGraph){
+        this.setState({
+          comp: true
+        })
+      }else{
+        this.setState({
+          list: true
+        })
+      }
+    }
+  }
+
+  store = () => {
+    let newState = this.state;
+    sessionStorage.setItem(this.props.id, JSON.stringify(newState));
   }
 
   getCustomClass = (rightBorder, bottomBorder) => {
@@ -164,10 +176,12 @@ export class Card extends Component {
   }
 
   renderCardContent = () => (
+
     <div className='graph'>
       {this.state.graph && this.renderGraph()}
       {this.state.comp && this.renderComp()}
       {this.state.list && this.renderList()}
+
     </div>
   )
 
@@ -202,12 +216,14 @@ export class Card extends Component {
   render() {
     const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
     if(!list.length) return null
+    if(!this.state.dataType.length) return <div>LOADING</div>
     return (
       <div className={this.getCustomClass(rightBorder, bottomBorder)} >
         {this.getTitle()}
         {this.renderCardHeader()}
         {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
         {this.renderCardContent()}
+        {this.store()}
       </div>
     )
   }
