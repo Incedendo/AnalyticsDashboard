@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
+import pencilIcon from '../../assets/svg/pencilIcon.svg';
 import dropdown from './dropdown.svg';
 import infoWhite from './infoWhite.svg';
 import {RenderChart} from '../Graphs/RenderChart';
@@ -62,7 +63,6 @@ export class Card extends Component {
   }
 
   handleSubmit = (data, graph) => {
-
     this.setState({
       dataType: data,
       graphType: graph,
@@ -91,10 +91,6 @@ export class Card extends Component {
       })
       break;
     }
-
-
-    // console.log(this.state.dataType);
-
   }
 
   renderGraph = () => {
@@ -198,20 +194,17 @@ export class Card extends Component {
   getTitle = () => {
     const link = '/' + this.state.dataType[0].replace(/\s/g, '');
     return (
-      <div className='title inline-block'>
-        <NavLink to={link} className="navlink">{this.state.dataType[0]}</NavLink>
+      <div className='cardHeader'>
+        <div className='title inline-block'>
+          <NavLink to={link} className="navlink">{this.state.dataType[0]}</NavLink>
+        </div>
+        <div className='infoIcon' >
+            <img src={pencilIcon} className='info' onClick={this.handleEditClick}/>
+            {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit} handleCancel={this.handleEditClick}/>}
+        </div>
       </div>
     )
   }
-
-  renderCardHeader = () => (
-    <div className='cardHeader'>
-      <div className='infoIcon' >
-        <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
-        {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
-      </div>
-    </div>
-  )
 
   render() {
     const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
@@ -220,7 +213,7 @@ export class Card extends Component {
     return (
       <div className={this.getCustomClass(rightBorder, bottomBorder)} >
         {this.getTitle()}
-        {this.renderCardHeader()}
+        {/* {this.renderCardHeader()} */}
         {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
         {this.renderCardContent()}
         {this.store()}

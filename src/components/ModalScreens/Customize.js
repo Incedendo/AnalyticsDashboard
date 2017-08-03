@@ -9,18 +9,20 @@ class Customize extends Component {
     showModal: true
   }
 
-  handleCancel = () => {
+  handleModal = () => {
     this.setState((prevState) => {
       return {showModal: !prevState.showModal}
     })
   }
 
   render () {
+    console.log(this.props)
     return (
       <div>
-        <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleCancel} contentLabel='Example'>
+        <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleModal} contentLabel='Example' overlayClassName='overlaySelection'>
           <SelectionMenu id={this.props.id} handleSubmit={this.props.handleSubmit}
-          handleCancel={this.handleCancel}/>
+          handleModal={this.handleModal}
+          handleCancel={this.props.handleCancel}/>
         </ReactModal>
       </div>
     )
