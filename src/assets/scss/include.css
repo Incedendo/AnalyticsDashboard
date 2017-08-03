@@ -388,8 +388,7 @@ h1 {
 
 .cardHeader {
   display: flex;
-  flex-direction: row;
-  height: 2vh; }
+  flex-direction: row; }
 
 .title {
   color: #FFFFFF;
@@ -401,7 +400,7 @@ h1 {
   top: 1rem;
   left: 1rem;
   text-align: center;
-  margin-right: auto; }
+  margin: auto; }
   @media (min-width: 1200px) {
     .title {
       font-size: 1.75rem; } }
@@ -409,26 +408,11 @@ h1 {
     .title {
       font-size: 2em; } }
 
-.infoWhite {
+.infoIcon {
   position: absolute;
   right: 0;
-  margin-top: 5px; }
-
-.threeDots {
-  border-radius: 30px;
-  border: 1px solid white;
-  background: transparent;
-  /* size: 20px; */
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  right: 10px;
-  top: 10px; }
-
-.threeDotsText {
-  font-size: 20px;
-  color: white;
-  letter-spacing: 2px; }
+  margin-top: 10px;
+  margin-right: 10px; }
 
 .filter {
   position: absolute;
@@ -447,7 +431,7 @@ h1 {
 .graph {
   width: 100%;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1093,6 +1077,12 @@ input[type="button"].btn-block {
 
 .modalBody {
   height: 100%; }
+
+.ReactModal__Content--after-open {
+  z-index: 200; }
+
+.overlaySelection {
+  z-index: 1000; }
 
 .App {
   background-color: #022753;

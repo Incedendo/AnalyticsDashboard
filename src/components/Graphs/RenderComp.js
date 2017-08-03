@@ -35,8 +35,8 @@ const renderOneData = (data, filter) => (
   </div>
 )
 
-const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow) => (
-  <div>
+const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow) => {
+  return (<div>
     <div className='compBox row'>
       {renderBox("leftBox", 'num1', "Current", 1, data, "label1", filter)}
       <hr className='hr1'/>
@@ -46,12 +46,12 @@ const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow
       <img src={improve?greenArrow:redArrow} alt="c" className={improve?'greenArrow':'redArrow'}/>
       {sign}
     </div>
-  </div>
-)
+  </div>)
+}
 
 const renderComparison = (data, filter, improve, sign, greenArrow, redArrow) => (
   <div>
-    {data.length > 1 && renderMoreThanOneData(data, filter, improve ,sign, greenArrow, redArrow)}
+    {data.length > 1 && renderMoreThanOneData(data, filter, sign, improve, greenArrow, redArrow)}
     {data.length === 1 && renderOneData(data, filter)}
   </div>
 )
