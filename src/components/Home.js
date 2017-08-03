@@ -61,7 +61,6 @@ class Home extends Component {
         break;
     }
   }
-
   renderSubMainDiv = (dataType, arr) => (
     <div className="subMainDiv">
       <div className="pageVisit inLine">
@@ -73,7 +72,7 @@ class Home extends Component {
       </div>
 
       {this.state.mounted &&
-        <ChartDisplay listHome={arr} graphType='line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
+        <ChartDisplay listHome={arr} graphType='Line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
         margin="45px" yAxisTextSize="15" xAxisTextSize="20"
         pointRadius="8"
         legendFontSize="10"
@@ -95,11 +94,13 @@ class Home extends Component {
           <div className='headerDiv'>
             <Header />
           </div>
+
           {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
           <div className="container noMargin bottomCardDiv">
+
             <CardMenu list={arr} />
           </div>
       </div>
@@ -139,7 +140,7 @@ export default Home;
 //      });
 //    })
 //    .catch( (error) => {
-//      console.log(error);
+//       (error);
 //    }
 //  );
 //

@@ -37,6 +37,15 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
       case "Suspicious Enrollments":
         dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
         break;
+      case "Total Visits":
+        dataArr[index] = list.map(({totalVisits}) => totalVisits);
+        break;
+      case "Unique Visits":
+        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
+        break;
+      case "Page Views":
+        dataArr[index] = list.map(({PageViews}) => PageViews);
+        break;
     }
     return null;
   });
@@ -55,13 +64,11 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     datasets: dataArr.map( (data,index) => ({
         data,
         label: dataType[index],
-        //borderColor: '#6752ee',
         backgroundColor: colors[index],
         borderWidth: 0,
       })
     )
   }
-
   const bam = {
     pointRadius: pointRadius,
     pointHoverRadius: '13',
@@ -71,7 +78,9 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
+
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
+
 
   let options = {
     // onAnimationComplete: methodToDownload,
@@ -141,13 +150,13 @@ const RenderChart = ({ list=[], graphType, dataType=[], height, width, margin, m
 
   return (
       <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
-        { graphType === 'bar' && <Bar className='bar' data = {dataSet} options={options} />}
+        { graphType === 'Bar' && <Bar className='bar' data = {dataSet} options={options} />}
 
-        { graphType === 'line' &&
+        { graphType === 'Line' &&
             <Line data = {dataSet} options={options} />
         }
 
-        { graphType === 'pie' && <Doughnut data = {dataSet} options={options} />}
+        { graphType === 'Pie' && <Doughnut data = {dataSet} options={options} />}
       </div>
 
   );

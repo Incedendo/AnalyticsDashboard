@@ -386,23 +386,33 @@ h1 {
   background: #12335E;
   height: 45vh; }
 
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  height: 2vh; }
+
 .title {
   color: #FFFFFF;
   font-family: "Source Sans Pro";
   letter-spacing: 1px;
   font-weight: 400;
   line-height: 40px;
-  float: left;
   position: relative;
   top: 1rem;
   left: 1rem;
-  text-align: center; }
+  text-align: center;
+  margin-right: auto; }
   @media (min-width: 1200px) {
     .title {
       font-size: 1.75rem; } }
   @media (min-width: 1600px) {
     .title {
       font-size: 2em; } }
+
+.infoWhite {
+  position: absolute;
+  right: 0;
+  margin-top: 5px; }
 
 .threeDots {
   border-radius: 30px;
@@ -685,7 +695,7 @@ select {
 .hrDiv {
   position: absolute;
   margin: 0 auto;
-  margin-top: 450px;
+  margin-top: 445px;
   width: 100vw; }
 
 .headerDiv {

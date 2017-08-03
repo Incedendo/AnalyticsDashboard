@@ -115,7 +115,7 @@ class CardModal extends Component {
         graph: true,
         numGraph: false,
         listCard: false,
-        graphType: 'line',
+        graphType: 'Line',
         data: ['Enrollments', 'Suspicious Enrollments']
 
       },
@@ -132,7 +132,7 @@ class CardModal extends Component {
         graph: true,
         numGraph: false,
         listCard: false,
-        graphType: 'line',
+        graphType: 'Line',
         data: ['Contribution Changes']
       },
       {
@@ -148,7 +148,7 @@ class CardModal extends Component {
         graph: true,
         numGraph: false,
         listCard: false,
-        graphType: 'bar',
+        graphType: 'Bar',
         data: ['Retirement Income Calc Usage']
       },
       {
@@ -164,7 +164,7 @@ class CardModal extends Component {
         graph: false,
         numGraph: false,
         listCard: true,
-        graphType: 'pie',
+        graphType: 'Pie',
         data: ['Visits by Device Type']
       },
     ]
