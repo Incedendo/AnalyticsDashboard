@@ -82,7 +82,7 @@ class CardContainer extends Component {
       newState.graphType = this.props.graphType;
       newState.filter = 'QTD';
       newState.frequency = 'quarterly';
-      
+
       if(this.props.graph){
         newState.graph = true;
       }else if(this.props.numGraph){
