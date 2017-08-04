@@ -386,6 +386,10 @@ h1 {
   background: #12335E;
   height: 45vh; }
 
+.full-screen {
+  background: #12335E;
+  height: 90vh; }
+
 .cardHeader {
   display: flex;
   flex-direction: row; }
@@ -431,8 +435,34 @@ h1 {
 .graph {
   width: 100%;
   margin: 0 auto;
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block; }
+
+.detailedGraph {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 30%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  display: block; }
+
+.detailedComp {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  display: block; }
+
+.listCard {
+  width: 90%;
+  position: relative;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block; }
@@ -466,6 +496,12 @@ h1 {
   width: 99%;
   margin: auto;
   margin-top: 5rem; }
+
+.list-page-wrapper {
+  width: 99%;
+  margin: auto;
+  margin-top: 5rem;
+  height: 90vh; }
 
 .no-padding {
   padding: 0px !important; }

@@ -58,6 +58,9 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
     return null;
   });
 
+
+  let labels = list.map(({label}) => label);
+
   const colors = [];
   for(let i = 0; i < 4; i++) {
     let num = Math.floor(Math.random()*colorArr.length);
@@ -65,7 +68,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
     colorArr.splice(num, 1);
   }
 
-  let labels = [];
+  // let labels = [];
   let initialChartConfig = {};
   let pieOptions = {};
   if(categorical) {
