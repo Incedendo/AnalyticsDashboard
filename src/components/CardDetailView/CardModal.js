@@ -59,17 +59,6 @@ const errorModal = {
     }
 };
 
-const cardTitle = [
-                    'Registrations',
-                    'Enrollments',
-                    'Unique User Login',
-                    'Contribution Changes',
-                    'Bounce Rate',
-                    'Retirement Income Calc Usage',
-                    'Top Pages',
-                    'Visits by Device Type'
-                  ];
-
 const CardFrequencies = [
   {
     frequency: "annually",
@@ -93,6 +82,22 @@ const CardFrequencies = [
   }
 ];
 
+const cardTitle = [
+                    'Total Visits',
+                    'Unique Visits',
+                    'Sign Ups',
+                    'Sign Ins',
+                    'Unique User Login',
+                    'Registrations',
+                    'Enrollments',
+                    'Suspicious Enrollments',
+                    'Contribution Changes',
+                    'Bounce Rate',
+                    'Retirement Income Calc Usage',
+                    'Top Pages',
+                    'Visits by Device Type'
+                  ];
+
 const cardsINFO = cards;
 
 class CardModal extends Component {
@@ -101,81 +106,32 @@ class CardModal extends Component {
     modalIsOpen: true,
     projects: [],
     mounted: false,
-    cards: [
+    cards:
       {
-        title: 'Registrations',
+        title: '',
         graph: false,
-        numGraph: true,
-        listCard: false,
-        graphType: 'compare',
-        data: ['Registrations']
-      },
-      {
-        title: 'Enrollments',
-        graph: true,
         numGraph: false,
         listCard: false,
-        graphType: 'Line',
-        data: ['Enrollments', 'Suspicious Enrollments']
+        graphType: '',
+        frequency: "",
+        data: [''],
+      }
 
-      },
-      {
-        title: 'Unique User Login',
-        graph: false,
-        numGraph: true,
-        listCard: false,
-        graphType: 'compare',
-        data: ['Unique User Login']
-      },
-      {
-        title: 'Contribution Changes',
-        graph: true,
-        numGraph: false,
-        listCard: false,
-        graphType: 'Line',
-        data: ['Contribution Changes']
-      },
-      {
-        title: 'Bounce Rate',
-        graph: false,
-        numGraph: false,
-        listCard: true,
-        graphType: 'list',
-        data: ['Top Active Pages']
-      },
-      {
-        title: 'Retirement Income Calc Usage',
-        graph: true,
-        numGraph: false,
-        listCard: false,
-        graphType: 'Bar',
-        data: ['Retirement Income Calc Usage']
-      },
-      {
-        title: 'Top Pages',
-        graph: false,
-        numGraph: false,
-        listCard: true,
-        graphType: 'list',
-        data: ['Top Pages']
-      },
-      {
-        title: 'Visits by Device Type',
-        graph: false,
-        numGraph: false,
-        listCard: true,
-        graphType: 'Pie',
-        data: ['Visits by Device Type']
-      },
-    ]
   }
 
   componentDidMount() {
     this.setState({
       projects: jsonData,
       mounted: true,
-      filter: 'QTD',
-      frequency: 'quarterly'
+      cards: {
+        title: this.props.location.state.dataType[0],
+        graph: this.props.location.state.graph,
+        comp: this.props.location.state.comp,
+        listCard: this.props.location.state.list,
+        graphType: this.props.location.state.graphType,
+        //frequency: this.props.location.state.frequency,
+        //filter: this.props.location.state.filter,
+      }
     });
   }
 
@@ -188,13 +144,23 @@ class CardModal extends Component {
   }
 
   getKPI = () => {
+    if(this.props.match.params.title === 'TotalVisits')
+      return 'Total Visits'
+    if(this.props.match.params.title === 'UniqueVisits')
+      return 'Unique Visits'
+    if(this.props.match.params.title === 'SignUps')
+      return "Sign Ups"
+    if(this.props.match.params.title === 'SignIns')
+      return "Sign Ins"
+    if(this.props.match.params.title === 'UniqueUserLogin')
+      return "Unique User Login"
     if(this.props.match.params.title === 'Registrations')
       return "Registrations"
     if(this.props.match.params.title === 'Enrollments')
       return "Enrollments"
-    if(this.props.match.params.title === 'UniqueUserLogin')
-      return "Unique User Login"
-    if(this.props.match.params.title === 'ContributionChanges')
+    if(this.props.match.params.title === 'SuspiciousEnrollments')
+      return 'Suspicious Enrollments'
+    if(this.props.match.params.title === 'ContributionChange')
       return "Contribution Changes"
     if(this.props.match.params.title === 'BounceRate')
       return "Bounce Rate"
@@ -218,47 +184,83 @@ class CardModal extends Component {
       arr = Object.keys(projects).map((key) => projects[key]);
     }
 
-
-    if(cardTitle.indexOf(paramTitle) !== -1){
-      const card = this.state.cards.find(({ title }) => title === paramTitle)
-
+    if(cardTitle.indexOf(paramTitle) !== -1 && this.state.mounted){
+      const card = this.state.cards;
+      //console.log("Display LIST: " + this.state.cards.listCard);
+      console.log("printing card: " + card.listCard);
       const className="";
-      return(
-        <div>
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            closeModal={this.toggleModal}
-            enabledModal={this.state.modalIsOpen}
-            contentLabel="Example Modal"
-            style={topMenuOverlay}
-          >
-            <div className="detailTaskbar">
-              <div className="DetailTaskbarViewTitle">
-                {paramTitle}
+      if(!card.listCard){
+        return(
+          <div>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              closeModal={this.toggleModal}
+              enabledModal={this.state.modalIsOpen}
+              contentLabel="Example Modal"
+              style={topMenuOverlay}
+            >
+              <div className="detailTaskbar">
+                <div className="DetailTaskbarViewTitle">
+                  {paramTitle}
+                </div>
+                <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
+
               </div>
-              <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
-            </div>
-            <div className="page-wrapper">
-              <div className="row">
-                {CardFrequencies.map((item) =>{
-                  return (
-                    <div className="col-md-6 no-padding">
-                      <CardModalDisplay
-                        {...card}
-                        list={arr}
-                        dataType={dataType}
-                        frequency={item.frequency}
-                        rightBorder={item.rightBorder}
-                        bottomBorder={item.bottomBorder}
-                      />
-                    </div>
-                  )
-                })}
+              <div className="page-wrapper">
+                <div className="row">
+                  {CardFrequencies.map((item, index) =>{
+                    return (
+                      <div key={index} className="col-md-6 no-padding">
+                        <CardModalDisplay
+                          {...card}
+                          list={arr}
+                          dataType={dataType}
+                          frequency={item.frequency}
+                          rightBorder={item.rightBorder}
+                          bottomBorder={item.bottomBorder}
+                        />
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
-          </Modal>
-        </div>
-      )
+            </Modal>
+          </div>
+        )
+
+      }else {
+        return (
+          <div>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              closeModal={this.toggleModal}
+              enabledModal={this.state.modalIsOpen}
+              contentLabel="Example Modal"
+              style={topMenuOverlay}
+            >
+              <div className="detailTaskbar">
+                <div className="DetailTaskbarViewTitle">
+                  {paramTitle}
+                </div>
+                <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
+              </div>
+              <div className="list-page-wrapper">
+                <div className="no-padding">
+                  <CardModalDisplay
+                    {...card}
+                    list={arr}
+                    dataType={dataType}
+                    frequency=''
+                    rightBorder=''
+                    bottomBorder=''
+                    //index={5}
+                  />
+                </div>
+              </div>
+            </Modal>
+          </div>
+        );
+      }
     }
 
     return(
@@ -271,6 +273,7 @@ class CardModal extends Component {
           style={errorModal}
         >
           <div className="taskbar">
+            PAGE NOT FOUND
             <NavLink to="/" className="navlink" onClick={this.toggleModal}>Close</NavLink>
           </div>
 

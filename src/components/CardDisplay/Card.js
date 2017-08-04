@@ -8,26 +8,30 @@ import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
-
-
-import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
+import CardModal from '../CardDetailView/CardModal';
+
+
+import { Switch, Route } from 'react-router-dom'
+
 
 const stateArray = ['graphType' ,'dataType','frequency','filter','graph','comp','list'];
+
 
 export class Card extends Component {
 
   state = {
-    graphType: '',
-    dataType: [],
     frequency: '',
     filter: '',
     modalOpen: false,
+
+    dataType: [],
     graph: false,
     comp: false,
     list: false,
+    graphType: '',
   }
 
   handleEditClick = () => {
@@ -173,12 +177,27 @@ export class Card extends Component {
     </div>
   )
 
+
+
   getTitle = () => {
     const link = '/' + this.state.dataType[0].replace(/\s/g, '');
     return (
       <div className='cardHeader'>
         <div className='title inline-block'>
-          <NavLink to={link}w className="navlink">{this.state.dataType[0]}</NavLink>
+        <Link to={{
+          pathname: link,
+          state: {
+            dataType: this.state.dataType,
+            graph: this.state.graph,
+            comp: this.state.comp,
+            list: this.state.list,
+            graphType: this.state.graphType,
+          }
+        }}
+          className="navlink"
+        >
+          {this.state.dataType[0]}
+        </Link>
         </div>
         <div className='infoIcon' >
             <img src={pencilIcon} className='info' onClick={this.handleEditClick}/>
