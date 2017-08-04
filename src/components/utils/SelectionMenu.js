@@ -5,7 +5,7 @@ import lineIcon from '../../assets/svg/lineIcon.svg';
 import listIcon from '../../assets/svg/listIcon.svg';
 import pieIcon from '../../assets/svg/pieIcon.svg';
 import compIcon from '../../assets/svg/compIcon.svg';
-import closeButton from '../../assets/svg/closeButton.svg';
+import greyCloseButton from '../../assets/svg/greyCloseButton.svg';
 
 const dataList = [
   {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
@@ -15,7 +15,6 @@ const dataList = [
   {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Suspicious Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
   {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
@@ -74,12 +73,17 @@ class SelectionMenu extends Component {
     })
   }
 
+  handleCancel = () => {
+    this.props.handleCancel();
+    this.props.handleModal();
+  }
+
   handleSubmit = () => {
     if(!this.state.activeGraph || !this.state.activeData.length){
       return;
     }
     this.props.handleSubmit(this.state.activeData, this.state.activeGraph);
-    this.props.handleCancel();
+    this.props.handleModal();
   }
 
   validateGraphs = () => {
@@ -182,7 +186,7 @@ class SelectionMenu extends Component {
       <div className='modalBody'>
         <div className='selectionBox menu_1'>
           SELECT DATA TYPE
-          <img src={closeButton} style={{float:'right'}}/>
+          <img src={greyCloseButton} style={{float:'right'}} onClick={this.handleCancel}/>
           <div className="tile-toggles">
             <div className="tile-toggle-group">
               {this.dataForm()}
@@ -192,7 +196,7 @@ class SelectionMenu extends Component {
 
         <div className='selectionBox menu_2'>
           SELECT GRAPH TYPE
-          <div className="tile-toggles" style={{height:'30vh'}}>
+          <div className="tile-toggles" style={{height:'30vh',zIndex:'201'}}>
             <div className="tile-toggle-group" style={{height:'100%'}}>
               {this.graphForm()}
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
+import pencilIcon from '../../assets/svg/pencilIcon.svg';
 import dropdown from './dropdown.svg';
 import infoWhite from './infoWhite.svg';
 import {RenderChart} from '../Graphs/RenderChart';
@@ -12,9 +13,12 @@ import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
 import CardModal from '../CardDetailView/CardModal';
 
+
 import { Switch, Route } from 'react-router-dom'
 
-const extraProps = { color: 'red' };
+
+const stateArray = ['graphType' ,'dataType','frequency','filter','graph','comp','list'];
+
 
 export class Card extends Component {
 
@@ -37,65 +41,47 @@ export class Card extends Component {
   }
 
   handleFilter = (id) => {
-
-    this.setState({
-      filter: id,
-    })
+    let newState = {filter: id, frequency: ''}
     switch(id) {
       case 'QTD':
-        this.setState({
-          frequency: 'quarterly'
-        })
+          newState.frequency = 'quarterly'
         break;
-      case 'MTD': this.setState({
-        frequency: 'annually'
-      })
+      case 'MTD':
+        newState.frequency = 'annually'
         break;
-      case 'YTD': this.setState({
-        frequency: 'daily'
-      })
+      case 'YTD':
+        newState.frequency = 'daily'
         break;
-      case 'WTD': this.setState({
-        frequency: 'weekly'
-      })
+      case 'WTD':
+        newState.frequency = 'weekly'
         break;
     }
+    this.setState(newState);
   }
 
   handleSubmit = (data, graph) => {
-
-    this.setState({
+    let newState = {
       dataType: data,
       graphType: graph,
       modalOpen: false,
-    })
+      graph: false,
+      comp: false,
+      list: false,
+    }
     switch(graph) {
       case 'Line':
       case 'Bar':
       case 'Pie':
-        this.setState({
-          graph: true,
-          comp: false,
-          list: false,
-        })
+        newState.graph = true;
         break;
-      case 'Comp': this.setState({
-        graph: false,
-        comp: true,
-        list: false,
-      })
+      case 'Comp':
+        newState.comp = true;
         break;
-      case 'List': this.setState({
-        graph: false,
-        comp: false,
-        list: true,
-      })
-      break;
+      case 'List':
+        newState.list = true;
+        break;
     }
-
-
-    // console.log(this.state.dataType);
-
+    this.setState(newState)
   }
 
   renderGraph = () => {
@@ -135,26 +121,33 @@ export class Card extends Component {
   }
 
   componentWillMount () {
-    var arr = this.props.data.slice();
-    this.setState({
-      dataType: arr,
-      graphType: this.props.graphType,
-      filter: 'QTD',
-      frequency: 'quarterly'
-    })
-    if(this.props.graph){
-      this.setState({
-        graph: true
-      })
-    }else if(this.props.numGraph){
-      this.setState({
-        comp: true
-      })
-    }else{
-      this.setState({
-        list: true
-      })
+    if(sessionStorage.getItem(this.props.id)) {
+      let newState = sessionStorage.getItem(this.props.id);
+      this.setState(JSON.parse(newState));
     }
+    else {
+      let arr = this.props.data.slice();
+      let newState = this.state;
+
+      newState.dataType = arr;
+      newState.graphType = this.props.graphType;
+      newState.filter = 'QTD';
+      newState.frequency = 'quarterly';
+
+      if(this.props.graph){
+        newState.graph = true;
+      }else if(this.props.numGraph){
+          newState.comp = true;
+      }else{
+          newState.list = true;
+      }
+      this.setState(newState);
+    }
+  }
+
+  store = () => {
+    let newState = this.state;
+    sessionStorage.setItem(this.props.id, JSON.stringify(newState));
   }
 
   getCustomClass = (rightBorder, bottomBorder) => {
@@ -166,6 +159,7 @@ export class Card extends Component {
   }
 
   renderCardContent = () => (
+
     <div className='graph'>
       {this.state.graph && this.renderGraph()}
       {this.state.comp && this.renderComp()}
@@ -188,7 +182,8 @@ export class Card extends Component {
   getTitle = () => {
     const link = '/' + this.state.dataType[0].replace(/\s/g, '');
     return (
-      <div className='title inline-block'>
+      <div className='cardHeader'>
+        <div className='title inline-block'>
         <Link to={{
           pathname: link,
           state: {
@@ -203,28 +198,26 @@ export class Card extends Component {
         >
           {this.state.dataType[0]}
         </Link>
+        </div>
+        <div className='infoIcon' >
+            <img src={pencilIcon} className='info' onClick={this.handleEditClick}/>
+            {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit} handleCancel={this.handleEditClick}/>}
+        </div>
       </div>
     )
   }
 
-  renderCardHeader = () => (
-    <div className='cardHeader'>
-      <div className='infoIcon' >
-        <img src={infoWhite} className='info' onClick={this.handleEditClick}/>
-        {this.state.modalOpen && <Customize id={this.props.id} handleSubmit={this.handleSubmit}/>}
-      </div>
-    </div>
-  )
-
   render() {
     const { list, numGraph, graph, listCard, title, rightBorder, bottomBorder } = this.props;
     if(!list.length) return null
+    if(!this.state.dataType.length) return <div>LOADING</div>
     return (
       <div className={this.getCustomClass(rightBorder, bottomBorder)} >
         {this.getTitle()}
-        {this.renderCardHeader()}
+        {/* {this.renderCardHeader()} */}
         {this.getFilter(numGraph, graph, title) && this.getFreqFilter(graph)}
         {this.renderCardContent()}
+        {this.store()}
       </div>
     )
   }

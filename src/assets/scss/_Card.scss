@@ -3,13 +3,6 @@
 .card {
   background: #12335E;
   height: 27vh;
-  //border-radius: 0px;
-  //display: inline-block;
-
-  //margin: 0.7px;
-  //position: relative;
-  // padding: 0px;
-  //vertical-align: bottom;
 }
 
 
@@ -26,7 +19,6 @@
 .cardHeader {
   display: flex;
   flex-direction: row;
-  height: 2vh;
 }
 
 .title {
@@ -47,31 +39,14 @@
   @media (min-width: 1600px) {
     font-size: 2em;
   }
-  margin-right: auto;
+  margin: auto;
 }
 
-.infoWhite {
+.infoIcon {
   position: absolute;
   right: 0;
-  margin-top: 5px;
-}
-
-.threeDots {
-  border-radius: 30px;
-  border: 1px solid white;
-  background: transparent;
-  /* size: 20px; */
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.threeDotsText {
-  font-size: 20px;
-  color: white;
-  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .filter {
@@ -92,6 +67,7 @@
 
 .graph{
   width: 100%;
+
   margin: 0 auto;
   position: relative;
   top: 35%;
@@ -124,6 +100,7 @@
   width: 90%;
   position: relative;
   top: 15%;
+
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;

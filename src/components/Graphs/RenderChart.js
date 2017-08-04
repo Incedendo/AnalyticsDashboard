@@ -58,8 +58,8 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
     return null;
   });
 
-  let labels = list.map(({label}) => label);
 
+  let labels = list.map(({label}) => label);
 
   const colors = [];
   for(let i = 0; i < 4; i++) {

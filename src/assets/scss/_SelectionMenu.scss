@@ -193,3 +193,11 @@ input[type="button"] {
 .modalBody {
   height: 100%;
 }
+
+.ReactModal__Content--after-open {
+  z-index: 200;
+}
+
+.overlaySelection {
+  z-index: 1000;
+}
