@@ -24,7 +24,7 @@ $transition-speed:                     0.18s;
   @extend %button-text-bold;
   transition: all $transition-speed ease-out;
   display: inline-block;
-  font-size: 1.0rem;
+  font-size: 2.0rem;
   text-align: center;
   white-space: nowrap;
   user-select: none;
@@ -200,4 +200,14 @@ input[type="button"] {
 
 .overlaySelection {
   z-index: 1000;
+}
+.selectionClose {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: row;
 }
