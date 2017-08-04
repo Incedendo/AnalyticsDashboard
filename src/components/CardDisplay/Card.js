@@ -12,13 +12,7 @@ import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
 import CardModal from '../CardDetailView/CardModal';
-
-
-import { Switch, Route } from 'react-router-dom'
-
-
 const stateArray = ['graphType' ,'dataType','frequency','filter','graph','comp','list'];
-
 
 export class Card extends Component {
 
