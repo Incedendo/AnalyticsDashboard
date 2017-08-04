@@ -8,7 +8,7 @@ import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
 import ReactModal from 'react-modal';
 
@@ -56,12 +56,25 @@ const getCustomClass = (rightBorder, bottomBorder) => {
   return "card col-md-3";
 }
 
-const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id) => {
+const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType) => {
   const link = '/' + dataType[0].replace(/\s/g, '');
   return (
     <div className='cardHeader'>
       <div className='title inline-block'>
-        <NavLink to={link} className="navlink">{dataType[0]}</NavLink>
+      <Link to={{
+        pathname: link,
+        state: {
+          dataType: dataType,
+          graph: graph,
+          comp: comp,
+          list: list,
+          graphType: graphType,
+        }
+      }}
+        className="navlink"
+      >
+        {dataType[0]}
+      </Link>
       </div>
       <div className='infoIcon' >
           <img src={pencilIcon} className='info' onClick={handleEditClick}/>
@@ -96,7 +109,7 @@ const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph,
 
   return (
     <div className={getCustomClass(rightBorder, bottomBorder)} >
-      {getTitle(dataType, modalOpen, handleSubmit, handleEditClick, id)}
+      {getTitle(dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType)}
       {getFilter(comp, graph, dataType) && getFreqFilter(graph, handleFilter)}
       {renderCardContent(graph, comp, list, dataType, id, dataList, graphType, frequency, filter)}
       {store()}
