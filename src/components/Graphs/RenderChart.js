@@ -182,8 +182,8 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
         { graphType === 'Line' &&
             <Line data = {dataSet} options={options} />
         }
-
-        { graphType === 'Pie' && <Doughnut data = {initialChartConfig} options={pieOptions} />}
+        { graphType === 'Pie' &&
+          <Doughnut data = {initialChartConfig} options={pieOptions} />}
       </div>
 
   );
