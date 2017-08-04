@@ -415,8 +415,8 @@ h1 {
 .infoIcon {
   position: absolute;
   right: 0;
-  margin-top: 10px;
-  margin-right: 10px; }
+  margin-top: 20px;
+  margin-right: 20px; }
 
 .filter {
   position: absolute;
@@ -980,7 +980,7 @@ body {
 .btn, input[type=submit] {
   transition: all 0.18s ease-out;
   display: inline-block;
-  font-size: 1.0rem;
+  font-size: 2.0rem;
   text-align: center;
   white-space: nowrap;
   user-select: none;
@@ -1119,6 +1119,15 @@ input[type="button"].btn-block {
 
 .overlaySelection {
   z-index: 1000; }
+
+.selectionClose {
+  position: absolute;
+  right: 0;
+  margin-right: 20px; }
+
+.modalHeader {
+  display: flex;
+  flex-direction: row; }
 
 .App {
   background-color: #022753;

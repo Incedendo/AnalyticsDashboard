@@ -19,7 +19,7 @@ class Customize extends Component {
     console.log(this.props)
     return (
       <div>
-        <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleModal} contentLabel='Example' overlayClassName='overlaySelection'>
+        <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleModal} contentLabel='Example' overlayClassName='overlaySelection' style={{backgroundColor:'#888888'}}>
           <SelectionMenu id={this.props.id} handleSubmit={this.props.handleSubmit}
           handleModal={this.handleModal}
           handleCancel={this.props.handleCancel}/>
