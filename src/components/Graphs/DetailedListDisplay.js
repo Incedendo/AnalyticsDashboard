@@ -4,6 +4,7 @@ import '../../assets/scss/_ListDisplay.scss';
 
 const renderList = (listHome, index) => {
   const list = listHome[index];
+  const sliced = list.slice(0,26);
   return(
     <div className="enclose">
       <div className="page pageHeader">
@@ -11,7 +12,7 @@ const renderList = (listHome, index) => {
         <span className="secondSpan">Views</span>
         <span className="lastSpan">%</span>
       </div>
-      {list.map((item, index) =>{
+      {sliced.map((item, index) =>{
           return(
             <div key={index} className="page">
               <span>{item.Page}</span>

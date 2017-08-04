@@ -454,15 +454,15 @@ h1 {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  top: 40%;
-  left: 65%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: block; }
 
 .listCard {
   width: 90%;
   position: relative;
-  top: 15%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block; }
@@ -704,13 +704,13 @@ select {
 .noMargin {
   margin: 0px;
   width: 100%;
-  height: 59vh;
+  height: 50vh;
   position: relative;
   padding-left: 4.5rem;
   padding-right: 4.5rem; }
 
 .bottomCardDiv {
-  margin-top: 10px; }
+  margin-top: 17px; }
 
 .hrDiv {
   position: absolute;
@@ -763,6 +763,7 @@ select {
   height: 2;
   margin: 0 auto;
   width: 100%;
+  text-align: center;
   position: relative; }
   @media (min-width: 1200px) {
     .num1, .num2, .soloNum {
@@ -788,7 +789,8 @@ select {
   position: relative;
   display: block;
   bottom: 3rem;
-  margin: auto; }
+  margin: auto;
+  text-align: center; }
   @media (min-width: 1200px) {
     .label1, .label2, .soloLabel {
       font-size: 1em; } }
@@ -813,7 +815,7 @@ select {
   flex-direction: row;
   position: absolute;
   align-items: center;
-  bottom: -13.5rem;
+  bottom: -14.25rem;
   left: 0rem; }
 
 .greenArrow {
@@ -834,7 +836,7 @@ select {
 .page {
   text-align: left;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 10px;
   width: 100%;
   display: flex;
