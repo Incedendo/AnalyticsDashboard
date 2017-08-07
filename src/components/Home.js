@@ -87,18 +87,12 @@ class Home extends Component {
       />
       <div className="mainDiv">
         <div className='strip' />
-          <div className='headerDiv'>
-            <Header />
-          </div>
-
+          <Header />
           {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
-          <div className="container noMargin bottomCardDiv">
-
-            <DisplayCards num={8} list={arr} />
-          </div>
+          <DisplayCards num={8} list={arr}/>
       </div>
     </div>
   )

@@ -59,7 +59,6 @@ export class CardModalDisplay extends Component {
     // console.log(frequency);
     // console.log("--------[CardModalDisplay] Render COmparison");
     let localFilter;
-
     if(frequency === "annually") localFilter = "YTD";
     if(frequency === "quarterly") localFilter = "QTD";
     if(frequency === "monthly") localFilter = "MTD";
@@ -102,6 +101,9 @@ export class CardModalDisplay extends Component {
     // console.log("frequency: " + frequency );
     // console.log("print list: ");
     // console.log(list);
+
+    // console.log("printing List in CardModalDisplay:");
+    // console.log();
 
     return (
       <div className={this.getCustomClass(listCard, rightBorder, bottomBorder)} >

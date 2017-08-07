@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import CardContainer from './CardContainer';
-import '../../assets/scss/_Card.scss';
-
+import '../../assets/scss/include.scss';
 
 export class DisplayCards extends Component {
-
   state = {
     cards: [
       {
@@ -99,11 +97,9 @@ export class DisplayCards extends Component {
   }
 
   renderCards = () => {
-    return this.state.cards.map((card, index) => {
-      return (
-          <CardContainer {...card} key={index} list={this.props.list}/>
-      );
-    })
+    return this.state.cards.map((card, index) => (
+      <CardContainer {...card} key={index} list={this.props.list}/>
+    ))
   }
 
   componentWillMount = () => {
@@ -118,8 +114,10 @@ export class DisplayCards extends Component {
 
   render () {
     return (
-      <div className="row display">
-        {this.renderCards()}
+      <div className="container noMargin bottomCardDiv">
+        <div className="row display">
+          {this.renderCards()}
+        </div>
       </div>
     )
   }

@@ -7,13 +7,20 @@ export default [
   {
     component: Base,
     routes: [
-          { path: '/:title',
-            component: CardModal,
-            name: '',
-          },
-          {
-            component: NotFound,
-          },
+      {
+        path: '/',
+        exact: true,
+        component: Home,
+        name: "Home"
+      },
+      { path: '/:title',
+        component: CardModal,
+        name: 'Detail Card View'
+      },
+      {
+        component: NotFound,
+        name: 'Not Found'
+      },
     ]
   },
 ]

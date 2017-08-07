@@ -77,6 +77,7 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
+  // console.log("printing in chart display: ");
   if(graphType) {
     return <RenderChart
             categorical={categorical}

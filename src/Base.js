@@ -1,11 +1,9 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
-import { func, shape, arrayOf, string } from 'prop-types';
-import Home from './components/Home';
+import { func, shape, arrayOf, string, bool } from 'prop-types';
 
 const Base = ({ route }) => (
   <div>
-    <Home />
     {renderRoutes(route.routes)}
   </div>
 );
@@ -16,6 +14,8 @@ Base.propTypes = {
       shape({
         path: string,
         component: func,
+        exact: bool,
+        name: string
       }),
     ),
   }).isRequired,

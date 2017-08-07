@@ -29,7 +29,7 @@ const renderList = (listHome, index) => {
   let max, start, end;
 
   [max, start, end ] = getMaxPercentage(listHome, index);
-  console.log("start: " + start);
+  // console.log("start: " + start);
   return(
     <div className="enclose">
       <h1>Greatest Cut Off Percentage: {max}% From {sliced[start].Page} To {sliced[end].Page} </h1>
