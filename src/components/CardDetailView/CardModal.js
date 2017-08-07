@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/scss/include.css';
+import '../../assets/scss/detailTaskbar.css';
 import Modal from 'react-modal';
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 import { NavLink } from 'react-router-dom';
@@ -104,7 +105,20 @@ class CardModal extends Component {
               <div className="DetailTaskbarViewTitle">
                 {paramTitle}
               </div>
-              <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
+              <div className="detailTaskbarCloseBut">
+                <NavLink to="/" className="detailNavLink btn-close-task" onClick={this.toggleModal}>
+                  <svg className="x" width="32px" height="33px" viewBox="0 0 32 33" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Page-1" stroke="#ffffff" strokeWidth="" fill="none" fillRule="evenodd">
+                      <g id="Custom-Preset" transform="translate(0.000000, 1.000000)">
+                        <g id="Group">
+                          <path d="M32,32 L0,0" id="Path"></path>
+                          <path d="M0,32 L32,-1.77635684e-15 L0,32 Z" id="Path"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </NavLink>
+              </div>
             </div>
             {!card.listCard &&
               <div className="page-wrapper">
@@ -153,7 +167,9 @@ class CardModal extends Component {
           style={errorModal}
         >
           <div className="taskbar">
-            PAGE NOT FOUND
+            <h1>
+              PAGE NOT FOUND
+            </h1>
             <NavLink to="/" className="navlink" onClick={this.toggleModal}>Close</NavLink>
           </div>
         </Modal>

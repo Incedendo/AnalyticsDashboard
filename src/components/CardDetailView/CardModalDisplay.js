@@ -7,8 +7,6 @@ import DetailedListDisplay from '../Graphs/DetailedListDisplay';
 export class CardModalDisplay extends Component {
 
   renderCardContent = (graph,comp,listCard, list ,dataType ,graphType ,frequency) => {
-    // console.log("RenderCARDCONTENT dataType: ");
-    // console.log(dataType);
     if(listCard){
       return(
         <div className='listCard'>
@@ -101,7 +99,6 @@ export class CardModalDisplay extends Component {
     // console.log("frequency: " + frequency );
     // console.log("print list: ");
     // console.log(list);
-
     // console.log("printing List in CardModalDisplay:");
     // console.log();
 
