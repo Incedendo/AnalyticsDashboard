@@ -48,32 +48,35 @@ class CardModal extends Component {
   }
 
   getKPI = () => {
-    if(this.props.match.params.title === 'TotalVisits')
-      return 'Total Visits'
-    if(this.props.match.params.title === 'UniqueVisits')
-      return 'Unique Visits'
-    if(this.props.match.params.title === 'SignUps')
-      return "Sign Ups"
-    if(this.props.match.params.title === 'SignIns')
-      return "Sign Ins"
-    if(this.props.match.params.title === 'UniqueUserLogin')
-      return "Unique User Login"
-    if(this.props.match.params.title === 'Registrations')
-      return "Registrations"
-    if(this.props.match.params.title === 'Enrollments')
-      return "Enrollments"
-    if(this.props.match.params.title === 'SuspiciousEnrollments')
-      return 'Suspicious Enrollments'
-    if(this.props.match.params.title === 'ContributionChange')
-      return "Contribution Changes"
-    if(this.props.match.params.title === 'BounceRate')
-      return "Bounce Rate"
-    if(this.props.match.params.title === 'RetirementIncomeCalcUsage')
-      return "Retirement Income Calc Usage"
-    if(this.props.match.params.title === 'TopPages')
-      return "Top Pages"
-    if(this.props.match.params.title === 'VisitsbyDeviceType')
-      return "Visits by Device Type"
+    const title = this.props.match.params.title;
+    switch(title){
+      case 'TotalVisits':
+        return 'Total Visits';
+      case 'UniqueVisits':
+        return 'Unique Visits';
+      case 'SignUps':
+        return "Sign Ups";
+      case 'SignIns':
+        return "Sign Ins";
+      case 'UniqueUserLogin':
+        return "Unique User Login";
+      case 'Registrations':
+        return "Registrations";
+      case 'Enrollments':
+        return "Enrollments";
+      case 'SuspiciousEnrollments':
+        return 'Suspicious Enrollments';
+      case 'ContributionChange':
+        return "Contribution Change";
+      case 'BounceRate':
+        return "Bounce Rate";
+      case 'RetirementIncomeCalcUsage':
+        return "Retirement Income Calc Usage";
+      case 'TopPages':
+        return "Top Pages";
+      case 'VisitsbyDeviceType':
+        return "Visits by Device Type";
+    }
   }
 
   render(){
@@ -81,7 +84,6 @@ class CardModal extends Component {
     const paramTitle = this.getKPI();
     const dataType = [];
     dataType.push(paramTitle);
-
     let arr=[];
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
@@ -89,62 +91,56 @@ class CardModal extends Component {
 
     if(cardTitle.indexOf(paramTitle) !== -1 && this.state.mounted){
       const card = this.state.cards;
-      //console.log("Display LIST: " + this.state.cards.listCard);
-      console.log("printing card: " + card.listCard);
-      const className="";
-
-        return(
-          <div>
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              closeModal={this.toggleModal}
-              enabledModal={this.state.modalIsOpen}
-              contentLabel="Example Modal"
-              style={topMenuOverlay}
-            >
-              <div className="detailTaskbar">
-                <div className="DetailTaskbarViewTitle">
-                  {paramTitle}
-                </div>
-                <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
+      return(
+        <div>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            closeModal={this.toggleModal}
+            enabledModal={this.state.modalIsOpen}
+            contentLabel="Example Modal"
+            style={topMenuOverlay}
+          >
+            <div className="detailTaskbar">
+              <div className="DetailTaskbarViewTitle">
+                {paramTitle}
               </div>
-              {!card.listCard &&
-                <div className="page-wrapper">
-                  <div className="row">
-                    {CardFrequencies.map((item, index) =>{
-                      return (
-                        <div key={index} className="col-md-6 no-padding">
-                          <CardModalDisplay
-                            {...card}
-                            list={arr}
-                            dataType={dataType}
-                            frequency={item.frequency}
-                            rightBorder={item.rightBorder}
-                            bottomBorder={item.bottomBorder}
-                          />
-                        </div>
-                      )
-                    })}
-                  </div>
+              <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
+            </div>
+            {!card.listCard &&
+              <div className="page-wrapper">
+                <div className="row">
+                  {CardFrequencies.map((item, index) =>{
+                    return (<div key={index} className="col-md-6 no-padding">
+                        <CardModalDisplay
+                          {...card}
+                          list={arr}
+                          dataType={dataType}
+                          frequency={item.frequency}
+                          rightBorder={item.rightBorder}
+                          bottomBorder={item.bottomBorder}
+                        />
+                      </div>)
+                  })}
                 </div>
-              }
-              {card.listCard &&
-                <div className="list-page-wrapper">
-                  <div className="no-padding">
-                    <CardModalDisplay
-                      {...card}
-                      list={arr}
-                      dataType={dataType}
-                      frequency=''
-                      rightBorder=''
-                      bottomBorder=''
-                    />
-                  </div>
+              </div>
+            }
+            {card.listCard &&
+              <div className="list-page-wrapper">
+                <div className="no-padding">
+                  <CardModalDisplay
+                    {...card}
+                    list={arr}
+                    dataType={dataType}
+                    frequency=''
+                    rightBorder=''
+                    bottomBorder=''
+                  />
                 </div>
-              }
-            </Modal>
-          </div>
-        )
+              </div>
+            }
+          </Modal>
+        </div>
+      )
     }
 
     return(

@@ -185,8 +185,10 @@ class SelectionMenu extends Component {
     return (
       <div className='modalBody'>
         <div className='selectionBox menu_1'>
-          SELECT DATA TYPE
-          <img src={greyCloseButton} style={{float:'right'}} onClick={this.handleCancel}/>
+          <div className='modalHeader'>
+            <div className='menuTitle'>Select Data Type</div>
+          <img className='selectionClose' src={greyCloseButton}  onClick={this.handleCancel}/>
+          </div>
           <div className="tile-toggles">
             <div className="tile-toggle-group">
               {this.dataForm()}
@@ -195,7 +197,7 @@ class SelectionMenu extends Component {
         </div>
 
         <div className='selectionBox menu_2'>
-          SELECT GRAPH TYPE
+          <div className='menuTitle'>Select Graph Type</div>
           <div className="tile-toggles" style={{height:'30vh',zIndex:'201'}}>
             <div className="tile-toggle-group" style={{height:'100%'}}>
               {this.graphForm()}

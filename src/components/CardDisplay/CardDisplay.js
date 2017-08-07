@@ -1,16 +1,11 @@
 import React from 'react';
 import '../../assets/scss/_Card.scss';
 import pencilIcon from '../../assets/svg/pencilIcon.svg';
-import dropdown from './dropdown.svg';
-import infoWhite from './infoWhite.svg';
-import {RenderChart} from '../Graphs/RenderChart';
-import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
 import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
-import ReactModal from 'react-modal';
 
 const renderGraph = (dataType, id, dataList, graphType, frequency) => {
   let displayedLegend = false;
@@ -41,12 +36,12 @@ const renderGraph = (dataType, id, dataList, graphType, frequency) => {
 }
 
 const renderComp = (dataList, dataType, frequency, filter) => {
-  return <CompDisplay listHome={dataList} dataType={dataType} frequency={frequency} filter={filter}/>
+  return <ChartDisplay listHome={dataList} dataType={dataType} frequency={frequency} filter={filter}/>
 }
 
 const renderList = (dataList, id, dataType) => {
   return (
-    <ListDisplay listHome={dataList} cardIndex={id} dataType={dataType}/>
+    <ListDisplay listHome={dataList} dataType={dataType}/>
   );
 }
 

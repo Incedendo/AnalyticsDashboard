@@ -24,7 +24,7 @@ $transition-speed:                     0.18s;
   @extend %button-text-bold;
   transition: all $transition-speed ease-out;
   display: inline-block;
-  font-size: 1.0rem;
+  font-size: 2.0rem;
   text-align: center;
   white-space: nowrap;
   user-select: none;
@@ -92,11 +92,12 @@ input[type="button"] {
 		vertical-align: top;
 	}
   .tile-toggle-item-label {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
   .tile-toggle-item-label:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    //box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
   }
 	label{
 		box-shadow: 2px 0 0 $border-color inset, -2px 0 0 $border-color inset, 0 -2px 0 $border-color inset, 0 2px 0 $border-color inset ;
@@ -200,4 +201,14 @@ input[type="button"] {
 
 .overlaySelection {
   z-index: 1000;
+}
+.selectionClose {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: row;
 }

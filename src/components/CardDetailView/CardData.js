@@ -7,7 +7,7 @@ export const cardTitle = [
   'Registrations',
   'Enrollments',
   'Suspicious Enrollments',
-  'Contribution Changes',
+  'Contribution Change',
   'Bounce Rate',
   'Retirement Income Calc Usage',
   'Top Pages',
@@ -26,7 +26,7 @@ export const CardFrequencies = [
     bottomBorder: true
   },
   {
-    frequency: "weekly",
+    frequency: "monthly",
     rightBorder: true,
     bottomBorder: false
   },

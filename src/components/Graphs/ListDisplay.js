@@ -1,25 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Doughnut} from 'react-chartjs-2';
 import '../../assets/scss/_ListDisplay.scss';
-
-const colorArr = ['rgba(232,68,171,0.6)', 'rgba(21,195,218,0.6)', 'rgba(0,156,166,0.6)','rgba(228, 92, 234, 0.6)'];
-
-const colors = [];
-for(let i = 0; i < 4; i++) {
-  let num = Math.floor(Math.random()*colorArr.length);
-  colors.push(colorArr[num]);
-  colorArr.splice(num, 1);
-}
-
-let initialChartConfig = {
-  labels: [],
-  datasets: [{
-    data: [],
-    backgroundColor: colors,
-    borderColor: ['#12335E ','#12335E ','#12335E ','#12335E '],
-  }]
-};
 
 const renderList = (listHome, index) => {
   const list = listHome[index];
@@ -44,29 +25,7 @@ const renderList = (listHome, index) => {
   );
 }
 
-const renderDeviceType = (listHome, index) => {
-  const list = listHome[index];
-  const labels = list.map(({Device}) => Device);
-  const percentage = list.map(({percentage}) => percentage);
-  initialChartConfig.labels = labels;
-  initialChartConfig.datasets[0].data = percentage;
-  return (
-    <div style={{height: "295px"}}>
-        <Doughnut data = {initialChartConfig} options={options} />
-    </div>
-  );
-}
-
-const options={
-  legend: {
-    labels: {
-        fontColor: "white",
-        fontSize: 18
-    }
-  },
-};
-
-const ListDisplay = ({listHome=[], cardIndex, dataType = []}) => {
+const ListDisplay = ({listHome=[], dataType = []}) => {
   // the 5th card is TOP ACTIVE PAGES
   let data = dataType[0]
   switch(data) {

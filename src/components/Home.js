@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {DisplayCards} from './CardDisplay/DisplayCards';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
@@ -7,7 +8,6 @@ import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
-import {DisplayCards} from './CardDisplay/DisplayCards';
 
 class Home extends Component {
   state = {
@@ -23,8 +23,8 @@ class Home extends Component {
     this.setState({
       projects: jsonData,
       mounted: true,
-      filter: 'QTD',
-      frequency: 'quarterly'
+      filter: 'MTD',
+      frequency: 'monthly'
     });
   }
 
@@ -36,30 +36,26 @@ class Home extends Component {
     });
   }
 
-  handleFilter = (id) => {
-
+  handleFrequency = (id) => {
     this.setState({
-      filter: id
+      frequency: id
     })
+  }
+
+  handleFilter = (id) => {
+    let newState = {filter: id, frequency: ''}
     switch(id) {
       case 'QTD':
-        this.setState({
-          frequency: 'quarterly'
-        })
+          newState.frequency = 'quarterly'
         break;
-      case 'MTD': this.setState({
-        frequency: 'annually'
-      })
+      case 'MTD':
+        newState.frequency = 'monthly'
         break;
-      case 'YTD': this.setState({
-        frequency: 'daily'
-      })
-        break;
-      case 'WTD': this.setState({
-        frequency: 'weekly'
-      })
+      case 'YTD':
+        newState.frequency = 'annually'
         break;
     }
+    this.setState(newState);
   }
   renderSubMainDiv = (dataType, arr) => (
     <div className="subMainDiv">
@@ -97,7 +93,6 @@ class Home extends Component {
             <hr className="divider"/>
           </div>
           <DisplayCards num={8} list={arr}/>
-
       </div>
     </div>
   )

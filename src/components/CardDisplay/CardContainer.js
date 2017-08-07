@@ -52,13 +52,10 @@ class CardContainer extends Component {
           newState.frequency = 'quarterly'
         break;
       case 'MTD':
-        newState.frequency = 'annually'
+        newState.frequency = 'monthly'
         break;
       case 'YTD':
-        newState.frequency = 'daily'
-        break;
-      case 'WTD':
-        newState.frequency = 'weekly'
+        newState.frequency = 'annually'
         break;
     }
     this.setState(newState);
@@ -80,8 +77,8 @@ class CardContainer extends Component {
 
       newState.dataType = arr;
       newState.graphType = this.props.graphType;
-      newState.filter = 'QTD';
-      newState.frequency = 'quarterly';
+      newState.filter = 'MTD';
+      newState.frequency = 'monthly';
 
       if(this.props.graph){
         newState.graph = true;
@@ -95,6 +92,7 @@ class CardContainer extends Component {
   }
 
   render () {
+    // console.log(this.state.frequency)
     return (
       <CardDisplay {...this.state}
         dataList={this.props.list}
