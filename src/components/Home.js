@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {CardMenu} from './CardDisplay/CardMenu';
+import {DisplayCards} from './CardDisplay/DisplayCards';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
@@ -103,7 +103,7 @@ class Home extends Component {
           </div>
           <div className="container noMargin bottomCardDiv">
 
-            <CardMenu list={arr} />
+            <DisplayCards num={8} list={arr} />
           </div>
       </div>
     </div>

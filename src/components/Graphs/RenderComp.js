@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../assets/scss/_RenderComp.scss'
 import PropTypes from 'prop-types';
-import greenArrow from './greenArrow.svg';
-import redArrow from './redArrow.svg'
+import greenArrow from '../../assets/svg/greenArrow.svg';
+import redArrow from '../../assets/svg/redArrow.svg'
 
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

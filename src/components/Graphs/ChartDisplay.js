@@ -23,7 +23,6 @@ const getList = (listHome, frequency, categorical, dataType) => {
       //   return listHome[3];
     }
   }
-
 }
 
 const getDataArray = (list, dataType) => {
@@ -79,7 +78,6 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
-  console.log(graphType)
   if(graphType) {
     return <RenderChart
             categorical={categorical}

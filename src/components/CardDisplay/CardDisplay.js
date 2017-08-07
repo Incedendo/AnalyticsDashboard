@@ -1,10 +1,9 @@
 import React from 'react';
 import '../../assets/scss/_Card.scss';
 import pencilIcon from '../../assets/svg/pencilIcon.svg';
-import dropdown from './dropdown.svg';
-import infoWhite from './infoWhite.svg';
+import dropdown from '../../assets/svg/dropdown.svg';
+import infoWhite from '../../assets/svg/infoWhite.svg';
 import {RenderChart} from '../Graphs/RenderChart';
-import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
@@ -44,7 +43,7 @@ const renderComp = (dataList, dataType, frequency, filter) => {
 
 const renderList = (dataList, id, dataType) => {
   return (
-    <ListDisplay listHome={dataList} cardIndex={id} dataType={dataType}/>
+    <ListDisplay listHome={dataList} dataType={dataType}/>
   );
 }
 
