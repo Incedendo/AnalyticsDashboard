@@ -6,103 +6,9 @@ import { NavLink } from 'react-router-dom';
 import { CardModalDisplay } from './CardModalDisplay';
 import jsonData from '../../assets/JSON/main.js';
 import cards from '../../assets/JSON/cards.js';
-
-const topMenuOverlay = {
-    overlay : {
-      position          : 'fixed',
-      top               : 0,
-      left              : 0,
-      right             : 0,
-      bottom            : 0,
-      backgroundColor   : 'rgba(255, 255, 255, 0.75)',
-      zIndex            : 200,
-    },
-    content : {
-      position                   : 'absolute',
-      top                        : '0px',
-      left                       : '0px',
-      right                      : '0px',
-      bottom                     : '0px',
-      border                     : '1px solid #ccc',
-      background                 : '#022753',
-      color                      : 'white',
-      overflow                   : 'auto',
-      WebkitOverflowScrolling    : 'touch',
-      borderRadius               : '4px',
-      outline                    : 'none',
-      padding                    : '20px',
-    }
-};
-
-const errorModal = {
-    overlay : {
-      position          : 'fixed',
-      top               : 0,
-      left              : 0,
-      right             : 0,
-      bottom            : 0,
-      backgroundColor   : 'red'
-    },
-    content : {
-      position                   : 'absolute',
-      top                        : '0px',
-      left                       : '0px',
-      right                      : '0px',
-      bottom                     : '0px',
-      border                     : '1px solid #ccc',
-      background                 : 'red',
-      color                      : 'white',
-      overflow                   : 'auto',
-      WebkitOverflowScrolling    : 'touch',
-      borderRadius               : '4px',
-      outline                    : 'none',
-      padding                    : '20px',
-    }
-};
-
-const CardFrequencies = [
-  {
-    frequency: "annually",
-    rightBorder: true,
-    bottomBorder: true
-  },
-  {
-    frequency: "quarterly",
-    rightBorder: false,
-    bottomBorder: true
-  },
-  {
-    frequency: "weekly",
-    rightBorder: true,
-    bottomBorder: false
-  },
-  {
-    frequency: "daily",
-    rightBorder: false,
-    bottomBorder: false
-  }
-];
-
-const cardTitle = [
-                    'Total Visits',
-                    'Unique Visits',
-                    'Sign Ups',
-                    'Sign Ins',
-                    'Unique User Login',
-                    'Registrations',
-                    'Enrollments',
-                    'Suspicious Enrollments',
-                    'Contribution Changes',
-                    'Bounce Rate',
-                    'Retirement Income Calc Usage',
-                    'Top Pages',
-                    'Visits by Device Type'
-                  ];
-
-const cardsINFO = cards;
+import { cardTitle, CardFrequencies, topMenuOverlay, errorModal } from './CardData';
 
 class CardModal extends Component {
-
   state = {
     modalIsOpen: true,
     projects: [],
@@ -117,7 +23,6 @@ class CardModal extends Component {
         frequency: "",
         data: [''],
       }
-
   }
 
   componentDidMount() {
@@ -130,8 +35,6 @@ class CardModal extends Component {
         comp: this.props.location.state.comp,
         listCard: this.props.location.state.list,
         graphType: this.props.location.state.graphType,
-        //frequency: this.props.location.state.frequency,
-        //filter: this.props.location.state.filter,
       }
     });
   }
@@ -174,7 +77,6 @@ class CardModal extends Component {
   }
 
   render(){
-
     const { projects } = this.state
     const paramTitle = this.getKPI();
     const dataType = [];
@@ -190,7 +92,7 @@ class CardModal extends Component {
       //console.log("Display LIST: " + this.state.cards.listCard);
       console.log("printing card: " + card.listCard);
       const className="";
-      if(!card.listCard){
+
         return(
           <div>
             <Modal
@@ -205,63 +107,44 @@ class CardModal extends Component {
                   {paramTitle}
                 </div>
                 <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
-
               </div>
-              <div className="page-wrapper">
-                <div className="row">
-                  {CardFrequencies.map((item, index) =>{
-                    return (
-                      <div key={index} className="col-md-6 no-padding">
-                        <CardModalDisplay
-                          {...card}
-                          list={arr}
-                          dataType={dataType}
-                          frequency={item.frequency}
-                          rightBorder={item.rightBorder}
-                          bottomBorder={item.bottomBorder}
-                        />
-                      </div>
-                    )
-                  })}
+              {!card.listCard &&
+                <div className="page-wrapper">
+                  <div className="row">
+                    {CardFrequencies.map((item, index) =>{
+                      return (
+                        <div key={index} className="col-md-6 no-padding">
+                          <CardModalDisplay
+                            {...card}
+                            list={arr}
+                            dataType={dataType}
+                            frequency={item.frequency}
+                            rightBorder={item.rightBorder}
+                            bottomBorder={item.bottomBorder}
+                          />
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
-              </div>
+              }
+              {card.listCard &&
+                <div className="list-page-wrapper">
+                  <div className="no-padding">
+                    <CardModalDisplay
+                      {...card}
+                      list={arr}
+                      dataType={dataType}
+                      frequency=''
+                      rightBorder=''
+                      bottomBorder=''
+                    />
+                  </div>
+                </div>
+              }
             </Modal>
           </div>
         )
-
-      }else {
-        return (
-          <div>
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              closeModal={this.toggleModal}
-              enabledModal={this.state.modalIsOpen}
-              contentLabel="Example Modal"
-              style={topMenuOverlay}
-            >
-              <div className="detailTaskbar">
-                <div className="DetailTaskbarViewTitle">
-                  {paramTitle}
-                </div>
-                <NavLink to="/" className="detailNavLink" onClick={this.toggleModal}>Close</NavLink>
-              </div>
-              <div className="list-page-wrapper">
-                <div className="no-padding">
-                  <CardModalDisplay
-                    {...card}
-                    list={arr}
-                    dataType={dataType}
-                    frequency=''
-                    rightBorder=''
-                    bottomBorder=''
-                    //index={5}
-                  />
-                </div>
-              </div>
-            </Modal>
-          </div>
-        );
-      }
     }
 
     return(
@@ -277,7 +160,6 @@ class CardModal extends Component {
             PAGE NOT FOUND
             <NavLink to="/" className="navlink" onClick={this.toggleModal}>Close</NavLink>
           </div>
-
         </Modal>
       </div>
     );

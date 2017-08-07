@@ -1,6 +1,12 @@
 ## VALIC Analytics Dashboard
 
 ## Components
+  * App
+  * Home
+  * Header
+  * ModalMenu
+  * CardMenu
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

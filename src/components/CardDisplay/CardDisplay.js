@@ -23,18 +23,20 @@ const renderGraph = (dataType, id, dataList, graphType, frequency) => {
   if(dataType.length > 1){
     displayedLegend = true;
   }
-  return <ChartDisplay listHome={dataList} dataType={dataType}
-  graphType={graphType}
-  frequency={frequency}
-  categorical={categorical}
-  chartHeight='170px'
-  width='100%'
-  yAxisTextSize="18"
-  xAxisTextSize="18"
-  pointRadius="0"
-  legendFontSize="15"
-  displayedLegend={displayedLegend}
-  marginTop="-80px"
+  return <ChartDisplay
+    listHome={dataList}
+    dataType={dataType}
+    graphType={graphType}
+    frequency={frequency}
+    categorical={categorical}
+    chartHeight='170px'
+    width='100%'
+    yAxisTextSize="18"
+    xAxisTextSize="18"
+    pointRadius="0"
+    legendFontSize="15"
+    displayedLegend={displayedLegend}
+    marginTop="-80px"
   />
 }
 

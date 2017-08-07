@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {CardMenu} from './CardDisplay/CardMenu';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
@@ -8,6 +7,7 @@ import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
+import {DisplayCards} from './CardDisplay/DisplayCards';
 
 class Home extends Component {
   state = {
@@ -91,18 +91,13 @@ class Home extends Component {
       />
       <div className="mainDiv">
         <div className='strip' />
-          <div className='headerDiv'>
-            <Header />
-          </div>
-
+          <Header />
           {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
-          <div className="container noMargin bottomCardDiv">
+          <DisplayCards num={8} list={arr}/>
 
-            <CardMenu list={arr} />
-          </div>
       </div>
     </div>
   )

@@ -29,7 +29,6 @@ export class CardModalDisplay extends Component {
         </div>
       )
     }
-
   }
 
   renderGraph = (list ,dataType ,graphType ,frequency) => {
