@@ -12,9 +12,9 @@ class FreqFilter extends Component {
     return (
       <div>
         <select onChange={this.handleChange} >
-          <option value="QTD">Quarter To Date (QTD)</option>
-          <option value="WTD">Weekly To Date (QTD)</option>
           <option value="MTD">Month To Date (MTD)</option>
+          <option value="QTD">Quarter To Date (QTD)</option>
+          {/* <option value="WTD">Weekly To Date (QTD)</option> */}
           <option value="YTD">Year To Date (YTD)</option>
         </select>
       </div>

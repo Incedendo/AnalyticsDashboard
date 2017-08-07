@@ -16,49 +16,6 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
 
-  // console.log("print list: ");
-  // console.log(list);
-
-  dataType.map( (stat, index) => {
-    switch(stat){
-      case "Registrations":
-        dataArr[index] = list.map(({totalVisits}) => totalVisits);
-        break;
-      case "Enrollments":
-        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
-        break;
-      case "Unique User Login":
-        dataArr[index] = list.map(({PageViews}) => PageViews);
-        break;
-      case "Contribution Changes":
-        dataArr[index] = list.map(({signUps}) => signUps);
-        break;
-      case "Top Active Pages":
-        dataArr[index] = list.map(({signIns}) => signIns);
-        break;
-      case "Retirement Income Calc Usage":
-        dataArr[index] = list.map(({contributionChange}) => contributionChange);
-        break;
-      case "Top Pages":
-        dataArr[index] = list.map(({allocationChange}) => allocationChange);
-        break;
-      case "Suspicious Enrollments":
-        dataArr[index] = list.map(({suspiciousEnrollment}) => suspiciousEnrollment);
-        break;
-      case "Total Visits":
-        dataArr[index] = list.map(({totalVisits}) => totalVisits);
-        break;
-      case "Unique Visits":
-        dataArr[index] = list.map(({uniqueVisits}) => uniqueVisits);
-        break;
-      case "Page Views":
-        dataArr[index] = list.map(({PageViews}) => PageViews);
-        break;
-    }
-    return null;
-  });
-
-
   let labels = list.map(({label}) => label);
 
   const colors = [];

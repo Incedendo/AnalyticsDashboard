@@ -72,7 +72,7 @@ const CardFrequencies = [
     bottomBorder: true
   },
   {
-    frequency: "weekly",
+    frequency: "monthly",
     rightBorder: true,
     bottomBorder: false
   },

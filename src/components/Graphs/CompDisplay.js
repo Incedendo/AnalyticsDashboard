@@ -8,10 +8,10 @@ const getList = (listHome, frequency, dataType) => {
       return listHome[0];
     case 'quarterly':
       return listHome[1];
-    case 'weekly':
+    case 'monthly':
       return listHome[2];
-    case 'daily':
-      return listHome[3];
+    // case 'daily':
+    //   return listHome[3];
   }
 }
 
@@ -61,10 +61,8 @@ const getDataArray = (list, dataType) => {
   return dataArr;
 }
 
-const CompDisplay = ({listHome=[], dataType=[], frequency, graphType, filter}) => {
+const CompDisplay = ({listHome=[], dataType=[], frequency, filter}) => {
   const list = getList(listHome, frequency);
-  // console.log("print LIST IN COMP DISPLAY");
-  // console.log(list);
   if(list){
     const dataArr = getDataArray(list, dataType);
     return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
