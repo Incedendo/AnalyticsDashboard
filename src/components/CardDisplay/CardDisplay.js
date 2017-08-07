@@ -1,15 +1,11 @@
 import React from 'react';
 import '../../assets/scss/_Card.scss';
 import pencilIcon from '../../assets/svg/pencilIcon.svg';
-import dropdown from '../../assets/svg/dropdown.svg';
-import infoWhite from '../../assets/svg/infoWhite.svg';
-import {RenderChart} from '../Graphs/RenderChart';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
 import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
-import ReactModal from 'react-modal';
 
 const renderGraph = (dataType, id, dataList, graphType, frequency) => {
   let displayedLegend = false;
