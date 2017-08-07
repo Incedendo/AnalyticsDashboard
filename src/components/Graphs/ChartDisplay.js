@@ -11,7 +11,6 @@ const getList = (listHome, frequency, categorical, dataType) => {
           return listHome[6];
       }
   }else {
-    // console.log(frequency)
     switch(frequency) {
       case 'annually':
         return listHome[0];
