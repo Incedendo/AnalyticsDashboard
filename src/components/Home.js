@@ -8,6 +8,7 @@ import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
+import FrequencyHandler from './utils/FrequencyHandler';
 
 class Home extends Component {
   state = {
@@ -23,8 +24,8 @@ class Home extends Component {
     this.setState({
       projects: jsonData,
       mounted: true,
-      filter: 'QTD',
-      frequency: 'quarterly'
+      filter: 'MTD',
+      frequency: 'monthly'
     });
   }
 
@@ -36,30 +37,31 @@ class Home extends Component {
     });
   }
 
-  handleFilter = (id) => {
-
+  handleFrequency = (id) => {
     this.setState({
-      filter: id
+      frequency: id
     })
+    console.log('am i called?')
+  }
+
+  handleFilter = (id) => {
+    let newState = {filter: id, frequency: ''}
+    // return <FrequencyHandler filter={id} handleFrequency={this.handleFrequency} />
     switch(id) {
       case 'QTD':
-        this.setState({
-          frequency: 'quarterly'
-        })
+          newState.frequency = 'quarterly'
         break;
-      case 'MTD': this.setState({
-        frequency: 'annually'
-      })
+      case 'MTD':
+        newState.frequency = 'monthly'
         break;
-      case 'YTD': this.setState({
-        frequency: 'daily'
-      })
+      case 'YTD':
+        newState.frequency = 'annually'
         break;
-      case 'WTD': this.setState({
-        frequency: 'weekly'
-      })
-        break;
+      // case 'WTD':
+      //   newState.frequency = 'weekly'
+      //   break;
     }
+    this.setState(newState);
   }
   renderSubMainDiv = (dataType, arr) => (
     <div className="subMainDiv">

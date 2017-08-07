@@ -1,5 +1,7 @@
 import React from 'react'
 import RenderChart from './RenderChart';
+import RenderComp from './RenderComp';
+
 import PropTypes from 'prop-types';
 
 const getList = (listHome, frequency, categorical, dataType) => {
@@ -9,17 +11,19 @@ const getList = (listHome, frequency, categorical, dataType) => {
           return listHome[6];
       }
   }else {
+    console.log(frequency)
     switch(frequency) {
       case 'annually':
         return listHome[0];
       case 'quarterly':
         return listHome[1];
-      case 'weekly':
+      case 'monthly':
         return listHome[2];
-      case 'daily':
-        return listHome[3];
+      // case 'daily':
+      //   return listHome[3];
     }
   }
+
 }
 
 const getDataArray = (list, dataType) => {
@@ -71,23 +75,29 @@ const getDataArray = (list, dataType) => {
   return dataArr;
 }
 
-const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical,chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical,chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend, filter }) => {
+
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
-  return <RenderChart
-          categorical={categorical}
-          dataType={dataType}
-          dataArr={dataArr}
-          graphType={graphType}
-          list={list}
-          height={chartHeight} width={width} margin={margin}
-          yAxisTextSize={yAxisTextSize}
-          xAxisTextSize={xAxisTextSize}
-          pointRadius={pointRadius}
-          legendFontSize={legendFontSize}
-          displayedLegend={displayedLegend}
-          marginTop={marginTop}
-         />
+  console.log(graphType)
+  if(graphType) {
+    return <RenderChart
+            categorical={categorical}
+            dataType={dataType}
+            dataArr={dataArr}
+            graphType={graphType}
+            list={list}
+            height={chartHeight} width={width} margin={margin}
+            yAxisTextSize={yAxisTextSize}
+            xAxisTextSize={xAxisTextSize}
+            pointRadius={pointRadius}
+            legendFontSize={legendFontSize}
+            displayedLegend={displayedLegend}
+            marginTop={marginTop}
+           />
+  }else {
+    return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
+  }
 }
 
 // ChartDisplay.propTypes= {

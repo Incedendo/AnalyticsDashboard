@@ -52,14 +52,14 @@ class CardContainer extends Component {
           newState.frequency = 'quarterly'
         break;
       case 'MTD':
-        newState.frequency = 'annually'
+        newState.frequency = 'monthly'
         break;
       case 'YTD':
-        newState.frequency = 'daily'
+        newState.frequency = 'annually'
         break;
-      case 'WTD':
-        newState.frequency = 'weekly'
-        break;
+      // case 'WTD':
+      //   newState.frequency = 'weekly'
+      //   break;
     }
     this.setState(newState);
   }
@@ -80,8 +80,8 @@ class CardContainer extends Component {
 
       newState.dataType = arr;
       newState.graphType = this.props.graphType;
-      newState.filter = 'QTD';
-      newState.frequency = 'quarterly';
+      newState.filter = 'MTD';
+      newState.frequency = 'monthly';
 
       if(this.props.graph){
         newState.graph = true;

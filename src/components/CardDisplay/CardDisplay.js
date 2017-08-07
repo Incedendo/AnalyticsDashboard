@@ -39,7 +39,7 @@ const renderGraph = (dataType, id, dataList, graphType, frequency) => {
 }
 
 const renderComp = (dataList, dataType, frequency, filter) => {
-  return <CompDisplay listHome={dataList} dataType={dataType} frequency={frequency} filter={filter}/>
+  return <ChartDisplay listHome={dataList} dataType={dataType} frequency={frequency} filter={filter}/>
 }
 
 const renderList = (dataList, id, dataType) => {
