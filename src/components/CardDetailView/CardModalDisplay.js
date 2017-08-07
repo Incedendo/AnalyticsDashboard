@@ -34,9 +34,6 @@ export class CardModalDisplay extends Component {
 
   renderGraph = (list ,dataType ,graphType ,frequency) => {
     let displayedLegend = true;
-    // if(this.props.index === 4 || this.props.index === 6){
-    //   displayedLegend = false;
-    // }
     return (
       <div>
         <ChartDisplay
@@ -62,7 +59,6 @@ export class CardModalDisplay extends Component {
     // console.log(list);
     // console.log("Render COMP dataType frequency ");
     // console.log(frequency);
-
     // console.log("--------[CardModalDisplay] Render COmparison");
     let localFilter;
     if(frequency === "annually") localFilter = "MTD";
@@ -88,7 +84,6 @@ export class CardModalDisplay extends Component {
   }
 
   getTitle = () => {
-    // const link = '/' + this.state.dataType[0].replace(/\s/g, '');
     return (
       <div className='title inline-block'>
         {this.state.dataType[0]}
