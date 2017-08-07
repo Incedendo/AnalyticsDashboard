@@ -188,7 +188,6 @@ class CardModal extends Component {
     if(cardTitle.indexOf(paramTitle) !== -1 && this.state.mounted){
       const card = this.state.cards;
       //console.log("Display LIST: " + this.state.cards.listCard);
-      console.log("printing card: " + card.listCard);
       const className="";
       if(!card.listCard){
         return(

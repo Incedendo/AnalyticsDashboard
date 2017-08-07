@@ -27,7 +27,7 @@ const renderBox = (boxPosition, boxNum, boxState, index, data, label, filter) =>
 const renderOneData = (data, filter) => (
   <div className="col-md-6 soloBox">
       <div className='soloNum'>
-        {data[0]}
+        {data[data.length - 1]}
       </div>
       <div className='soloLabel'>
         Current {filter}
@@ -38,9 +38,9 @@ const renderOneData = (data, filter) => (
 const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow) => {
   return (<div>
     <div className='compBox row'>
-      {renderBox("leftBox", 'num1', "Current", 1, data, "label1", filter)}
+      {renderBox("leftBox", 'num1', "Current", data.length - 1, data, "label1", filter)}
       <hr className='hr1'/>
-      {renderBox("rightBox", 'num2', "Prior", 0, data, "label2", filter)}
+    {renderBox("rightBox", 'num2', "Prior", data.length - 2, data, "label2", filter)}
     </div>
     <div className='arrowBox'>
       <img src={improve?greenArrow:redArrow} alt="c" className={improve?'greenArrow':'redArrow'}/>
