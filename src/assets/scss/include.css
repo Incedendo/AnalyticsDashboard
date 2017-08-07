@@ -760,6 +760,7 @@ select {
   font-family: "Source Sans Pro";
   font-weight: 300;
   letter-spacing: 2px;
+  text-align: center;
   height: 2;
   margin: 0 auto;
   width: 100%;

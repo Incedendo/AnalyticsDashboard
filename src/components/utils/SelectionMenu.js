@@ -186,7 +186,7 @@ class SelectionMenu extends Component {
       <div className='modalBody'>
         <div className='selectionBox menu_1'>
           <div className='modalHeader'>
-            <div className='menuTitle'>SELECT DATA TYPE</div>
+            <div className='menuTitle'>Select Data Type</div>
           <img className='selectionClose' src={greyCloseButton}  onClick={this.handleCancel}/>
           </div>
           <div className="tile-toggles">
