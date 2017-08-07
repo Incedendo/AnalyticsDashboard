@@ -25,7 +25,7 @@ const renderList = (listHome, index) => {
   );
 }
 
-const ListDisplay = ({listHome=[], cardIndex, dataType = []}) => {
+const ListDisplay = ({listHome=[], dataType = []}) => {
   // the 5th card is TOP ACTIVE PAGES
   let data = dataType[0]
   switch(data) {

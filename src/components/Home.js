@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {CardMenu} from './CardDisplay/CardMenu';
+import {DisplayCards} from './CardDisplay/DisplayCards';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
@@ -8,7 +8,6 @@ import jsonData from '../assets/JSON/main.js';
 import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
-import FrequencyHandler from './utils/FrequencyHandler';
 
 class Home extends Component {
   state = {
@@ -41,12 +40,10 @@ class Home extends Component {
     this.setState({
       frequency: id
     })
-    console.log('am i called?')
   }
 
   handleFilter = (id) => {
     let newState = {filter: id, frequency: ''}
-    // return <FrequencyHandler filter={id} handleFrequency={this.handleFrequency} />
     switch(id) {
       case 'QTD':
           newState.frequency = 'quarterly'
@@ -57,9 +54,6 @@ class Home extends Component {
       case 'YTD':
         newState.frequency = 'annually'
         break;
-      // case 'WTD':
-      //   newState.frequency = 'weekly'
-      //   break;
     }
     this.setState(newState);
   }
@@ -103,7 +97,7 @@ class Home extends Component {
           </div>
           <div className="container noMargin bottomCardDiv">
 
-            <CardMenu list={arr} />
+            <DisplayCards num={8} list={arr} />
           </div>
       </div>
     </div>

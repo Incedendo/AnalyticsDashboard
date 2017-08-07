@@ -57,9 +57,6 @@ class CardContainer extends Component {
       case 'YTD':
         newState.frequency = 'annually'
         break;
-      // case 'WTD':
-      //   newState.frequency = 'weekly'
-      //   break;
     }
     this.setState(newState);
   }

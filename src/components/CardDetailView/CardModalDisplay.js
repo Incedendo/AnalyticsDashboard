@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../assets/scss/_Card.scss';
-import CompDisplay from '../Graphs/CompDisplay';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import DetailedListDisplay from '../Graphs/DetailedListDisplay';
@@ -8,8 +7,6 @@ import DetailedListDisplay from '../Graphs/DetailedListDisplay';
 export class CardModalDisplay extends Component {
 
   renderCardContent = (graph,comp,listCard, list ,dataType ,graphType ,frequency) => {
-    // console.log("RenderCARDCONTENT dataType: ");
-    // console.log(dataType);
     if(listCard){
       return(
         <div className='listCard'>
@@ -55,21 +52,15 @@ export class CardModalDisplay extends Component {
   }
 
   renderComp = (list ,dataType, frequency) => {
-    // console.log("Render COMP dataType: ");
-    // console.log(list);
-    // console.log("Render COMP dataType frequency ");
-    // console.log(frequency);
-    // console.log("--------[CardModalDisplay] Render COmparison");
     let localFilter;
     if(frequency === "annually") localFilter = "MTD";
     if(frequency === "quarterly") localFilter = "QTD";
     if(frequency === "weekly") localFilter = "WTD";
     if(frequency === "daily") localFilter = "YTD";
-    return <CompDisplay listHome={list} dataType={dataType} frequency={frequency} graphType="" filter={localFilter}/>
+    return <ChartDisplay listHome={list} dataType={dataType} frequency={frequency} filter={localFilter}/>
   }
 
   renderList = (list, dataType, index) => {
-    //console.log("------[CardModalDisplay] Render List");
     return (
       <DetailedListDisplay listHome={list} cardIndex={index} dataType={dataType}/>
     );
@@ -93,16 +84,6 @@ export class CardModalDisplay extends Component {
 
   render() {
     const { title, graph, comp, listCard, graphType, list, dataType, frequency, rightBorder, bottomBorder } = this.props;
-    //console.log("CardModalDisplay title: " +title  );
-    //console.log("CardModalDisplay graph: " +graph  );
-    //console.log("CardModalDisplay comp: " + comp );
-    //console.log("listCard: " + listCard );
-    // console.log("graphType: " + graphType );
-    // console.log("dataType in MAIN render CArd Modal Display: " );
-    // console.log(dataType);
-    // console.log("frequency: " + frequency );
-    // console.log("print list: ");
-    // console.log(list);
 
     return (
       <div className={this.getCustomClass(listCard, rightBorder, bottomBorder)} >
