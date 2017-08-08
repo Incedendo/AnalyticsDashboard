@@ -514,8 +514,8 @@ h1 {
   line-height: 40px;
   float: left;
   position: relative;
-  top: -1rem;
-  left: 3rem;
+  top: 0rem;
+  left: 5rem;
   text-align: center; }
   @media (min-width: 1200px) {
     .DetailTaskbarViewTitle {

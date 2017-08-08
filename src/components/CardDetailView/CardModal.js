@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import '../../assets/scss/include.css';
-import '../../assets/scss/detailTaskbar.css';
+import '../../assets/scss/_cardModal.scss';
+import '../../assets/scss/_detailTaskbar.scss';
 import '../../assets/scss/_Card.scss';
+import DetailedListDisplay from '../Graphs/DetailedListDisplay';
 import Modal from 'react-modal';
 import VALIC from '../../assets/svg/VALICWhiteLogo.svg';
 import { NavLink } from 'react-router-dom';
 import { CardModalDisplay } from './CardModalDisplay';
 import jsonData from '../../assets/JSON/main.js';
-import cards from '../../assets/JSON/cards.js';
-import DetailedListDisplay from '../Graphs/DetailedListDisplay';
 import { cardTitle, CardFrequencies, topMenuOverlay, errorModal } from './CardData';
 
 class CardModal extends Component {
@@ -111,7 +111,8 @@ class CardModal extends Component {
         style={topMenuOverlay}
       >
         {this.renderTaskbar(paramTitle)}
-        {!card.listCard && this.renderNotList(card, arr, dataType)}
+        {!card.listCard && paramTitle === "Visits by Device Type" && this.renderList(arr, dataType)}
+        {!card.listCard && paramTitle !== "Visits by Device Type" && this.renderNotList(card, arr, dataType)}
         {card.listCard && this.renderList(arr, dataType)}
       </Modal>
     </div>
@@ -120,6 +121,7 @@ class CardModal extends Component {
   render(){
     const { projects } = this.state;
     const paramTitle = this.props.location.state.dataType[0];
+    console.log(paramTitle);
     const dataType = [];
     dataType.push(paramTitle);
     let arr=[];

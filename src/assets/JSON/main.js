@@ -854,22 +854,22 @@ export default {
     [
       {
         "Device": "Non Mobile",
-        "Page Views": 14410644,
+        "PageViews": 14410644,
         "percentage": 82.60
       },
       {
         "Device": "Apple iPhone",
-        "Page Views": 1164800,
+        "PageViews": 1164800,
         "percentage": 6.70
       },
       {
         "Device": "Apple iPad",
-        "Page Views": 908068,
+        "PageViews": 908068,
         "percentage": 5.20
       },
       {
         "Device": "Others",
-        "Page Views": 908068,
+        "PageViews": 908068,
         "percentage": 0.30
       }
     ],
@@ -893,6 +893,254 @@ export default {
       {
         "Referrer Type": "Social Networks",
         "Instances": 112,
+        "Percentage": "0.00%"
+      }
+    ],
+    "device_full_list":
+    [
+      {
+        "PageViews": 1164800,
+        "Device": "Apple iPhone",
+        "Percentage": "6.70%"
+      },
+      {
+        "PageViews": 908068,
+        "Device": "Apple iPad",
+        "Percentage": "5.20%"
+      },
+      {
+        "PageViews": 33489,
+        "Device": "Verizon Galaxy S5 (SM-G900V)",
+        "Percentage": "0.20%"
+      },
+      {
+        "PageViews": 31578,
+        "Device": "Verizon Galaxy S7 (SM-G930V)",
+        "Percentage": "0.20%"
+      },
+      {
+        "PageViews": 28972,
+        "Device": "Verizon Galaxy S6 (SM-G920V)",
+        "Percentage": "0.20%"
+      },
+      {
+        "PageViews": 22283,
+        "Device": "Verizon Galaxy S7 edge (SM-G935V)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 17873,
+        "Device": "AT&T Galaxy S5 (SM-G900A)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 17803,
+        "Device": "Verizon Galaxy Note 5 (SM-N920V)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 14912,
+        "Device": "Sprint Galaxy S6 (SM-G920P)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 14070,
+        "Device": "Sprint Galaxy S7 (SM-G930P)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 12947,
+        "Device": "Motorola Droid Turbo (XT1254)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 12322,
+        "Device": "Verizon Droid Turbo 2 (XT1585)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 12133,
+        "Device": "AT&T Galaxy S7 (SM-G930A)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 11746,
+        "Device": "AT&T Galaxy S7 edge (SM-G935A)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 11172,
+        "Device": "Verizon Galaxy Note 4 (SM-N910V)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 10974,
+        "Device": "Samsung Galaxy Tab 4 10.1 (SM-T530nu)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 10365,
+        "Device": "T-Mobile Galaxy S7 (SM-G930T)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 10295,
+        "Device": "Unknown Generic Windows RT Tablet",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9961,
+        "Device": "T-Mobile Galaxy S7 edge (SM-G935T)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9814,
+        "Device": "AT&T Galaxy S6 (SM-G920A)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9754,
+        "Device": "Sprint Galaxy S7 edge (SM-G935P)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9489,
+        "Device": "Verizon Galaxy S4 (SCH-I545)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9175,
+        "Device": "Samsung Galaxy S6 (SM-G920T)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 9064,
+        "Device": "Sprint Galaxy S5 (SM-G900P)",
+        "Percentage": "0.10%"
+      },
+      {
+        "PageViews": 8719,
+        "Device": "AT&T Galaxy S6 Active (SM-G890A)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 8563,
+        "Device": "Samsung Galaxy S8 Plus (SM-G955U)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 8547,
+        "Device": "Unknown Liquid E3 (Generic Android Mobile)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7868,
+        "Device": "T-Mobile Galaxy Note 5 (SM-N920T)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7782,
+        "Device": "Sprint Galaxy Note 5 (SM-N920P)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7750,
+        "Device": "Samsung Galaxy S8 (SM-G950U)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7733,
+        "Device": "Motorola Moto Z (XT1650)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7667,
+        "Device": "T-Mobile Galaxy S5 (SM-G900T)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7202,
+        "Device": "Samsung Galaxy Tab A (SM-T550)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 7150,
+        "Device": "Samsung Galaxy Tab 4 10.1 (SM-T350)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6911,
+        "Device": "Samsung Galaxy S7 Active (SM-G891A)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6692,
+        "Device": "LG G4 (VS986)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6683,
+        "Device": "Motorola DROID Ultra 4G LTE (XT1080)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6679,
+        "Device": "Amazon Kindle Fire HDX 7",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6623,
+        "Device": "Samsung Galaxy Note 3 (SM-N900V)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6465,
+        "Device": "Samsung Galaxy Note 5 (SM-N920A)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6050,
+        "Device": "Amazon Fire (2015)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 6017,
+        "Device": "T-Mobile Galaxy J7 (SM-J700T)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5643,
+        "Device": "Amazon Kindle Fire HD",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5427,
+        "Device": "AT&T Galaxy S4 (SGH-I337)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5413,
+        "Device": "ZTE Zmax Pro (Z981)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5375,
+        "Device": "Verizon Galaxy S6 Edge (SM-G925V)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5318,
+        "Device": "Verizon Ellipsis 8 (QTAQZ3)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5170,
+        "Device": "Samsung Galaxy On5 LTE (SM-G550T1)",
+        "Percentage": "0.00%"
+      },
+      {
+        "PageViews": 5098,
+        "Device": "AT&T Galaxy Note 4 (SM-N910A)",
         "Percentage": "0.00%"
       }
     ]
