@@ -52,7 +52,7 @@
         * renderList(): display a longer list of the original list.
 
     * CardModalDisplay: is a simplified version of CardDisplay that only renders fixed data based on the props passed in.
-      * PROPS
+      PROPS
       | Props         | Types         | Default  | Description       |
       | ------------- |:-------------:| --------:| -----------------:|
       | title         | a | a | s |
