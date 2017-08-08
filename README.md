@@ -1,11 +1,60 @@
 ## VALIC Analytics Dashboard
 
 ## Components
-  * App
-  * Home
-  * Header
-  * ModalMenu
-  * CardMenu
+  * App:
+    App sets up the routes for the 8 cards that expand on the detailed view of each card.
+  * Home: The main component of the Dashboard.
+    * renderMainDiv method: renders main components: the Modal Menu, Header, and 8 cards.
+    * renderSubMainDiv method: render the top chart and the frequency filter.
+
+  * HEADER FOLDER:
+    * Header: display the VALIC logo and SHARE button
+    * ModalMenu: The hamburger menu on the top right hand corner. Created using the Modal package from npm.
+
+  * CARD DISPLAY FOLDER:
+    * DisplayCards: main wrapper component that sets up the initial row display for the 8 card layout.
+      * Props:
+
+    * CardContainer:
+      * Props:
+
+      * set up the functions for the Customization functionality:
+        * handleSubmit(): set up the state object according to the data and graph type passed in
+        * handleEditClick(): set up the frequency correspondingly to the id passed in.
+    * CardDisplay:
+      * Props:
+
+      * Takes in dataList, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id from CardContainer and render the individual CARD.
+      * Display 1 of the 3 following options:
+        * Graph.
+        * Numerical Comparison.
+        * List.
+      * getTitle():
+        * Display a Title Link that displays a detailed view upon being clicked.
+        * Display a Pencil Icon that takes the user to the Customization feature of the dashboard.
+      * getFilter(): return true if the card displays a Graph or a Numerical Comparison or the title is either "Contribution Change" or "Retirement Income Calc Usage"
+      * getFreqFilter(): if getFilter() returns true, display the filter in the card.
+      * renderCardContent(): determine if the card will display graph, comparison or a list by checking 3 props: graph, comp, and list
+        * renderGraph()
+        * renderComp()
+        * renderList()
+
+  * CARD DETAIL VIEW FOLDER:
+    * CardModal: the modal that displays the detailed view of each card component in the main dashboard.
+      * PROPS: passed in from the state object in the Link Component inside the CardDisplay Component:
+        location.state.dataType: dataType,
+        location.state.graph: graph,
+        location.state.comp: comp,
+        location.state.list: list,
+        location.state.graphType: graphType,
+      * renderMainDetail(): Render a full-screen Modal that calls either:
+        * renderNotList(): displays 2x2 grid system showing 4 charts/comp of whatever data the original card shows
+        * renderList(): display a longer list of the original list.
+
+    * CardModalDisplay: is a simplified version of CardDisplay that only renders fixed data based on the props passed in.
+      * PROPS:
+      * An over-arching function determines whether to display graph or numerical comparison.
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
