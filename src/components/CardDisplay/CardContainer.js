@@ -92,7 +92,6 @@ class CardContainer extends Component {
   }
 
   render () {
-    // console.log(this.state.frequency)
     return (
       <CardDisplay {...this.state}
         dataList={this.props.list}

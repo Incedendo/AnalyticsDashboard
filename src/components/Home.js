@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {DisplayCards} from './CardDisplay/DisplayCards';
+import DisplayCards from './CardDisplay/DisplayCards';
 import ChartDisplay from './Graphs/ChartDisplay';
 import Header from './Header/Header';
 import FreqFilter from './utils/FreqFilter';
