@@ -52,7 +52,7 @@
         * renderList(): display a longer list of the original list.
 
     * CardModalDisplay: is a simplified version of CardDisplay that only renders fixed data based on the props passed in.
-      PROPS:
+      * PROPS:
       
  | Props         | Types         | Default  | Description       |
  | ------------- |:-------------:| --------:| -----------------:|
@@ -66,8 +66,8 @@
  | frequency     | a | a | a |
  | rightBorder   | a | a | a |
  | bottomBorder  | a | a | a |     
-      * An over-arching function determines whether to display graph or numerical comparison.
-
+ 
+     * An over-arching function determines whether to display graph or numerical comparison.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
