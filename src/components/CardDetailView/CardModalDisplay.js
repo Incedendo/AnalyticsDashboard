@@ -69,6 +69,7 @@ export class CardModalDisplay extends Component {
 
   render() {
     const { title, graph, comp, listCard, graphType, list, dataType, frequency, rightBorder, bottomBorder } = this.props;
+
     return this.renderCardContent(graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder)
   }
 }
