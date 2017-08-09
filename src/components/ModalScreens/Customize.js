@@ -16,7 +16,7 @@ class Customize extends Component {
   }
 
   render () {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleModal} contentLabel='Example'

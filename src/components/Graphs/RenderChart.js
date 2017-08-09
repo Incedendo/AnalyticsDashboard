@@ -6,15 +6,15 @@ const pieOptions={
   legend: {
     labels: {
         fontColor: "white",
-        fontSize: 18
-    }
+        fontSize: 18,
+    },
+    position: "right",
   },
 };
 
 const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
-
 
   let labels = list.map(({label}) => label);
 
@@ -27,7 +27,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
 
   // let labels = [];
   let initialChartConfig = {};
-  let pieOptions = {};
+  //let pieOptions = {};
   if(categorical) {
     switch(dataType[0]){
       case "Visits by Device Type":
@@ -140,7 +140,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
             <Line data = {dataSet} options={options} />
         }
         { graphType === 'Pie' &&
-          <Doughnut data = {initialChartConfig} options={pieOptions} />}
+          <Doughnut data={initialChartConfig} options={pieOptions} />}
       </div>
 
   );

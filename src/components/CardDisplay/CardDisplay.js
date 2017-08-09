@@ -90,7 +90,7 @@ const renderCardContent = (graph, comp, list, dataType, id, dataList, graphType,
 )
 
 const getFilter = (numGraph, graph, dataType) => {
-  return numGraph || graph ||  dataType[0] === 'Contribution Change' || dataType[0] === 'Retirement Income Calc Usage';
+  return (numGraph || graph ||  dataType[0] === 'Contribution Change' || dataType[0] === 'Retirement Income Calc Usage') && dataType[0] !== 'Visits by Device Type';
 }
 
 const getFreqFilter = (graph, handleFilter) => (
