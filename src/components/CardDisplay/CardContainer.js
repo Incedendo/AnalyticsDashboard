@@ -14,6 +14,10 @@ class CardContainer extends Component {
     list: false,
   }
 
+  /*
+    Invoked by SelectionMenu, takes in data type and graph type selected, and sets it into state. Depending on graph type, gives boolean value to respective states.
+  */
+
   handleSubmit = (data, graph) => {
     let newState = {
       dataType: data,
@@ -39,11 +43,19 @@ class CardContainer extends Component {
     this.setState(newState)
   }
 
+  /*
+    Notifies the localStorage that the modal is nolonger open
+  */
+
   handleEditClick = () => {
     this.setState((prevState) => {
       return {modalOpen: !prevState.modalOpen}
     })
   }
+
+  /*
+    Depending on filter id(invoked by FreqFilter), set state frequency to appropriate keyword.
+  */
 
   handleFilter = (id) => {
     let newState = {filter: id, frequency: ''}
@@ -61,10 +73,19 @@ class CardContainer extends Component {
     this.setState(newState);
   }
 
+  /*
+    Store a copy of state object into session/localStorage using the index(id) of the card
+  */
+
   store = () => {
     let newState = this.state;
     sessionStorage.setItem(this.props.id, JSON.stringify(newState));
   }
+
+  /*
+    If session/localStorage has been set, setState to the object stored.
+    Else, setState to the default items
+  */
 
   componentWillMount () {
     if(sessionStorage.getItem(this.props.id)) {

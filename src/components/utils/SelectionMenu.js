@@ -38,6 +38,10 @@ class SelectionMenu extends Component {
     displayGraphs: []
   }
 
+  /*
+    Adds clicked to activeData array if unclicked, and removes clicked from array if clicked.
+  */
+
   handleCheckedData = (id) => {
     let arr = this.state.activeData.slice();
 
@@ -53,6 +57,10 @@ class SelectionMenu extends Component {
 
   }
 
+  /*
+    If data type clicked is not compatible with other data types, removes all other data types in activeData array and adds itself.
+  */
+
   handleRestrictedData = (id) => {
     let arr = this.state.activeData.slice();
 
@@ -67,16 +75,28 @@ class SelectionMenu extends Component {
     ()=>this.validateGraphs())
   }
 
+  /*
+    Sets clicked graphType as activeGraph string if unclicked.
+  */
+
   handleCheckedGraph = (id) => {
     this.setState({
       activeGraph: id
     })
   }
 
+  /*
+    Invoked by click of greyCloseButton, closes the modal and makes no changes to configuration of card.
+  */
+
   handleCancel = () => {
     this.props.handleCancel();
     this.props.handleModal();
   }
+
+  /*
+    If both activeData and activeGraph are not empty, invokes the handleSubmit and handleModal methods in Customize and CardContainer, sending the activeData array and activeGraph string.
+  */
 
   handleSubmit = () => {
     if(!this.state.activeGraph || !this.state.activeData.length){
@@ -86,42 +106,43 @@ class SelectionMenu extends Component {
     this.props.handleModal();
   }
 
+  /*
+    If there are no data types selected, displays all possible graph types.
+    If there is one data type selected, display the possible graph types for that data set.
+    If there are more than one data types selected, display the graph types they share in common.
+  */
+
   validateGraphs = () => {
     let graphs = [];
     let data = this.state.activeData.slice();
+    //Array of clicked data types with their respective information from dataList
+    const currentData = dataList.filter(({id, graphs}) => {
+      return data.includes(id)
+    })
+    //Array of compatible graph type arrays
+    let currentGraphs = [];
+    currentData.map(({graphs}) => {
+      currentGraphs.push(graphs)
+    })
 
     if(data.length === 0) {
       graphs = graphList.slice();
     }
 
     else if(data.length === 1) {
-      const data = this.state.activeData[0];
-      const currentData = dataList.filter(({id, graphs}) => {
-        return (data === id)
-      })
-      const currentGraphs = currentData[0].graphs;
       graphs = graphList.filter(({id}) => {
-        return currentGraphs.includes(id)
+        return currentGraphs[0].includes(id)
       })
     }
 
     else {
-      const currentData = dataList.filter(({id, graphs}) => {
-        return (data.includes(id))
-      })
-
-
-      let currentGraphs = [];
-      currentData.map(({graphs}) => {
-        currentGraphs.push(graphs)
-      })
-
+      //Compares the list of graph types for each data type and returns array of all common graph types
       let correctGraphs = currentGraphs.shift().filter((v) => {
         return currentGraphs.every((a) => {
           return a.indexOf(v) !== -1;
         });
       });
-
+      //If there are more than two data types, cannot include Pie or Comp as graph type
       graphs = graphList.filter((elem) => {
         return correctGraphs.includes(elem.id) && elem.id!='Pie' && elem.id!='Comp';
       })
@@ -135,6 +156,7 @@ class SelectionMenu extends Component {
       return id === this.state.activeGraph;
     })
 
+    //If active graph type is no longer displayed, there will be no active graphs
     if(!included.length) {
       this.setState({
         activeGraph: ''
@@ -142,7 +164,12 @@ class SelectionMenu extends Component {
     }
   }
 
+  /*
+    Displays all possible graph types from displayGraphs.
+  */
+
   graphForm = () => {
+    //If no compatible graphs between mutiple datasets
     if(!this.state.displayGraphs.length){
       return (<div className='noGraph'>
         You cannot combine these {this.state.activeData.length}.
@@ -162,6 +189,10 @@ class SelectionMenu extends Component {
       })
   }
 
+  /*
+    Displays all possible data types from dataList.
+  */
+  
   dataForm = () => {
     return dataList.map(({id, type, restrict}, key) => {
           return (
@@ -175,9 +206,14 @@ class SelectionMenu extends Component {
       })
   }
 
+  /*
+    Sets activeData and activeGraph to current data types and current graph type of the card selected.
+  */
   componentWillMount = () => {
     this.setState({
-      displayGraphs: graphList
+      displayGraphs: graphList,
+      activeData: this.props.dataType,
+      activeGraph: this.props.graphType
     })
   }
 

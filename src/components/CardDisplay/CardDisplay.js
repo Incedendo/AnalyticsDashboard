@@ -75,7 +75,7 @@ const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph,
       </div>
       <div className='infoIcon' >
           <img src={pencilIcon} className='info' onClick={handleEditClick}/>
-          {modalOpen && <Customize id={id} handleSubmit={handleSubmit} handleCancel={handleEditClick}/>}
+        {modalOpen && <Customize id={id} handleSubmit={handleSubmit} handleCancel={handleEditClick} dataType={dataType} graphType={graphType}/>}
       </div>
     </div>
   )

@@ -75,8 +75,8 @@ input[type="button"] {
     width: 25%;
     margin: 0 auto;
     padding: 10px;
-		border-left: $width*.1 solid #fff;
-		border-right: $width*.1 solid #fff;
+		border-left: 0 solid #fff;
+		border-right: 0 solid #fff;
 		&:first-of-type {
 			border-left: 0;
 		}
@@ -101,6 +101,7 @@ input[type="button"] {
   }
 	label{
 		box-shadow: 2px 0 0 $border-color inset, -2px 0 0 $border-color inset, 0 -2px 0 $border-color inset, 0 2px 0 $border-color inset ;
+    background: white;
 		display: block;
 		position: relative;
 		cursor: pointer;
@@ -197,6 +198,15 @@ input[type="button"] {
 
 .ReactModal__Content--after-open {
   z-index: 200;
+}
+
+.modalYur {
+  position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background-color: #f0f0f0;
 }
 
 .overlaySelection {
