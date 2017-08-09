@@ -2,6 +2,10 @@ import React from 'react'
 import {Bar, Line, Doughnut} from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
+
+/*
+  These are the specific configurations for a Pie Chart
+*/
 const pieOptions={
   legend: {
     labels: {
@@ -12,11 +16,13 @@ const pieOptions={
   },
 };
 
-const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+/*
+  Given an array of colors, it will randomize them into an array with a size of however many data types are within it.
+*/
+
+const getColors = () => {
 
   let colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
-
-  let labels = list.map(({label}) => label);
 
   const colors = [];
   for(let i = 0; i < 4; i++) {
@@ -24,14 +30,29 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
     colors.push(colorArr[num]);
     colorArr.splice(num, 1);
   }
+  return colors;
+}
 
-  // let labels = [];
+/*
+  Determines the options and layout of the graphs to be presented, and renders it.
+*/
+
+const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[], height, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend }) => {
+
+  const colors = getColors();
+
+  let labels = [];
   let initialChartConfig = {};
-  //let pieOptions = {};
+
+  //If the data is categorical, set specific options for the pie chart
   if(categorical) {
     switch(dataType[0]){
       case "Visits by Device Type":
-        labels = list.map(({Device}) => Device)
+        labels = list.map(({Device}) => Device);
+        break;
+      default:
+        labels = list.slice(0,26).slice(0,10).map(({Page}) => Page );
+        break;
     }
     initialChartConfig = {
       labels: labels,
@@ -44,6 +65,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   }else{
     labels = list.map(({label}) => label);
   }
+
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
@@ -54,7 +76,9 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
       })
     )
   }
-  const bam = {
+
+  //The style of the points
+  const pointOptions = {
     pointRadius: pointRadius,
     pointHoverRadius: '13',
     pointBorderWidth: '2',
@@ -64,7 +88,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   }
 
 
-  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...bam}))
+  dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...pointOptions}))
 
 
   let options = {

@@ -24,7 +24,7 @@ ChartDisplay is a container class that translates data into readable data for th
 |pointRadius^| number | |radius of data point of chart|
 |legendFontSize^| number | |font size of legend of chart|
 |displayedLegend^| bool | true | displays legend of chart|
-|filter*'| string | |determined by the frequency|
+|filter'| string | |determined by the frequency|
 
 ___
 

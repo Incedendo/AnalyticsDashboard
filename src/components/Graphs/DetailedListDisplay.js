@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Doughnut} from 'react-chartjs-2';
+import ChartDisplay from './ChartDisplay';
 import '../../assets/scss/_ListDisplay.scss';
 
 const pieOptions={
@@ -12,7 +13,9 @@ const pieOptions={
     position: "right"
   },
 };
-
+/*
+  Method that finds the greatest difference between adjacent indices.
+*/
 const getMaxPercentage = (listHome, index) => {
   const list = listHome[index];
   const sliced = list.slice(0,26);
@@ -31,7 +34,7 @@ const getMaxPercentage = (listHome, index) => {
   return [max, first, second];
 }
 
-const renderList = (listHome, index) => {
+const renderList = (listHome, index, dataType) => {
   const list = listHome[index];
   //console.log(list);
   const sliced = list.slice(0,26);
@@ -44,6 +47,7 @@ const renderList = (listHome, index) => {
     labels = sliced.slice(0,10).map(({Device}) => Device );
   }
   const dataArr = sliced.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
+
   const colorArr = ['rgba(232,68,171,0.5)', 'rgba(255,255,255,0.5)', 'rgba(21,195,218,0.50)', 'rgba(0,156,166,0.50)', 'rgba(224,238,208,0.50)'];
 
   const initialChartConfig = {
@@ -54,6 +58,8 @@ const renderList = (listHome, index) => {
       borderColor: ['#12335E ','#12335E ','#12335E ','#12335E '],
     }]
   };
+
+
 
   [max, start, end ] = getMaxPercentage(listHome, index);
   // console.log("start: " + start);
@@ -111,7 +117,8 @@ const renderList = (listHome, index) => {
 
       <div className="col-md-6">
         <div style={{paddingTop: "200px"}}>
-          <Doughnut data = {initialChartConfig} options={pieOptions} />}
+          <Doughnut data = {initialChartConfig} options={pieOptions} />
+          {/* <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical /> */}
         </div>
       </div>
     </div>
@@ -124,11 +131,11 @@ const DetailedListDisplay = ({listHome=[], dataType = []}) => {
   let data = dataType[0];
   switch(data) {
     case 'Bounce Rate':
-      return renderList(listHome, 4);
+      return renderList(listHome, 4, dataType);
     case 'Top Pages':
-      return renderList(listHome, 5);
+      return renderList(listHome, 5, dataType);
     case "Visits by Device Type":
-      return renderList(listHome, 8);
+      return renderList(listHome, 8, dataType);
   }
 }
 
