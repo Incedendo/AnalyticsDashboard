@@ -1,4 +1,4 @@
-  # CARD DETAIL VIEW FOLDER:
+# CARD DETAIL VIEW FOLDER:
   ### CardModal: 
   * A modal that displays the detailed view of each card component in the main dashboard. Get called when the user clicks on the Title link of each card in the main display. This component is set up in the routes.js file.
   * PROPS: passed in from the state object in the Link Component inside the CardDisplay Component:
@@ -31,4 +31,13 @@
   * Main render() calls renderCardContent() which is an over-arching function determines whether to display graph or numerical comparison by checking the comp and graph parameters, hence calling the corresponding 2 following functions:
     * renderGraph():
     * renderComp():
-        
+
+### CardData:
+* A Javascript file containing 5 const objects:
+  * cardTitle: an array of all the possible Card Titles.
+  * CardFrequencies: an array of 4 frequencies together with the boolean rightBorder and bottomBorder
+  * topMenuOverlay: the style obecjt of the normal detail view modal
+  * errorModal: the style object to display the error modal
+  * defaultEightCards: an array of 8 original objects that display 8 default cards for the main view
+                                                                           
+  
