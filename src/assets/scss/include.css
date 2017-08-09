@@ -1026,8 +1026,8 @@ input[type="button"].btn-block {
   width: 25%;
   margin: 0 auto;
   padding: 10px;
-  border-left: 1.1rem solid #fff;
-  border-right: 1.1rem solid #fff;
+  border-left: 0 solid #fff;
+  border-right: 0 solid #fff;
   color: #555;
   display: block;
   display: table-cell;
@@ -1049,6 +1049,7 @@ input[type="button"].btn-block {
 
 .tile-toggles label {
   box-shadow: 2px 0 0 #EEF1F7 inset, -2px 0 0 #EEF1F7 inset, 0 -2px 0 #EEF1F7 inset, 0 2px 0 #EEF1F7 inset;
+  background: white;
   display: block;
   position: relative;
   cursor: pointer;
@@ -1119,6 +1120,14 @@ input[type="button"].btn-block {
 
 .ReactModal__Content--after-open {
   z-index: 200; }
+
+.modalYur {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #f0f0f0; }
 
 .overlaySelection {
   z-index: 1000; }

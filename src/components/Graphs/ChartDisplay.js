@@ -94,7 +94,7 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
             marginTop={marginTop}
            />
   }else {
-    return <RenderComp dataType={dataType} list={dataArr} filter={filter}/>
+    return <RenderComp dataType={dataType} dataArr={dataArr} filter={filter}/>
   }
 }
 

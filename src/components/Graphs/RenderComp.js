@@ -56,8 +56,8 @@ const renderComparison = (data, filter, improve, sign, greenArrow, redArrow) => 
   </div>
 )
 
-const RenderComp = ({list=[], dataType=[], filter}) => {
-  const data = list[0]
+const RenderComp = ({dataArr=[], dataType=[], filter}) => {
+  const data = dataArr[0]
   let improve = false;
   let percent = 0;
   let sign = '';
