@@ -33,15 +33,15 @@ class CardModal extends Component {
     });
   }
 
-  renderSeparateTitle(dataType){
-    return dataType.map((title) => {
+  renderSeparateTitle = (dataType) => (
+     dataType.map((title) => {
       const isNotLast = dataType.indexOf(title) !== dataType.length-1;
       if(isNotLast){
         return <span>{title} - </span>
       }
       return <span>{title}</span>
     })
-  }
+  )
 
   renderTaskbar = (dataType) => (
     <div className="detailTaskbar">
