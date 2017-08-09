@@ -1,3 +1,9 @@
+import barIcon from '../../assets/svg/barIcon.svg';
+import lineIcon from '../../assets/svg/lineIcon.svg';
+import listIcon from '../../assets/svg/listIcon.svg';
+import pieIcon from '../../assets/svg/pieIcon.svg';
+import compIcon from '../../assets/svg/compIcon.svg';
+
 export const cardTitle = [
   'Total Visits',
   'Unique Visits',
@@ -89,6 +95,29 @@ export const errorModal = {
       padding                    : '20px',
     }
 };
+
+export const dataList = [
+  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
+  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
+  {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
+  {id:  'Visits by Device Type', type: 'data', restrict: true, graphs: ['Pie']},
+  {id:  'Bounce Rate', type: 'data', restrict: true, graphs: ['List']}
+]
+
+export const graphList = [
+      {id: 'Line', src: lineIcon, type: 'graph'},
+      {id: 'Pie', src: pieIcon, type: 'graph'},
+      {id: 'Bar', src: barIcon, type: 'graph'},
+      {id: 'Comp', src: compIcon, type: 'graph'},
+      {id: 'List', src: listIcon, type: 'graph'},
+    ]
 
 export const defaultEightCards = [
   {

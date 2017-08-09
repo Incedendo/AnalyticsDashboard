@@ -1,34 +1,7 @@
 import React, {Component} from 'react';
 import '../../assets/scss/_SelectionMenu.scss';
-import barIcon from '../../assets/svg/barIcon.svg';
-import lineIcon from '../../assets/svg/lineIcon.svg';
-import listIcon from '../../assets/svg/listIcon.svg';
-import pieIcon from '../../assets/svg/pieIcon.svg';
-import compIcon from '../../assets/svg/compIcon.svg';
 import greyCloseButton from '../../assets/svg/greyCloseButton.svg';
-
-const dataList = [
-  {id:  'Total Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp'] },
-  {id:  'Unique Visits', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Sign Ups', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Sign Ins', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Unique User Login', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Registrations', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Enrollments', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Contribution Change', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Retirement Income Calc Usage', type: 'data', restrict: false, graphs: ['Line','Bar','Comp']},
-  {id:  'Top Pages', type: 'data', restrict: true, graphs: ['List']},
-  {id:  'Visits by Device Type', type: 'data', restrict: true, graphs: ['Pie']},
-  {id:  'Bounce Rate', type: 'data', restrict: true, graphs: ['List']},]
-
-const graphList = [
-      {id: 'Line', src: lineIcon, type: 'graph'},
-      {id: 'Pie', src: pieIcon, type: 'graph'},
-      {id: 'Bar', src: barIcon, type: 'graph'},
-      {id: 'Comp', src: compIcon, type: 'graph'},
-      {id: 'List', src: listIcon, type: 'graph'},
-    ];
-
+import { dataList, graphList } from '../../assets/JSON/CardData';
 
 class SelectionMenu extends Component {
 
@@ -37,6 +10,7 @@ class SelectionMenu extends Component {
     activeGraph: '',
     displayGraphs: []
   }
+
 
   /*
     Adds clicked to activeData array if unclicked, and removes clicked from array if clicked.
@@ -48,6 +22,10 @@ class SelectionMenu extends Component {
     if(arr.includes(id)) {
       arr.splice(arr.indexOf(id), 1)
     } else {
+      const filter = dataList.filter((elem) => {
+        return (elem.restrict && elem.id === arr[0])
+      })
+      if(filter.length) arr.splice(0,1)
       arr.push(id)
     }
     this.setState({
@@ -144,7 +122,7 @@ class SelectionMenu extends Component {
       });
       //If there are more than two data types, cannot include Pie or Comp as graph type
       graphs = graphList.filter((elem) => {
-        return correctGraphs.includes(elem.id) && elem.id!='Pie' && elem.id!='Comp';
+        return correctGraphs.includes(elem.id) && elem.id!=='Pie' && elem.id!=='Comp';
       })
     }
 
@@ -157,7 +135,7 @@ class SelectionMenu extends Component {
     })
 
     //If active graph type is no longer displayed, there will be no active graphs
-    if(!included.length) {
+    if(!included.length || !this.state.activeData) {
       this.setState({
         activeGraph: ''
       })
@@ -192,7 +170,7 @@ class SelectionMenu extends Component {
   /*
     Displays all possible data types from dataList.
   */
-  
+
   dataForm = () => {
     return dataList.map(({id, type, restrict}, key) => {
           return (
@@ -212,8 +190,6 @@ class SelectionMenu extends Component {
   componentWillMount = () => {
     this.setState({
       displayGraphs: graphList,
-      activeData: this.props.dataType,
-      activeGraph: this.props.graphType
     })
   }
 
