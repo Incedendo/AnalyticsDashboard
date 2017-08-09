@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './routes';
 
-
 class App extends Component {
   state = {
     modalIsOpen: false,

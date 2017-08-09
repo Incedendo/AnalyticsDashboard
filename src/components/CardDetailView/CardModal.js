@@ -33,10 +33,20 @@ class CardModal extends Component {
     });
   }
 
-  renderTaskbar = (paramTitle) => (
+  renderSeparateTitle(dataType){
+    return dataType.map((title) => {
+      const isNotLast = dataType.indexOf(title) !== dataType.length-1;
+      if(isNotLast){
+        return <span>{title} - </span>
+      }
+      return <span>{title}</span>
+    })
+  }
+
+  renderTaskbar = (dataType) => (
     <div className="detailTaskbar">
       <div className="DetailTaskbarViewTitle">
-        {paramTitle}
+        {this.renderSeparateTitle(dataType)}
       </div>
       <div className="detailTaskbarCloseBut">
         <NavLink to="/" className="detailNavLink btn-close-task" onClick={this.toggleModal}>
@@ -101,7 +111,7 @@ class CardModal extends Component {
     </div>
   )
 
-  renderMainDetail = (card, paramTitle, arr, dataType) => (
+  renderMainDetail = (card, arr, dataType) => (
     <div>
       <Modal
         isOpen={this.state.modalIsOpen}
@@ -110,9 +120,9 @@ class CardModal extends Component {
         contentLabel="Example Modal"
         style={topMenuOverlay}
       >
-        {this.renderTaskbar(paramTitle)}
-        {!card.listCard && paramTitle === "Visits by Device Type" && this.renderList(arr, dataType)}
-        {!card.listCard && paramTitle !== "Visits by Device Type" && this.renderNotList(card, arr, dataType)}
+        {this.renderTaskbar(dataType)}
+        {!card.listCard && dataType[0] === "Visits by Device Type" && this.renderList(arr, dataType)}
+        {!card.listCard && dataType !== "Visits by Device Type" && this.renderNotList(card, arr, dataType)}
         {card.listCard && this.renderList(arr, dataType)}
       </Modal>
     </div>
@@ -120,24 +130,23 @@ class CardModal extends Component {
 
   render(){
     const { projects } = this.state;
-    const paramTitle = this.props.location.state.dataType[0];
-    console.log(paramTitle);
-    const dataType = [];
-    dataType.push(paramTitle);
+    const paramTitle = this.props.location.state.dataType;
+    const dataType = this.props.location.state.dataType;
+
     let arr=[];
     if(this.state.mounted){
       arr = Object.keys(projects).map((key) => projects[key]);
     }
-    if(cardTitle.indexOf(paramTitle) !== -1 && this.state.mounted){
+    if(cardTitle.indexOf(paramTitle[0]) !== -1 && this.state.mounted){
       const card = {
-        title: this.props.location.state.dataType[0],
+        title: this.props.location.state.dataType,
         graph: this.props.location.state.graph,
         comp: this.props.location.state.comp,
         listCard: this.props.location.state.list,
         graphType: this.props.location.state.graphType,
       }
       return(
-        this.renderMainDetail(card, paramTitle, arr, dataType)
+        this.renderMainDetail(card, arr, dataType)
       )
     }
     return(

@@ -95,6 +95,7 @@ class CardContainer extends Component {
     return (
       <CardDisplay {...this.state}
         dataList={this.props.list}
+        dataTypeArr={this.state.dataType}
         rightBorder={this.props.rightBorder}
         bottomBorder={this.props.bottomBorder}
         store={this.store}

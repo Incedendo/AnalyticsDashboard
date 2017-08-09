@@ -53,7 +53,8 @@ const getCustomClass = (rightBorder, bottomBorder) => {
   return "card col-md-3";
 }
 
-const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType) => {
+const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType, dataTypeArr) => {
+  //console.log(dataTypeArr);
   const link = '/' + dataType[0].replace(/\s/g, '');
   return (
     <div className='cardHeader'>
@@ -61,7 +62,7 @@ const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph,
       <Link to={{
         pathname: link,
         state: {
-          dataType: dataType,
+          dataType: dataTypeArr,  //should be an array
           graph: graph,
           comp: comp,
           list: list,
@@ -99,14 +100,14 @@ const getFreqFilter = (graph, handleFilter) => (
   </div>
 )
 
-const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph, comp, list, dataList, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
+const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph, comp, list, dataList, dataTypeArr, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
 
   if(!dataList.length) return null
   if(!dataType.length) return <div>LOADING</div>
 
   return (
     <div className={getCustomClass(rightBorder, bottomBorder)} >
-      {getTitle(dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType)}
+      {getTitle(dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType, dataTypeArr)}
       {getFilter(comp, graph, dataType) && getFreqFilter(graph, handleFilter)}
       {renderCardContent(graph, comp, list, dataType, id, dataList, graphType, frequency, filter)}
       {store()}

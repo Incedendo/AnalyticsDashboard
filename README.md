@@ -53,7 +53,7 @@
 
     * CardModalDisplay: is a simplified version of CardDisplay that only renders fixed data based on the props passed in.
       * PROPS:
-      
+
  | Props         | Types         | Default  | Description       |
  | ------------- |:-------------:| --------:| -----------------:|
  | title         | a | a | s |
@@ -66,7 +66,7 @@
  | frequency     | a | a | a |
  | rightBorder   | a | a | a |
  | bottomBorder  | a | a | a |     
- 
+
      * An over-arching function determines whether to display graph or numerical comparison.
 
 
