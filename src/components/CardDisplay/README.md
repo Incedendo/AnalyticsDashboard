@@ -6,14 +6,14 @@ Main wrapper component that sets up the initial row display for the 8 card layou
 ### Props:
  | Props         | Types         | Description       |
  | ------------- |:-------------:| -----------------:|
- | card           | object        | one of the 8 original card object in defaultEightCards imported from CardData.js|
+ | ...card       | object        | one of the 8 original card object in defaultEightCards imported from CardData.js|
  | list          | string        | The entire JSON data array imported from main.js |
 
 ## CardContainer:
 ### Props:
  | Props         | Types         | Description       |
  | ------------- |:-------------:| -----------------:|
- | card           | object        | one of the 8 original card object in defaultEightCards imported from CardData.js|
+ | ...card       | object        | one of the 8 original card object in defaultEightCards imported from CardData.js|
  | list          | string        | The entire JSON data array imported from main.js |
 ### Usage:
   * set up the functions for the Customization functionality:
