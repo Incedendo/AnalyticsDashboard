@@ -20,10 +20,13 @@
  | comp          | boolean       | |
  | listCard      | boolean       | |
  | graphType     | string        | |
- | list          | boolean       | |
+ | list          |        | |
  | dataType      |  |  |  |
  | frequency     |  |  |  |
  | rightBorder   | boolean       | |
  | bottomBorder  | boolean       | |     
 
-     * An over-arching function determines whether to display graph or numerical comparison.
+      * Main render() calls renderCardContent() which is an over-arching function determines whether to display graph or numerical comparison by checking the comp and graph parameters, hence calling the corresponding 2 following functions:
+        * renderGraph():
+        * renderComp():
+        
