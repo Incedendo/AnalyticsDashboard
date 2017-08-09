@@ -1,11 +1,11 @@
-# CARD DISPLAY FOLDER:
+# CARD DISPLAY FOLDER: 
+Set up state and props for each of the individual card component to display its corresponding customizable content.
 
 ## DisplayCards:
 Main wrapper component that sets up the initial row display for the 8 card layout
 ### Props:
  | Props         | Types         | Description       |
  | ------------- |:-------------:| -----------------:|
- | num           | number        | The number of cards to be displayed in the main dashboard|
  | card           | object        | one of the 8 original card object in defaultEightCards imported from CardData.js|
  | list          | string        | The entire JSON data array imported from main.js |
 
