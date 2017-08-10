@@ -938,6 +938,11 @@ select {
   width: 50%;
   height: 100%; }
 
+.pieList {
+  position: relative;
+  height: 100%;
+  width: 50%; }
+
 .page {
   text-align: left;
   color: white;
