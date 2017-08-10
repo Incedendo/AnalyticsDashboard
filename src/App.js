@@ -21,3 +21,5 @@ class App extends Component {
 }
 
 export default App;
+
+// modalIsOpen is not used. This could be a pure component

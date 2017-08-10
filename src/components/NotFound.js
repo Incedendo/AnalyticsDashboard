@@ -8,3 +8,5 @@ const NotFound = (props) => {
 }
 
 export default NotFound;
+
+// This should be an implicit return
