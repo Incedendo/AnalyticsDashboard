@@ -6,6 +6,16 @@ import DetailedListDisplay from '../Graphs/DetailedListDisplay';
 import classNames from 'classnames';
 
 export class CardModalDisplay extends Component {
+
+  renderCompOrGraph = (comp, graph, list ,dataType ,graphType ,frequency) => {
+    if(comp)
+      return <div className='detailedComp'>
+        {this.renderComp(list ,dataType, frequency)}</div>
+    if(graph)
+      return <div className='detailedGraph'>
+        {this.renderGraph(list ,dataType ,graphType ,frequency)}</div>
+  }
+
   renderCardContent = (graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder) => {
     return(
       <div className={this.getCustomClass(listCard, rightBorder, bottomBorder)} >
@@ -13,12 +23,7 @@ export class CardModalDisplay extends Component {
           {frequency}
         </div>
 
-        {comp && <div className='detailedComp'>
-          {this.renderComp(list ,dataType, frequency)}
-        </div>}
-        {graph && <div className='detailedGraph'>
-          {this.renderGraph(list ,dataType ,graphType ,frequency)}
-        </div>}
+        {this.renderCompOrGraph(comp, graph, list ,dataType ,graphType ,frequency)}
       </div>
     );
   }
@@ -44,22 +49,33 @@ export class CardModalDisplay extends Component {
     )
   }
 
-  renderComp = (list ,dataType, frequency) => {
-    const localFilter = getLocalFilter(frequency);
+  getLocalFilter(frequency){
+    if(frequency === "annually")
+      return "YTD";
+    if(frequency === "quarterly")
+      return "QTD";
+    if(frequency === "monthly")
+      return "MTD";
+    if(frequency === "daily")
+      return "YTD";
+  }
 
-    if(frequency === "annually") localFilter = "YTD";
-    else if(frequency === "quarterly") localFilter = "QTD";
-    else if(frequency === "monthly") localFilter = "MTD";
-    else localFilter = "YTD";
+  renderComp = (list ,dataType, frequency) => {
+    const localFilter = this.getLocalFilter(frequency);
+
     return <ChartDisplay listHome={list} dataType={dataType} frequency={frequency} filter={localFilter}/>
   }
 
   getCustomClass = (listCard, rightBorder, bottomBorder) => {
+    // const notListCard = !listCard;
+    // return classNames({
+    //   "full-screen": listCard,
+    //   'cardDetail': notListCard,
+    //   'border-right': rightBorder,
+    //   "border-bottom":bottomBorder
+    // });
+
     if(rightBorder && bottomBorder) return "cardDetail border-right border-bottom";
-
-    classNames('cardDetail', { 'border-right': rightBorder, "border-bottom":bottomBorder} });
-
-
     if(rightBorder) return "cardDetail border-right";
     if(bottomBorder) return "cardDetail border-bottom";
     if(listCard) return "full-screen";
@@ -67,9 +83,28 @@ export class CardModalDisplay extends Component {
   }
 
   render() {
-    const { title, graph, comp, listCard, graphType, list, dataType, frequency, rightBorder, bottomBorder } = this.props;
+    const { title,
+            graph,
+            comp,
+            listCard,
+            graphType,
+            list,
+            dataType,
+            frequency,
+            rightBorder,
+            bottomBorder
+          } = this.props;
 
-    return this.renderCardContent(graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder)
+    return this.renderCardContent(
+      graph,
+      comp,
+      listCard,
+      list,
+      dataType,
+      graphType,
+      frequency,
+      rightBorder,
+      bottomBorder)
   }
 }
 

@@ -5,12 +5,19 @@ import {topMenuOverlay, modalMenuArray} from './ModalMenuData';
 
 const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
 
+  const renderMunuItem = (type, content) => {
+    if(type === "src")
+      return <img src={content} alt="" />
+    if(type === "div")
+      return <a href="">{content}</a>
+    if(type === "hr" )
+      return <hr className={content}></hr>
+  }
+
   const renderMenuList = () => (
     modalMenuArray.map(({itemClass, type, content, index}, key) =>(
       <div className={itemClass} key={key}>
-        { type === "src" && <img src={content} alt="" />}
-        { type === "div" && <a href="">{content}</a>}
-        { type === "hr" && <hr className={content}></hr>}
+        {renderMunuItem(type, content)}
       </div>
     ))
   )

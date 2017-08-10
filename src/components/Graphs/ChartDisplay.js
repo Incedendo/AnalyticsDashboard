@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 */
 
 const getList = (listHome, frequency, categorical, dataType) => {
+  console.log(listHome, frequency, categorical, dataType);
   if(categorical){
       switch(dataType[0]){
         case 'Bounce Rate':
@@ -25,6 +26,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
       case 'quarterly':
         return listHome[1];
       case 'monthly':
+        //console.log(listHome[2]);
         return listHome[2];
       case 'daily':
         return listHome[3];
@@ -38,6 +40,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
 
 const getDataArray = (list, dataType) => {
   var dataArr = [];
+  //console.log(list);
   dataType.map((stat, index) =>{
     switch(stat){
       case "Registrations":
