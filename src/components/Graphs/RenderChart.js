@@ -65,7 +65,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   }else{
     labels = list.map(({label}) => label);
   }
-
+  
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
@@ -158,7 +158,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
 
   return (
       <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
-        { graphType === 'Bar' && <Bar className='bar' data = {dataSet} options={options} />}
+        { graphType === 'Bar' && <Bar className='bar' data={dataSet} options={options} />}
 
         { graphType === 'Line' &&
             <Line data = {dataSet} options={options} />

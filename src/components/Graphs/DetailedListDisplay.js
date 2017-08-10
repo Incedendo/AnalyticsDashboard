@@ -35,6 +35,7 @@ const getMaxPercentage = (listHome, index) => {
 }
 
 const renderList = (listHome, index, dataType) => {
+
   const list = listHome[index];
   //console.log(list);
   const sliced = list.slice(0,26);
@@ -115,10 +116,10 @@ const renderList = (listHome, index, dataType) => {
         {renderListItems(sliced, index)}
       </div>
 
-      <div className="col-md-6">
+      <div className="col-md-6 pieList">
         <div style={{paddingTop: "200px"}}>
-          <Doughnut data = {initialChartConfig} options={pieOptions} />
-          {/* <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical /> */}
+          {/* <Doughnut data = {initialChartConfig} options={pieOptions} /> */}
+          <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical />
         </div>
       </div>
     </div>

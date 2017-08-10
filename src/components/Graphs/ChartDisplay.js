@@ -59,7 +59,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({contributionChange}) => contributionChange);
         break;
       case "Top Pages":
-        dataArr[index] = list.map(({percentage}) => percentage);
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
       case "Total Visits":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -80,7 +80,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({percentage}) => percentage);
         break;
       case "Bounce Rate":
-        dataArr[index] = list.map(({percentage}) => percentage);
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
     }
     return null;
