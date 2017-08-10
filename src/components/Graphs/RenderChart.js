@@ -33,6 +33,73 @@ const getColors = () => {
   return colors;
 }
 
+const getGraphOptions = (dataType,displayedLegend,xAxisTextSize,yAxisTextSize, labels) => (
+    {
+      responsive: true,
+      maintainAspectRatio: false,
+      // animation: {
+      //   onComplete: function() {
+      //     var ctx = this.chart.ctx;
+      //     ctx.textAlign = "center";
+      //     ctx.textBaseline = "bottom";
+      //  }
+      // },
+      title: {
+        text: dataType[0],
+        display: false,
+        fontColor: "white",
+        fontSize: 22,
+      },
+
+      spanGaps: true,
+      legend: {
+        display: displayedLegend,
+        labels: {
+            fontColor: "white",
+            fontSize: 17,
+            horizontalAlign: "left",
+            fontFamily: 'Source Sans Pro',
+            padding: 15
+        },
+        position: 'top',
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          gridLines: {
+              display: true,
+              color: "#4E6685",
+              drawTicks: true,
+              tickMarkLength: 15
+          },
+          ticks: {
+            fontColor: "white", // axis labels
+            fontSize: xAxisTextSize,
+            padding: 0,
+          }
+        }],
+        yAxes: [{
+          display: true,
+          gridLines: {
+              display: true,
+              color: "#4E6685",
+              drawTicks: false
+          },
+          stacked: true,
+          ticks: {
+            fontColor: "white", // this
+            fontSize: yAxisTextSize,
+            padding: 16,
+            callback:
+             function(label, index, labels) {
+          return label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+          }
+        }]
+      },
+    }
+)
+
 /*
   Determines the options and layout of the graphs to be presented, and renders it.
 */
@@ -65,7 +132,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   }else{
     labels = list.map(({label}) => label);
   }
-  
+
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
@@ -87,74 +154,9 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
     pointHoverBackgroundColor: '#0C5AB5',
   }
 
-
   dataSet.datasets = dataSet.datasets.map(item => ({ ...item, ...pointOptions}))
 
-
-  let options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: {
-      onComplete: function() {
-        var ctx = this.chart.ctx;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "bottom";
-     }
-    },
-    title: {
-      text: dataType[0],
-      display: false,
-      fontColor: "white",
-      fontSize: 22,
-    },
-
-    spanGaps: true,
-    legend: {
-      display: displayedLegend,
-      labels: {
-          fontColor: "white",
-          fontSize: 17,
-          horizontalAlign: "left",
-          fontFamily: 'Source Sans Pro',
-          padding: 15
-      },
-      position: 'top',
-    },
-    scales: {
-      xAxes: [{
-        display: true,
-        gridLines: {
-            display: true,
-            color: "#4E6685",
-            drawTicks: true,
-            tickMarkLength: 15
-        },
-        ticks: {
-          fontColor: "white", // axis labels
-          fontSize: xAxisTextSize,
-          padding: 0,
-        }
-      }],
-      yAxes: [{
-        display: true,
-        gridLines: {
-            display: true,
-            color: "#4E6685",
-            drawTicks: false
-        },
-        stacked: true,
-        ticks: {
-          fontColor: "white", // this
-          fontSize: yAxisTextSize,
-          padding: 16,
-          callback:
-           function(label, index, labels) {
-        return label.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-        }
-      }]
-    },
-  }
+  const options = getGraphOptions(dataType,displayedLegend,xAxisTextSize,yAxisTextSize, labels);
 
   return (
       <div style={{height: height, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
