@@ -58,3 +58,8 @@ const ModalMenu = ({ modalIsOpen, toggleModal, enabledModal}) => {
 }
 
 export default ModalMenu;
+
+// lines 11-13 should probably be extracted into another function that takes
+// type, content, and returns jsx using if statments with returns. Currently,
+// all of the "type checks" { type === 'src' }, etc. are being run even when a
+// matching condition is found at the top

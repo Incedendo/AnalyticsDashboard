@@ -156,3 +156,25 @@ class CardModal extends Component {
 }
 
 export default CardModal;
+
+// many of the same fixes as Home.js (mounted, toggleModal(), refactors)
+//
+// line 79 item could be destructured ({ frequency, rightBorder, bottomBorder })
+// => {}
+//
+// renderError and renderMainDetail, the <Modal/> could be extracted into a
+// renderModal() method that takes styleType as an arg, so you don't have to
+// keep repeating the same code in both methods
+//
+// lines 124-126 do you intend for it to be possible for all of these conditions
+// to be true? If not, then extract into a function that only returns one of the
+// options to prevent extra checks
+//
+// lines 133-134 are confusing and seem unneccessary. Destructure
+// this.props.location.state to get all the variables you need for lines 140
+// onwards.
+//
+// Same as Home.js arr; could be written differently
+//
+// Add some new lines between code chunks in the render method to make things a
+// bit easier to read

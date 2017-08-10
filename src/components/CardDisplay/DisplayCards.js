@@ -24,3 +24,8 @@ export default class DisplayCards extends Component {
     )
   }
 }
+
+// this component should be a pure component
+// the logic inside componentWillMount could be done on render or rather should
+// be done in an extracted function. Also, what the heck is happening there? is
+// arr even used?
