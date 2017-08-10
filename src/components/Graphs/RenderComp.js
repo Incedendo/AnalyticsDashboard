@@ -4,10 +4,16 @@ import PropTypes from 'prop-types';
 import greenArrow from '../../assets/svg/greenArrow.svg';
 import redArrow from '../../assets/svg/redArrow.svg'
 
+/*
+  Gives numbers commas for appealing visuals.
+*/
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+/*
+  Renders either left or right side of the comparison visual representation.
+*/
 const renderBox = (boxPosition, boxNum, boxState, index, data, label, filter) => {
   let className = '';
   boxPosition === 'leftBox' ? className="col-md-6 leftBox" : className="col-md-6 rightBox";
@@ -24,6 +30,9 @@ const renderBox = (boxPosition, boxNum, boxState, index, data, label, filter) =>
   )
 }
 
+/*
+  If the frequency is daily(or today) it will not show a comparison, but instead a simple display of the current data.
+*/
 const renderOneData = (data, filter) => (
   <div className="col-md-6 soloBox">
       <div className='soloNum'>
@@ -35,6 +44,9 @@ const renderOneData = (data, filter) => (
   </div>
 )
 
+/*
+  Renders the comparison visual aid for any frequency besides daily
+*/
 const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow) => {
   return (<div>
     <div className='compBox row'>
@@ -49,6 +61,9 @@ const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow
   </div>)
 }
 
+/*
+  Decides which render method to call depending on the amount of data types
+*/
 const renderComparison = (data, filter, improve, sign, greenArrow, redArrow) => (
   <div>
     {data.length > 1 && renderMoreThanOneData(data, filter, sign, improve, greenArrow, redArrow)}
@@ -56,6 +71,9 @@ const renderComparison = (data, filter, improve, sign, greenArrow, redArrow) => 
   </div>
 )
 
+/*
+  Invokes render methods and calculates whether there should be a arrow showing increase or decrease
+*/
 const RenderComp = ({dataArr=[], dataType=[], filter}) => {
   const data = dataArr[0]
   let improve = false;

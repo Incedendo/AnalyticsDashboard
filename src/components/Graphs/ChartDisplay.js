@@ -4,11 +4,19 @@ import RenderComp from './RenderComp';
 
 import PropTypes from 'prop-types';
 
+/*
+  Depending on whether the display of data is dependent on frequency or categorical representation, this method will return an array of objects of the specific frequency or categorical data.
+*/
+
 const getList = (listHome, frequency, categorical, dataType) => {
   if(categorical){
       switch(dataType[0]){
+        case 'Bounce Rate':
+          return listHome[4].slice(0,26)
+        case 'Top Pages':
+          return listHome[5].slice(0,26)
         case "Visits by Device Type":
-          return listHome[6];
+          return listHome[6].slice(0,26);
       }
   }else {
     switch(frequency) {
@@ -23,6 +31,10 @@ const getList = (listHome, frequency, categorical, dataType) => {
     }
   }
 }
+
+/*
+  Depending on the names in the dataType array, it will extract the respective data into an array. If there are multiple dataTypes, each index of the array returned will be an array of the data corresponding to the same index of the dataType array.
+*/
 
 const getDataArray = (list, dataType) => {
   var dataArr = [];
@@ -47,7 +59,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({contributionChange}) => contributionChange);
         break;
       case "Top Pages":
-        dataArr[index] = list.map(({allocationChange}) => allocationChange);
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
       case "Total Visits":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -67,6 +79,9 @@ const getDataArray = (list, dataType) => {
       case "Visits by Device Type":
         dataArr[index] = list.map(({percentage}) => percentage);
         break;
+      case "Bounce Rate":
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
+        break;
     }
     return null;
   });
@@ -77,7 +92,8 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
-  // console.log("printing in chart display: ");
+
+  //If there is a graph type, there will be a regular chart (i.e. Bar, pie, etc..)
   if(graphType) {
     return <RenderChart
             categorical={categorical}

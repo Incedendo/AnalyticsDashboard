@@ -9,10 +9,11 @@ import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
 
+let dataType = [];
+
 class Home extends Component {
   state = {
     projects: [],
-    mounted: false,
     filter: '',
     frequency: '',
     overlay: false,
@@ -22,31 +23,24 @@ class Home extends Component {
   componentDidMount() {
     this.setState({
       projects: jsonData,
-      mounted: true,
       filter: 'MTD',
       frequency: 'monthly'
     });
   }
 
   toggleModal = () => {
-    const { modalIsOpen } = this.state
-    const toggledModal = !modalIsOpen
-    this.setState({
-      modalIsOpen: toggledModal
-    });
+    this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
   handleFrequency = (id) => {
-    this.setState({
-      frequency: id
-    })
+    this.setState({ frequency: id })
   }
 
   handleFilter = (id) => {
-    let newState = {filter: id, frequency: ''}
+    const newState = {filter: id, frequency: ''}
     switch(id) {
       case 'QTD':
-          newState.frequency = 'quarterly'
+        newState.frequency = 'quarterly'
         break;
       case 'MTD':
         newState.frequency = 'monthly'
@@ -57,6 +51,7 @@ class Home extends Component {
     }
     this.setState(newState);
   }
+
   renderSubMainDiv = (dataType, arr) => (
     <div className="subMainDiv">
       <div className="pageVisit inLine">
@@ -67,47 +62,53 @@ class Home extends Component {
         <FreqFilter handleFilter={this.handleFilter}/>
       </div>
 
-      {this.state.mounted &&
-        <ChartDisplay listHome={arr} graphType='Line' dataType={dataType} frequency={this.state.frequency} chartHeight="300px" width="97%"
-        margin="45px" yAxisTextSize="15" xAxisTextSize="20"
-        pointRadius="8"
-        legendFontSize="10"
-        displayedLegend="true"
-        marginTop="0px"
+      {Object.keys(this.state.projects).length &&
+        <ChartDisplay
+          listHome={arr}
+          graphType='Line'
+          dataType={dataType}
+          frequency={this.state.frequency}
+          chartHeight="300px"
+          width="97%"
+          margin="45px"
+          yAxisTextSize="15"
+          xAxisTextSize="20"
+          pointRadius="8"
+          legendFontSize="10"
+          displayedLegend="true"
+          marginTop="0px"
         />}
     </div>
   )
 
-  renderMainDiv = (dataType, arr) => (
-    <div>
-      <ModalMenu
-        modalIsOpen={this.state.modalIsOpen}
-        toggleModal={this.toggleModal}
-        enabledModal={this.state.modalIsOpen}
-      />
-      <div className="mainDiv">
-        <div className='strip' />
+  renderMainDiv = (dataType, arr) => {
+
+    const { modalIsOpen } = this.state;
+    return (<div>
+        <ModalMenu
+          modalIsOpen={modalIsOpen}
+          toggleModal={this.toggleModal}
+          enabledModal={modalIsOpen}
+        />
+        <div className="mainDiv">
+          <div className='strip' />
           <Header />
           {this.renderSubMainDiv(dataType, arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
-          <DisplayCards num={8} list={arr}/>
-      </div>
-    </div>
-  )
+          <DisplayCards list={arr}/>
+        </div>
+      </div>)
+  }
 
   render() {
     const { projects } = this.state
     let arr=[];
-    if(this.state.mounted){
-      arr = Object.keys(projects).map((key) => projects[key]);
-    }
+    arr = Object.keys(projects).length ? Object.keys(projects).map((key) => projects[key]) : [];
 
-    const dataType = ["Registrations", "Enrollments", "Unique User Login"];
-    return (
-      this.renderMainDiv(dataType, arr)
-    );
+    dataType = ["Registrations", "Enrollments", "Unique User Login"];
+    return this.renderMainDiv(dataType, arr);
   }
 }
 
@@ -135,3 +136,27 @@ export default Home;
 //  );
 //
 // }
+//
+// It appears that this.state.mounted only exists to protect projects. If that's
+// true, just check if projects has a length instead of using mounted.
+//
+// On line 71, better to new line all of the jsx properties of <ChartDisplay />
+//
+// Line 31, toggleModal() could be written as toggleModal = () =>
+// this.setState({ modalIsOpen: !this.state.modalIsOpen });
+//
+// line 39 handleFrequency() could be written as a one liner
+//
+// line 46 newState could be declared with const not a let
+//
+// line 59/60 should have new line/space between the methods
+//
+// line 84 if this.state.variableName is used more than once, it's probably
+// better to either destructure variableName from state or assign it to a
+// variable for reuse
+//
+// line 102 could be written as const arr = projects.length > 0 ?
+// Object.keys(projects).map(key => projects[key]) : [];
+//
+// line 107 dataType should be declared at top of file outside of compoonent so
+// that it isn't instantiated on every rerender.

@@ -25,8 +25,10 @@ const renderList = (listHome, index) => {
   );
 }
 
+/*
+  Since this data is categorical, the data can be extracted straight from the entire data list.
+*/
 const ListDisplay = ({listHome=[], dataType = []}) => {
-  // the 5th card is TOP ACTIVE PAGES
   let data = dataType[0]
   switch(data) {
     case 'Bounce Rate':

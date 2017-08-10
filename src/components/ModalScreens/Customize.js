@@ -16,17 +16,20 @@ class Customize extends Component {
   }
 
   render () {
-    // console.log(this.props)
+
+    const { showModal } = this.state;
+    const {id, handleSubmit, handleCancel, dataType, graphType} = this.props;
+
     return (
       <div>
-        <ReactModal isOpen={this.state.showModal} onRequestClose={this.handleModal} contentLabel='Example'
+        <ReactModal isOpen={showModal} onRequestClose={this.handleModal} contentLabel='Example'
           className='modalYur'
           overlayClassName='overlaySelection' style={{background:'#F4F4F4'}}>
-          <SelectionMenu id={this.props.id} handleSubmit={this.props.handleSubmit}
+          <SelectionMenu id={id} handleSubmit={handleSubmit}
           handleModal={this.handleModal}
-          handleCancel={this.props.handleCancel}
-          dataType={this.props.dataType}
-          graphType={this.props.graphType}/>
+          handleCancel={handleCancel}
+          dataType={dataType}
+          graphType={graphType}/>
         </ReactModal>
       </div>
     )
@@ -34,3 +37,7 @@ class Customize extends Component {
 }
 
 export default Customize;
+
+// in render, props should probably be destructured so you don't have to keep
+// using this.props.variableName
+// remove unneeded console.logs
