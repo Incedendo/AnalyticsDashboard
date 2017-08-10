@@ -91,9 +91,7 @@ const getDataArray = (list, dataType) => {
 const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical,chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend, filter }) => {
 
   const list = getList(listHome, frequency, categorical, dataType);
-  console.log(list);
   const dataArr = getDataArray(list, dataType);
-  console.log(dataArr)
 
   //If there is a graph type, there will be a regular chart (i.e. Bar, pie, etc..)
   if(graphType) {

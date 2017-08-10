@@ -129,7 +129,7 @@ export const defaultEightCards = [
     data: ['Registrations'],
     rightBorder: true,
     bottomBorder: true,
-    index: 1
+    id: 1
   },
   {
     title: 'Enrollments',
@@ -140,7 +140,7 @@ export const defaultEightCards = [
     data: ['Enrollments', 'Suspicious Enrollments'],
     rightBorder: true,
     bottomBorder: true,
-    index: 2
+    id: 2
   },
   {
     title: 'Unique User Login',
@@ -151,7 +151,7 @@ export const defaultEightCards = [
     data: ['Unique User Login'],
     rightBorder: true,
     bottomBorder: true,
-    index: 3
+    id: 3
   },
   {
     title: 'Contribution Change',
@@ -162,7 +162,7 @@ export const defaultEightCards = [
     data: ['Contribution Change'],
     rightBorder: false,
     bottomBorder: true,
-    index: 4
+    id: 4
   },
   {
     title: 'Bounce Rate',
@@ -173,7 +173,7 @@ export const defaultEightCards = [
     data: ['Bounce Rate'],
     rightBorder: true,
     bottomBorder: false,
-    index: 5
+    id: 5
   },
   {
     title: 'Retirement Income Calc Usage',
@@ -184,7 +184,7 @@ export const defaultEightCards = [
     data: ['Retirement Income Calc Usage'],
     rightBorder: true,
     bottomBorder: false,
-    index: 6
+    id: 6
   },
   {
     title: 'Top Pages',
@@ -195,7 +195,7 @@ export const defaultEightCards = [
     data: ['Top Pages'],
     rightBorder: true,
     bottomBorder: false,
-    index: 7
+    id: 7
   },
   {
     title: 'Visits by Device Type',
@@ -206,6 +206,6 @@ export const defaultEightCards = [
     data: ['Visits by Device Type'],
     rightBorder: false,
     bottomBorder: false,
-    index: 8
+    id: 8
   },
 ]

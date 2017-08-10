@@ -65,8 +65,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   }else{
     labels = list.map(({label}) => label);
   }
-  console.log('initialChartConfig = ')
-  console.log(initialChartConfig)
+  
   let dataSet = {
     labels,
     datasets: dataArr.map( (data,index) => ({
