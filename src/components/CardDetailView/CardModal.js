@@ -14,13 +14,11 @@ import { cardTitle, CardFrequencies, topMenuOverlay, errorModal } from './CardDa
 class CardModal extends Component {
   state = {
     modalIsOpen: true,
-    projects: [],
     mounted: false
   }
 
   componentDidMount() {
     this.setState({
-      projects: jsonData,
       mounted: true
     });
   }
@@ -129,13 +127,12 @@ class CardModal extends Component {
   )
 
   render(){
-    const { projects } = this.state;
     const paramTitle = this.props.location.state.dataType;
     const dataType = this.props.location.state.dataType;
 
     let arr=[];
     if(this.state.mounted){
-      arr = Object.keys(projects).map((key) => projects[key]);
+      arr = Object.keys(jsonData).map((key) => jsonData[key]);
     }
     if(cardTitle.indexOf(paramTitle[0]) !== -1 && this.state.mounted){
       const card = {

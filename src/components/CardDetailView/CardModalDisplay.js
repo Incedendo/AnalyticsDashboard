@@ -3,6 +3,7 @@ import '../../assets/scss/_Card.scss';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import DetailedListDisplay from '../Graphs/DetailedListDisplay';
+import classNames from 'classnames';
 
 export class CardModalDisplay extends Component {
   renderCardContent = (graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder) => {
@@ -23,7 +24,6 @@ export class CardModalDisplay extends Component {
   }
 
   renderGraph = (list ,dataType ,graphType ,frequency) => {
-    let displayedLegend = true;
     return (
       <div>
         <ChartDisplay
@@ -37,7 +37,7 @@ export class CardModalDisplay extends Component {
             xAxisTextSize="18"
             pointRadius="0"
             legendFontSize="15"
-            displayedLegend={displayedLegend}
+            displayedLegend
             marginTop="-80px"
         />
       </div>
@@ -45,22 +45,21 @@ export class CardModalDisplay extends Component {
   }
 
   renderComp = (list ,dataType, frequency) => {
-    let localFilter;
-    if(frequency === "annually") localFilter = "YTD";
-    if(frequency === "quarterly") localFilter = "QTD";
-    if(frequency === "monthly") localFilter = "MTD";
-    if(frequency === "daily") localFilter = "YTD";
-    return <ChartDisplay listHome={list} dataType={dataType} frequency={frequency} filter={localFilter}/>
-  }
+    const localFilter = getLocalFilter(frequency);
 
-  renderList = (list, dataType, index) => {
-    return (
-      <DetailedListDisplay listHome={list} cardIndex={index} dataType={dataType}/>
-    );
+    if(frequency === "annually") localFilter = "YTD";
+    else if(frequency === "quarterly") localFilter = "QTD";
+    else if(frequency === "monthly") localFilter = "MTD";
+    else localFilter = "YTD";
+    return <ChartDisplay listHome={list} dataType={dataType} frequency={frequency} filter={localFilter}/>
   }
 
   getCustomClass = (listCard, rightBorder, bottomBorder) => {
     if(rightBorder && bottomBorder) return "cardDetail border-right border-bottom";
+
+    classNames('cardDetail', { 'border-right': rightBorder, "border-bottom":bottomBorder} });
+
+
     if(rightBorder) return "cardDetail border-right";
     if(bottomBorder) return "cardDetail border-bottom";
     if(listCard) return "full-screen";
