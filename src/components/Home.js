@@ -136,27 +136,3 @@ export default Home;
 //  );
 //
 // }
-//
-// It appears that this.state.mounted only exists to protect projects. If that's
-// true, just check if projects has a length instead of using mounted.
-//
-// On line 71, better to new line all of the jsx properties of <ChartDisplay />
-//
-// Line 31, toggleModal() could be written as toggleModal = () =>
-// this.setState({ modalIsOpen: !this.state.modalIsOpen });
-//
-// line 39 handleFrequency() could be written as a one liner
-//
-// line 46 newState could be declared with const not a let
-//
-// line 59/60 should have new line/space between the methods
-//
-// line 84 if this.state.variableName is used more than once, it's probably
-// better to either destructure variableName from state or assign it to a
-// variable for reuse
-//
-// line 102 could be written as const arr = projects.length > 0 ?
-// Object.keys(projects).map(key => projects[key]) : [];
-//
-// line 107 dataType should be declared at top of file outside of compoonent so
-// that it isn't instantiated on every rerender.

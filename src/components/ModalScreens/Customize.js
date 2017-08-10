@@ -37,7 +37,3 @@ class Customize extends Component {
 }
 
 export default Customize;
-
-// in render, props should probably be destructured so you don't have to keep
-// using this.props.variableName
-// remove unneeded console.logs
