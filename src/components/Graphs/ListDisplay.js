@@ -42,3 +42,10 @@ ListDisplay.propTypes = {
 };
 
 export default ListDisplay;
+
+// line 6 could just be list = listHome[index].slice(0,5);
+//
+// line 15, could destructure item into ({ Page, PageViews, Percentage }, index)
+//
+// line 32 could be a const
+

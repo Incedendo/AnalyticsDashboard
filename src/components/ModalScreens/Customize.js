@@ -16,9 +16,8 @@ class Customize extends Component {
   }
 
   render () {
-
     const { showModal } = this.state;
-    const {id, handleSubmit, handleCancel, dataType, graphType} = this.props;
+    const { id, handleSubmit, handleCancel, dataType, graphType } = this.props;
 
     return (
       <div>
@@ -38,6 +37,4 @@ class Customize extends Component {
 
 export default Customize;
 
-// in render, props should probably be destructured so you don't have to keep
-// using this.props.variableName
-// remove unneeded console.logs
+// we can spread the props into SelectionMenu let's talk about this

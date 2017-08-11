@@ -170,3 +170,26 @@ RenderChart.propTypes = {
 };
 
 export default RenderChart;
+
+// line 25 use a const
+//
+// line 28 use a forEach
+//
+// line 107 new line the parameters
+//
+// line 121 why not just slice once?
+//
+// line 124 initialChartConfig should be a const and then you can assign
+// properties
+//
+// line 125 es6 { labels }
+//
+// line 136 const
+//
+// line 136-157 why not just one declaration and map?
+//
+// line 149 one line assignment
+//
+// line 162 no inline styles
+//
+// line 163-169 separate function that returns one thing
