@@ -1,4 +1,4 @@
-## VALIC Analytics Dashboard
+## Analytics Dashboard
 
 ## Components
   * App:
