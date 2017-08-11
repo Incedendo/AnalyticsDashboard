@@ -130,3 +130,12 @@ class CardContainer extends Component {
 }
 
 export default CardContainer;
+
+// 22 handleSubmit newState can be a const
+// same thing on line 61
+//
+// in componentWillMount() only setState once at the bottom, declare newState;
+// at top and use the if statement to mutate it. Also, destructure variables
+// from this.props
+//
+// Same thing with the render, destructure props

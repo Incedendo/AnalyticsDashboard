@@ -120,3 +120,10 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 // };
 
 export default ChartDisplay;
+
+// getDataArray can just return the map
+//
+// ChartDisplay should have it's parameters newlined. That thing is off the
+// page! in fact, it looks like a lot of those props can be put into ...rest and
+// then passed into <RenderChart /> The only props you actually need are
+// dataType, dataArr, filter, and chartHeight
