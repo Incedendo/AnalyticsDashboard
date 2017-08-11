@@ -16,6 +16,18 @@ const pieOptions={
   },
 };
 
+const displayChart = (chartHeight, width, margin, marginTop, graphType, dataSet, options, initialChartConfig, pieOptions) => (
+  <div style={{height: chartHeight, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
+    { graphType === 'Bar' && <Bar className='bar' data={dataSet} options={options} />}
+
+    { graphType === 'Line' &&
+        <Line data = {dataSet} options={options} />
+    }
+    { graphType === 'Pie' &&
+      <Doughnut data={initialChartConfig} options={pieOptions} />}
+  </div>
+)
+
 /*
   Given an array of colors, it will randomize them into an array with a size of however many data types are within it.
 */
@@ -116,7 +128,7 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
         labels = list.map(({Device}) => Device);
         break;
       default:
-        labels = list.slice(0,26).slice(0,10).map(({Page}) => Page );
+        labels = list.slice(0,10).map(({Page}) => Page );
         break;
     }
   }else{
@@ -140,16 +152,6 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
         borderWidth: 0,
       })
     ),
-    options: {
-
-        pointRadius,
-        pointHoverRadius: '13',
-        pointBorderWidth: '2',
-        pointBackgroundColor: '#0C5AB5',
-        pointBorderColor: "white",
-        pointHoverBackgroundColor: '#0C5AB5',
-
-    }
   }
 
   //The style of the points
@@ -167,14 +169,8 @@ const RenderChart = ({ list=[], dataArr=[], categorical, graphType, dataType=[],
   const options = getGraphOptions(dataType,displayedLegend,xAxisTextSize,yAxisTextSize, labels);
 
   return (
-      <div style={{height: chartHeight, width: width, margin: margin, position: "absolute", marginTop: marginTop}}>
-        { graphType === 'Bar' && <Bar className='bar' data={dataSet} options={options} />}
-
-        { graphType === 'Line' &&
-            <Line data = {dataSet} options={options} />
-        }
-        { graphType === 'Pie' &&
-          <Doughnut data={initialChartConfig} options={pieOptions} />}
+      <div>
+        {displayChart(chartHeight, width, margin, marginTop, graphType, dataSet, options, initialChartConfig, pieOptions)}
       </div>
 
   );
@@ -186,21 +182,10 @@ RenderChart.propTypes = {
 
 export default RenderChart;
 
-// line 107 new line the parameters
-//
-// line 121 why not just slice once?
-//
+
 // line 124 initialChartConfig should be a const and then you can assign
 // properties
 //
-// line 125 es6 { labels }
-//
-// line 136 const
-//
 // line 136-157 why not just one declaration and map?
 //
-// line 149 one line assignment
-//
 // line 162 no inline styles
-//
-// line 163-169 separate function that returns one thing

@@ -17,18 +17,14 @@ class Customize extends Component {
 
   render () {
     const { showModal } = this.state;
-    const { id, handleSubmit, handleCancel, dataType, graphType } = this.props;
-
     return (
       <div>
         <ReactModal isOpen={showModal} onRequestClose={this.handleModal} contentLabel='Example'
           className='modalYur'
           overlayClassName='overlaySelection' style={{background:'#F4F4F4'}}>
-          <SelectionMenu id={id} handleSubmit={handleSubmit}
+          <SelectionMenu
           handleModal={this.handleModal}
-          handleCancel={handleCancel}
-          dataType={dataType}
-          graphType={graphType}/>
+          {...this.props}/>
         </ReactModal>
       </div>
     )

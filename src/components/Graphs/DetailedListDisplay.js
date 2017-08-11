@@ -118,8 +118,8 @@ const renderList = (listHome, index, dataType) => {
 
       <div className="col-md-6 pieList">
         <div style={{paddingTop: "200px", position: "relative !important"}}>
-          {/* <Doughnut data = {initialChartConfig} options={pieOptions} /> */}
-          <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical />
+          <Doughnut data = {initialChartConfig} options={pieOptions} />
+          {/* <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical /> */}
         </div>
       </div>
     </div>

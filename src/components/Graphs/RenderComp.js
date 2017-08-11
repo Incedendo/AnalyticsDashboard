@@ -15,8 +15,7 @@ const numberWithCommas = (x) => {
   Renders either left or right side of the comparison visual representation.
 */
 const renderBox = (boxPosition, boxNum, boxState, index, data, label, filter) => {
-  let className = '';
-  boxPosition === 'leftBox' ? className="col-md-6 leftBox" : className="col-md-6 rightBox";
+  const className = boxPosition === 'leftBox' ? "col-md-6 leftBox" : "col-md-6 rightBox";
 
   return(
     <div className={className}>
@@ -64,9 +63,9 @@ const renderMoreThanOneData = (data, filter, improve, sign, greenArrow, redArrow
 /*
   Decides which render method to call depending on the amount of data types
 */
-const renderComparison = (data, filter, improve, sign, greenArrow, redArrow) => (
+const renderComparison = (data, filter, ...rest) => (
   <div>
-    {data.length > 1 && renderMoreThanOneData(data, filter, sign, improve, greenArrow, redArrow)}
+    {data.length > 1 && renderMoreThanOneData(data, filter, ...rest)}
     {data.length === 1 && renderOneData(data, filter)}
   </div>
 )
@@ -90,7 +89,7 @@ const RenderComp = ({dataArr=[], dataType=[], filter}) => {
     }
   }
   return (
-    renderComparison(data, filter, sign, improve, greenArrow, redArrow)
+    renderComparison(data, filter, improve, sign, greenArrow, redArrow)
   )
 }
 
@@ -99,8 +98,3 @@ RenderComp.propTypes = {
 };
 
 export default RenderComp
-
-// lines 18 - 19 could be one line
-//
-// line 67 ...rest to pass args into render more data, you only use data and
-// filter
