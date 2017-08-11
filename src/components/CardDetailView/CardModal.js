@@ -14,22 +14,18 @@ import { cardTitle, CardFrequencies, topMenuOverlay, errorModal } from './CardDa
 class CardModal extends Component {
   state = {
     modalIsOpen: true,
-    projects: [],
     mounted: false
   }
 
   componentDidMount() {
     this.setState({
-      projects: jsonData,
       mounted: true
     });
   }
 
   toggleModal = () => {
-    const { modalIsOpen } = this.state
-    const toggledModal = !modalIsOpen
     this.setState({
-      modalIsOpen: toggledModal
+      modalIsOpen: !this.state.modalIsOpen
     });
   }
 
@@ -68,23 +64,32 @@ class CardModal extends Component {
   renderList = (arr, dataType) => (
     <div className="list-page-wrapper no-padding full-screen ">
       <div className='listCard'>
-        <DetailedListDisplay listHome={arr}  dataType={dataType}/>
+        <DetailedListDisplay listHome={arr} dataType={dataType}/>
       </div>
     </div>
   )
+
+  getModalProps(){
+    return ({
+      isOpen: this.state.modalIsOpen,
+      closeModal: this.toggleModal,
+      enabledModal: this.state.modalIsOpen
+    })
+  }
 
   renderNotList = (card, arr, dataType) => (
     <div className="page-wrapper">
       <div className="row">
         {CardFrequencies.map((item, index) =>{
+          const { frequency, rightBorder, bottomBorder } = item;
           return (<div key={index} className="col-md-6 no-padding">
               <CardModalDisplay
                 {...card}
                 list={arr}
                 dataType={dataType}
-                frequency={item.frequency}
-                rightBorder={item.rightBorder}
-                bottomBorder={item.bottomBorder}
+                frequency={frequency}
+                rightBorder={rightBorder}
+                bottomBorder={bottomBorder}
               />
             </div>)
         })}
@@ -95,10 +100,7 @@ class CardModal extends Component {
   renderError = () => (
     <div>
       <Modal
-        isOpen={this.state.modalIsOpen}
-        closeModal={this.toggleModal}
-        enabledModal={this.state.modalIsOpen}
-        contentLabel="Example Modal"
+        {...this.getModalProps()}
         style={errorModal}
       >
         <div className="taskbar">
@@ -111,39 +113,48 @@ class CardModal extends Component {
     </div>
   )
 
+  renderIndivContent = (card, dataType, arr) => {
+    if(!card.listCard && dataType[0] === "Visits by Device Type")
+      return this.renderList(arr, dataType);
+    if(!card.listCard && dataType !== "Visits by Device Type")
+      return this.renderNotList(card, arr, dataType);
+    if(card.listCard)
+      return this.renderList(arr, dataType);
+  }
+
   renderMainDetail = (card, arr, dataType) => (
     <div>
       <Modal
         isOpen={this.state.modalIsOpen}
         closeModal={this.toggleModal}
         enabledModal={this.state.modalIsOpen}
-        contentLabel="Example Modal"
         style={topMenuOverlay}
       >
         {this.renderTaskbar(dataType)}
-        {!card.listCard && dataType[0] === "Visits by Device Type" && this.renderList(arr, dataType)}
-        {!card.listCard && dataType !== "Visits by Device Type" && this.renderNotList(card, arr, dataType)}
-        {card.listCard && this.renderList(arr, dataType)}
+        {this.renderIndivContent(card, dataType, arr)}
       </Modal>
     </div>
   )
 
   render(){
-    const { projects } = this.state;
-    const paramTitle = this.props.location.state.dataType;
-    const dataType = this.props.location.state.dataType;
+    const { dataType,
+            graph,
+            comp,
+            list,
+            graphType,
+            } = this.props.location.state;
 
     let arr=[];
     if(this.state.mounted){
-      arr = Object.keys(projects).map((key) => projects[key]);
+      arr = Object.keys(jsonData).map((key) => jsonData[key]);
     }
-    if(cardTitle.indexOf(paramTitle[0]) !== -1 && this.state.mounted){
+    if(cardTitle.indexOf(dataType[0]) !== -1 && this.state.mounted){
       const card = {
-        title: this.props.location.state.dataType,
-        graph: this.props.location.state.graph,
-        comp: this.props.location.state.comp,
-        listCard: this.props.location.state.list,
-        graphType: this.props.location.state.graphType,
+        title: dataType,
+        graph: graph,
+        comp: comp,
+        listCard: list,
+        graphType: graphType,
       }
       return(
         this.renderMainDetail(card, arr, dataType)
@@ -156,25 +167,3 @@ class CardModal extends Component {
 }
 
 export default CardModal;
-
-// many of the same fixes as Home.js (mounted, toggleModal(), refactors)
-//
-// line 79 item could be destructured ({ frequency, rightBorder, bottomBorder })
-// => {}
-//
-// renderError and renderMainDetail, the <Modal/> could be extracted into a
-// renderModal() method that takes styleType as an arg, so you don't have to
-// keep repeating the same code in both methods
-//
-// lines 124-126 do you intend for it to be possible for all of these conditions
-// to be true? If not, then extract into a function that only returns one of the
-// options to prevent extra checks
-//
-// lines 133-134 are confusing and seem unneccessary. Destructure
-// this.props.location.state to get all the variables you need for lines 140
-// onwards.
-//
-// Same as Home.js arr; could be written differently
-//
-// Add some new lines between code chunks in the render method to make things a
-// bit easier to read

@@ -100,7 +100,7 @@ const getFreqFilter = (graph, handleFilter) => (
   </div>
 )
 
-const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph, comp, list, dataList, dataTypeArr, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
+const CardDisplay = ({ graph, comp, list, graphType, dataType, frequency, filter, modalOpen, dataList, dataTypeArr, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
 
   if(!dataList.length) return null
   if(!dataType.length) return <div>LOADING</div>

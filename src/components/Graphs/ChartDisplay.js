@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 */
 
 const getList = (listHome, frequency, categorical, dataType) => {
+  console.log(listHome, frequency, categorical, dataType);
   if(categorical){
       switch(dataType[0]){
         case 'Bounce Rate':
@@ -25,6 +26,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
       case 'quarterly':
         return listHome[1];
       case 'monthly':
+        //console.log(listHome[2]);
         return listHome[2];
       case 'daily':
         return listHome[3];
@@ -38,6 +40,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
 
 const getDataArray = (list, dataType) => {
   var dataArr = [];
+  //console.log(list);
   dataType.map((stat, index) =>{
     switch(stat){
       case "Registrations":
@@ -59,7 +62,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({contributionChange}) => contributionChange);
         break;
       case "Top Pages":
-        dataArr[index] = list.map(({percentage}) => percentage);
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
       case "Total Visits":
         dataArr[index] = list.map(({totalVisits}) => totalVisits);
@@ -80,7 +83,7 @@ const getDataArray = (list, dataType) => {
         dataArr[index] = list.map(({percentage}) => percentage);
         break;
       case "Bounce Rate":
-        dataArr[index] = list.map(({percentage}) => percentage);
+        dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
     }
     return null;

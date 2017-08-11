@@ -3,8 +3,19 @@ import '../../assets/scss/_Card.scss';
 import ChartDisplay from '../Graphs/ChartDisplay';
 import ListDisplay from '../Graphs/ListDisplay';
 import DetailedListDisplay from '../Graphs/DetailedListDisplay';
+import classNames from 'classnames';
 
 export class CardModalDisplay extends Component {
+
+  renderCompOrGraph = (comp, graph, list ,dataType ,graphType ,frequency) => {
+    if(comp)
+      return <div className='detailedComp'>
+        {this.renderComp(list ,dataType, frequency)}</div>
+    if(graph)
+      return <div className='detailedGraph'>
+        {this.renderGraph(list ,dataType ,graphType ,frequency)}</div>
+  }
+
   renderCardContent = (graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder) => {
     return(
       <div className={this.getCustomClass(listCard, rightBorder, bottomBorder)} >
@@ -12,18 +23,12 @@ export class CardModalDisplay extends Component {
           {frequency}
         </div>
 
-        {comp && <div className='detailedComp'>
-          {this.renderComp(list ,dataType, frequency)}
-        </div>}
-        {graph && <div className='detailedGraph'>
-          {this.renderGraph(list ,dataType ,graphType ,frequency)}
-        </div>}
+        {this.renderCompOrGraph(comp, graph, list ,dataType ,graphType ,frequency)}
       </div>
     );
   }
 
   renderGraph = (list ,dataType ,graphType ,frequency) => {
-    let displayedLegend = true;
     return (
       <div>
         <ChartDisplay
@@ -37,29 +42,39 @@ export class CardModalDisplay extends Component {
             xAxisTextSize="18"
             pointRadius="0"
             legendFontSize="15"
-            displayedLegend={displayedLegend}
+            displayedLegend
             marginTop="-80px"
         />
       </div>
     )
   }
 
+  getLocalFilter(frequency){
+    if(frequency === "annually")
+      return "YTD";
+    if(frequency === "quarterly")
+      return "QTD";
+    if(frequency === "monthly")
+      return "MTD";
+    if(frequency === "daily")
+      return "YTD";
+  }
+
   renderComp = (list ,dataType, frequency) => {
-    let localFilter;
-    if(frequency === "annually") localFilter = "YTD";
-    if(frequency === "quarterly") localFilter = "QTD";
-    if(frequency === "monthly") localFilter = "MTD";
-    if(frequency === "daily") localFilter = "YTD";
+    const localFilter = this.getLocalFilter(frequency);
+
     return <ChartDisplay listHome={list} dataType={dataType} frequency={frequency} filter={localFilter}/>
   }
 
-  renderList = (list, dataType, index) => {
-    return (
-      <DetailedListDisplay listHome={list} cardIndex={index} dataType={dataType}/>
-    );
-  }
-
   getCustomClass = (listCard, rightBorder, bottomBorder) => {
+    // const notListCard = !listCard;
+    // return classNames({
+    //   "full-screen": listCard,
+    //   'cardDetail': notListCard,
+    //   'border-right': rightBorder,
+    //   "border-bottom":bottomBorder
+    // });
+
     if(rightBorder && bottomBorder) return "cardDetail border-right border-bottom";
     if(rightBorder) return "cardDetail border-right";
     if(bottomBorder) return "cardDetail border-bottom";
@@ -68,9 +83,28 @@ export class CardModalDisplay extends Component {
   }
 
   render() {
-    const { title, graph, comp, listCard, graphType, list, dataType, frequency, rightBorder, bottomBorder } = this.props;
+    const { title,
+            graph,
+            comp,
+            listCard,
+            graphType,
+            list,
+            dataType,
+            frequency,
+            rightBorder,
+            bottomBorder
+          } = this.props;
 
-    return this.renderCardContent(graph,comp,listCard, list ,dataType ,graphType ,frequency, rightBorder, bottomBorder)
+    return this.renderCardContent(
+      graph,
+      comp,
+      listCard,
+      list,
+      dataType,
+      graphType,
+      frequency,
+      rightBorder,
+      bottomBorder)
   }
 }
 
