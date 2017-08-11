@@ -102,9 +102,3 @@ Home.propTypes = {
 };
 
 export default Home;
-
-// line 39 handleFrequency() could be written as a one liner
-//
-// line 107 dataType should be declared at top of file outside of component so
-// that it isn't instantiated on every rerender. let's go over this again, it
-// could simply be used in the one spot it's used rather than passed
