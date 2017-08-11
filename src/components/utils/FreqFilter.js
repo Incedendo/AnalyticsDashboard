@@ -21,3 +21,5 @@ class FreqFilter extends Component {
 }
 
 export default FreqFilter;
+
+// This could be a functional component, no reason for this to be a class

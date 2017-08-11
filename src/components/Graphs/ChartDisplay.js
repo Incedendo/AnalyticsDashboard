@@ -124,7 +124,10 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 
 export default ChartDisplay;
 
-// getDataArray can just return the map
+// getDataArray can just return the map, could also use functions to reuse that
+// map
+//
+// line 89 should this be the default of the switch?
 //
 // ChartDisplay should have it's parameters newlined. That thing is off the
 // page! in fact, it looks like a lot of those props can be put into ...rest and

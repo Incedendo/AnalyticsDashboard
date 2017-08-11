@@ -133,4 +133,3 @@ export default CardDisplay;
 // getFilter() should probably isFilterAvailable or some other boolean
 // indicating function name, right now it with that name it sounds like it
 // actually gets the filter
-//

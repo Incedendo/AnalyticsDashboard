@@ -226,3 +226,22 @@ class SelectionMenu extends Component {
 }
 
 export default SelectionMenu;
+
+// let's talk about ways to avoid mutation (splice, etc.)
+// line 23 could be arr.find
+//
+// line 79 handleSubmit let's destructure state out here, heck let's do props
+// too
+//
+// line 97 why destructure graphs if you only use id to filter?
+//
+// line 101-102, why not just map directly into currentGraphs?
+//
+// line 107 what's the purpose of the slice?
+//
+// line 129-149 use a newState object or something similar and only setState
+// once
+//
+// line 149 graphForm() destructure state to get activegraph and displayGraphs
+//
+// line 155 if you return in an if statement you don't need an else statement

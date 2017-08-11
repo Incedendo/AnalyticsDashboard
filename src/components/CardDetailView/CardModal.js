@@ -167,3 +167,5 @@ class CardModal extends Component {
 }
 
 export default CardModal;
+
+// why do we use mounted here?
