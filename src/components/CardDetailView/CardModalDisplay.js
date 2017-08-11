@@ -57,7 +57,7 @@ export class CardModalDisplay extends Component {
     if(frequency === "monthly")
       return "MTD";
     if(frequency === "daily")
-      return "YTD";
+      return "YTD"; // placeholder for the live daily data object later, not available right now
   }
 
   renderComp = (list ,dataType, frequency) => {
@@ -67,19 +67,13 @@ export class CardModalDisplay extends Component {
   }
 
   getCustomClass = (listCard, rightBorder, bottomBorder) => {
-    // const notListCard = !listCard;
-    // return classNames({
-    //   "full-screen": listCard,
-    //   'cardDetail': notListCard,
-    //   'border-right': rightBorder,
-    //   "border-bottom":bottomBorder
-    // });
-
-    if(rightBorder && bottomBorder) return "cardDetail border-right border-bottom";
-    if(rightBorder) return "cardDetail border-right";
-    if(bottomBorder) return "cardDetail border-bottom";
-    if(listCard) return "full-screen";
-    return "cardDetail ";
+    const notListCard = !listCard;
+    return classNames({
+      "full-screen": listCard,
+      'cardDetail': notListCard,
+      'border-right': rightBorder,
+      "border-bottom":bottomBorder
+    });
   }
 
   render() {
