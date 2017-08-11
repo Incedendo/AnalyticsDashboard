@@ -108,22 +108,7 @@ export class CardModalDisplay extends Component {
   }
 }
 
-// line 15-20, can both of these be true? if not extract into function that only
-// returns one
-// line 26 displayedLegend could be a const
-// lines 48-52 should be a getLocalFilter function that uses if statments to
-// return. Also, daily and annually can be in the same if statement
+// lines 52 daily and annually can be in the same if statement
 //
-// npm i -S classnames and use that function instead of if statments inside
+// npm i -S classnames and use that function instead of if statements inside
 // getCustomClass
-//
-// There are also some weird spacing/commas issues in the arguments and params
-// for renderCardContent
-// If cuntion or destructuring gets too long, break onto new lines:
-//
-// const {
-//   title,
-//   graph,
-//   etc.
-// } = this.props;
-//
