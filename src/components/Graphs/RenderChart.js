@@ -37,13 +37,6 @@ const getGraphOptions = (dataType,displayedLegend,xAxisTextSize,yAxisTextSize, l
     {
       responsive: true,
       maintainAspectRatio: false,
-      // animation: {
-      //   onComplete: function() {
-      //     var ctx = this.chart.ctx;
-      //     ctx.textAlign = "center";
-      //     ctx.textBaseline = "bottom";
-      //  }
-      // },
       title: {
         text: dataType[0],
         display: false,
