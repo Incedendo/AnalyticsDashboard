@@ -99,3 +99,8 @@ RenderComp.propTypes = {
 };
 
 export default RenderComp
+
+// lines 18 - 19 could be one line
+//
+// line 67 ...rest to pass args into render more data, you only use data and
+// filter

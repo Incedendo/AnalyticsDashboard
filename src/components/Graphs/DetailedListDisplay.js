@@ -117,7 +117,7 @@ const renderList = (listHome, index, dataType) => {
       </div>
 
       <div className="col-md-6 pieList">
-        <div style={{paddingTop: "200px"}}>
+        <div style={{paddingTop: "200px", position: "relative !important"}}>
           {/* <Doughnut data = {initialChartConfig} options={pieOptions} /> */}
           <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical />
         </div>
@@ -145,3 +145,27 @@ DetailedListDisplay.propTypes = {
 };
 
 export default DetailedListDisplay;
+
+// Lets talk about line 19
+//
+// line 20/21 could be one variable
+//
+// line 23 define the i inside the for loop
+//
+// line 42 and line 65 can be one statement const [ max, start, end ];
+//
+// line 44 maybe have one variable that serves for sliced.slice
+// ie const list = listHome[index].slice(0,26);
+// const narrowerListMakeUpSomeVarName = list.slice(0,10);
+//
+// line 69-70 can be one line declaration
+//
+// line 80 this if/else can be a simple ternary inside jsx also destructure
+//
+// line 110/112 should be extracted into another function with ifs and returns
+// also, variables should be used as the jsx remains the same
+//
+// line 110-120 why inline styles?
+//
+// line 132 could be a const
+// 134-139 talk about a possible refactor, I don't know if I'd do it or not

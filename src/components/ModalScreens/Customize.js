@@ -16,9 +16,8 @@ class Customize extends Component {
   }
 
   render () {
-
     const { showModal } = this.state;
-    const {id, handleSubmit, handleCancel, dataType, graphType} = this.props;
+    const { id, handleSubmit, handleCancel, dataType, graphType } = this.props;
 
     return (
       <div>

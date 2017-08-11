@@ -13,20 +13,12 @@ let dataType = [];
 
 class Home extends Component {
   state = {
-    projects: [],
-    filter: '',
-    frequency: '',
+    filter: 'MTD',
+    frequency: 'monthly',
     overlay: false,
     modalIsOpen: false,
   };
 
-  componentDidMount() {
-    this.setState({
-      projects: jsonData,
-      filter: 'MTD',
-      frequency: 'monthly'
-    });
-  }
 
   toggleModal = () => {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
@@ -62,7 +54,7 @@ class Home extends Component {
         <FreqFilter handleFilter={this.handleFilter}/>
       </div>
 
-      {Object.keys(this.state.projects).length &&
+
         <ChartDisplay
           listHome={arr}
           graphType='Line'
@@ -77,7 +69,7 @@ class Home extends Component {
           legendFontSize="10"
           displayedLegend="true"
           marginTop="0px"
-        />}
+        />
     </div>
   )
 
@@ -103,10 +95,7 @@ class Home extends Component {
   }
 
   render() {
-    const { projects } = this.state
-    let arr=[];
-    arr = Object.keys(projects).length ? Object.keys(projects).map((key) => projects[key]) : [];
-
+    const arr = Object.keys(jsonData).map((key) => jsonData[key]) ;
     dataType = ["Registrations", "Enrollments", "Unique User Login"];
     return this.renderMainDiv(dataType, arr);
   }
@@ -117,22 +106,3 @@ Home.propTypes = {
 };
 
 export default Home;
-
-// componentDidMount() {
-//  const dataAPI = 'http://localhost:3000';
-//  axios.get(dataAPI + '/test')
-//    .then((response) => {
-//      this.setState({
-//       //projects: response.data,
-//       projects: jsonData,
-//       mounted: true,
-//       filter: 'QTD',
-//       frequency: 'quarterly'
-//      });
-//    })
-//    .catch( (error) => {
-//       (error);
-//    }
-//  );
-//
-// }

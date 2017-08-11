@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 */
 
 const getList = (listHome, frequency, categorical, dataType) => {
+  console.log(listHome, frequency, categorical, dataType);
   if(categorical){
       switch(dataType[0]){
         case 'Bounce Rate':
@@ -25,6 +26,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
       case 'quarterly':
         return listHome[1];
       case 'monthly':
+        //console.log(listHome[2]);
         return listHome[2];
       case 'daily':
         return listHome[3];
@@ -38,6 +40,7 @@ const getList = (listHome, frequency, categorical, dataType) => {
 
 const getDataArray = (list, dataType) => {
   var dataArr = [];
+  //console.log(list);
   dataType.map((stat, index) =>{
     switch(stat){
       case "Registrations":
@@ -120,3 +123,13 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 // };
 
 export default ChartDisplay;
+
+// getDataArray can just return the map, could also use functions to reuse that
+// map
+//
+// line 89 should this be the default of the switch?
+//
+// ChartDisplay should have it's parameters newlined. That thing is off the
+// page! in fact, it looks like a lot of those props can be put into ...rest and
+// then passed into <RenderChart /> The only props you actually need are
+// dataType, dataArr, filter, and chartHeight

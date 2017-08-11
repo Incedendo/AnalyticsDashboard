@@ -100,7 +100,7 @@ const getFreqFilter = (graph, handleFilter) => (
   </div>
 )
 
-const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph, comp, list, dataList, dataTypeArr, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
+const CardDisplay = ({ graph, comp, list, graphType, dataType, frequency, filter, modalOpen, dataList, dataTypeArr, rightBorder, bottomBorder, store, handleSubmit, handleEditClick, handleFilter, id}) => {
 
   if(!dataList.length) return null
   if(!dataType.length) return <div>LOADING</div>
@@ -116,3 +116,20 @@ const CardDisplay = ({ graphType, dataType, frequency, filter, modalOpen, graph,
 }
 
 export default CardDisplay;
+
+// line 13 should just be an if statement
+
+// line 38 renderComp() could be renderComp = (dataList, ...rest) => then spread
+// rest into the component being rendered
+//
+// line 42 is being passed id but it's not being used
+//
+// line 48 customClass logic should be replaced with classnames package/function
+//
+// line 87-89 same as other components, unless all theree { && } statments can
+// be true, they should probably be extracted into another function that returns
+// one thing
+//
+// getFilter() should probably isFilterAvailable or some other boolean
+// indicating function name, right now it with that name it sounds like it
+// actually gets the filter
