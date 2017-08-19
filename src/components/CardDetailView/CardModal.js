@@ -13,14 +13,7 @@ import { cardTitle, CardFrequencies, topMenuOverlay, errorModal } from './CardDa
 
 class CardModal extends Component {
   state = {
-    modalIsOpen: true,
-    mounted: false
-  }
-
-  componentDidMount() {
-    this.setState({
-      mounted: true
-    });
+    modalIsOpen: true
   }
 
   toggleModal = () => {
@@ -144,11 +137,9 @@ class CardModal extends Component {
             graphType,
             } = this.props.location.state;
 
-    let arr=[];
-    if(this.state.mounted){
-      arr = Object.keys(jsonData).map((key) => jsonData[key]);
-    }
-    if(cardTitle.indexOf(dataType[0]) !== -1 && this.state.mounted){
+    const arr = Object.keys(jsonData).map((key) => jsonData[key]);
+
+    if(cardTitle.indexOf(dataType[0]) !== -1){
       const card = {
         title: dataType,
         graph: graph,
@@ -167,3 +158,5 @@ class CardModal extends Component {
 }
 
 export default CardModal;
+
+// why do we use mounted here?

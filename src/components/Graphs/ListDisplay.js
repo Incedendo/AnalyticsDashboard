@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import '../../assets/scss/_ListDisplay.scss';
 
 const renderList = (listHome, index) => {
-  const list = listHome[index];
-  const sliced = list.slice(0,5);
+  const sliced = listHome[index].slice(0,5);
   return(
     <div className="enclose">
       <div className="page pageHeader">
@@ -13,13 +12,14 @@ const renderList = (listHome, index) => {
         <span className="lastSpan">%</span>
       </div>
       {sliced.map((item, index) =>{
-          return(
-            <div key={index} className="page">
-              <span>{item.Page}</span>
-              <span className="secondSpan">{item.PageViews}</span>
-              <span className="lastSpan">{item.Percentage}</span>
-            </div>
-          )
+        const {Page, PageViews, Percentage} = item;
+        return(
+          <div key={index} className="page">
+            <span>{Page}</span>
+            <span className="secondSpan">{PageViews}</span>
+            <span className="lastSpan">{Percentage}</span>
+          </div>
+        )
       })}
     </div>
   );
@@ -29,8 +29,7 @@ const renderList = (listHome, index) => {
   Since this data is categorical, the data can be extracted straight from the entire data list.
 */
 const ListDisplay = ({listHome=[], dataType = []}) => {
-  let data = dataType[0]
-  switch(data) {
+  switch(dataType[0]) {
     case 'Bounce Rate':
       return renderList(listHome, 4);
     case 'Top Pages':
@@ -43,3 +42,10 @@ ListDisplay.propTypes = {
 };
 
 export default ListDisplay;
+
+// line 6 could just be list = listHome[index].slice(0,5);
+//
+// line 15, could destructure item into ({ Page, PageViews, Percentage }, index)
+//
+// line 32 could be a const
+

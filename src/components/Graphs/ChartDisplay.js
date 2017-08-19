@@ -39,8 +39,8 @@ const getList = (listHome, frequency, categorical, dataType) => {
 */
 
 const getDataArray = (list, dataType) => {
-  var dataArr = [];
   //console.log(list);
+  let dataArr = [];
   dataType.map((stat, index) =>{
     switch(stat){
       case "Registrations":
@@ -85,13 +85,15 @@ const getDataArray = (list, dataType) => {
       case "Bounce Rate":
         dataArr[index] = list.slice(0,10).map(({Percentage}) => parseFloat(Percentage.substring(0, Percentage.length-1)));
         break;
+      default:
+        return null;
     }
-    return null;
+
   });
   return dataArr;
 }
 
-const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical,chartHeight, width, margin, marginTop, yAxisTextSize, xAxisTextSize, pointRadius, legendFontSize, displayedLegend, filter }) => {
+const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorical, filter, ...props}) => {
 
   const list = getList(listHome, frequency, categorical, dataType);
   const dataArr = getDataArray(list, dataType);
@@ -104,13 +106,7 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
             dataArr={dataArr}
             graphType={graphType}
             list={list}
-            height={chartHeight} width={width} margin={margin}
-            yAxisTextSize={yAxisTextSize}
-            xAxisTextSize={xAxisTextSize}
-            pointRadius={pointRadius}
-            legendFontSize={legendFontSize}
-            displayedLegend={displayedLegend}
-            marginTop={marginTop}
+            {...props}
            />
   }else {
     return <RenderComp dataType={dataType} dataArr={dataArr} filter={filter}/>
@@ -123,3 +119,6 @@ const ChartDisplay = ({listHome=[],frequency, graphType, dataType=[], categorica
 // };
 
 export default ChartDisplay;
+
+// getDataArray can just return the map, could also use functions to reuse that
+// map

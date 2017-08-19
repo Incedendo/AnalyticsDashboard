@@ -17,8 +17,7 @@ const pieOptions={
   Method that finds the greatest difference between adjacent indices.
 */
 const getMaxPercentage = (listHome, index) => {
-  const list = listHome[index];
-  const sliced = list.slice(0,26);
+  const sliced = listHome[index].slice(0,26);
   let max = 0;
   var i = 0;
   let first = 0;
@@ -35,11 +34,8 @@ const getMaxPercentage = (listHome, index) => {
 }
 
 const renderList = (listHome, index, dataType) => {
-
-  const list = listHome[index];
-  //console.log(list);
-  const sliced = list.slice(0,26);
-  let max, start, end, labels;
+  const sliced = listHome[index].slice(0,26);
+  let labels;
 
   if(index !== 8){
     labels = sliced.slice(0,10).map(({Page}) => Page );
@@ -62,12 +58,11 @@ const renderList = (listHome, index, dataType) => {
 
 
 
-  [max, start, end ] = getMaxPercentage(listHome, index);
+  const [max, start, end ] = getMaxPercentage(listHome, index);
   // console.log("start: " + start);
 
   const renderListHeader = (index) =>{
-    let label;
-    index === 8 ? label = "Device" : label = "Page Rank";
+    const label = index === 8 ? "Device" : "Page Rank";
     return(
       <div className="page pageHeader">
         <span>{label}</span>
@@ -78,6 +73,8 @@ const renderList = (listHome, index, dataType) => {
   }
 
   const renderListItems = (sliced, index) =>{
+    // item only exists in the map function so can't extract it out in to and objects
+    //const label = index === 8 ? "item.Device" : "item.Page";
     if(index === 8){
       return(
         sliced.map((item, index) =>{
@@ -105,12 +102,16 @@ const renderList = (listHome, index, dataType) => {
     }
   }
 
+  const renderPageHeader = (index,sliced, start, end) => {
+    if(index !== 8)
+      return <h2 className="centerText">Greatest Cut Off Percentage: {max}% From {sliced[start].Page} To {sliced[end].Page} </h2>
+    else
+      return <h2 className="centerText">Greatest Cut Off Percentage: {max}% From {sliced[start].item} To {sliced[end].item} </h2>
+  }
+
   return(
     <div className="row">
-      {index !== 8 && <h2 style={{textAlign: "center"}}>Greatest Cut Off Percentage: {max}% From {sliced[start].Page} To {sliced[end].Page} </h2>}
-
-      {index === 8 && <h2 style={{textAlign: "center"}}>Greatest Cut Off Percentage: {max}% From {sliced[start].Device} To {sliced[end].Device} </h2>}
-
+      {renderPageHeader(index,sliced, start, end)}
       <div className="detailedEnclose col-md-6">
         {renderListHeader(index)}
         {renderListItems(sliced, index)}
@@ -118,26 +119,30 @@ const renderList = (listHome, index, dataType) => {
 
       <div className="col-md-6 pieList">
         <div style={{paddingTop: "200px", position: "relative !important"}}>
-          {/* <Doughnut data = {initialChartConfig} options={pieOptions} /> */}
-          <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical />
+          <Doughnut data = {initialChartConfig} options={pieOptions} />
+          {/* <ChartDisplay listHome={listHome} dataType={dataType} graphType='Pie' categorical /> */}
         </div>
       </div>
     </div>
-
   );
 }
 
 const DetailedListDisplay = ({listHome=[], dataType = []}) => {
-  // the 5th card is TOP ACTIVE PAGES
-  let data = dataType[0];
-  switch(data) {
+  let index;
+  switch(dataType[0]) {
     case 'Bounce Rate':
-      return renderList(listHome, 4, dataType);
+      index = 4;
+      break;
     case 'Top Pages':
-      return renderList(listHome, 5, dataType);
+      index = 5;
+      break;
     case "Visits by Device Type":
-      return renderList(listHome, 8, dataType);
+      index = 8;
+      break;
+    default:
+      index = 4;
   }
+  return renderList(listHome, index, dataType);
 }
 
 DetailedListDisplay.propTypes = {
@@ -145,3 +150,27 @@ DetailedListDisplay.propTypes = {
 };
 
 export default DetailedListDisplay;
+
+// Lets talk about line 19
+//
+// line 20/21 could be one variable
+//
+// line 23 define the i inside the for loop
+//
+// line 42 and line 65 can be one statement const [ max, start, end ];
+//
+// line 44 maybe have one variable that serves for sliced.slice
+// ie const list = listHome[index].slice(0,26);
+// const narrowerListMakeUpSomeVarName = list.slice(0,10);
+//
+// line 69-70 can be one line declaration
+//
+// line 80 this if/else can be a simple ternary inside jsx also destructure
+//
+// line 110/112 should be extracted into another function with ifs and returns
+// also, variables should be used as the jsx remains the same
+//
+// line 110-120 why inline styles?
+//
+// line 132 could be a const
+// 134-139 talk about a possible refactor, I don't know if I'd do it or not

@@ -6,6 +6,7 @@ import ListDisplay from '../Graphs/ListDisplay';
 import FreqFilter from '../utils/FreqFilter';
 import { Link } from 'react-router-dom';
 import Customize from '../ModalScreens/Customize';
+import classNames from 'classnames';
 
 const renderGraph = (dataType, id, dataList, graphType, frequency) => {
   let displayedLegend = false;
@@ -35,22 +36,44 @@ const renderGraph = (dataType, id, dataList, graphType, frequency) => {
   />
 }
 
-const renderComp = (dataList, dataType, frequency, filter) => {
-  return <ChartDisplay listHome={dataList} dataType={dataType} frequency={frequency} filter={filter}/>
-}
 
-const renderList = (dataList, id, dataType) => {
-  return (
-    <ListDisplay listHome={dataList} dataType={dataType}/>
-  );
-}
+// I tried this but it didnt work:
 
+// const renderComp = (dataList, ...rest) => (
+//   <ChartDisplay
+//     listHome={dataList}
+//     {...rest}
+//   />
+// )
+
+const renderComp = (dataList, dataType, frequency, filter) => (
+  <ChartDisplay
+    listHome={dataList}
+    dataType={dataType}
+    frequency={frequency}
+    filter={filter}/>
+)
+
+/*
+I tried this but it didnt work:
+
+const renderList = (...rest) => (
+  <ListDisplay {...rest}/>
+)
+*/
+const renderList = (dataList, dataType) => (
+  <ListDisplay listHome={dataList} dataType={dataType}/>
+)
+
+// classnames
 const getCustomClass = (rightBorder, bottomBorder) => {
-  if(rightBorder && bottomBorder) return "card col-md-3 border-right border-bottom";
-  if(rightBorder) return "card col-md-3 border-right";
-  if(bottomBorder) return "card col-md-3 border-bottom";
-
-  return "card col-md-3";
+  return classNames(
+    "card col-md-3",
+    {
+      "border-right": rightBorder,
+      "border-bottom": bottomBorder
+    }
+  )
 }
 
 const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType, dataTypeArr) => {
@@ -82,15 +105,22 @@ const getTitle = (dataType, modalOpen, handleSubmit, handleEditClick, id, graph,
   )
 }
 
-const renderCardContent = (graph, comp, list, dataType, id, dataList, graphType, frequency, filter) => (
+const renderItem = (graph, comp, list, dataType, id, dataList, graphType, frequency, filter) =>{
+  if(graph)
+    return renderGraph(dataType, id, dataList, graphType, frequency)
+  if(comp)
+    return renderComp(dataList, dataType, frequency, filter)
+  if(list)
+    return renderList(dataList, dataType)
+}
+
+const renderCardContent = (...rest) => (
   <div className='graph'>
-    {graph && renderGraph(dataType, id, dataList, graphType, frequency)}
-    {comp && renderComp(dataList, dataType, frequency, filter)}
-    {list && renderList(dataList, id, dataType)}
+    {renderItem(...rest)}
   </div>
 )
 
-const getFilter = (numGraph, graph, dataType) => {
+const shouldDisplayFilter = (numGraph, graph, dataType) => {
   return (numGraph || graph ||  dataType[0] === 'Contribution Change' || dataType[0] === 'Retirement Income Calc Usage') && dataType[0] !== 'Visits by Device Type';
 }
 
@@ -108,7 +138,7 @@ const CardDisplay = ({ graph, comp, list, graphType, dataType, frequency, filter
   return (
     <div className={getCustomClass(rightBorder, bottomBorder)} >
       {getTitle(dataType, modalOpen, handleSubmit, handleEditClick, id, graph, comp, list, graphType, dataTypeArr)}
-      {getFilter(comp, graph, dataType) && getFreqFilter(graph, handleFilter)}
+      {shouldDisplayFilter(comp, graph, dataType) && getFreqFilter(graph, handleFilter)}
       {renderCardContent(graph, comp, list, dataType, id, dataList, graphType, frequency, filter)}
       {store()}
     </div>
@@ -116,3 +146,20 @@ const CardDisplay = ({ graph, comp, list, graphType, dataType, frequency, filter
 }
 
 export default CardDisplay;
+
+// line 13 should just be an if statement
+
+// line 38 renderComp() could be renderComp = (dataList, ...rest) => then spread
+// rest into the component being rendered
+//
+// line 42 is being passed id but it's not being used
+//
+// line 48 customClass logic should be replaced with classnames package/function
+//
+// line 87-89 same as other components, unless all theree { && } statments can
+// be true, they should probably be extracted into another function that returns
+// one thing
+//
+// getFilter() should probably isFilterAvailable or some other boolean
+// indicating function name, right now it with that name it sounds like it
+// actually gets the filter

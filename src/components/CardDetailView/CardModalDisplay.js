@@ -57,7 +57,7 @@ export class CardModalDisplay extends Component {
     if(frequency === "monthly")
       return "MTD";
     if(frequency === "daily")
-      return "YTD";
+      return "YTD"; // placeholder for the live daily data object later, not available right now
   }
 
   renderComp = (list ,dataType, frequency) => {
@@ -67,19 +67,13 @@ export class CardModalDisplay extends Component {
   }
 
   getCustomClass = (listCard, rightBorder, bottomBorder) => {
-    // const notListCard = !listCard;
-    // return classNames({
-    //   "full-screen": listCard,
-    //   'cardDetail': notListCard,
-    //   'border-right': rightBorder,
-    //   "border-bottom":bottomBorder
-    // });
-
-    if(rightBorder && bottomBorder) return "cardDetail border-right border-bottom";
-    if(rightBorder) return "cardDetail border-right";
-    if(bottomBorder) return "cardDetail border-bottom";
-    if(listCard) return "full-screen";
-    return "cardDetail ";
+    const notListCard = !listCard;
+    return classNames({
+      "full-screen": listCard,
+      'cardDetail': notListCard,
+      'border-right': rightBorder,
+      "border-bottom":bottomBorder
+    });
   }
 
   render() {
@@ -108,22 +102,7 @@ export class CardModalDisplay extends Component {
   }
 }
 
-// line 15-20, can both of these be true? if not extract into function that only
-// returns one
-// line 26 displayedLegend could be a const
-// lines 48-52 should be a getLocalFilter function that uses if statments to
-// return. Also, daily and annually can be in the same if statement
+// lines 52 daily and annually can be in the same if statement
 //
-// npm i -S classnames and use that function instead of if statments inside
+// npm i -S classnames and use that function instead of if statements inside
 // getCustomClass
-//
-// There are also some weird spacing/commas issues in the arguments and params
-// for renderCardContent
-// If cuntion or destructuring gets too long, break onto new lines:
-//
-// const {
-//   title,
-//   graph,
-//   etc.
-// } = this.props;
-//

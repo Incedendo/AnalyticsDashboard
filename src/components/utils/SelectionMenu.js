@@ -77,10 +77,11 @@ class SelectionMenu extends Component {
   */
 
   handleSubmit = () => {
-    if(!this.state.activeGraph || !this.state.activeData.length){
+    const { activeGraph, activeData } = this.state;
+    if(!activeGraph || !activeData.length){
       return;
     }
-    this.props.handleSubmit(this.state.activeData, this.state.activeGraph);
+    this.props.handleSubmit(activeData, activeGraph);
     this.props.handleModal();
   }
 
@@ -91,29 +92,27 @@ class SelectionMenu extends Component {
   */
 
   validateGraphs = () => {
-    let graphs = [];
-    let data = this.state.activeData.slice();
+
+    const { activeData, activeGraph } = this.state;
+
+    let graphs = graphList.slice();
+    let data = activeData.slice();
     //Array of clicked data types with their respective information from dataList
-    const currentData = dataList.filter(({id, graphs}) => {
+    const currentData = dataList.filter(({id}) => {
       return data.includes(id)
     })
     //Array of compatible graph type arrays
-    let currentGraphs = [];
-    currentData.map(({graphs}) => {
-      currentGraphs.push(graphs)
-    })
+    const currentGraphs = currentData.map(({graphs}) => {
+        return graphs
+      })
 
-    if(data.length === 0) {
-      graphs = graphList.slice();
-    }
-
-    else if(data.length === 1) {
+    if(data.length === 1) {
       graphs = graphList.filter(({id}) => {
         return currentGraphs[0].includes(id)
       })
     }
 
-    else {
+    else if (data.length > 1){
       //Compares the list of graph types for each data type and returns array of all common graph types
       let correctGraphs = currentGraphs.shift().filter((v) => {
         return currentGraphs.every((a) => {
@@ -126,20 +125,19 @@ class SelectionMenu extends Component {
       })
     }
 
-    this.setState({
-      displayGraphs: graphs
-    })
-
     const included = graphs.filter(({id}) => {
-      return id === this.state.activeGraph;
+      return id === activeGraph;
     })
+    const newState = {
+      displayGraphs: graphs,
+      activeGraph
+    }
 
     //If active graph type is no longer displayed, there will be no active graphs
-    if(!included.length || !this.state.activeData) {
-      this.setState({
-        activeGraph: ''
-      })
+    if(!included.length || !activeData) {
+      newState.activeGraph = '';
     }
+    this.setState(newState);
   }
 
   /*
@@ -147,24 +145,25 @@ class SelectionMenu extends Component {
   */
 
   graphForm = () => {
+    const { displayGraphs, activeData, activeGraph } = this.state;
+
     //If no compatible graphs between mutiple datasets
-    if(!this.state.displayGraphs.length){
+    if(!displayGraphs.length){
       return (<div className='noGraph'>
-        You cannot combine these {this.state.activeData.length}.
+        You cannot combine these {activeData.length}.
       </div>)
-    }else return this.state.displayGraphs.map(({id, src}, key) => {
-          return (
-        		<div className="tile-toggle-item" style={{height:'20vh',width:'20vh'}} onClick={()=>this.handleCheckedGraph(id)} key={key}>
-        			<input type="radio" id={id} name="selector" checked={this.state.activeGraph.includes(id)}/>
-            <label for={id} className="tile-toggle-item-label" style={{height:'20vh'}}>
-                <div className='selectionCard'>
-                  <img src={src} />
-          				<span className="name">{id}</span>
-                </div>
-        			</label>
-        		</div>
-          )
-      })
+    }
+    return displayGraphs.map(({id, src}, key) => (
+  		<div className="tile-toggle-item" style={{height:'20vh',width:'20vh'}} onClick={()=>this.handleCheckedGraph(id)} key={key}>
+  			<input type="radio" id={id} name="selector" checked={activeGraph.includes(id)}/>
+      <label for={id} className="tile-toggle-item-label" style={{height:'20vh'}}>
+          <div className='selectionCard'>
+            <img src={src} />
+    				<span className="name">{id}</span>
+          </div>
+  			</label>
+  		</div>
+    ))
   }
 
   /*

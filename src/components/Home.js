@@ -9,7 +9,7 @@ import '../assets/scss/_home.scss';
 import '../assets/scss/include.css';
 import ModalMenu from './Header/ModalMenu';
 
-let dataType = [];
+const dataType = ["Registrations", "Enrollments", "Unique User Login"];
 
 class Home extends Component {
   state = {
@@ -24,9 +24,7 @@ class Home extends Component {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
-  handleFrequency = (id) => {
-    this.setState({ frequency: id })
-  }
+  handleFrequency = (id) => (this.setState({ frequency: id }))
 
   handleFilter = (id) => {
     const newState = {filter: id, frequency: ''}
@@ -44,7 +42,7 @@ class Home extends Component {
     this.setState(newState);
   }
 
-  renderSubMainDiv = (dataType, arr) => (
+  renderSubMainDiv = (arr) => (
     <div className="subMainDiv">
       <div className="pageVisit inLine">
         Page Visits
@@ -53,8 +51,6 @@ class Home extends Component {
       <div className='filterHeader inLine'>
         <FreqFilter handleFilter={this.handleFilter}/>
       </div>
-
-
         <ChartDisplay
           listHome={arr}
           graphType='Line'
@@ -73,7 +69,7 @@ class Home extends Component {
     </div>
   )
 
-  renderMainDiv = (dataType, arr) => {
+  renderMainDiv = (arr) => {
 
     const { modalIsOpen } = this.state;
     return (<div>
@@ -85,7 +81,7 @@ class Home extends Component {
         <div className="mainDiv">
           <div className='strip' />
           <Header />
-          {this.renderSubMainDiv(dataType, arr)}
+          {this.renderSubMainDiv(arr)}
           <div className='hrDiv'>
             <hr className="divider"/>
           </div>
@@ -96,8 +92,8 @@ class Home extends Component {
 
   render() {
     const arr = Object.keys(jsonData).map((key) => jsonData[key]) ;
-    dataType = ["Registrations", "Enrollments", "Unique User Login"];
-    return this.renderMainDiv(dataType, arr);
+
+    return this.renderMainDiv(arr);
   }
 }
 
@@ -106,46 +102,3 @@ Home.propTypes = {
 };
 
 export default Home;
-
-// componentDidMount() {
-//  const dataAPI = 'http://localhost:3000';
-//  axios.get(dataAPI + '/test')
-//    .then((response) => {
-//      this.setState({
-//       //projects: response.data,
-//       projects: jsonData,
-//       mounted: true,
-//       filter: 'QTD',
-//       frequency: 'quarterly'
-//      });
-//    })
-//    .catch( (error) => {
-//       (error);
-//    }
-//  );
-//
-// }
-//
-// It appears that this.state.mounted only exists to protect projects. If that's
-// true, just check if projects has a length instead of using mounted.
-//
-// On line 71, better to new line all of the jsx properties of <ChartDisplay />
-//
-// Line 31, toggleModal() could be written as toggleModal = () =>
-// this.setState({ modalIsOpen: !this.state.modalIsOpen });
-//
-// line 39 handleFrequency() could be written as a one liner
-//
-// line 46 newState could be declared with const not a let
-//
-// line 59/60 should have new line/space between the methods
-//
-// line 84 if this.state.variableName is used more than once, it's probably
-// better to either destructure variableName from state or assign it to a
-// variable for reuse
-//
-// line 102 could be written as const arr = projects.length > 0 ?
-// Object.keys(projects).map(key => projects[key]) : [];
-//
-// line 107 dataType should be declared at top of file outside of compoonent so
-// that it isn't instantiated on every rerender.
